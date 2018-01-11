@@ -1,6 +1,6 @@
 
-convert -quality 100 -resize "131x131" -density 300 ssimp-application.jpg ssimp-application.jpg
+convert -quality 100 -resize "400x1300" -density 300 ssimp-application-orig.jpg ssimp-application.jpg
 
-convert -quality 100 -resize "131x131" -density 300 ssimp-method.jpg ssimp-method.jpg
+convert -quality 100 -resize "400x1300" -density 300 ssimp-method-orig.jpg ssimp-method.jpg
 
-convert -quality 100 -resize "131x131" -density 300 ssimp.jpg ssimp.jpg
+convert -quality 100 -resize "400x1300" -density 300 ssimp-orig.jpg ssimp.jpg
