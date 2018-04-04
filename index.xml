@@ -18,11 +18,12 @@
       <guid>/post/a-first-post-using-blogdown/</guid>
       <description>&lt;p&gt;I work - broadly speaking - in epidemiology. In collaborations I often have to send data around or wait for (sensitive) data to arrive on my computer.&lt;/p&gt;
 
-&lt;p&gt;To simplify life for both parties - the sender of the document and the recipient - I have written some instructions:&lt;/p&gt;
+&lt;p&gt;To simplify life for both parties I have written some instructions:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f&#34; target=&#34;_blank&#34;&gt;Sender&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://gist.github.com/sinarueeger/600e7d876ed8d74583fd4197ab290255&#34; target=&#34;_blank&#34;&gt;Recipient&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Here are the instructions for the &lt;a href=&#34;https://gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f&#34; target=&#34;_blank&#34;&gt;sender of the document&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Here are the instructions that the &lt;a href=&#34;https://gist.github.com/sinarueeger/600e7d876ed8d74583fd4197ab290255&#34; target=&#34;_blank&#34;&gt;recipient&lt;/a&gt; needs to follow.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
