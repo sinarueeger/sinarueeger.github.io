@@ -18,11 +18,15 @@
       <guid>/post/a-first-post-using-blogdown/</guid>
       <description>
 
-&lt;h1 id=&#34;title&#34;&gt;Title&lt;/h1&gt;
+&lt;h1 id=&#34;getting-started-with-encryption-of-documents&#34;&gt;Getting started with encryption of documents&lt;/h1&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f&#34; target=&#34;_blank&#34;&gt;https://gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;During collaborations with others I often have to send data around or wait for (sensitive) data.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://gist.github.com/sinarueeger/600e7d876ed8d74583fd4197ab290255&#34; target=&#34;_blank&#34;&gt;https://gist.github.com/sinarueeger/600e7d876ed8d74583fd4197ab290255&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To simplify life for both parties - the sender of the document and the recipient - I have written some instructions:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f&#34; target=&#34;_blank&#34;&gt;Sender&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gist.github.com/sinarueeger/600e7d876ed8d74583fd4197ab290255&#34; target=&#34;_blank&#34;&gt;Recipient&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
