@@ -16,11 +16,7 @@
       <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/a-first-post-using-blogdown/</guid>
-      <description>
-
-&lt;h1 id=&#34;getting-started-with-encryption-of-documents&#34;&gt;Getting started with encryption of documents&lt;/h1&gt;
-
-&lt;p&gt;During collaborations with others I often have to send data around or wait for (sensitive) data.&lt;/p&gt;
+      <description>&lt;p&gt;I work - broadly speaking - in epidemiology. In collaborations I often have to send data around or wait for (sensitive) data to arrive on my computer.&lt;/p&gt;
 
 &lt;p&gt;To simplify life for both parties - the sender of the document and the recipient - I have written some instructions:&lt;/p&gt;
 
