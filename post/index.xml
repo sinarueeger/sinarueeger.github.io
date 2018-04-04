@@ -10,5 +10,21 @@
     <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0100</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title>Getting started with encryption of documents</title>
+      <link>/post/a-first-post-using-blogdown/</link>
+      <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/a-first-post-using-blogdown/</guid>
+      <description>
+
+&lt;h1 id=&#34;title&#34;&gt;Title&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f&#34; target=&#34;_blank&#34;&gt;https://gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gist.github.com/sinarueeger/600e7d876ed8d74583fd4197ab290255&#34; target=&#34;_blank&#34;&gt;https://gist.github.com/sinarueeger/600e7d876ed8d74583fd4197ab290255&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
