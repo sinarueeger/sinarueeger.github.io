@@ -16,14 +16,18 @@
       <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/a-first-post-using-blogdown/</guid>
-      <description>&lt;p&gt;I work - broadly speaking - in epidemiology. In collaborations I often have to send (sensitive) data or wait for it to arrive on my computer.&lt;/p&gt;
+      <description>&lt;p&gt;I work - broadly speaking - in epidemiology. Within collaborations we often have to share (sensitive) data accross institutions (therefore not sharing IT facilities). But bare e-mail or file hosting are not secure options.&lt;/p&gt;
 
-&lt;p&gt;To simplify life for both parties I have written some instructions:&lt;/p&gt;
+&lt;p&gt;There are a handful of other options around (&lt;a href=&#34;https://protonmail.com/&#34; target=&#34;_blank&#34;&gt;ProtonMail&lt;/a&gt; or &lt;a href=&#34;https://keybase.io/&#34; target=&#34;_blank&#34;&gt;keybase.io&lt;/a&gt;), but for those that only trust open source projects I have written some basic instructions for asymmetric GPG encryption.&lt;/p&gt;
+
+&lt;p&gt;I should say that I am not an encryption expert at all, but I never came across a compact instruction for the sender of the document and the recipient for all three operating systems (Linux, Mac, Windows). The instructions are written for people that are familiar with a terminal. In a way I mainly wrote this for myself and potential collaborators.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Here are the instructions for the &lt;a href=&#34;https://gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f&#34; target=&#34;_blank&#34;&gt;sender of the document&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Here are the instructions that the &lt;a href=&#34;https://gist.github.com/sinarueeger/600e7d876ed8d74583fd4197ab290255&#34; target=&#34;_blank&#34;&gt;recipient&lt;/a&gt; needs to follow.&lt;/li&gt;
+&lt;li&gt;Here are the instructions for the &lt;a href=&#34;https://gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f#file-encryption_files-md&#34; target=&#34;_blank&#34;&gt;sender of the document&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Here are the instructions that the &lt;a href=&#34;https://gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f#file-encryption_files_recipient-md&#34; target=&#34;_blank&#34;&gt;recipient&lt;/a&gt; needs to follow.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;Feedback is highly appreciated!&lt;/p&gt;
 </description>
     </item>
     
