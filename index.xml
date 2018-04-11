@@ -20,16 +20,9 @@
 
 &lt;p&gt;There are a handful of secure options around (&lt;a href=&#34;https://protonmail.com/&#34; target=&#34;_blank&#34;&gt;ProtonMail&lt;/a&gt; or &lt;a href=&#34;https://keybase.io/&#34; target=&#34;_blank&#34;&gt;keybase.io&lt;/a&gt;) (working via &lt;a href=&#34;https://www.quora.com/Why-is-encryption-important&#34; target=&#34;_blank&#34;&gt;encryption&lt;/a&gt;), but for those that &lt;strong&gt;trust open source projects&lt;/strong&gt; the most and are familiar with a &lt;strong&gt;terminal&lt;/strong&gt; I have written some basic instructions for asymmetric GPG encryption.&lt;/p&gt;
 
-&lt;p&gt;I should say that I am not an encryption expert at all. But, although there is a lot of talk about data protection, I never came across a compact, easy-to-follow instruction for the sender of the document and the recipient, valid for all three operating systems (Linux, Mac, Windows). Therefore, I tried to write one, mainly for myself (to memorise the steps) and collaborators.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;I should say that I am not an encryption expert at all. But, although there is a lot of talk about data protection, I never came across a compact, easy-to-follow instruction for the sender of the document and the recipient, valid for all three operating systems (Linux, Mac, Windows). Therefore, I tried to write one, mainly for myself (to memorise the steps) and collaborators. Feedback is appreciated!&lt;/em&gt;&lt;/p&gt;
 
-&lt;script src=&#34;//gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f.js?file=file-encryption_files.md&#34;&gt;&lt;/script&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Here are the instructions for the &lt;a href=&#34;https://gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f#file-encryption_files-md&#34; target=&#34;_blank&#34;&gt;sender of the document&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Here are the instructions that the &lt;a href=&#34;https://gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f#file-encryption_files_recipient-md&#34; target=&#34;_blank&#34;&gt;recipient&lt;/a&gt; needs to follow.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Feedback is appreciated!&lt;/p&gt;
+&lt;script src=&#34;//gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f.js&#34;&gt;&lt;/script&gt;
 </description>
     </item>
     
