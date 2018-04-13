@@ -7,27 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>My Name</copyright>
-    <lastBuildDate>Fri, 03 Apr 2015 02:13:50 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Apr 2018 02:13:50 +0000</lastBuildDate>
     
 	<atom:link href="/page/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>About</title>
-      <link>/page/about/</link>
-      <pubDate>Fri, 03 Apr 2015 02:13:50 +0000</pubDate>
+      <title>Contact</title>
+      <link>/page/contact/</link>
+      <pubDate>Fri, 13 Apr 2018 02:13:50 +0000</pubDate>
       
-      <guid>/page/about/</guid>
-      <description>About Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec dolor in magna lobortis egestas. Suspendisse eu erat tempor, tristique neque eu, convallis nulla. Curabitur vel bibendum lacus, at semper mauris. Suspendisse aliquet commodo ex, sed sagittis metus aliquam id. Maecenas feugiat rutrum lorem vel imperdiet. Nullam ornare lectus ut enim finibus, et porttitor mi tincidunt. Aenean lacinia, leo quis vehicula eleifend, quam libero sagittis erat, at euismod augue mauris et sapien.</description>
+      <guid>/page/contact/</guid>
+      <description>Contact Per e-mail: sina.rueeger@gmail.com
+Or via @sinarueeger on Keybase.</description>
     </item>
     
     <item>
-      <title>Contact</title>
-      <link>/page/contact/</link>
-      <pubDate>Fri, 03 Apr 2015 02:13:50 +0000</pubDate>
+      <title>About</title>
+      <link>/page/about/</link>
+      <pubDate>Thu, 13 Apr 2017 02:13:50 +0000</pubDate>
       
-      <guid>/page/contact/</guid>
-      <description>Contact Aenean ipsum justo, semper eu nisl ut, pretium tincidunt sem. Praesent et diam sit amet lacus lobortis dictum a id lacus. Quisque hendrerit sit amet turpis eu varius. Ut id lorem ac felis ultrices tincidunt. Pellentesque consequat arcu ac fringilla imperdiet. Phasellus pellentesque, sapien non pulvinar blandit, sapien ante aliquet felis, vel porttitor sapien ante in lacus. Fusce non urna aliquet, malesuada nibh vel, luctus urna. Phasellus ut lacus molestie, varius purus quis, malesuada lorem.</description>
+      <guid>/page/about/</guid>
+      <description>My journey I studied Data Analysis &amp; Process Design at the School of Engineering in Winterthur, where I fell in love with applied statistics. I deepened my knowledge in statistical modelling with a Master&#39;s degree and by working as a research assistant. During my time as a biostatistician I enjoyed the interdisciplinary aspect and grew an interest in analysing genetic data - which ultimately lead me to my current position to Lausanne.</description>
     </item>
     
   </channel>
