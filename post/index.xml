@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Academic website of Sina Rüeger</title>
+    <title>Posts on Data science in genetics &amp; related things</title>
     <link>/post/</link>
-    <description>Recent content in Posts on Academic website of Sina Rüeger</description>
+    <description>Recent content in Posts on Data science in genetics &amp; related things</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-gb</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0100</lastBuildDate>
-    <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <copyright>Sina Rueeger</copyright>
+    <lastBuildDate>Fri, 13 Apr 2018 20:40:59 +0200</lastBuildDate>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Getting started with encryption of documents</title>
-      <link>/post/a-first-post-using-blogdown/</link>
-      <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
+      <link>/2018/04/13/2018-04-04-encryption-of-files/</link>
+      <pubDate>Fri, 13 Apr 2018 20:40:59 +0200</pubDate>
       
-      <guid>/post/a-first-post-using-blogdown/</guid>
-      <description>&lt;p&gt;I work (broadly speaking) in epidemiology. Within collaborations we often have to share &lt;strong&gt;sensitive data&lt;/strong&gt; across institutions and are therefore likely to not share IT facilities. But the most often used options - bare e-mail or file hosting - are not secure, as they both work via a server.&lt;/p&gt;
-
-&lt;p&gt;There are a handful of secure options around (&lt;a href=&#34;https://protonmail.com/&#34; target=&#34;_blank&#34;&gt;ProtonMail&lt;/a&gt; or &lt;a href=&#34;https://keybase.io/&#34; target=&#34;_blank&#34;&gt;keybase.io&lt;/a&gt;) (working via &lt;a href=&#34;https://www.quora.com/Why-is-encryption-important&#34; target=&#34;_blank&#34;&gt;encryption&lt;/a&gt;), but for those that &lt;strong&gt;trust open source projects&lt;/strong&gt; the most and are familiar with a &lt;strong&gt;terminal&lt;/strong&gt; I have written some basic instructions for asymmetric GPG encryption.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;I should say that I am not an encryption expert at all. But, although there is a lot of talk about data protection, I never came across a compact, easy-to-follow instruction for the sender of the document and the recipient, valid for all three operating systems (Linux, Mac, Windows). Therefore, I tried to write one, mainly for myself (to memorise the steps) and collaborators. Feedback is appreciated!&lt;/em&gt;&lt;/p&gt;
-
-&lt;script src=&#34;//gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f.js&#34;&gt;&lt;/script&gt;
-</description>
+      <guid>/2018/04/13/2018-04-04-encryption-of-files/</guid>
+      <description>I work (broadly speaking) in epidemiology. Within collaborations we often have to share sensitive data across institutions and are therefore likely to not share IT facilities. But the most often used options - bare e-mail or file hosting - are not secure, as they both work via a server.
+There are a handful of secure options around (ProtonMail or keybase.io) (working via encryption), but for those that trust open source projects the most and are familiar with a terminal I have written some basic instructions for asymmetric GPG encryption.</description>
     </item>
     
   </channel>
