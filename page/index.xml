@@ -7,28 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Sina Rueeger</copyright>
-    <lastBuildDate>Fri, 03 Apr 2015 02:13:50 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Apr 2018 02:13:50 +0000</lastBuildDate>
     
 	<atom:link href="/page/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>About</title>
-      <link>/page/about/</link>
-      <pubDate>Fri, 03 Apr 2015 02:13:50 +0000</pubDate>
-      
-      <guid>/page/about/</guid>
-      <description>My journey I studied Data Analysis &amp; Process Design at the School of Engineering in Winterthur, where I fell in love with applied statistics. I deepened my knowledge in statistical modelling with a Master&#39;s degree and by working as a research assistant. During my time as a biostatistician I enjoyed the interdisciplinary aspect and grew an interest in analysing genetic data - which ultimately lead me to my current position to Lausanne.</description>
-    </item>
-    
-    <item>
       <title>Contact</title>
       <link>/page/contact/</link>
-      <pubDate>Fri, 03 Apr 2015 02:13:50 +0000</pubDate>
+      <pubDate>Fri, 13 Apr 2018 02:13:50 +0000</pubDate>
       
       <guid>/page/contact/</guid>
       <description>Contact Per e-mail: sina.rueeger@gmail.com
 Or via @sinarueeger on Keybase.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/page/about/</link>
+      <pubDate>Thu, 13 Apr 2017 02:13:50 +0000</pubDate>
+      
+      <guid>/page/about/</guid>
+      <description>My journey I studied Data Analysis &amp; Process Design at the School of Engineering in Winterthur, where I fell in love with applied statistics. I deepened my knowledge in statistical modelling with a Master&#39;s degree and by working as a research assistant. During my time as a biostatistician I enjoyed the interdisciplinary aspect and grew an interest in analysing genetic data - which ultimately lead me to my current position to Lausanne.</description>
     </item>
     
   </channel>
