@@ -3,9 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Getting started with encryption of documents &middot; Sina Rüeger</title>
-        <meta name="description" content="I work (broadly speaking) in epidemiology. Within collaborations we often have to share sensitive data across institutions and are therefore likely to not share IT facilities. But the most often used options - bare e-mail or file hosting - are not secure, as they both work via a server that could potentially be exposed.
-There are a handful of secure options around (ProtonMail or keybase.io, both working via encryption), but for those that trust open source projects the most and are familiar with a terminal I have written some basic instructions for asymmetric GPG encryption.">
+        <title>Setting up the Blogdown Website &middot; Sina Rüeger</title>
+        <meta name="description" content="To set up this website I have used some excellent material around blogdown, github and hugo.
+Motivation Before going into the technical details, let me say something about motivation and inspiration. For me, it definitely helped to read the blogpost by David Robinson and seeing many others leading by example (like Marie Christine Dussault on mcdussault.rbind.io).
+I might get into a more personal motivation in a future blogpost.
+Instructions to get a first version running  blogdown package &amp; instructions by Yihui Xie, Amber Thomas and Alison Presmanes Hill.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="generator" content="Hugo 0.38.2" />
@@ -94,14 +96,14 @@ ga('send', 'pageview');
 <div class="container">
     <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
         <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Getting started with encryption of documents</h1>
+    <h1 class="post-title" itemprop="name headline">Setting up the Blogdown Website</h1>
     
     <p class="post-date">
-        <span>Published <time datetime="2018-04-13" itemprop="datePublished">Fri, Apr 13, 2018</time></span>
+        <span>Published <time datetime="2018-04-14" itemprop="datePublished">Sat, Apr 14, 2018</time></span>
         <span>by</span>
         <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
             <span itemprop="name">
-                <a href="https://google.com/&#43;XXX" itemprop="url" rel="author">Sina Rueeger</a>
+                <a href="https://google.com/&#43;XXX" itemprop="url" rel="author">Sina Rüeger</a>
             </span>
         </span>
     </p>
@@ -110,13 +112,71 @@ ga('send', 'pageview');
         <div class="post-content clearfix" itemprop="articleBody">
     
 
-    <p>I work (broadly speaking) in epidemiology. Within collaborations we often have to share <strong>sensitive data</strong> across institutions and are therefore likely to not share IT facilities. But the most often used options - bare e-mail or file hosting - are not secure, as they both work via a server that could potentially be exposed.</p>
+    
 
-<p>There are a handful of secure options around (<a href="https://protonmail.com/">ProtonMail</a> or <a href="https://keybase.io/">keybase.io</a>, both working via <a href="https://www.quora.com/Why-is-encryption-important">encryption</a>), but for those that <strong>trust open source projects</strong> the most and are familiar with a <strong>terminal</strong> I have written some basic instructions for asymmetric GPG encryption.</p>
+<p>To set up this website I have used some excellent material around <a href="https://bookdown.org/yihui/blogdown/get-started.html"><strong>blogdown</strong></a>, <a href="https://pages.github.com/"><strong>github</strong></a> and <a href="https://themes.gohugo.io/"><strong>hugo</strong></a>.</p>
 
-<p><em>I should say that I am not an encryption expert at all. But, although there is a lot of talk about data protection, I never came across a compact, easy-to-follow instruction for the sender of the document and the recipient, valid for all three operating systems (Linux, Mac, Windows). Therefore, I tried to write one, mainly for myself and collaborators. Feedback is appreciated!</em></p>
+<h2 id="motivation">Motivation</h2>
 
-<script src="//gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f.js?file=encryption_files.md"></script>
+<p>Before going into the technical details, let me say something about motivation and inspiration. For me, it definitely helped to read the blogpost by <a href="http://varianceexplained.org/r/start-blog/">David Robinson</a> and seeing many others leading by example (like Marie Christine Dussault on <a href="http://mcdussault.rbind.io/post/building-your-blog-using-blogdown/">mcdussault.rbind.io</a>).</p>
+
+<p>I might get into a more personal motivation in a future blogpost.</p>
+
+<h2 id="instructions-to-get-a-first-version-running">Instructions to get a first version running</h2>
+
+<ul>
+<li><p><strong>blogdown</strong> <em>package</em> &amp; <em>instructions</em> by <a href="https://bookdown.org/yihui/blogdown/get-started.html">Yihui Xie, Amber Thomas and Alison Presmanes Hill</a>.</p></li>
+
+<li><p><a href="http://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html">Emily Zabor</a> gives a general <strong>overview</strong> of how to make websites, not limited to blogging. But from her tutorial I learned about the <code>serve site</code> feature.</p></li>
+
+<li><p>Instructions by <a href="http://mcdussault.rbind.io/post/building-your-blog-using-blogdown/">Marie Christine Dussault</a> include the nitty-gritty details of <strong>changing the domain name</strong> when deploying to <a href="https://www.netlify.com/">Netlify</a>.</p></li>
+</ul>
+
+<h2 id="changing-the-layout">Changing the layout</h2>
+
+<h3 id="1-choose-a-theme">1. Choose a theme</h3>
+
+<p>Ideally, you should choose a theme <strong>before</strong> you create your website with blogdown.</p>
+
+<p>I did not, but my page had not much content yet. I had the <em>academic</em> theme first, then changed to <em>ghostwriter</em>, because I like simplicity and wanted the blog posts to have their own page.</p>
+
+<p>Hugo has a <a href="https://themes.gohugo.io/">gallery</a> with different themes. Choose one (be aware that not all themes were <a href="https://bookdown.org/yihui/blogdown/other-themes.html">tested against</a> blogdown!).</p>
+
+<p>While the <em>academic</em> theme offers different color palettes in the <code>.toml</code> file, the <strong>ghostwriter</strong> does not have this feature.</p>
+
+<h3 id="2-personalising-the-css-file">2. Personalising the <code>.css</code> file</h3>
+
+<p>Luckily, you can access the <code>.css</code> file and change everything you want (depending on how experienced you are with css files).</p>
+
+<p>The <code>.css</code> file is located in <code>/themes/ghostwriter/static/dist/style.css</code>.</p>
+
+<p>I wanted to personalise two things:</p>
+
+<ul>
+<li>color</li>
+<li>font</li>
+</ul>
+
+<h4 id="color">Color</h4>
+
+<p>The default color theme is red. But I wanted something dark blue. So I went through all the colors (look for <code>#</code>) and changed all red to <code>#003366</code> and all light red to <code>#deebf7</code>.</p>
+
+<h4 id="font">Font</h4>
+
+<p>The default font is <a href="https://fonts.google.com/specimen/Open+Sans"><font face="Open Sans">Open Sans</font></a>. I went for <a href="https://fonts.google.com/specimen/Dosis">Dosis</a>, simply, because I prefer it (currently).</p>
+
+<h3 id="3-caution">3. Caution!</h3>
+
+<p>When choosing a theme and changing the <code>css</code> file keep the last paragraph from this <a href="https://bookdown.org/yihui/blogdown/other-themes.html">section</a> from the blogdown instructions in mind!</p>
+
+<h2 id="incorporating-gist-files">Incorporating <em>gist</em> files</h2>
+
+<p>My first post was written on <a href="https://gist.github.com/">gist.github</a> first. To embed <em>gist</em> posts, I used the workaround documented <a href="https://gohugo.io/content-management/shortcodes/#gist">here</a>.</p>
+
+<p>The following code snippet will only display the file <code>encryption_files.md</code> from the <em>gist</em> <code>https://gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f</code>.</p>
+
+<pre><code class="language-md" data-lang="md">{{&lt; gist sinarueeger aadfe4916cf285e32d5a55f320a82a6f &#34;encryption_files.md&#34; &gt;}}
+</code></pre>
 
 </div>
 
@@ -126,7 +186,11 @@ ga('send', 'pageview');
             <span>Tagged:</span>
             
             
-                <a href="/tags/encryption/">encryption</a>
+                <a href="/tags/blogdown/">blogdown</a>, 
+            
+                <a href="/tags/github/">github</a>, 
+            
+                <a href="/tags/hugo/">hugo</a>
             
         </p>
     
