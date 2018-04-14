@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Sina Rueeger</copyright>
-    <lastBuildDate>Fri, 13 Apr 2018 20:40:59 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 14 Apr 2018 10:00:03 +0200</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Setting up the Blogdown Website</title>
+      <link>/2018/04/14/2018-04-14-setting-up-blogdown-website/</link>
+      <pubDate>Sat, 14 Apr 2018 10:00:03 +0200</pubDate>
+      
+      <guid>/2018/04/14/2018-04-14-setting-up-blogdown-website/</guid>
+      <description>To set up this website I have used some excellent material around blogdown, github and hugo.
+Motivation Before going into the technical details, let me say something about motivation and inspiration. For me, it definitely helped to read the blogpost by David Robinson and seeing many others leading by example (like Marie Christine Dussault on mcdussault.rbind.io).
+I might get into a more personal motivation in a future blogpost.
+Instructions to get a first version running  blogdown package &amp;amp; instructions by Yihui Xie, Amber Thomas and Alison Presmanes Hill.</description>
+    </item>
     
     <item>
       <title>Getting started with encryption of documents</title>

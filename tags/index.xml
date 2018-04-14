@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Sina Rueeger</copyright>
-    <lastBuildDate>Fri, 13 Apr 2018 20:40:59 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 14 Apr 2018 10:00:03 +0200</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Blogdown</title>
+      <link>/tags/blogdown/</link>
+      <pubDate>Sat, 14 Apr 2018 10:00:03 +0200</pubDate>
+      
+      <guid>/tags/blogdown/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Encryption</title>
@@ -18,6 +27,24 @@
       <pubDate>Fri, 13 Apr 2018 20:40:59 +0200</pubDate>
       
       <guid>/tags/encryption/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github</title>
+      <link>/tags/github/</link>
+      <pubDate>Sat, 14 Apr 2018 10:00:03 +0200</pubDate>
+      
+      <guid>/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>/tags/hugo/</link>
+      <pubDate>Sat, 14 Apr 2018 10:00:03 +0200</pubDate>
+      
+      <guid>/tags/hugo/</guid>
       <description></description>
     </item>
     
