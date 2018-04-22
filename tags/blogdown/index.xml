@@ -19,9 +19,8 @@
       
       <guid>/2018/04/14/2018-04-14-setting-up-blogdown-website/</guid>
       <description>To set up this website I have used some excellent material around blogdown, github and hugo.
-Motivation Before going into the technical details, let me say something about motivation and inspiration. For me, it definitely helped to read the blogpost by David Robinson and seeing many others leading by example (like Marie Christine Dussault on mcdussault.rbind.io).
-I might get into a more personal motivation in a future blogpost.
-Instructions to get a first version running  blogdown package &amp;amp; instructions by Yihui Xie, Amber Thomas and Alison Presmanes Hill.</description>
+Motivation Before going into the technical details, let me say something about motivation and inspiration. For me, it definitely helped to read the blogpost by David Robinson, being encouraged by Ma�lle Salmon and seeing many others leading by example (among many: Marie Christine Dussault on mcdussault.rbind.io or [Kasia]()).
+I might get into a more personal motivation in a future blogpost.</description>
     </item>
     
   </channel>

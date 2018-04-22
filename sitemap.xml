@@ -23,6 +23,12 @@
   </url>
   
   <url>
+    <loc>/tags/best-practices/</loc>
+    <lastmod>2018-04-13T20:40:59+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/blogdown/</loc>
     <lastmod>2018-04-14T10:00:03+02:00</lastmod>
     <priority>0</priority>
@@ -66,6 +72,12 @@
   
   <url>
     <loc>/tags/</loc>
+    <lastmod>2018-04-13T20:40:59+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/workflow/</loc>
     <lastmod>2018-04-14T10:00:03+02:00</lastmod>
     <priority>0</priority>
   </url>
