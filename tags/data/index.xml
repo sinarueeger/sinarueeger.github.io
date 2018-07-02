@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data on Data science in genetics &amp; related things</title>
+    <title>Data on Data science in genomics &amp; related things</title>
     <link>/tags/data/</link>
-    <description>Recent content in Data on Data science in genetics &amp; related things</description>
+    <description>Recent content in Data on Data science in genomics &amp; related things</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Sina R&amp;uuml;eger</copyright>
@@ -13,28 +13,23 @@
     
     
     <item>
+      <title>A primer to Data Science in Genomics</title>
+      <link>/2018/05/07/2018-05-07-why-ds-for-genomics/</link>
+      <pubDate>Mon, 07 May 2018 19:28:31 +0200</pubDate>
+      
+      <guid>/2018/05/07/2018-05-07-why-ds-for-genomics/</guid>
+      <description>I decided to write up a few things that I learned about analysing genomic1 data.
+There are plenty of reasons to finally tackle this. A selfish one: becoming better at expressing myself and tidying the mess in my head. Another one: enabling others to analyse their own genomic data. The time might never come where companies have access to our most precious information. But when it does we better know how to analyse genomic data ourselves.</description>
+    </item>
+    
+    <item>
       <title>Data Sources for human genomics</title>
       <link>/2018/05/07/2018-05-07-data-sources-for-human-genomics/</link>
       <pubDate>Mon, 07 May 2018 19:28:31 +0200</pubDate>
       
       <guid>/2018/05/07/2018-05-07-data-sources-for-human-genomics/</guid>
-      <description>&amp;ldquo;statgen&amp;rdquo;, &amp;ldquo;dataset&amp;rdquo;
-[//]: &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- ## Version (hg18, hg19, hg20)
-[//]: &amp;mdash; | UCSC | | [//]: &amp;mdash; | &amp;mdash;&amp;mdash;&amp;mdash; |:&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-:| [//]: &amp;mdash; | hg20 | Genome Reference Consortium GRCh38 | [//]: &amp;mdash; | hg19 | Genome Reference Consortium GRCh37 | [//]: &amp;mdash; | hg18 | NCBI Build 36 |
-http://blog.kaggle.com/2017/09/11/how-can-i-find-a-dataset-on-kaggle/</description>
-    </item>
-    
-    <item>
-      <title>Why?</title>
-      <link>/2018/05/07/2018-05-07-why-ds-for-genomics/</link>
-      <pubDate>Mon, 07 May 2018 19:28:31 +0200</pubDate>
-      
-      <guid>/2018/05/07/2018-05-07-why-ds-for-genomics/</guid>
-      <description>Let&amp;rsquo;s get some things out of the way quickly:
-genomics vs. genetics
-My background
-whats the goal of this blogpost series
-whats not the goal</description>
+      <description>In principle, there are five sources for genomic data:
+ Local study cohorts (UK Biobank, Health and Retirement Study, CoLaus, Cebu Longitudinal Health and Nutrition Survey and many many more, check STable1) &amp;gt; A + B Summary statistics from study cohorts (GWAS catalog, UKBB neale lab, MRbase, local summary stats: GIANT, Psychiatric Genomics Consortium (PGC)) &amp;gt; C Genetic reference panels (1KG, Human Genetic Diversity Project (HGDP), UK10K, POPRES) &amp;gt; mainly A (+B) People like yourself uploading the data to platforms (openSNP) &amp;gt; A + B Your own data (23andme, Family Tree, Ancestry.</description>
     </item>
     
   </channel>

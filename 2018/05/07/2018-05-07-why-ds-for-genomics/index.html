@@ -3,8 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Why? &middot; Sina Rüeger</title>
-        <meta name="description" content="(Data Science in Genetics)">
+        <title>A primer to Data Science in Genomics &middot; Sina Rüeger</title>
+        <meta name="description" content="I decided to write up a few things that I learned about analysing genomic1 data.
+There are plenty of reasons to finally tackle this. A selfish one: becoming better at expressing myself and tidying the mess in my head. Another one: enabling others to analyse their own genomic data. The time might never come where companies have access to our most precious information. But when it does we better know how to analyse genomic data ourselves.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="generator" content="Hugo 0.38.2" />
@@ -36,7 +37,7 @@ ga('send', 'pageview');
                     <div class="site-title-wrapper">
                         
                             <h1 class="site-title">
-                                <a title="Data science in genetics &amp; related things" href="/">Data science in genetics &amp; related things</a>
+                                <a title="Data science in genomics &amp; related things" href="/">Data science in genomics &amp; related things</a>
                             </h1>
                         
                         <a class="button-square" href="/index.xml"><i class="fa fa-rss"></i></a>
@@ -93,16 +94,14 @@ ga('send', 'pageview');
 <div class="container">
     <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
         <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Why?</h1>
-    
-        <p class="post-description" itemprop="description">(Data Science in Genetics)</p>
+    <h1 class="post-title" itemprop="name headline">A primer to Data Science in Genomics</h1>
     
     <p class="post-date">
         <span>Published <time datetime="2018-05-07" itemprop="datePublished">Mon, May 7, 2018</time></span>
         <span>by</span>
         <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
             <span itemprop="name">
-                <a href="https://google.com/&#43;XXX" itemprop="url" rel="author">Sina R&amp;uuml;eger</a>
+                <a href="https://google.com/&#43;XXX" itemprop="url" rel="author">Sina Rüeger</a>
             </span>
         </span>
     </p>
@@ -111,15 +110,29 @@ ga('send', 'pageview');
         <div class="post-content clearfix" itemprop="articleBody">
     
 
-    <p>Let&rsquo;s get some things out of the way quickly:</p>
+    <p>I decided to write up a few things that I learned about <strong>analysing genomic</strong><sup class="footnote-ref" id="fnref:Genetic-Genomic"><a href="#fn:Genetic-Genomic">1</a></sup> data.</p>
 
-<p>genomics vs. genetics</p>
+<p>There are plenty of <strong>reasons</strong> to finally tackle this. A selfish one: becoming better at expressing myself and tidying the mess in my head. Another one: enabling others to analyse their own genomic data. The time might never come where companies have access to our most precious information. But when it does we better know how to analyse genomic data ourselves.</p>
 
-<p>My background</p>
+<p>So that is the overarching <strong>goal</strong>: to show ➡️ <a href="https://sinarueeger.github.io/2018/05/07/post/2018-05-07-data-sources-for-human-genomics.md">where to find genomic data</a> ➡️ how to make sense from the raw data ➡️ how to analyse it and interpret the results. Lots to do - I better get started 😄!</p>
 
-<p>whats the goal of this blogpost series</p>
+<p>A disclaimer: I am &hellip; Naturally, this is not going   &hellip;Please contact me, if something is missing or could be improved.</p>
 
-<p>whats not the goal</p>
+<!-- where to find data: sfdsfd -->
+
+<!-- how to make sense from raw data: vcf, summary stats, ped/map/imp/bgen-->
+
+<!-- analyse: SUMMARY: create GRS, SINGLE: predict yourself for a GRS // GRS of. 1KG: make PCA plot // -->
+
+<!-- interpret the results-->
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:Genetic-Genomic">Genetic? Genomic? AFAIK, in my field (statistical genetics) these two terms are used interchangeably, hence I might drop a <em>genetics</em> once in a while, when I mean <em>genomics</em> instead. Other fields pay more attention. The definition of <em>genetics</em> is the study of genes and their role in inheritance. <em>Genomics</em> refers more to the science of the full genome (DNA) and how it all fits together. Therefore, <em>statistical genetics</em> might as well be called <em>statistical genomics</em>. Here is a good <a href="https://www.jax.org/personalized-medicine/precision-medicine-and-you/genetics-vs-genomics">explanation</a>. <a class="footnote-return" href="#fnref:Genetic-Genomic"><sup>[return]</sup></a></li>
+</ol>
+</div>
 
 </div>
 
@@ -182,7 +195,7 @@ ga('send', 'pageview');
             <div class="container">
                 <div class="site-title-wrapper">
                     <h1 class="site-title">
-                        <a title="Data science in genetics &amp; related things" href="/">Data science in genetics &amp; related things</a>
+                        <a title="Data science in genomics &amp; related things" href="/">Data science in genomics &amp; related things</a>
                     </h1>
                     <a class="button-square button-jump-top js-jump-top" href="#">
                         <i class="fa fa-angle-up"></i>
