@@ -31,6 +31,24 @@
     </item>
     
     <item>
+      <title>Conference</title>
+      <link>/tags/conference/</link>
+      <pubDate>Wed, 04 Jul 2018 10:20:22 +0200</pubDate>
+      
+      <guid>/tags/conference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dplyr</title>
+      <link>/tags/dplyr/</link>
+      <pubDate>Wed, 04 Jul 2018 10:20:22 +0200</pubDate>
+      
+      <guid>/tags/dplyr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Encryption</title>
       <link>/tags/encryption/</link>
       <pubDate>Fri, 13 Apr 2018 20:40:59 +0200</pubDate>
@@ -58,11 +76,38 @@
     </item>
     
     <item>
+      <title>Package</title>
+      <link>/tags/package/</link>
+      <pubDate>Wed, 04 Jul 2018 10:20:22 +0200</pubDate>
+      
+      <guid>/tags/package/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>R</title>
       <link>/tags/r/</link>
-      <pubDate>Sat, 14 Apr 2018 10:00:03 +0200</pubDate>
+      <pubDate>Wed, 04 Jul 2018 10:20:22 +0200</pubDate>
       
       <guid>/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rppensci</title>
+      <link>/tags/rppensci/</link>
+      <pubDate>Wed, 04 Jul 2018 10:20:22 +0200</pubDate>
+      
+      <guid>/tags/rppensci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Satrday</title>
+      <link>/tags/satrday/</link>
+      <pubDate>Wed, 04 Jul 2018 10:20:22 +0200</pubDate>
+      
+      <guid>/tags/satrday/</guid>
       <description></description>
     </item>
     
