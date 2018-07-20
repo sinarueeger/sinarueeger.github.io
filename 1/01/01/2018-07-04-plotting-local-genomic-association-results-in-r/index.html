@@ -1,0 +1,265 @@
+<p>+++ title = “Plotting Local Genomic Association Results in R” description = “” author = “” date = 2018-07-04T10:43:44+02:00 tags = [“statgen”, “R”, “data visualisation”, “R”, “ggplot2”] category = [“statgen”, “R”, “data visualisation”] draft = true +++</p>
+
+<p>In this blogpost, I will show how to zoom into GWAS results and annotate the plot based on the information about that genomic region — with R and another specialised software.</p>
+
+
+<div id="get-summary-statistics" class="section level2">
+<h2>Get summary statistics</h2>
+<p>For this we need first some summary association statistics.</p>
+<p>There are lots of <a href="https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-data.md#gwas-summary-statistic-results">ressources</a> for publicly available GWAS summary association statistics. Recently, there have been two new studies on <a href="https://www.sciencedirect.com/science/article/pii/S0092867418306585?via%3Dihub">SCZ and BD</a>, as well as <a href="https://www.nature.com/articles/s41588-018-0090-3">Major depressive disorder (MDD)</a>. For all studies of PGC, summary statistics can be downloaded <a href="https://www.med.unc.edu/pgc/results-and-downloads/downloads">here</a>. For MDD thats search for ‘MDD2 2018’ and for BD and SCZ ‘BIP and SCZ results from Cell Publication, 2018’. Note, that you need to agree to conditions.</p>
+<p>Because direct download is not possible, we will look at another great source, GIANT. BMI. Download <a href="https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files#GWAMA_Age-.2FSex-Stratified_2015_BMI_and_WHR">here</a> from this <a href="https://www.biorxiv.org/content/early/2018/03/22/274654">publication</a>.</p>
+<pre class="r"><code>## we are gonna need this
+library(tidyverse)
+library(cookbookRsina) ## for QQPLOT</code></pre>
+<pre class="r"><code>## bmi
+dat.bmi &lt;- read_tsv(file = &quot;https://portals.broadinstitute.org/collaboration/giant/images/2/21/BMI_All_ancestry.fmt.gzip&quot;)</code></pre>
+<pre><code>## Warning in rbind(names(probs), probs_f): number of columns of result is not
+## a multiple of vector length (arg 1)</code></pre>
+<pre><code>## Warning: 5204 parsing failures.
+## row # A tibble: 5 x 5 col     row col   expected   actual file                                       expected   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;                                      actual 1 58045 CHR   an integer X      &#39;https://portals.broadinstitute.org/colla… file 2 58046 CHR   an integer X      &#39;https://portals.broadinstitute.org/colla… row 3 58047 CHR   an integer X      &#39;https://portals.broadinstitute.org/colla… col 4 58048 CHR   an integer X      &#39;https://portals.broadinstitute.org/colla… expected 5 58049 CHR   an integer X      &#39;https://portals.broadinstitute.org/colla…
+## ... ................. ... .......................................................................... ........ .......................................................................... ...... .......................................................................... .... .......................................................................... ... .......................................................................... ... .......................................................................... ........ ..........................................................................
+## See problems(...) for more details.</code></pre>
+<pre class="r"><code>## Rename some columns
+dat.bmi &lt;- dat.bmi %&gt;% rename(SNP = SNPNAME, P = Pvalue)</code></pre>
+<p>This dataset has 246328 rows and 10 columns.</p>
+<p>If we look at the first 3 rows, we can see that the first column indicates the chromosome, the econd the chromosomal position, the reference allele, the alternative allele, the SNP identifier, Minor allele frequencies measured in GIANT and ExAC, then the association of that SNP with BMI (beta, se, Pvalue).</p>
+<pre class="r"><code>head(dat.bmi, n = 3)</code></pre>
+<pre><code>## # A tibble: 3 x 10
+##     CHR     POS REF   ALT   SNP         GMAF   ExAC_MAF   beta    se     P
+##   &lt;int&gt;   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1 1021285 G     T     rs201215611 -      T:4.120… -0.093 0.44   0.83
+## 2     1 1021302 T     C     rs151035904 -      C:3.790… -0.045 0.036  0.21
+## 3     1 1021315 A     C     rs201998414 C:0.0… C:1.071… -0.075 0.073  0.31</code></pre>
+</div>
+<div id="plot-dataset" class="section level2">
+<h2>Plot dataset</h2>
+<p>Since the datset is so large, we want to plot he Pvalues with a historgram.</p>
+<pre class="r"><code>ggplot(data = dat.bmi) + geom_histogram(aes(-log10(P)))</code></pre>
+<p><img src="/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/plotting-1.png" width="672" /> The problem is, that the distribution is highly skewed, even when log transformed. The reason for this, is, that most pvalues are of course uniformly distributed, and only a few are hits.</p>
+<p>So a QQplot might suit better.</p>
+<pre class="r"><code>QQplot(dat.bmi$P)</code></pre>
+<p><img src="/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/qqplot-1.png" width="672" /></p>
+<p>Now, we want to look at a specific genomic region and add annotation, so let’s pick the genomic region with the lowest P-value.</p>
+<pre class="r"><code>dat.bmi.min &lt;- dat.bmi %&gt;% slice(which.min(P))
+dat.bmi.min</code></pre>
+<pre><code>## # A tibble: 1 x 10
+##     CHR      POS REF   ALT   SNP     GMAF  ExAC_MAF  beta     se         P
+##   &lt;int&gt;    &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
+## 1    16 53800954 T     C     rs1421… C:0.… -        0.078 0.0022 8.60e-269</code></pre>
+<p>rs1421085 is the SNP that has the lowest P-value. Next, we want to know if this SNP is part of a Gene, and if yes, which one.</p>
+</div>
+<div id="extracting-annotation" class="section level2">
+<h2>Extracting annotation</h2>
+<p>There are plenty of websites to check this. But we love R, and we love to do things in a reproducible way, so lets tackle this with R.</p>
+<p>Thankfully, there is a library that can do this very efficiently for us. Here, we look at human data, but this library can acutally expand on any species. In fact, the library can do much much more, than I am going to show. So if, say, you are interested in the sequence of Drosophila, you better checkout this package.</p>
+<p>I learned this from here:</p>
+<ul>
+<li>From: <a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/biomaRt/inst/doc/biomaRt.html" class="uri">https://www.bioconductor.org/packages/devel/bioc/vignettes/biomaRt/inst/doc/biomaRt.html</a></li>
+<li>also checkout this: <a href="https://stackoverflow.com/questions/41490657/best-way-to-get-list-of-snps-by-gene-id" class="uri">https://stackoverflow.com/questions/41490657/best-way-to-get-list-of-snps-by-gene-id</a></li>
+</ul>
+<p>Before getting the gene name, I want to check if my chromosome and position in the dataset are actually matching with the info in the database. This is a handy thing, because oftentimes, only SNPs are reported. Or SNPs are reported, but on a different build.</p>
+<pre class="r"><code>library(biomaRt)
+
+## snp human variation data
+## -------------------------
+variation &lt;- useEnsembl(biomart=&quot;snp&quot;, dataset=&quot;hsapiens_snp&quot;)
+out.bm &lt;- getBM(attributes = c(
+  &quot;ensembl_gene_stable_id&quot;,
+  &#39;refsnp_id&#39;,
+  &#39;chr_name&#39;,
+  &#39;chrom_start&#39;,
+  &#39;chrom_end&#39;,
+  &#39;minor_allele&#39;,
+  &#39;minor_allele_freq&#39;),
+  filters = &#39;snp_filter&#39;,
+  values =dat.bmi.min$SNP,
+  mart = variation
+)
+out.bm</code></pre>
+<pre><code>##   ensembl_gene_stable_id refsnp_id chr_name chrom_start chrom_end
+## 1        ENSG00000140718 rs1421085       16    53767042  53767042
+##   minor_allele minor_allele_freq
+## 1            C          0.228634</code></pre>
+<pre class="r"><code>ifelse(dat.bmi.min$CHR == out.bm$chr_name, &quot;chromosome matching&quot;, &quot;chromosome is not matching&quot;)</code></pre>
+<pre><code>## [1] &quot;chromosome matching&quot;</code></pre>
+<pre class="r"><code>ifelse(dat.bmi.min$POS == out.bm$chrom_start, &quot;position matching&quot;, &quot;position is not matching&quot;)</code></pre>
+<pre><code>## [1] &quot;position is not matching&quot;</code></pre>
+<p>Next, we want to get the gene name.</p>
+<pre class="r"><code>## SNPMART
+## ---------
+snpmart = useMart(biomart = &quot;ENSEMBL_MART_SNP&quot;, dataset=&quot;hsapiens_snp&quot;)
+
+
+listAttributes(snpmart) %&gt;% slice(str_which(description, &quot;Gene&quot;)) </code></pre>
+<pre><code>## # A tibble: 1 x 3
+##   name                   description    page 
+##   &lt;chr&gt;                  &lt;chr&gt;          &lt;chr&gt;
+## 1 ensembl_gene_stable_id Gene stable ID snp</code></pre>
+<pre class="r"><code>listAttributes(variation) %&gt;% slice(str_which(description, &quot;Gene&quot;)) </code></pre>
+<pre><code>## # A tibble: 1 x 3
+##   name                   description    page 
+##   &lt;chr&gt;                  &lt;chr&gt;          &lt;chr&gt;
+## 1 ensembl_gene_stable_id Gene stable ID snp</code></pre>
+<pre class="r"><code>## extract gene-d
+## ----------
+out.bm.snpmart &lt;- getBM(attributes = c(&#39;refsnp_id&#39;,&#39;allele&#39;,&#39;chrom_start&#39;,&#39;chrom_strand&#39;, &#39;chr_name&#39;, &#39;phenotype_description&#39;, &#39;ensembl_gene_stable_id&#39;,&#39;associated_gene&#39;), 
+      filters = c(&#39;snp_filter&#39;), 
+      values = dat.bmi.min$SNP, 
+      mart = snpmart)
+out.bm.snpmart</code></pre>
+<pre><code>##   refsnp_id allele chrom_start chrom_strand chr_name
+## 1 rs1421085    T/C    53767042            1       16
+## 2 rs1421085    T/C    53767042            1       16
+## 3 rs1421085    T/C    53767042            1       16
+## 4 rs1421085    T/C    53767042            1       16
+## 5 rs1421085    T/C    53767042            1       16
+## 6 rs1421085    T/C    53767042            1       16
+## 7 rs1421085    T/C    53767042            1       16
+##                phenotype_description ensembl_gene_stable_id
+## 1                    Type 2 diabetes        ENSG00000140718
+## 2 OBESITY (BMIQ14) SUSCEPTIBILITY TO        ENSG00000140718
+## 3                    Body Mass Index        ENSG00000140718
+## 4      Obesity (early onset extreme)        ENSG00000140718
+## 5                            Obesity        ENSG00000140718
+## 6       Dietary macronutrient intake        ENSG00000140718
+## 7          Childhood body mass index        ENSG00000140718
+##   associated_gene
+## 1             FTO
+## 2             FTO
+## 3                
+## 4             FTO
+## 5             FTO
+## 6             FTO
+## 7             FTO</code></pre>
+<pre class="r"><code>## extract name
+## ----------
+ensembl = useMart(&quot;ensembl&quot;,dataset=&quot;hsapiens_gene_ensembl&quot;)
+out.bm.ensembl &lt;- getBM(attributes = c(&#39;external_gene_name&#39;), 
+      filters = c(&#39;ensembl_gene_id&#39;),
+      values = unique(out.bm.snpmart$ensembl_gene_stable_id), 
+      mart = ensembl)
+out.bm.ensembl</code></pre>
+<pre><code>##   external_gene_name
+## 1                FTO</code></pre>
+<p>The gene is called FTO.</p>
+</div>
+<div id="plot-summary-stats" class="section level2">
+<h2>Plot summary stats</h2>
+<pre class="r"><code>fto.chr &lt;- dat.bmi.min$CHR
+fto.pos &lt;- dat.bmi.min$POS
+range &lt;- 250e3
+
+dat.bmi.fto.region &lt;- dat.bmi %&gt;% filter(CHR == fto.chr &amp; POS &lt; (fto.pos + range) &amp; POS &gt; (fto.pos - range))</code></pre>
+<pre class="r"><code>qplot(POS, -log10(P), data = dat.bmi.fto.region)</code></pre>
+<p><img src="/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/plot.summarystats-1.png" width="672" /></p>
+</div>
+<div id="extract-all-gene-names-in-the-region" class="section level2">
+<h2>Extract ALL gene names in the region</h2>
+<pre class="r"><code>listAttributes(ensembl) %&gt;% slice(str_which(description, &quot;Gene&quot;)) </code></pre>
+<pre><code>## # A tibble: 150 x 3
+##    name                       description                   page        
+##    &lt;chr&gt;                      &lt;chr&gt;                         &lt;chr&gt;       
+##  1 ensembl_gene_id            Gene stable ID                feature_page
+##  2 ensembl_gene_id_version    Gene stable ID version        feature_page
+##  3 description                Gene description              feature_page
+##  4 start_position             Gene start (bp)               feature_page
+##  5 end_position               Gene end (bp)                 feature_page
+##  6 external_gene_name         Gene name                     feature_page
+##  7 percentage_gene_gc_content Gene % GC content             feature_page
+##  8 gene_biotype               Gene type                     feature_page
+##  9 entrezgene_trans_name      EntrezGene transcript name ID feature_page
+## 10 genedb                     GeneDB ID                     feature_page
+## # ... with 140 more rows</code></pre>
+<pre class="r"><code>listFilters(ensembl)%&gt;% slice(str_which(description, &quot;Gene&quot;)) </code></pre>
+<pre><code>## # A tibble: 118 x 2
+##    name                       description                                 
+##    &lt;chr&gt;                      &lt;chr&gt;                                       
+##  1 with_entrezgene_trans_name With EntrezGene transcript name ID(s)       
+##  2 with_genedb                With GeneDB ID(s)                           
+##  3 with_uniprot_gn            With UniProtKB Gene Name ID(s)              
+##  4 with_wikigene              With WikiGene ID(s)                         
+##  5 ensembl_gene_id            Gene stable ID(s) [e.g. ENSG00000000003]    
+##  6 ensembl_gene_id_version    Gene stable ID(s) with version [e.g. ENSG00…
+##  7 external_gene_name         Gene Name(s) [e.g. RF00100]                 
+##  8 entrezgene_trans_name      EntrezGene transcript name ID(s) [e.g. ALDO…
+##  9 genedb                     GeneDB ID(s) [e.g. Smp_009580.1:pep]        
+## 10 uniprot_gn                 UniProtKB Gene Name ID(s) [e.g. A0A023T6R1] 
+## # ... with 108 more rows</code></pre>
+<pre class="r"><code>out.bm.genes.region &lt;- getBM(attributes = c(&#39;start_position&#39;,&#39;end_position&#39;,&#39;ensembl_gene_id&#39;,&#39;external_gene_name&#39;), 
+      filters = c(&#39;chromosome_name&#39;,&#39;start&#39;,&#39;end&#39;), 
+      values = list(fto.chr,fto.pos - range, fto.pos + range), 
+      mart = ensembl)
+out.bm.genes.region</code></pre>
+<pre><code>##   start_position end_position ensembl_gene_id external_gene_name
+## 1       53598153     53703938 ENSG00000103494           RPGRIP1L
+## 2       53628256     53628816 ENSG00000275191         AC007497.1
+## 3       53701692     54158512 ENSG00000140718                FTO
+## 4       53981229     53981912 ENSG00000261630         AC007496.2
+## 5       53991012     53994454 ENSG00000280392         AC007496.3
+## 6       53998313     53999969 ENSG00000260194         AC007496.1
+## 7       54033997     54054583 ENSG00000261049         AC007347.1</code></pre>
+<pre class="r"><code>ggplot(data = out.bm.genes.region) + geom_linerange(aes(x = external_gene_name, ymin = start_position, ymax = end_position)) + coord_flip()</code></pre>
+<p><img src="/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/plot.genes-1.png" width="672" /></p>
+
+</div>
+<div id="r-with-origninal-datasources" class="section level2">
+<h2>R with origninal datasources</h2>
+<p>Plot it with original dataa</p>
+</div>
+<div id="add-gtex-summary-stats" class="section level2">
+<h2>add Gtex summary stats</h2>
+
+</div>
+<div id="locuszoom" class="section level2">
+<h2>Locuszoom</h2>
+<p>An easy solution is <a href="http://locuszoom.org/">LocusZoom</a>, a tool that takes SNPids and assocaiton summary stats as input and outputs a pretty graph, including gene annotation, LD information etc.</p>
+<p>The tool can be used via a web interface or command line tool.</p>
+
+</div>
+<div id="r-through-locuszoomoutput" class="section level2">
+<h2>R through locuszoomoutput</h2>
+<p>Plot it with data from locuszoom</p>
+
+</div>
+<div id="what-plotting-tools-to-use" class="section level2">
+<h2>What plotting tools to use?</h2>
+<p>When doing more of what I like to call <em>arts &amp; crafts</em> (plotting multiple datasets), it might be tempting to use base-R plotting functions. Simply because we are used to use base-R to overlay different datasets.</p>
+<p>But <code>ggplot2</code> can handle that probably better in the long run.</p>
+
+</div>
+<div id="some-other-stuff" class="section level2">
+<h2>Some other stuff</h2>
+<pre class="r"><code>## SNPMART
+## ---------
+snpmart = useMart(biomart = &quot;ENSEMBL_MART_SNP&quot;, dataset=&quot;hsapiens_snp&quot;)
+
+getBM(attributes = c(&#39;refsnp_id&#39;,&#39;allele&#39;,&#39;chrom_start&#39;,&#39;chrom_strand&#39;), 
+      filters = c(&#39;chr_name&#39;,&#39;start&#39;,&#39;end&#39;), 
+      values = list(8,148350,148612), 
+      mart = snpmart)</code></pre>
+<pre class="r"><code>## first, we need to figure out the gene ID of FTO
+ensembl = useMart(&quot;ensembl&quot;,dataset=&quot;hsapiens_gene_ensembl&quot;)
+listFilters(ensembl)
+gene.name.fto &lt;- getBM(attributes = c(&#39;ensembl_gene_id&#39;), 
+      filters = c(&#39;external_gene_name&#39;),
+      values = &quot;FTO&quot;, 
+      mart = ensembl)
+gene.name.fto
+
+## Now we need to get the range of SNPs for that gene
+snps.fto &lt;- getBM(attributes = c( &#39;refsnp_id&#39;,
+  &#39;chr_name&#39;,
+  &#39;chrom_start&#39;,
+  &#39;chrom_end&#39;), 
+      filters = c(&#39;ensembl_gene&#39;),
+      values = gene.name.fto$ensembl_gene_id, 
+      mart = variation)</code></pre>
+<pre class="r"><code>## SNPMART
+## ---------
+snpmart = useMart(biomart = &quot;ENSEMBL_MART_SNP&quot;, dataset=&quot;hsapiens_snp&quot;)
+
+out.bm.genes.region &lt;- getBM(attributes = c(&#39;refsnp_id&#39;,&#39;allele&#39;,&#39;chrom_start&#39;,&#39;chrom_strand&#39;,&#39;ensembl_gene_stable_id&#39;), 
+      filters = c(&#39;chr_name&#39;,&#39;start&#39;,&#39;end&#39;), 
+      values = list(fto.chr,fto.pos - range, fto.pos + range), 
+      mart = snpmart)</code></pre>
+</div>

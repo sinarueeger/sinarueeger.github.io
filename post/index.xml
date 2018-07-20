@@ -48,5 +48,16 @@ I might get into a more personal motivation in a future blogpost.</description>
 There are a handful of secure options around (ProtonMail or keybase.io, both working via encryption), but for those that trust open source projects the most and are familiar with a terminal I have written some basic instructions for asymmetric GPG encryption.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>/1/01/01/2018-07-04-plotting-local-genomic-association-results-in-r/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/2018-07-04-plotting-local-genomic-association-results-in-r/</guid>
+      <description>+++ title = “Plotting Local Genomic Association Results in R” description = “” author = “” date = 2018-07-04T10:43:44+02:00 tags = [“statgen”, “R”, “data visualisation”, “R”, “ggplot2”] category = [“statgen”, “R”, “data visualisation”] draft = true +++
+In this blogpost, I will show how to zoom into GWAS results and annotate the plot based on the information about that genomic region — with R and another specialised software.
+Get summary statistics For this we need first some summary association statistics.</description>
+    </item>
+    
   </channel>
 </rss>
