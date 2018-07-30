@@ -324,16 +324,13 @@ out.bm.grch37</code></pre>
 <div id="extracting-gene-name-for-one-snp" class="section level3">
 <h3>Extracting gene name for one SNP</h3>
 <p>Next, we want to get the gene name where rs1421085 falls into.</p>
-<p>Let’s check which <code>attributes</code> contain the string <code>gene</code> or <code>Gene</code>.</p>
+<p>Let’s check which <code>attributes</code> contain the string <code>gene</code>.</p>
 <pre class="r"><code>listAttributes(snp.ensembl) %&gt;% slice(str_which(name, &quot;gene&quot;)) </code></pre>
 <pre><code>## # A tibble: 2 x 3
 ##   name                   description                    page 
 ##   &lt;chr&gt;                  &lt;chr&gt;                          &lt;chr&gt;
 ## 1 associated_gene        Associated gene with phenotype snp  
 ## 2 ensembl_gene_stable_id Gene stable ID                 snp</code></pre>
-<pre class="r"><code>listAttributes(snp.ensembl) %&gt;% slice(str_which(name, &quot;Gene&quot;))</code></pre>
-<pre><code>## # A tibble: 0 x 3
-## # ... with 3 variables: name &lt;chr&gt;, description &lt;chr&gt;, page &lt;chr&gt;</code></pre>
 <p>Now use <code>ensembl_gene_stable_id</code> and <code>associated_gene</code> as additional attributes.</p>
 <pre class="r"><code>## extract gene
 ## ----------
