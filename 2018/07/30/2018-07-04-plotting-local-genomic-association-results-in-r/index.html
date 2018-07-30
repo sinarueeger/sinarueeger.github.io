@@ -112,11 +112,11 @@
 <p>In the world of <a href="https://www.acsh.org/news/2018/07/27/genome-wide-association-studies-acsh-explains-13234">genome-wide association studies</a> (GWAS) we often get a list of genetic markers (<a href="https://en.wikipedia.org/wiki/Single-nucleotide_polymorphism">SNPs</a>) that seem for some reason relevant for a particular outcome. At the same time, we have little knowledge about these genetic variants that come in cryptic combinations of characters and numbers.</p>
 <p><em>For example:</em></p>
 <ul>
-<li><em>We might get asked how frequent the SNP <code>rs1421085</code> is in a certain population. </em></li>
+<li><em>We might get asked how frequent the SNP <code>rs1421085</code> is in a range of populations. </em></li>
 <li><em>We need to extract all known SNPs that are within 1 Mb of <code>rs1421085</code>. </em></li>
 <li><em>A genomic region turns out to be highly relevant for some disease and we want to know all genes contained in that genomic region.</em></li>
 </ul>
-<p>The list of SNPs come typically from summarised data. Minimally, these datasets contain the SNP identifier (for example <code>rs1421085</code>), the effect size (<code>b</code>) and the standard error (<code>se</code>). Sometimes the position (<code>POS</code>) and chromosome (<code>CHR</code>) is provided instead of the SNP identifier, and sometimes both is available. Then there is usually other information coming from the study data, for example the allele frequency in the study. However, hardly ever do the datasets contain annotation, such as the gene where the SNP resides or the allele frequency in a certain population.</p>
+<p>Unless you sit on lots of genetic data, the list of SNPs come from a summarised form. Minimally, these summary statistic datasets contain the SNP identifier (for example <code>rs1421085</code>), the effect size (<code>b</code>) and the standard error (<code>se</code>). Sometimes the position (<code>POS</code>) and chromosome (<code>CHR</code>) is provided instead of the SNP identifier, and sometimes both is available. Then there is usually other information coming from the study data, for example the allele frequency in the study. However, hardly ever do the datasets contain annotation, such as the gene where the SNP resides or the allele frequency in a certain population.</p>
 <p>This makes sense. Genetic data from cohorts will be used for years and won’t change, but the annotation will change over the years. Take the chromosomal position of SNPs, that changes every couple of years.</p>
 <p>To get our hands on annotation, we need to consult external databases that are - lucky us! - public. But first, let us define what we want to see at the <a href="#end">end</a> of the blogpost.</p>
 <div id="goal" class="section level2">
@@ -213,7 +213,7 @@ QQplot(dat.bmi$P)
 </div>
 <div id="identify-genomic-region-with-lowest-p-value" class="section level3">
 <h3>Identify genomic region with lowest P-value</h3>
-<p>Now that we know that there are lots of genetic markers associated with BMI, we want to look at a specific genomic region and figure out what genes it contains. So let’s pick the genomic region with the lowest P-value.</p>
+<p>Now that we know that there are lots of genetic markers associated with BMI, we want to look at a specific genomic region and figure out what genes it contains. For illustration, we pick the genomic region with the lowest P-value.</p>
 <pre class="r"><code>dat.bmi.sel &lt;- dat.bmi %&gt;% slice(which.min(P))
 dat.bmi.sel</code></pre>
 <pre><code>## # A tibble: 1 x 10
@@ -262,7 +262,7 @@ Did you ever want to reproducibly retrieve thousands of genomes across the tree 
 <h3>Using biomaRt</h3>
 <p>First we need to load the <code>biomaRt</code> <a href="https://bioconductor.org/packages/release/bioc/html/biomaRt.html">package from bioconductor</a>.</p>
 <pre class="r"><code>library(biomaRt) </code></pre>
-<p>Next we specify which database to use. You can use the functions <code>listMart()</code>, <code>listEnsembl</code> and <code>listDatasets()</code> to select from the right biomart and dataset. We will need to extract SNPs and genes, hence we will need to create two <code>Mart</code>’s.</p>
+<p>Next we specify which database to use. You can use the functions <code>listMart()</code>, <code>listEnsembl()</code> and <code>listDatasets()</code> to select from the right biomart and dataset. We will need to extract SNPs and genes, hence we will need to create two <code>Mart</code>’s.</p>
 <pre class="r"><code>snp.ensembl &lt;- useEnsembl(biomart = &quot;snp&quot;, dataset = &quot;hsapiens_snp&quot;)
 gene.ensembl &lt;- useEnsembl(biomart = &quot;ensembl&quot;, dataset = &quot;hsapiens_gene_ensembl&quot;)
 
@@ -325,14 +325,15 @@ out.bm.grch37</code></pre>
 <h3>Extracting gene name for one SNP</h3>
 <p>Next, we want to get the gene name where rs1421085 falls into.</p>
 <p>Let’s check which <code>attributes</code> contain the string <code>gene</code> or <code>Gene</code>.</p>
-<pre class="r"><code>listAttributes(snp.ensembl) %&gt;% slice(str_which(name, c(&quot;gene&quot;, &quot;Gene&quot;))) </code></pre>
-<pre><code>## Warning in stri_detect_regex(string, pattern, opts_regex = opts(pattern)):
-## longer object length is not a multiple of shorter object length</code></pre>
+<pre class="r"><code>listAttributes(snp.ensembl) %&gt;% slice(str_which(name, &quot;gene&quot;)) </code></pre>
 <pre><code>## # A tibble: 2 x 3
 ##   name                   description                    page 
 ##   &lt;chr&gt;                  &lt;chr&gt;                          &lt;chr&gt;
 ## 1 associated_gene        Associated gene with phenotype snp  
 ## 2 ensembl_gene_stable_id Gene stable ID                 snp</code></pre>
+<pre class="r"><code>listAttributes(snp.ensembl) %&gt;% slice(str_which(name, &quot;Gene&quot;))</code></pre>
+<pre><code>## # A tibble: 0 x 3
+## # ... with 3 variables: name &lt;chr&gt;, description &lt;chr&gt;, page &lt;chr&gt;</code></pre>
 <p>Now use <code>ensembl_gene_stable_id</code> and <code>associated_gene</code> as additional attributes.</p>
 <pre class="r"><code>## extract gene
 ## ----------
@@ -389,7 +390,7 @@ out.bm.genes.region &lt;- out.bm.genes.region %&gt;% mutate(external_gene_name =
 p2 &lt;- ggplot(data = out.bm.genes.region) + geom_linerange(aes(x = external_gene_name, ymin = start_position, ymax = end_position)) + coord_flip() + ylab(&quot;&quot;)
 print(p2)</code></pre>
 <p><img src="/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/plot-genes-1.png" width="672" /></p>
-<p>Let’s try to make that pretty. We can group the genes by <code>gene_biotype</code> and colour them accordingly. The protein coding genes are in the top row.</p>
+<p>Let’s try to make that pretty. We can group the genes by <code>gene_biotype</code> and colour them accordingly. And we move the protein coding genes to the top row.</p>
 <pre class="r"><code>## define plot range for x-axis
 plot.range &lt;- c(min(sel.pos - range, out.bm.genes.region$start_position), 
       max(sel.pos + range, out.bm.genes.region$end_position))

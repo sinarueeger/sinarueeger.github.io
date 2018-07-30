@@ -20,7 +20,7 @@
       <guid>/2018/07/30/2018-07-04-plotting-local-genomic-association-results-in-r/</guid>
       <description>In the world of genome-wide association studies (GWAS) we often get a list of genetic markers (SNPs) that seem for some reason relevant for a particular outcome. At the same time, we have little knowledge about these genetic variants that come in cryptic combinations of characters and numbers.
 For example:
- We might get asked how frequent the SNP rs1421085 is in a certain population.  We need to extract all known SNPs that are within 1 Mb of rs1421085.</description>
+ We might get asked how frequent the SNP rs1421085 is in a range of populations.  We need to extract all known SNPs that are within 1 Mb of rs1421085.</description>
     </item>
     
   </channel>
