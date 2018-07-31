@@ -106,7 +106,7 @@
         <div class="post-content clearfix" itemprop="articleBody">
     
 
-    <link href="/rmarkdown-libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="/rmarkdown-libs/ionicons/css/ionicons.min.css" rel="stylesheet" />
 
 
 <!-- what do we want -->
@@ -144,9 +144,9 @@ We might want to know the corresponding gene of a SNP.
 <!---
 
 <!-- how can we achieve this? -->
-<p>There are currently more than 10 Mio SNPs known, and knowing their functions and genes by heart would equal to some super power. Which is why we <i class="fas  fa-heart " style="color:#a6cee3;"></i><a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> public databases, such as <a href="https://www.ncbi.nlm.nih.gov/projects/SNP/">dbSNP</a> and <a href="https://www.ensembl.org/index.html">ensembl</a><a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>.</p>
-<p>What we <i class="fas  fa-heart " style="color:#377eb8;"></i> even more, is, to make our analyses reproducible and automate annotation and lookups.</p>
-<p><i class="fas  fa-arrow-right " style="color:black;"></i> In this blogpost, I will show how to zoom into GWAS results and annotate the plot based on the information about that genomic region using <i class="fab  fa-r-project "></i>.</p>
+<p>There are currently more than 10 Mio SNPs known, and knowing their functions and genes by heart would equal to some super power. Which is why we <i class="ion  ion-heart "></i><a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> public databases, such as <a href="https://www.ncbi.nlm.nih.gov/projects/SNP/">dbSNP</a> and <a href="https://www.ensembl.org/index.html">ensembl</a><a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>.</p>
+<p>What we like even more, is, to make our analyses reproducible and automate annotation and lookups.</p>
+<p><i class="ion  ion-arrow-right-a "></i> In this blogpost, I will show how to zoom into GWAS results and annotate the plot based on the information about that genomic region using R. <!--r icon::ii_r_project().--></p>
 <!-- why do we need a locus zoom plot anyway ?-->
 <p>Here is the plan:</p>
 <ol style="list-style-type: decimal">
@@ -207,7 +207,7 @@ dat.bmi &lt;- dat.bmi %&gt;% rename(SNP = SNPNAME, P = Pvalue)</code></pre>
 <p>This dataset has 246328 rows and 10 columns. What if we want to visualise this all at once? In particularly, we are interested if there are ANY associations between the genetic markers and BMI. The mini <code>P</code> distribution in the skimr output does not reveal much.</p>
 <div id="visualising-associations" class="section level3">
 <h3>Visualising associations</h3>
-<p>Visualising all associations at once can be done with a Manhattan plot, where the x-axis represents chromosome<code>CHR</code> and the chromosomal position <code>POS</code>, and the y-axis the <code>-log10(P)</code>-value. Let’s use the R-package <a href="https://github.com/drveera/ggman"><code>ggman</code> by Veera Manikandan</a> for that. <!-- (creating an immediate <i class="fas  fa-smile " style="color:gray;"></i> or <i class="fas  fa-frown " style="color:gray;"></i> effect)--></p>
+<p>Visualising all associations at once can be done with a Manhattan plot, where the x-axis represents chromosome<code>CHR</code> and the chromosomal position <code>POS</code>, and the y-axis the <code>-log10(P)</code>-value. Let’s use the R-package <a href="https://github.com/drveera/ggman"><code>ggman</code> by Veera Manikandan</a> for that.</p>
 <pre class="r"><code>## ggman installed via gh: https://github.com/drveera/ggman
 ggman::ggman(dat.bmi, snp = &quot;SNP&quot;, bp = &quot;POS&quot;, chrom = &quot;CHR&quot;, pvalue = &quot;P&quot;)</code></pre>
 <p><img src="/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/mhtplot-1.png" width="672" /></p>
@@ -248,7 +248,7 @@ print(p1)</code></pre>
 <h3>biomaRt</h3>
 <p>Thankfully, there is an R-package called <a href="https://bioconductor.org/packages/release/bioc/html/biomaRt.html"><code>biomaRt</code></a> that can do this for us.</p>
 <p>I have only come across this package a few weeks ago, so I apologise in advance that I won’t make full use of all the features that the package offers.</p>
-<p><i class="fas  fa-exclamation "></i> <code>biomaRt</code> should not to be confused with <a href="https://github.com/ropensci/biomartr"><code>biomartr</code></a>. <code>biomartr</code> is an rOpenSci package by <a href="https://twitter.com/HajkDrost">Hajk-Georg Drost</a>. I needed this tweet <i class="fas  fa-arrow-down " style="color:black;"></i> to realise that these were two separate, yet related R-packages.</p>
+<p><i class="ion  ion-alert "></i> <code>biomaRt</code> should not to be confused with <a href="https://github.com/ropensci/biomartr"><code>biomartr</code></a>. <code>biomartr</code> is an rOpenSci package by <a href="https://twitter.com/HajkDrost">Hajk-Georg Drost</a>. I needed this tweet <i class="ion  ion-arrow-down-a "></i> to realise that these were two separate, yet related R-packages.</p>
 <blockquote class="twitter-tweet" data-lang="en">
 <p lang="en" dir="ltr">
 Did you ever want to reproducibly retrieve thousands of genomes across the tree of life using only one R command? Then have a look at the new version of biomartr which is on its way to CRAN! <a href="https://t.co/kWF5XCoGhj">https://t.co/kWF5XCoGhj</a> <a href="https://twitter.com/hashtag/bioinformatics?src=hash&amp;ref_src=twsrc%5Etfw">#bioinformatics</a> <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://twitter.com/hashtag/Genomics?src=hash&amp;ref_src=twsrc%5Etfw">#Genomics</a> <a href="https://t.co/EZHJP0n1f9">pic.twitter.com/EZHJP0n1f9</a>
@@ -448,7 +448,7 @@ p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))</code></pre>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Awesome icons in R? <i class="fas  fa-band-aid " style="color:orange;"></i> <i class="fas  fa-chess-queen " style="color:gray;"></i> <i class="fas  fa-bicycle " style="color:green;"></i> <i class="fas  fa-birthday-cake " style="color:pink;"></i> <i class="fas  fa-arrow-right " style="color:black;"></i> checkout <a href="https://ropensci.org/technotes/2018/05/15/icon/">these instructions by Mitchell O’Hara-Wild on the rOpenSci webpage</a>.<a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p>Awesome icons in R? <i class="ion  ion-camera "></i> <i class="ion  ion-thumbsup "></i> <i class="ion  ion-social-apple "></i> <i class="ion  ion-paperclip "></i> <i class="ion  ion-arrow-right-a "></i> checkout <a href="https://ropensci.org/technotes/2018/05/15/icon/">these instructions by Mitchell O’Hara-Wild on the rOpenSci webpage</a>.<a href="#fnref1">↩</a></p></li>
 <li id="fn2"><p>Thanks to my biology colleagues for explaining me the differences between these databases and what a biomart is!<a href="#fnref2">↩</a></p></li>
 <li id="fn3"><p>Recently, there have been two new studies by the <a href="https://www.med.unc.edu/pgc/">Psychiatric Genomics Consortium</a> (PGC) on <a href="https://www.sciencedirect.com/science/article/pii/S0092867418306585?via%3Dihub">schizophrenia (SCZ) and bipoloar disorder (BD)</a>, as well as <a href="https://www.nature.com/articles/s41588-018-0090-3">Major depressive disorder (MDD)</a>. For all studies of PGC, summary statistics can be downloaded <a href="https://www.med.unc.edu/pgc/results-and-downloads/downloads">here</a>. For example, if you would like to download the latest MDD results, search for <em>‘MDD2 2018’</em>, for BD and SCZ search for <em>‘BIP and SCZ results from Cell Publication, 2018’</em>. Anybody can download these results, but need to acknowledge and agree to a list of conditions - which I think is an excellent approach!<a href="#fnref3">↩</a></p></li>
 <li id="fn4"><p>Data source: <a href="https://www.biorxiv.org/content/early/2018/03/22/274654">Yengo et al. (2018)</a>.<a href="#fnref4">↩</a></p></li>
