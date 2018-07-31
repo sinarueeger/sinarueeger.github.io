@@ -109,16 +109,17 @@
     <link href="/rmarkdown-libs/ionicons/css/ionicons.min.css" rel="stylesheet" />
 
 
+<p>1fd</p>
 <!-- what do we want -->
 <p>In the world of <a href="https://www.acsh.org/news/2018/07/27/genome-wide-association-studies-acsh-explains-13234">genome-wide association studies</a> (GWAS) we often get a list of genetic markers (<a href="https://en.wikipedia.org/wiki/Single-nucleotide_polymorphism">SNPs</a>) that seem for some reason relevant for a particular outcome. At the same time, we have little knowledge about these genetic variants that come in cryptic combinations of characters and numbers.</p>
 <p><em>For example:</em></p>
 <ul>
-<li><em>We might get asked how frequent the SNP <code>rs1421085</code> is in a range of populations. </em></li>
+<li><em>We might get asked how frequent the SNP <a href="https://www.ensembl.org/Homo_sapiens/Variation/Explore?r=16:53766542-53767542;v=rs1421085;vdb=variation;vf=984887"><code>rs1421085</code></a> is in <a href="https://www.ensembl.org/Homo_sapiens/Variation/Population?r=16:53766542-53767542;v=rs1421085;vdb=variation;vf=984887">a range of populations.</a> </em></li>
 <li><em>We need to extract all known SNPs that are within 1 Mb of <code>rs1421085</code>. </em></li>
 <li><em>A genomic region turns out to be highly relevant for some disease and we want to know all genes contained in that genomic region.</em></li>
 </ul>
-<p>Unless you sit on lots of genetic data, the list of SNPs come from a summarised form. Minimally, these summary statistic datasets contain the SNP identifier (for example <code>rs1421085</code>), the effect size (<code>b</code>) and the standard error (<code>se</code>). Sometimes the position (<code>POS</code>) and chromosome (<code>CHR</code>) is provided instead of the SNP identifier, and sometimes both is available. Then there is usually other information coming from the study data, for example the allele frequency in the study. However, hardly ever do the datasets contain annotation, such as the gene where the SNP resides or the allele frequency in a certain population.</p>
-<p>This makes sense. Genetic data from cohorts will be used for years and won’t change, but the annotation will change over the years. Take the chromosomal position of SNPs, that changes every couple of years.</p>
+<p>Unless you sit on lots of genetic data, the list of SNPs come from a summarised form. Minimally, these summary statistic datasets contain the SNP identifier (for example <code>rs1421085</code>), the effect size (<code>b</code>) and the standard error (<code>se</code>). Sometimes the position (<code>POS</code>) and chromosome (<code>CHR</code>) is provided instead of the SNP identifier, and sometimes both are available. Then there is usually other information coming from the study data, for example the allele frequency in the study. However, hardly ever do the datasets contain annotation, such as the <a href="https://www.cancer.gov/publications/dictionaries/cancer-terms/def/gene">gene</a> where the SNP resides or the allele frequency in a certain population.</p>
+<p>This makes sense. Genetic data from cohorts will be used for years and won’t change, but the annotation will change over the years. Take the chromosomal position of SNPs, that changes <a href="https://en.wikipedia.org/wiki/Reference_genome">with every new human genome reference assembley</a>.</p>
 <p>To get our hands on annotation, we need to consult external databases that are - lucky us! - public. But first, let us define what we want to see at the <a href="#end">end</a> of the blogpost.</p>
 <div id="goal" class="section level2">
 <h2>Goal</h2>
@@ -135,7 +136,7 @@ We might want to know the corresponding gene of a SNP.
 <figure>
 <img src="/post/annotation/locuszoom-drawing.jpg" alt="Drawing of a table." align="middle" style="width: 400px;"/>
 <figcaption>
-<small>In this case, we want to visualise the GWAS summary statistics of a genomic region (with each point representing a SNP), with the corresponding genes at the bottom. This is similar to a plot done with <a href="http://locuszoom.org/">LocusZoom</a>, a tool that takes summary statistics as input and outputs a pretty graph for a desired genomic region, including gene annotation, LD information and more. </small>
+<small>In this case, we want to visualise the GWAS P-value (-log10(P)) of a genomic region (with each point representing a SNP), with the corresponding genes at the bottom. This is similar to a plot done with <a href="http://locuszoom.org/">LocusZoom</a>, a tool that takes summary statistics as input and outputs a pretty graph for a desired genomic region, including gene annotation, LD information and more. </small>
 </figcaption>
 </figure>
 </div>
@@ -172,7 +173,7 @@ dat.bmi &lt;- data.table::fread(url, verbose = FALSE)</code></pre>
 <p>Next, we rename some columns to something more conventional.</p>
 <pre class="r"><code>## Rename some columns
 dat.bmi &lt;- dat.bmi %&gt;% rename(SNP = SNPNAME, P = Pvalue)</code></pre>
-<p>Now, let’s look at the data.</p>
+<p>Now, let’s look at the data with the <a href="https://github.com/ropensci/skimr"><code>skimr</code></a> package.</p>
 <pre class="r"><code>skimr::skim(dat.bmi)</code></pre>
 <pre><code>## Skim summary statistics
 ##  n obs: 246328 
@@ -268,7 +269,7 @@ Did you ever want to reproducibly retrieve thousands of genomes across the tree 
 </div>
 <div id="using-biomart" class="section level3">
 <h3>Using biomaRt</h3>
-<p>First we need to load the <code>biomaRt</code> <a href="https://bioconductor.org/packages/release/bioc/html/biomaRt.html">package from bioconductor</a>.</p>
+<p>First we need to load the <code>biomaRt</code> <a href="https://bioconductor.org/packages/release/bioc/html/biomaRt.html">package from Bioconductor</a>.</p>
 <pre class="r"><code>library(biomaRt) </code></pre>
 <p>Next we specify which database to use. You can use the functions <code>listMart()</code>, <code>listEnsembl()</code> and <code>listDatasets()</code> to select from the right biomart and dataset. We will need to extract SNPs and genes, hence we will need to create two <code>Mart</code>’s.</p>
 <pre class="r"><code>snp.ensembl &lt;- useEnsembl(biomart = &quot;snp&quot;, dataset = &quot;hsapiens_snp&quot;)
@@ -392,8 +393,10 @@ out.bm.genes.region &lt;- out.bm.genes.region %&gt;% mutate(external_gene_name =
       start_position, .desc = TRUE))
 
 ## plot
-p2 &lt;- ggplot(data = out.bm.genes.region) + geom_linerange(aes(x = external_gene_name, ymin = start_position, ymax = end_position)) + coord_flip() + ylab(&quot;&quot;)
-print(p2)</code></pre>
+ggplot(data = out.bm.genes.region) + 
+      geom_linerange(aes(x = external_gene_name, ymin = start_position, ymax = end_position)) + 
+  coord_flip() + 
+  ylab(&quot;&quot;)</code></pre>
 <p><img src="/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/plot-genes-1.png" width="672" /></p>
 <p>Let’s try to make that pretty. We can group the genes by <code>gene_biotype</code> and colour them accordingly. And we move the protein coding genes to the top row.</p>
 <pre class="r"><code>## define plot range for x-axis
