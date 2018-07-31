@@ -3,27 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/2018/07/31/2018-07-31-test/</loc>
-    <lastmod>2018-07-31T11:35:13+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2018/07/30/2018-07-04-plotting-local-genomic-association-results-in-r/</loc>
-    <lastmod>2018-07-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2018/07/04/2018-07-04-write-up-of-satrday-in-cardiff-2018/</loc>
+    <loc>/2018/07/04/satrday-cardiff-2018/</loc>
     <lastmod>2018-07-04T10:20:22+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/2018/04/14/2018-04-14-setting-up-blogdown-website/</loc>
+    <loc>/2018/04/14/setting-up-the-blogdown-website/</loc>
     <lastmod>2018-04-14T10:00:03+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/2018/04/13/2018-04-04-encryption-of-files/</loc>
+    <loc>/2018/04/13/getting-started-with-encryption-of-documents/</loc>
     <lastmod>2018-04-13T20:40:59+02:00</lastmod>
   </url>
   
@@ -39,7 +29,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-07-31T11:35:13+02:00</lastmod>
+    <lastmod>2018-07-04T10:20:22+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -62,12 +52,6 @@
   </url>
   
   <url>
-    <loc>/tags/data-visualisation/</loc>
-    <lastmod>2018-07-30T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/dplyr/</loc>
     <lastmod>2018-07-04T10:20:22+02:00</lastmod>
     <priority>0</priority>
@@ -76,12 +60,6 @@
   <url>
     <loc>/tags/encryption/</loc>
     <lastmod>2018-04-13T20:40:59+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/ggplot2/</loc>
-    <lastmod>2018-07-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -111,13 +89,13 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-07-31T11:35:13+02:00</lastmod>
+    <lastmod>2018-07-04T10:20:22+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/r/</loc>
-    <lastmod>2018-07-30T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-04T10:20:22+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -130,12 +108,6 @@
   <url>
     <loc>/tags/satrday/</loc>
     <lastmod>2018-07-04T10:20:22+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/statgen/</loc>
-    <lastmod>2018-07-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

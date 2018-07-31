@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Package &middot; Sina Rüeger</title>
-        <meta name="description" content="Analysing genetic data">
+        <title>Getting started with encryption of documents &middot; Sina Rüeger</title>
+        <meta name="description" content="to share data securely.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="generator" content="Hugo 0.38.2" />
@@ -14,8 +14,6 @@
         <link rel="stylesheet" href="/dist/styles.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anaheim|Assistant|Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        
-            <link href="/tags/package/index.xml" rel="alternate" type="application/rss+xml">
         
         
     </head>
@@ -87,34 +85,87 @@
             <div id="container">
 
 
-<div id="post-index" class="container">
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Getting started with encryption of documents</h1>
     
-    <header class="post-header">
-        <h1 class="post-title" itemprop="name">Sina Rüeger</h1>
-        <p>Analysing genetic data</p>
-    </header>
+        <p class="post-description" itemprop="description">to share data securely.</p>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2018-04-13" itemprop="datePublished">Fri, Apr 13, 2018</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://twitter.com/sinarueeger" itemprop="url" rel="author">Sina Rüeger</a>
+            </span>
+        </span>
+    </p>
+</header>
 
+        <div class="post-content clearfix" itemprop="articleBody">
+    
 
+    <p>I work (broadly speaking) in epidemiology. Within collaborations we often have to share <strong>sensitive data</strong> across institutions and are therefore likely to not share IT facilities. But the most often used options - bare e-mail or file hosting - are not secure, as they both work via a server that could potentially be exposed.</p>
 
-    <ol class="post-list">
-        
-        
-            <li class="post-stub">
-    <a href="/2018/07/04/satrday-cardiff-2018/">
-        <h4 class="post-stub-title">satRday Cardiff 2018</h4>
-        
-            <p class="post-stub-description">Recap of the one-day R conference in Wales</p>
-        
-        
-    </a>
-</li>
-        
-    </ol>
+<p>There are a handful of secure options around (<a href="https://protonmail.com/">ProtonMail</a> or <a href="https://keybase.io/">keybase.io</a>, both working via <a href="https://www.quora.com/Why-is-encryption-important">encryption</a>), but for those that <strong>trust open source projects</strong> the most and are familiar with a <strong>terminal</strong> I have written some basic instructions for asymmetric GPG encryption.</p>
 
-    <div class="post-navigation">
+<p><em>I should say that I am not an encryption expert at all. But, although there is a lot of talk about data protection, I never came across a compact, easy-to-follow instruction for the sender of the document and the recipient, valid for all three operating systems (Linux, Mac, Windows). Therefore, I tried to write one, mainly for myself and collaborators. Feedback is appreciated!</em></p>
+
+<script src="//gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f.js?file=encryption_files.md"></script>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/encryption/">encryption</a>, 
+            
+                <a href="/tags/best-practices/">best practices</a>, 
+            
+                <a href="/tags/workflow/">workflow</a>
+            
+        </p>
+    
+
+    <div class="share">
         
 
+        
+
+        
+        
     </div>
+</footer>
+
+        
+    <div class="comments">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sinarueeger-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+    </article>
 </div>
 
     <script type="text/x-mathjax-config">
@@ -129,3 +180,4 @@
     </script>
   </body>
 </html>
+

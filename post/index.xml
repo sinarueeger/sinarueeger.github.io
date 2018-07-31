@@ -7,37 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Sina R&amp;uuml;eger</copyright>
-    <lastBuildDate>Tue, 31 Jul 2018 11:35:13 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 04 Jul 2018 10:20:22 +0200</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>2018 07 31 Test</title>
-      <link>/2018/07/31/2018-07-31-test/</link>
-      <pubDate>Tue, 31 Jul 2018 11:35:13 +0200</pubDate>
-      
-      <guid>/2018/07/31/2018-07-31-test/</guid>
-      <description>Test</description>
-    </item>
-    
-    <item>
-      <title>Locuszoom plot of GWAS summary statistics</title>
-      <link>/2018/07/30/2018-07-04-plotting-local-genomic-association-results-in-r/</link>
-      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/07/30/2018-07-04-plotting-local-genomic-association-results-in-r/</guid>
-      <description>In the world of genome-wide association studies (GWAS) we often get a list of genetic markers (SNPs) that seem for some reason relevant for a particular outcome. At the same time, we have little knowledge about these genetic variants that come in cryptic combinations of characters and numbers.
-For example:
- We might get asked how frequent the SNP rs1421085 is in a range of populations.  We need to extract all known SNPs that are within 1 Mb of rs1421085.</description>
-    </item>
-    
-    <item>
       <title>satRday Cardiff 2018</title>
-      <link>/2018/07/04/2018-07-04-write-up-of-satrday-in-cardiff-2018/</link>
+      <link>/2018/07/04/satrday-cardiff-2018/</link>
       <pubDate>Wed, 04 Jul 2018 10:20:22 +0200</pubDate>
       
-      <guid>/2018/07/04/2018-07-04-write-up-of-satrday-in-cardiff-2018/</guid>
+      <guid>/2018/07/04/satrday-cardiff-2018/</guid>
       <description>This is a brief write-up of my satRdays Cardiff experience.
 First - what is a satRday?
 It is an awesome concept: attending an R conference organised by a local RUG on a Saturday.
@@ -49,10 +29,10 @@ Packaging workshop Heather Turner upgraded us on packaging.</description>
     
     <item>
       <title>Setting up the Blogdown website</title>
-      <link>/2018/04/14/2018-04-14-setting-up-blogdown-website/</link>
+      <link>/2018/04/14/setting-up-the-blogdown-website/</link>
       <pubDate>Sat, 14 Apr 2018 10:00:03 +0200</pubDate>
       
-      <guid>/2018/04/14/2018-04-14-setting-up-blogdown-website/</guid>
+      <guid>/2018/04/14/setting-up-the-blogdown-website/</guid>
       <description>To set up this website I have used some excellent material around blogdown, github and hugo.
 Motivation Before going into the technical details, let me say something about motivation and inspiration. For me, it definitely helped to read the blogpost by David Robinson, being encouraged by Ma&amp;euml;lle Salmon and seeing many others leading by example (among many: Marie Christine Dussault or Kasia Kulma).
 I might get into a more personal motivation in a future blogpost.</description>
@@ -60,10 +40,10 @@ I might get into a more personal motivation in a future blogpost.</description>
     
     <item>
       <title>Getting started with encryption of documents</title>
-      <link>/2018/04/13/2018-04-04-encryption-of-files/</link>
+      <link>/2018/04/13/getting-started-with-encryption-of-documents/</link>
       <pubDate>Fri, 13 Apr 2018 20:40:59 +0200</pubDate>
       
-      <guid>/2018/04/13/2018-04-04-encryption-of-files/</guid>
+      <guid>/2018/04/13/getting-started-with-encryption-of-documents/</guid>
       <description>I work (broadly speaking) in epidemiology. Within collaborations we often have to share sensitive data across institutions and are therefore likely to not share IT facilities. But the most often used options - bare e-mail or file hosting - are not secure, as they both work via a server that could potentially be exposed.
 There are a handful of secure options around (ProtonMail or keybase.io, both working via encryption), but for those that trust open source projects the most and are familiar with a terminal I have written some basic instructions for asymmetric GPG encryption.</description>
     </item>
