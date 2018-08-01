@@ -119,8 +119,8 @@
 <li><em>We need to extract all known SNPs that are within 1 Mb of <code>rs1421085</code>. </em></li>
 <li><em>A genomic region turns out to be highly relevant for some disease and we want to know all genes contained in that genomic region.</em></li>
 </ul>
-<p>Unless you sit on lots of genetic data, the list of SNPs come from a summarised form. Minimally, these summary statistic datasets contain the SNP identifier (<code>SNPNAME</code>, for example <code>rs149969323</code>), the effect size (<code>beta</code>) and the standard error (<code>se</code>). Sometimes the position (<code>POS</code>) and chromosome (<code>CHR</code>) is provided instead of the SNP identifier, and sometimes both are available. Then there is usually other information coming from the study data, for example the allele frequency in the study <i class="ion  ion-arrow-right-a "></i> this is on the LHS in table below. However, hardly ever do the datasets contain annotation, such as the <a href="https://www.cancer.gov/publications/dictionaries/cancer-terms/def/gene">gene</a> where the SNP resides, the allele frequency in a certain population or the diseases it is associated with <i class="ion  ion-arrow-right-a "></i> this is illustrated in the <font color="#31a354">green</font> colored part in table below.</p>
-<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<p>Unless you sit on lots of genetic data, the list of SNPs come from a summarised form. Minimally, these summary statistic datasets contain the SNP identifier (<code>SNPNAME</code>, for example <code>rs149969323</code>), the effect size (<code>beta</code>) and the standard error (<code>se</code>). Sometimes the position (<code>POS</code>) and chromosome (<code>CHR</code>) is provided instead of the SNP identifier, and sometimes both are available. Then there is usually other information coming from the study data, for example the allele frequency in the study <i class="ion  ion-arrow-right-a "></i> this is on the LHS in table below. However, hardly ever do the datasets contain <font color="#31a354">annotation</font>, such as the <a href="https://www.cancer.gov/publications/dictionaries/cancer-terms/def/gene">gene</a> where the SNP resides, the phenotypes it is associated with or the minor allele frequency (MAF) in a certain population or <i class="ion  ion-arrow-right-a "></i> this is illustrated in the <font color="#31a354">green</font> colored part in table below.</p>
+<table class="table table-striped table" style="width: auto !important; margin-left: auto; margin-right: auto; font-size: 12px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="7">
@@ -163,7 +163,7 @@ Gene
 Phenotype
 </th>
 <th style="text-align:right;">
-Global minor allele freq.
+Global MAF
 </th>
 </tr>
 </thead>
@@ -462,7 +462,7 @@ Did you ever want to reproducibly retrieve thousands of genomes across the tree 
 </blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <p>So far, I did not fully grasp the benefits of <code>biomartr</code> compared to <code>biomaRt</code> for annotation of human data. But I will definitely <a href="https://ropensci.github.io/biomartr/articles/Functional_Annotation.html">look more into it</a>.</p>
-<p>Thanks to <a href="https://twitter.com/MariannaFoos">Marianna Foos</a> for pointing out another great R-package dealing with SNP annotation called <a href="https://cran.r-project.org/web/packages/rsnps/vignettes/rsnps_vignette.html"><code>rsnps</code></a>!</p>
+<p><a href="https://twitter.com/MariannaFoos">Marianna Foos</a> pointed out another great R-package dealing with SNP annotation called <a href="https://cran.r-project.org/web/packages/rsnps/vignettes/rsnps_vignette.html"><code>rsnps</code></a>.</p>
 </div>
 <div id="learning-resources" class="section level3">
 <h3>Learning resources</h3>
@@ -636,6 +636,7 @@ p1b &lt;- p1 + xlab(&quot;&quot;) + theme(axis.title.x=element_blank(), axis.tex
 
 p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))</code></pre>
 <p><img src="/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/summarystats-genes-1.png" width="672" /></p>
+<p>Having both plots combined, we can spot that the are 6 protein coding genes in the region. But the P-value peak is located in gene FTO.</p>
 </div>
 <div id="wouldnt-it-be-nice" class="section level2">
 <h2>Wouldn’t it be nice…</h2>
@@ -652,16 +653,17 @@ p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))</code></pre>
 <li>The R Markdown file is <a href="https://github.com/sinarueeger/webpage/blob/master/blogdown/content/post/2018-07-04-plotting-local-genomic-association-results-in-r.Rmd">here</a>.</li>
 <li>Some more <code>biomaRt</code> code snippets are in a <a href="https://gist.github.com/sinarueeger/4430492e67639fccaeacf4340f7cb7df">gist</a>.</li>
 </ul>
+<p>If you know another R-package to solve a similar problem or have feedback, you can comment below 👇.</p>
 </div>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Thanks to <a href="https://twitter.com/ma_salmon">Maëlle Salmon</a> you get a real plot here instead of a blurry hand drawing. She gave me lots of feedback on my first version - much appreciated!<a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p>Thanks to <a href="https://twitter.com/ma_salmon">Maëlle Salmon</a> you get a real plot here instead of a blurry hand drawing 😉 She gave lots of feedback on my first version - much appreciated!<a href="#fnref1">↩</a></p></li>
 <li id="fn2"><p>Awesome icons in R? <i class="ion  ion-camera "></i> <i class="ion  ion-thumbsup "></i> <i class="ion  ion-social-apple "></i> <i class="ion  ion-paperclip "></i> <i class="ion  ion-arrow-right-a "></i> checkout <a href="https://ropensci.org/technotes/2018/05/15/icon/">these instructions by Mitchell O’Hara-Wild on the rOpenSci webpage</a>.<a href="#fnref2">↩</a></p></li>
 <li id="fn3"><p>Thanks to my colleagues with biology background for explaining me the differences between these databases and what a biomart is!<a href="#fnref3">↩</a></p></li>
 <li id="fn4"><p>Initially, I wanted to use data from two recent studies by the <a href="https://www.med.unc.edu/pgc/">Psychiatric Genomics Consortium</a> (PGC) on <a href="https://www.sciencedirect.com/science/article/pii/S0092867418306585?via%3Dihub">schizophrenia (SCZ) and bipoloar disorder (BD)</a>, as well as <a href="https://www.nature.com/articles/s41588-018-0090-3">Major depressive disorder (MDD)</a>. Like most consortia, PGC provides summary statistics that can be <a href="https://www.med.unc.edu/pgc/results-and-downloads/downloads">downloaded</a>. However, before downloading anything, the user needs to acknowledge and agree to a list of conditions - which I think is an excellent approach! - therefore we cannot directly load it into R.<a href="#fnref4">↩</a></p></li>
 <li id="fn5"><p>Data source: <a href="https://www.biorxiv.org/content/early/2018/03/22/274654">Yengo et al. (2018)</a>.<a href="#fnref5">↩</a></p></li>
-<li id="fn6"><p>A guide to DYI manhattan plots by <a href="https://github.com/holtzy/">Yan Holtz</a> for the <a href="https://www.r-graph-gallery.com/wp-content/uploads/2018/02/Manhattan_plot_in_R.html">R graph gallery</a><a href="#fnref6">↩</a></p></li>
+<li id="fn6"><p>A guide to crafting Manhattan plots by <a href="https://github.com/holtzy/">Yan Holtz</a> for the <a href="https://www.r-graph-gallery.com/wp-content/uploads/2018/02/Manhattan_plot_in_R.html">R graph gallery</a><a href="#fnref6">↩</a></p></li>
 <li id="fn7"><p>I recently listened to a podcast by <a href="https://twitter.com/trashystats">Saskia Freytag</a> and <a href="https://twitter.com/nj_tierney">NJ Tierney</a> where they talk about the differences between CRAN and Bioconductor (there are many!). The podcast is called <a href="https://soundcloud.com/crediblycurious/episode-1-cran-and-bioconductor">Credibly Curious</a>.<a href="#fnref7">↩</a></p></li>
 </ol>
 </div>
