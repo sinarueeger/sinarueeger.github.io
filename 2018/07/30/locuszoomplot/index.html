@@ -112,7 +112,7 @@
 
 <!--make a plot, that did not work with knitting-->
 <!-- what do we want -->
-<p>In the world of <a href="https://www.acsh.org/news/2018/07/27/genome-wide-association-studies-acsh-explains-13234">genome-wide association studies</a> (GWAS) we<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> often get a list of genetic markers (<a href="https://en.wikipedia.org/wiki/Single-nucleotide_polymorphism">SNPs</a>) that seem for some reason relevant for a particular outcome. At the same time, we have little knowledge about these genetic variants that come in cryptic combinations of characters and numbers.</p>
+<p>In the world of <a href="https://www.acsh.org/news/2018/07/27/genome-wide-association-studies-acsh-explains-13234">genome-wide association studies</a> (GWAS) we often get a list of genetic markers (<a href="https://en.wikipedia.org/wiki/Single-nucleotide_polymorphism">SNPs</a>) that seem for some reason relevant for a particular outcome. At the same time, we have little knowledge about these genetic variants that come in cryptic combinations of characters and numbers.</p>
 <p><em>For example:</em></p>
 <ul>
 <li><em>We might get asked how frequent the SNP <a href="https://www.ensembl.org/Homo_sapiens/Variation/Explore?r=16:53766542-53767542;v=rs1421085;vdb=variation;vf=984887"><code>rs1421085</code></a> is in <a href="https://www.ensembl.org/Homo_sapiens/Variation/Population?r=16:53766542-53767542;v=rs1421085;vdb=variation;vf=984887">a range of populations.</a> </em></li>
@@ -335,7 +335,7 @@ BMI
 <div id="goal" class="section level2">
 <h2>Goal</h2>
 <p>For this blogpost, we keep it simple and only focus on the <strong>genes contained in a genomic region</strong>, but this can be easily extended to any other annotation available in databases.</p>
-<p>In the illustration below<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>, we want to know the gene starting and end positions around one particular gene region to create an informative locuszoom plot.</p>
+<p>In the illustration below<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>, we want to know the gene starting and end positions around one particular gene region to create an informative locuszoom plot.</p>
 <figure>
 <img src="/post/annotation/locuszoom-sketch.png" alt="Drawing of a table." align="middle" style="width: 600px;"/>
 <figcaption>
@@ -348,7 +348,7 @@ BMI
 <!---
 
 <!-- how can we achieve this? -->
-<p>There are currently more than 10 Mio SNPs known, and knowing their functions and genes by heart would equal to some super power. Which is why we <i class="ion  ion-heart "></i><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> public databases, such as <a href="https://www.ncbi.nlm.nih.gov/projects/SNP/">dbSNP</a> and <a href="https://www.ensembl.org/index.html">ensembl</a><a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>.</p>
+<p>There are currently more than 10 Mio SNPs known, and knowing their functions and genes by heart would equal to some super power. Which is why we <i class="ion  ion-heart "></i><a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> public databases, such as <a href="https://www.ncbi.nlm.nih.gov/projects/SNP/">dbSNP</a> and <a href="https://www.ensembl.org/index.html">ensembl</a><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>.</p>
 <p>What we like even more, is, to make our analyses reproducible and automate annotation and lookups.</p>
 <p><i class="ion  ion-arrow-right-a "></i> In this blogpost, I will show how to zoom into GWAS results and annotate the plot based on the information about that genomic region using R. <!--r icon::ii_r_project().--></p>
 <!-- why do we need a locus zoom plot anyway ?-->
@@ -365,7 +365,7 @@ BMI
 <p>First, we need some GWAS summary statistics.</p>
 <p>There are lots of <a href="https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-data.md#gwas-summary-statistic-results"><strong>resources</strong></a> for publicly available GWAS summary statistics.</p>
 <!-- For example, if you would like to download the latest MDD results, search for *'MDD2 2018'*, for BD and SCZ search for *'BIP and SCZ results from Cell Publication, 2018'*.-->
-<p>We will look at BMI, because it can be accessed easily<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> and because it is fairly small for a genomic dataset. The data is from the <a href="https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files">Genetic Investigation of ANthropometric Traits</a> (GIANT) consortium. You can <strong>download</strong> the dataset<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> <a href="https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files#GWAMA_Age-.2FSex-Stratified_2015_BMI_and_WHR">here</a> or load it <strong>directly into R</strong>.</p>
+<p>We will look at BMI, because it can be accessed easily<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> and because it is fairly small for a genomic dataset. The data is from the <a href="https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files">Genetic Investigation of ANthropometric Traits</a> (GIANT) consortium. You can <strong>download</strong> the dataset<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> <a href="https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files#GWAMA_Age-.2FSex-Stratified_2015_BMI_and_WHR">here</a> or load it <strong>directly into R</strong>.</p>
 <pre class="r"><code>## Data Source URL
 url &lt;- &quot;https://portals.broadinstitute.org/collaboration/giant/images/2/21/BMI_All_ancestry.fmt.gzip&quot;
 
@@ -412,7 +412,7 @@ dat.bmi &lt;- dat.bmi %&gt;% rename(SNP = SNPNAME, P = Pvalue)</code></pre>
 <p>This dataset has 246328 rows and 10 columns. What if we want to visualise this all at once? In particularly, we are interested if there are ANY associations between the genetic markers and BMI. The mini <code>P</code> distribution in the skimr output does not reveal much.</p>
 <div id="visualising-associations" class="section level3">
 <h3>Visualising associations</h3>
-<p>Visualising all associations at once can be done with a Manhattan plot, where the x-axis represents chromosome<code>CHR</code> and the chromosomal position <code>POS</code>, and the y-axis the <code>-log10(P)</code>-value. Let’s use the R-package <code>qqman</code><a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a> for that.</p>
+<p>Visualising all associations at once can be done with a Manhattan plot, where the x-axis represents chromosome<code>CHR</code> and the chromosomal position <code>POS</code>, and the y-axis the <code>-log10(P)</code>-value. Let’s use the R-package <code>qqman</code><a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> for that.</p>
 <pre class="r"><code>qqman::manhattan(dat.bmi %&gt;% mutate(CHR = as.numeric(as.character(fct_recode(CHR, &quot;23&quot; = &quot;X&quot;)))) %&gt;%   filter(-log10(P)&gt;1), chr=&quot;CHR&quot;, bp=&quot;POS&quot;, snp=&quot;SNP&quot;, p=&quot;P&quot;, suggestiveline =FALSE, genomewideline = FALSE, chrlabs = c(1:22, &quot;X&quot;), cex = 0.4)</code></pre>
 <p><img src="/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/mhtplot-1.png" width="672" /></p>
 <p>We can spot immediately, that there are loads of SNPs with P-values smaller than <span class="math inline">\(10^{-100}\)</span> (sample size was around <a href="https://www.biorxiv.org/content/early/2018/03/22/274654">700K</a>).</p>
@@ -469,7 +469,7 @@ Did you ever want to reproducibly retrieve thousands of genomes across the tree 
 <h3>Learning resources</h3>
 <p>I used mainly two sources to learn what I wanted to do:</p>
 <ul>
-<li><a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/biomaRt/inst/doc/biomaRt.html">Vignette of biomaRt</a> on Bioconductor<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>.</li>
+<li><a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/biomaRt/inst/doc/biomaRt.html">Vignette of biomaRt</a> on Bioconductor<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>.</li>
 <li><a href="https://stackoverflow.com/questions/41490657/best-way-to-get-list-of-snps-by-gene-id">This question</a> on StackOverflow.</li>
 </ul>
 </div>
@@ -651,7 +651,7 @@ p1b &lt;- p1 + xlab(&quot;&quot;) + theme(axis.title.x=element_blank(), axis.tex
 p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))</code></pre>
 <p><img src="/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/summarystats-genes-1.png" width="672" /></p>
 <p>Having both plots combined, we can spot that the are 6 protein-coding genes in the region. But the P-value peak is located in gene FTO.</p>
-<p>If this were work done for a real project, this would now be the time to get back to domain experts, discuss the results and figure out what other annotation they need<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a>.</p>
+<p>If this were work done for a real project, this would now be the time to get back to domain experts, discuss the results and figure out what other annotation they need<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>.</p>
 </div>
 <div id="wouldnt-it-be-nice" class="section level2">
 <h2>Wouldn’t it be nice…</h2>
@@ -673,15 +673,14 @@ p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))</code></pre>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Data analysts<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>Thanks to <a href="https://twitter.com/ma_salmon">Maëlle Salmon</a> you get a real plot here instead of a blurry hand drawing 😉 She gave lots of feedback on my first version - much appreciated!<a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p>Awesome icons in R? <i class="ion  ion-camera "></i> <i class="ion  ion-thumbsup "></i> <i class="ion  ion-social-apple "></i> <i class="ion  ion-paperclip "></i> <i class="ion  ion-arrow-right-a "></i> checkout <a href="https://ropensci.org/technotes/2018/05/15/icon/">these instructions by Mitchell O’Hara-Wild on the rOpenSci webpage</a>.<a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p>Thanks to my colleagues with biology background for explaining me the differences between these databases and what a biomart is!<a href="#fnref4">↩</a></p></li>
-<li id="fn5"><p>Initially, I wanted to use data from two recent studies by the <a href="https://www.med.unc.edu/pgc/">Psychiatric Genomics Consortium</a> (PGC) on <a href="https://www.sciencedirect.com/science/article/pii/S0092867418306585?via%3Dihub">schizophrenia (SCZ) and bipoloar disorder (BD)</a>, as well as <a href="https://www.nature.com/articles/s41588-018-0090-3">Major depressive disorder (MDD)</a>. Like most consortia, PGC provides summary statistics that can be <a href="https://www.med.unc.edu/pgc/results-and-downloads/downloads">downloaded</a>. However, before downloading anything, the user needs to acknowledge and agree to a list of conditions - which I think is an excellent approach! - therefore we cannot directly load it into R.<a href="#fnref5">↩</a></p></li>
-<li id="fn6"><p>Data source: <a href="https://www.biorxiv.org/content/early/2018/03/22/274654">Yengo et al. (2018)</a>.<a href="#fnref6">↩</a></p></li>
-<li id="fn7"><p>A guide to crafting Manhattan plots by <a href="https://github.com/holtzy/">Yan Holtz</a> for the <a href="https://www.r-graph-gallery.com/wp-content/uploads/2018/02/Manhattan_plot_in_R.html">R graph gallery</a><a href="#fnref7">↩</a></p></li>
-<li id="fn8"><p>I recently listened to a podcast by <a href="https://twitter.com/trashystats">Saskia Freytag</a> and <a href="https://twitter.com/nj_tierney">NJ Tierney</a> where they talk about the differences between CRAN and Bioconductor (there are many!). The podcast is called <a href="https://soundcloud.com/crediblycurious/episode-1-cran-and-bioconductor">Credibly Curious</a>.<a href="#fnref8">↩</a></p></li>
-<li id="fn9"><p>+1 for reproducibility!<a href="#fnref9">↩</a></p></li>
+<li id="fn1"><p>Thanks to <a href="https://twitter.com/ma_salmon">Maëlle Salmon</a> you get a real plot here instead of a blurry hand drawing 😉 She gave lots of feedback on my first version - much appreciated!<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>Awesome icons in R? <i class="ion  ion-camera "></i> <i class="ion  ion-thumbsup "></i> <i class="ion  ion-social-apple "></i> <i class="ion  ion-paperclip "></i> <i class="ion  ion-arrow-right-a "></i> checkout <a href="https://ropensci.org/technotes/2018/05/15/icon/">these instructions by Mitchell O’Hara-Wild on the rOpenSci webpage</a>.<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>Thanks to my colleagues with biology background for explaining me the differences between these databases and what a biomart is!<a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>Initially, I wanted to use data from two recent studies by the <a href="https://www.med.unc.edu/pgc/">Psychiatric Genomics Consortium</a> (PGC) on <a href="https://www.sciencedirect.com/science/article/pii/S0092867418306585?via%3Dihub">schizophrenia (SCZ) and bipoloar disorder (BD)</a>, as well as <a href="https://www.nature.com/articles/s41588-018-0090-3">Major depressive disorder (MDD)</a>. Like most consortia, PGC provides summary statistics that can be <a href="https://www.med.unc.edu/pgc/results-and-downloads/downloads">downloaded</a>. However, before downloading anything, the user needs to acknowledge and agree to a list of conditions - which I think is an excellent approach! - therefore we cannot directly load it into R.<a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p>Data source: <a href="https://www.biorxiv.org/content/early/2018/03/22/274654">Yengo et al. (2018)</a>.<a href="#fnref5">↩</a></p></li>
+<li id="fn6"><p>A guide to crafting Manhattan plots by <a href="https://github.com/holtzy/">Yan Holtz</a> for the <a href="https://www.r-graph-gallery.com/wp-content/uploads/2018/02/Manhattan_plot_in_R.html">R graph gallery</a><a href="#fnref6">↩</a></p></li>
+<li id="fn7"><p>I recently listened to a podcast by <a href="https://twitter.com/trashystats">Saskia Freytag</a> and <a href="https://twitter.com/nj_tierney">NJ Tierney</a> where they talk about the differences between CRAN and Bioconductor (there are many!). The podcast is called <a href="https://soundcloud.com/crediblycurious/episode-1-cran-and-bioconductor">Credibly Curious</a>.<a href="#fnref7">↩</a></p></li>
+<li id="fn8"><p>+1 for reproducibility!<a href="#fnref8">↩</a></p></li>
 </ol>
 </div>
 
