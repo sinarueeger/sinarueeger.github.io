@@ -116,10 +116,10 @@
 <p><em>For example:</em></p>
 <ul>
 <li><em>We might get asked how frequent the SNP <a href="https://www.ensembl.org/Homo_sapiens/Variation/Explore?r=16:53766542-53767542;v=rs1421085;vdb=variation;vf=984887"><code>rs1421085</code></a> is in <a href="https://www.ensembl.org/Homo_sapiens/Variation/Population?r=16:53766542-53767542;v=rs1421085;vdb=variation;vf=984887">a range of populations.</a> </em></li>
-<li><em>We need to extract all known SNPs that are within 1 Mb of <code>rs1421085</code>. </em></li>
+<li><em>We need to extract all known SNPs that are within 1 Mb of <a href="https://www.ensembl.org/Homo_sapiens/Variation/Explore?r=16:53766542-53767542;v=rs1421085;vdb=variation;vf=984887"><code>rs1421085</code></a>. </em></li>
 <li><em>A genomic region turns out to be highly relevant for some disease and we want to know all genes contained in that genomic region.</em></li>
 </ul>
-<p>Unless you sit on lots of genetic data, the list of SNPs come from a summarised form. Minimally, these summary statistic datasets contain the SNP identifier (<code>SNPNAME</code>), the effect size (<code>beta</code>) and the standard error (<code>se</code>). Sometimes the position (<code>POS</code>) and chromosome (<code>CHR</code>) is provided instead of the SNP identifier, and sometimes both are available. Then there is usually other information coming from the study data, for example the allele frequency in the study <i class="ion  ion-arrow-right-a "></i> this is shown on the LHS in table below. However, hardly ever do the datasets contain <font color="#31a354">annotation</font>, such as the <a href="https://www.cancer.gov/publications/dictionaries/cancer-terms/def/gene">gene</a> where the SNP resides, the phenotypes it is associated with or the minor allele frequency (MAF) in a certain population or <i class="ion  ion-arrow-right-a "></i> this is illustrated in the <font color="#31a354">green</font> colored part in table below.</p>
+<p>Unless you sit on lots of genetic data, the list of SNPs come from a summarised form. Minimally, these summary statistic datasets contain the SNP identifier (<code>SNPNAME</code>), the effect size (<code>beta</code>) and the standard error (<code>se</code>). Sometimes the position (<code>POS</code>) and chromosome (<code>CHR</code>) is provided instead of the SNP identifier, and sometimes both are available. Then there is usually other information coming from the study data, for example the allele frequency in the study <i class="ion  ion-arrow-right-a "></i> this is shown on the LHS in table below. However, hardly ever do the datasets contain <font color="#31a354">annotation</font>, such as the <a href="https://www.cancer.gov/publications/dictionaries/cancer-terms/def/gene">gene</a> where the SNP resides, the phenotypes it is associated with or the minor allele frequency (MAF) in a certain population <i class="ion  ion-arrow-right-a "></i> this is illustrated in the <font color="#31a354">green</font> colored part in table below.</p>
 <table class="table table-striped table" style="width: auto !important; margin-left: auto; margin-right: auto; font-size: 13px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -655,7 +655,7 @@ p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))</code></pre>
 <ul>
 <li>… to polish that plot even more? For starters, the colour code is not ideal…</li>
 <li>… to add information about the correlation between SNPs, like in <a href="http://locuszoom.org/">LocusZoom plots</a>?</li>
-<li>… or have an interactive plot: hovering over the SNP points would light up the corresponding genes or give some other information, like the allele frequency.</li>
+<li>… or have an interactive plot<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a>: hovering over the SNP points would light up the corresponding genes or give some other information, like the allele frequency.</li>
 </ul>
 <p>Totally 😉 Seems like great material for future blogposts!</p>
 </div>
@@ -678,6 +678,7 @@ p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))</code></pre>
 <li id="fn6"><p>A guide to crafting Manhattan plots by <a href="https://github.com/holtzy/">Yan Holtz</a> for the <a href="https://www.r-graph-gallery.com/wp-content/uploads/2018/02/Manhattan_plot_in_R.html">R graph gallery</a><a href="#fnref6">↩</a></p></li>
 <li id="fn7"><p>I recently listened to a podcast by <a href="https://twitter.com/trashystats">Saskia Freytag</a> and <a href="https://twitter.com/nj_tierney">NJ Tierney</a> where they talk about the differences between CRAN and Bioconductor (there are many!). The podcast is called <a href="https://soundcloud.com/crediblycurious/episode-1-cran-and-bioconductor">Credibly Curious</a>.<a href="#fnref7">↩</a></p></li>
 <li id="fn8"><p>+1 for reproducibility!<a href="#fnref8">↩</a></p></li>
+<li id="fn9"><p><a href="https://twitter.com/LizaMGD">Liza Darrous</a> pointed out the interactive Manhattan R function <a href="https://moderndata.plot.ly/manhattanly-r-package-for-interactive-manhattan-plots/">manhanttanly</a>.<a href="#fnref9">↩</a></p></li>
 </ol>
 </div>
 
