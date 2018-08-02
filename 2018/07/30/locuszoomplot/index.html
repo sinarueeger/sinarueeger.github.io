@@ -621,8 +621,7 @@ p2 &lt;- ggplot(data = out.bm.genes.region) +
   coord_flip() + ylab(&quot;&quot;) +
   ylim(plot.range) + 
   geom_text(aes(x = external_gene_name, y = start_position, label = external_gene_name, colour = gene_biotype_fac), fontface = 2, alpha = I(0.7), hjust = &quot;right&quot;, size= 2.5) + 
-  labs(title = &quot;&quot;, subtitle = paste(&quot;Genes&quot;), caption = paste(&quot;Data source:&quot;, gene.ensembl@host, &quot;/&quot;, gene.ensembl@dataset)) +
-  scale_colour_discrete(name=&quot;Gene Biotype&quot;) +
+  labs(title = &quot;&quot;, subtitle = paste(&quot;Genes&quot;), caption = paste(&quot;Data source:&quot;, gene.ensembl@host, &quot;/&quot;, gene.ensembl@dataset), color = &quot;Gene Biotype&quot;) +
   theme(axis.title.y=element_blank(),
         axis.text.y=element_blank(),
         axis.ticks.y=element_blank(), 
@@ -630,10 +629,8 @@ p2 &lt;- ggplot(data = out.bm.genes.region) +
         legend.position=&quot;bottom&quot;, 
         panel.grid.major.y = element_blank()) + 
   expand_limits(y=c(-1, 1)) +
-  scale_color_manual(values = c(&quot;black&quot;, metafolio::gg_color_hue(nlevels(out.bm.genes.region$gene_biotype_fac)-1)))</code></pre>
-<pre><code>## Scale for &#39;colour&#39; is already present. Adding another scale for
-## &#39;colour&#39;, which will replace the existing scale.</code></pre>
-<pre class="r"><code>  ## hack to have 11 colors, but probably merging some gene biotype groups could make sense too. 
+  scale_color_manual(values = c(&quot;black&quot;, metafolio::gg_color_hue(nlevels(out.bm.genes.region$gene_biotype_fac)-1)))
+  ## hack to have 11 colors, but probably merging some gene biotype groups could make sense too. 
   ## consider colorblindr::palette_OkabeIto_black
 print(p2)</code></pre>
 <p><img src="/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/plot-genes-pretty-1.png" width="672" /></p>
