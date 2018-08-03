@@ -31,47 +31,11 @@
     </item>
     
     <item>
-      <title>Conference</title>
-      <link>/tags/conference/</link>
-      <pubDate>Wed, 04 Jul 2018 10:20:22 +0200</pubDate>
-      
-      <guid>/tags/conference/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data Visualisation</title>
-      <link>/tags/data-visualisation/</link>
-      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/data-visualisation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dplyr</title>
-      <link>/tags/dplyr/</link>
-      <pubDate>Wed, 04 Jul 2018 10:20:22 +0200</pubDate>
-      
-      <guid>/tags/dplyr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Encryption</title>
       <link>/tags/encryption/</link>
       <pubDate>Fri, 13 Apr 2018 20:40:59 +0200</pubDate>
       
       <guid>/tags/encryption/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ggplot2</title>
-      <link>/tags/ggplot2/</link>
-      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/ggplot2/</guid>
       <description></description>
     </item>
     
@@ -94,47 +58,11 @@
     </item>
     
     <item>
-      <title>Package</title>
-      <link>/tags/package/</link>
-      <pubDate>Wed, 04 Jul 2018 10:20:22 +0200</pubDate>
-      
-      <guid>/tags/package/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>R</title>
       <link>/tags/r/</link>
-      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 14 Apr 2018 10:00:03 +0200</pubDate>
       
       <guid>/tags/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Rppensci</title>
-      <link>/tags/rppensci/</link>
-      <pubDate>Wed, 04 Jul 2018 10:20:22 +0200</pubDate>
-      
-      <guid>/tags/rppensci/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Satrday</title>
-      <link>/tags/satrday/</link>
-      <pubDate>Wed, 04 Jul 2018 10:20:22 +0200</pubDate>
-      
-      <guid>/tags/satrday/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Statgen</title>
-      <link>/tags/statgen/</link>
-      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/statgen/</guid>
       <description></description>
     </item>
     
