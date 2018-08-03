@@ -7,10 +7,48 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Sina R&amp;uuml;eger</copyright>
-    <lastBuildDate>Wed, 04 Jul 2018 10:20:22 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 03 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Trying to figure out why icon-fa is not working</title>
+      <link>/2018/08/03/icon/</link>
+      <pubDate>Fri, 03 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/08/03/icon/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Trying to figure out why icon-fa is not working</title>
+      <link>/2018/08/03/icon_commented/</link>
+      <pubDate>Fri, 03 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/08/03/icon_commented/</guid>
+      <description> -- </description>
+    </item>
+    
+    <item>
+      <title>Trying to figure out why icon-fa is not working</title>
+      <link>/2018/08/03/icon_none/</link>
+      <pubDate>Fri, 03 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/08/03/icon_none/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Locuszoom plot of GWAS summary statistics</title>
+      <link>/2018/07/30/locuszoomplot/</link>
+      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/07/30/locuszoomplot/</guid>
+      <description>In the world of genome-wide association studies (GWAS) we often get a list of genetic markers (SNPs) that seem for some reason relevant for a particular outcome. At the same time, we have little knowledge about these genetic variants that come in cryptic combinations of characters and numbers.
+For example:
+ We might get asked how frequent the SNP rs1421085 is in a range of populations.  We need to extract all known SNPs that are within 1 Mb of rs1421085.</description>
+    </item>
     
     <item>
       <title>satRday Cardiff 2018</title>
@@ -65,17 +103,6 @@ Or via @sinarueeger on Keybase.</description>
       
       <guid>/page/about/</guid>
       <description>My journey I studied Data Analysis &amp; Process Design at the School of Engineering in Winterthur, where I fell in love with applied statistics. I deepened my knowledge in statistical modelling with a Master&#39;s degree and by working as a research assistant. During my time as a biostatistician I enjoyed the interdisciplinary aspect and grew an interest in analysing genetic data - which ultimately lead me to my current position to Lausanne.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/1/01/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/1/01/01/</guid>
-      <description>In the world of genome-wide association studies (GWAS) we often get a list of genetic markers (SNPs) that seem for some reason relevant for a particular outcome. At the same time, we have little knowledge about these genetic variants that come in cryptic combinations of characters and numbers.
-For example:
- We might get asked how frequent the SNP rs1421085 is in a range of populations.  We need to extract all known SNPs that are within 1 Mb of rs1421085.</description>
     </item>
     
   </channel>
