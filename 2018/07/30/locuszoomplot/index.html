@@ -549,6 +549,25 @@ out.bm.grch37</code></pre>
        &quot;\u2713: same assembley (grch37)&quot;, 
        &quot;\u2717: not the same assembley&quot;)</code></pre>
 <pre><code>## [1] &quot;✓: same assembley (grch37)&quot;</code></pre>
+<p><a href="">Flavia Hodel</a> pointed out that adding the argument <code>GRCh = 37</code> works too.</p>
+<pre class="r"><code>snp.ensembl.grch37.alt &lt;- useEnsembl(biomart = &quot;snp&quot;, dataset = &quot;hsapiens_snp&quot;, GRCh = 37)
+
+
+out.bm.grch37 &lt;- getBM(
+  attributes = c(&#39;ensembl_gene_stable_id&#39;, &#39;refsnp_id&#39;, &#39;chr_name&#39;, &#39;chrom_start&#39;, &#39;chrom_end&#39;, &#39;minor_allele&#39;, &#39;minor_allele_freq&#39;),
+  filters = &#39;snp_filter&#39;,
+  values = dat.bmi.sel$SNP,
+  mart = snp.ensembl.grch37.alt
+)
+out.bm.grch37</code></pre>
+<pre><code>##   ensembl_gene_stable_id refsnp_id chr_name chrom_start chrom_end
+## 1        ENSG00000140718 rs1421085       16    53800954  53800954
+##   minor_allele minor_allele_freq
+## 1            C          0.228634</code></pre>
+<pre class="r"><code>ifelse(sel.pos == out.bm.grch37$chrom_start,
+       &quot;\u2713: same assembley (grch37)&quot;, 
+       &quot;\u2717: not the same assembley&quot;)</code></pre>
+<pre><code>## [1] &quot;✓: same assembley (grch37)&quot;</code></pre>
 </div>
 <div id="extracting-gene-name-for-one-snp" class="section level3">
 <h3>Extracting gene name for one SNP</h3>
@@ -573,7 +592,8 @@ out.bm.snp2gene</code></pre>
 
 ## Extract string
 ## ----------
-gene.ensembl &lt;- useEnsembl(biomart = &quot;ensembl&quot;, dataset = &quot;hsapiens_gene_ensembl&quot;) # we will need an additional mart for genes
+gene.ensembl &lt;- useEnsembl(biomart = &quot;ensembl&quot;, dataset = &quot;hsapiens_gene_ensembl&quot;, GRCh = 37) # we will need an additional mart for genes
+## because we are using positions from GRCh = 37 in a next query, we need to pass that information on.
 out.bm.gene &lt;- getBM(attributes = c(&#39;external_gene_name&#39;), 
       filters = c(&#39;ensembl_gene_id&#39;),
       values = unique(out.bm.snp2gene$ensembl_gene_stable_id), 
