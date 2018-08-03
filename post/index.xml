@@ -48,5 +48,16 @@ I might get into a more personal motivation in a future blogpost.</description>
 There are a handful of secure options around (ProtonMail or keybase.io, both working via encryption), but for those that trust open source projects the most and are familiar with a terminal I have written some basic instructions for asymmetric GPG encryption.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description>In the world of genome-wide association studies (GWAS) we often get a list of genetic markers (SNPs) that seem for some reason relevant for a particular outcome. At the same time, we have little knowledge about these genetic variants that come in cryptic combinations of characters and numbers.
+For example:
+ We might get asked how frequent the SNP rs1421085 is in a range of populations.  We need to extract all known SNPs that are within 1 Mb of rs1421085.</description>
+    </item>
+    
   </channel>
 </rss>
