@@ -358,6 +358,28 @@ BMI
 <li><a href="#extracting-annotation">Extract annotation</a></li>
 <li><a href="#end">Combine summary statistics and annotation</a></li>
 </ol>
+<p>Before tackling the first item, we want to have all R-packages installed &amp; ready to use:</p>
+<pre class="r"><code>## Packages needed to run code
+## ----------------------------
+# install.packages(&quot;dplyr&quot;)     ## data manipulation
+# install.packages(&quot;data.table&quot;) ## read data, fast!
+# install.packages(&quot;forcats&quot;)   ## dealing with factors
+# install.packages(&quot;ggplot2&quot;)   ## dataviz
+# install.packages(&quot;magrittr&quot;)  ## piping
+# install.packages(&quot;metafolio&quot;)  ## colorpalette
+# install.packages(&quot;skimr&quot;)     ## summarising data
+# install.packages(&quot;qqman&quot;)     ## Manhattan plot
+# install.packages(&quot;patchwork&quot;) ## assembling plots
+
+# source(&quot;https://bioconductor.org/biocLite.R&quot;)
+# biocLite(&quot;biomaRt&quot;)           ## annotation
+
+## Optional packages for Rmd
+## --------------------------
+# install.packages(&quot;kableExtra&quot;) ## making pretty tables
+# install.packages(&quot;devtools&quot;)
+# devtools::install_github(&quot;hadley/emo&quot;)        ## emojis
+# devtools::install_github(&quot;ropenscilabs/icon&quot;) ## icons</code></pre>
 <!-- data -->
 </div>
 <div id="get-summary-statistics" class="section level2">
@@ -383,7 +405,7 @@ dat.bmi &lt;- dat.bmi %&gt;% rename(SNP = SNPNAME, P = Pvalue)</code></pre>
 ##  n obs: 246328 
 ##  n variables: 10 
 ## 
-## Variable type: character 
+## ── Variable type:character ─────────────────────────────────────────────────────────────────────
 ##  variable missing complete      n min max empty n_unique
 ##       ALT       0   246328 246328   1   1     0        4
 ##       CHR       0   246328 246328   1   2     0       23
@@ -392,13 +414,13 @@ dat.bmi &lt;- dat.bmi %&gt;% rename(SNP = SNPNAME, P = Pvalue)</code></pre>
 ##       REF       0   246328 246328   1   1     0        4
 ##       SNP       0   246328 246328   1  11     0   243206
 ## 
-## Variable type: integer 
+## ── Variable type:integer ───────────────────────────────────────────────────────────────────────
 ##  variable missing complete      n    mean      sd    p0     p25     p50
 ##       POS       0   246328 246328 7.6e+07 5.7e+07 11885 3.2e+07 6.1e+07
 ##      p75    p100     hist
 ##  1.1e+08 2.5e+08 ▇▇▅▅▃▂▁▁
 ## 
-## Variable type: numeric 
+## ── Variable type:numeric ───────────────────────────────────────────────────────────────────────
 ##  variable missing complete      n      mean     sd        p0    p25
 ##      beta     977   245351 246328   0.00051   0.13 -3.2      -0.032
 ##         P     977   245351 246328   0.48      0.3   8.6e-269  0.21 
@@ -416,11 +438,6 @@ dat.bmi &lt;- dat.bmi %&gt;% rename(SNP = SNPNAME, P = Pvalue)</code></pre>
 <pre class="r"><code>qqman::manhattan(dat.bmi %&gt;% mutate(CHR = as.numeric(as.character(fct_recode(CHR, &quot;23&quot; = &quot;X&quot;)))) %&gt;%   filter(-log10(P)&gt;1), chr=&quot;CHR&quot;, bp=&quot;POS&quot;, snp=&quot;SNP&quot;, p=&quot;P&quot;, suggestiveline =FALSE, genomewideline = FALSE, chrlabs = c(1:22, &quot;X&quot;), cex = 0.4)</code></pre>
 <p><img src="/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/mhtplot-1.png" width="672" /></p>
 <p>We can spot immediately, that there are loads of SNPs with P-values smaller than <span class="math inline">\(10^{-100}\)</span> (sample size was around <a href="https://www.biorxiv.org/content/early/2018/03/22/274654">700K</a>).</p>
-<!-- ```{r, qqplot}
-library(cookbookRsina)
-QQplot(dat.bmi$P)
-
-``` --->
 <p>Of course, there are many other solutions to spot real associations, but this is not the point of this blogpost ;-).</p>
 </div>
 <div id="identify-genomic-region-with-lowest-p-value" class="section level3">
@@ -428,10 +445,8 @@ QQplot(dat.bmi$P)
 <p>Now that we know that there are lots of genetic markers associated with BMI, we want to look at a specific genomic region and figure out what genes it contains. For illustrative purposes, we pick the genomic region with the lowest P-value.</p>
 <pre class="r"><code>dat.bmi.sel &lt;- dat.bmi %&gt;% slice(which.min(P))
 dat.bmi.sel</code></pre>
-<pre><code>## # A tibble: 1 x 10
-##   CHR        POS REF   ALT   SNP     GMAF  ExAC_MAF  beta     se         P
-##   &lt;chr&gt;    &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
-## 1 16    53800954 T     C     rs1421… C:0.… -        0.078 0.0022 8.60e-269</code></pre>
+<pre><code>##    CHR      POS REF ALT       SNP     GMAF ExAC_MAF  beta     se        P
+## 1:  16 53800954   T   C rs1421085 C:0.2286        - 0.078 0.0022 8.6e-269</code></pre>
 <p>SNP identifier rs1421085 that has the lowest P-value (<span class="math inline">\(P = 8.6\times 10^{-269}\)</span>).</p>
 <p>Now we can visualise the summary statistics of that genomic region (<span class="math inline">\(\pm 500 \cdot 10^{3}\)</span>).</p>
 <pre class="r"><code>range &lt;- 5e+05
@@ -540,11 +555,9 @@ out.bm.grch37</code></pre>
 <p>Next, we want to get the gene name where rs1421085 falls into.</p>
 <p>Let’s check which <code>attributes</code> contain the string <code>gene</code>.</p>
 <pre class="r"><code>listAttributes(snp.ensembl) %&gt;% slice(str_which(name, &quot;gene&quot;)) </code></pre>
-<pre><code>## # A tibble: 2 x 3
-##   name                   description                    page 
-##   &lt;chr&gt;                  &lt;chr&gt;                          &lt;chr&gt;
-## 1 associated_gene        Associated gene with phenotype snp  
-## 2 ensembl_gene_stable_id Gene stable ID                 snp</code></pre>
+<pre><code>##                     name                    description page
+## 1        associated_gene Associated gene with phenotype  snp
+## 2 ensembl_gene_stable_id                 Gene stable ID  snp</code></pre>
 <p>Now use <code>ensembl_gene_stable_id</code> and <code>associated_gene</code> as additional attributes.</p>
 <pre class="r"><code>## extract gene
 ## ----------
