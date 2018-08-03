@@ -613,19 +613,19 @@ out.bm.gene</code></pre>
       mart = gene.ensembl)
 head(out.bm.genes.region)</code></pre>
 <pre><code>##   start_position end_position ensembl_gene_id external_gene_name
-## 1       53055033     53329150 ENSG00000177200               CHD9
-## 2       53310797     53311989 ENSG00000279589         AC079416.2
-## 3       53334562     53334664 ENSG00000238645            RF01210
-## 4       53337453     53337571 ENSG00000202193          RNA5SP427
-## 5       53362019     53363678 ENSG00000259962         AC007342.2
-## 6       53364982     53373083 ENSG00000260078         AC007342.3
-##                         gene_biotype
-## 1                     protein_coding
-## 2                                TEC
-## 3                             snoRNA
-## 4                               rRNA
-## 5             unprocessed_pseudogene
-## 6 transcribed_unprocessed_pseudogene</code></pre>
+## 1       53088945     53363062 ENSG00000177200               CHD9
+## 2       53332136     53333704 ENSG00000261056       RP11-454F8.2
+## 3       53368474     53368576 ENSG00000238645             snoU13
+## 4       53371365     53371483 ENSG00000202193          RNA5SP427
+## 5       53395931     53397590 ENSG00000259962       RP11-44F14.4
+## 6       53398894     53406995 ENSG00000260078       RP11-44F14.1
+##     gene_biotype
+## 1 protein_coding
+## 2     pseudogene
+## 3         snoRNA
+## 4           rRNA
+## 5     pseudogene
+## 6     pseudogene</code></pre>
 <p>We can plot <code>out.bm.genes.region</code> with a linerange plot, where each horizontal line represents one gene.</p>
 <pre class="r"><code>## rank gene names according to start position
 out.bm.genes.region &lt;- out.bm.genes.region %&gt;% mutate(external_gene_name = fct_reorder(external_gene_name, 
