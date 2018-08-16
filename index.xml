@@ -777,29 +777,29 @@ p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))&lt;/code&gt;&lt;/pre&gt;
     </item>
     
     <item>
-      <title>Contact</title>
+      <title>Resources</title>
       <link>/page/resources/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/page/resources/</guid>
       <description>
 
-&lt;h2 id=&#34;statistical-genetics-resources&#34;&gt;Statistical Genetics Resources&lt;/h2&gt;
+&lt;h2 id=&#34;resources-in-statistical-genetics&#34;&gt;Resources in Statistical Genetics&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;(Data)[&lt;a href=&#34;https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-data.md&#34;&gt;https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-data.md&lt;/a&gt;]&lt;/li&gt;
-&lt;li&gt;(Reading)[&lt;a href=&#34;https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-reading.md&#34;&gt;https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-reading.md&lt;/a&gt;]&lt;/li&gt;
-&lt;li&gt;(Software)[&lt;a href=&#34;https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-software.md&#34;&gt;https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-software.md&lt;/a&gt;]&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-data.md&#34;&gt;Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-reading.md&#34;&gt;Reading&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-software.md&#34;&gt;Software&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;map-of-1000-genomes-reference-panel-population&#34;&gt;Map of 1000 Genomes reference panel population&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Source code (here)[&lt;a href=&#34;https://github.com/sinarueeger/map-1000genomes&#34;&gt;https://github.com/sinarueeger/map-1000genomes&lt;/a&gt;]&lt;/li&gt;
-&lt;li&gt;Download html (here)[&lt;a href=&#34;https://github.com/sinarueeger/map-1000genomes/blob/master/map-1000genomes-populations.html&#34;&gt;https://github.com/sinarueeger/map-1000genomes/blob/master/map-1000genomes-populations.html&lt;/a&gt;]&lt;/li&gt;
+&lt;li&gt;Source code &lt;a href=&#34;https://github.com/sinarueeger/map-1000genomes&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Download html &lt;a href=&#34;https://github.com/sinarueeger/map-1000genomes/blob/master/map-1000genomes-populations.html&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;iframe src=&#34;https://github.com/sinarueeger/map-1000genomes/blob/master/map-1000genomes-populations.html&#34;&gt;&lt;/iframe&gt; 
+&lt;iframe seamless src=&#34;https://github.com/sinarueeger/map-1000genomes/blob/master/map-1000genomes-populations.html&#34; width=&#34;100%&#34; height=&#34;500&#34;&gt;&lt;/iframe&gt;
 </description>
     </item>
     
