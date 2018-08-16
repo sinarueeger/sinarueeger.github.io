@@ -799,7 +799,7 @@ p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Download html &lt;a href=&#34;https://github.com/sinarueeger/map-1000genomes/blob/master/map-1000genomes-populations.html&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;iframe seamless src=&#34;/misc/map-1000genomes-populations.html&#34; width=&#34;100%&#34; height=&#34;500&#34;&gt;&lt;/iframe&gt;
+&lt;iframe seamless src=&#34;https://github.com/sinarueeger/map-1000genomes/blob/master/map-1000genomes-populations.html&#34; width=&#34;100%&#34; height=&#34;500&#34;&gt;&lt;/iframe&gt;
 </description>
     </item>
     
