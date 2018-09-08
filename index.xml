@@ -303,6 +303,8 @@ BMI
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Data Source URL
 url &amp;lt;- &amp;quot;https://portals.broadinstitute.org/collaboration/giant/images/2/21/BMI_All_ancestry.fmt.gzip&amp;quot;
 
+#url &amp;lt;- &amp;quot;jenger.riken.jp/1analysisresult_qtl_download/All_2017_BMI_BBJ_autosome.txt.gz&amp;quot;
+
 ## Import BMI summary statistics dat.bmi &amp;lt;- read_tsv(file = url) ##
 ## taking too long, let&amp;#39;s use fread instead.
 
@@ -317,7 +319,7 @@ dat.bmi &amp;lt;- dat.bmi %&amp;gt;% rename(SNP = SNPNAME, P = Pvalue)&lt;/code&
 ##  n obs: 246328 
 ##  n variables: 10 
 ## 
-## ── Variable type:character ─────────────────────────────────────────────────────────────────────
+## ── Variable type:character ────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  variable missing complete      n min max empty n_unique
 ##       ALT       0   246328 246328   1   1     0        4
 ##       CHR       0   246328 246328   1   2     0       23
@@ -326,13 +328,13 @@ dat.bmi &amp;lt;- dat.bmi %&amp;gt;% rename(SNP = SNPNAME, P = Pvalue)&lt;/code&
 ##       REF       0   246328 246328   1   1     0        4
 ##       SNP       0   246328 246328   1  11     0   243206
 ## 
-## ── Variable type:integer ───────────────────────────────────────────────────────────────────────
+## ── Variable type:integer ──────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  variable missing complete      n    mean      sd    p0     p25     p50
 ##       POS       0   246328 246328 7.6e+07 5.7e+07 11885 3.2e+07 6.1e+07
 ##      p75    p100     hist
 ##  1.1e+08 2.5e+08 ▇▇▅▅▃▂▁▁
 ## 
-## ── Variable type:numeric ───────────────────────────────────────────────────────────────────────
+## ── Variable type:numeric ──────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  variable missing complete      n      mean     sd        p0    p25
 ##      beta     977   245351 246328   0.00051   0.13 -3.2      -0.032
 ##         P     977   245351 246328   0.48      0.3   8.6e-269  0.21 
@@ -423,8 +425,10 @@ class(snp.ensembl)&lt;/code&gt;&lt;/pre&gt;
                  &amp;quot;chrom_end&amp;quot;, 
                  &amp;quot;minor_allele&amp;quot;, 
                  &amp;quot;minor_allele_freq&amp;quot;),
+                # &amp;quot;ensembl_transcript_stable_id&amp;quot;,
+                # &amp;quot;consequence_type_tv&amp;quot;),
   filters = &amp;quot;snp_filter&amp;quot;, 
-  values = dat.bmi.sel$SNP, 
+  values = &amp;quot;rs1421085&amp;quot;,#dat.bmi.sel$SNP, 
   mart = snp.ensembl)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This gives us - as chosen in &lt;code&gt;attributes&lt;/code&gt; - the gene identifier, the SNP identifier, the chromosome name, chromosomal position (start + end), minor allele and minor allele frequency. The output in &lt;code&gt;out.bm&lt;/code&gt; corresponds to &lt;a href=&#34;https://www.ensembl.org/Homo_sapiens/Variation/Explore?r=16:53766542-53767542;v=rs1421085;vdb=variation;vf=984887&#34;&gt;this&lt;/a&gt; webpage entry on the ensembl webpage.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;out.bm&lt;/code&gt;&lt;/pre&gt;
@@ -784,11 +788,19 @@ p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))&lt;/code&gt;&lt;/pre&gt;
       <guid>/page/resources/</guid>
       <description>
 
+&lt;h2 id=&#34;talks&#34;&gt;Talks&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.meetup.com/Geek-Girls-Carrots-Geneva/events/253652159/&#34;&gt;Geek Girls Carrots Geneva&lt;/a&gt;, 12-Sept-2018, &lt;a href=&#34;https://sinarueeger.github.io/geekgirlscarrots/slides#1&#34;&gt;Slides&lt;/a&gt;, &lt;a href=&#34;https://github.com/sinarueeger/talks/tree/master/20180912-geek-girls-carrots&#34;&gt;Github&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Source code to all presentation is on &lt;a href=&#34;https://github.com/sinarueeger/talks&#34;&gt;github&lt;/a&gt;.&lt;/p&gt;
+
 &lt;h2 id=&#34;resources-in-statistical-genetics&#34;&gt;Resources in Statistical Genetics&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-data.md&#34;&gt;Data&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-reading.md&#34;&gt;Reading&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-reading.md&#34;&gt;Reading material&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-software.md&#34;&gt;Software&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 

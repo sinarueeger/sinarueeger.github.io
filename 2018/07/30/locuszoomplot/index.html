@@ -391,6 +391,8 @@ BMI
 <pre class="r"><code>## Data Source URL
 url &lt;- &quot;https://portals.broadinstitute.org/collaboration/giant/images/2/21/BMI_All_ancestry.fmt.gzip&quot;
 
+#url &lt;- &quot;jenger.riken.jp/1analysisresult_qtl_download/All_2017_BMI_BBJ_autosome.txt.gz&quot;
+
 ## Import BMI summary statistics dat.bmi &lt;- read_tsv(file = url) ##
 ## taking too long, let&#39;s use fread instead.
 
@@ -405,7 +407,7 @@ dat.bmi &lt;- dat.bmi %&gt;% rename(SNP = SNPNAME, P = Pvalue)</code></pre>
 ##  n obs: 246328 
 ##  n variables: 10 
 ## 
-## ── Variable type:character ─────────────────────────────────────────────────────────────────────
+## ── Variable type:character ────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  variable missing complete      n min max empty n_unique
 ##       ALT       0   246328 246328   1   1     0        4
 ##       CHR       0   246328 246328   1   2     0       23
@@ -414,13 +416,13 @@ dat.bmi &lt;- dat.bmi %&gt;% rename(SNP = SNPNAME, P = Pvalue)</code></pre>
 ##       REF       0   246328 246328   1   1     0        4
 ##       SNP       0   246328 246328   1  11     0   243206
 ## 
-## ── Variable type:integer ───────────────────────────────────────────────────────────────────────
+## ── Variable type:integer ──────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  variable missing complete      n    mean      sd    p0     p25     p50
 ##       POS       0   246328 246328 7.6e+07 5.7e+07 11885 3.2e+07 6.1e+07
 ##      p75    p100     hist
 ##  1.1e+08 2.5e+08 ▇▇▅▅▃▂▁▁
 ## 
-## ── Variable type:numeric ───────────────────────────────────────────────────────────────────────
+## ── Variable type:numeric ──────────────────────────────────────────────────────────────────────────────────────────────────────────
 ##  variable missing complete      n      mean     sd        p0    p25
 ##      beta     977   245351 246328   0.00051   0.13 -3.2      -0.032
 ##         P     977   245351 246328   0.48      0.3   8.6e-269  0.21 
@@ -511,8 +513,10 @@ class(snp.ensembl)</code></pre>
                  &quot;chrom_end&quot;, 
                  &quot;minor_allele&quot;, 
                  &quot;minor_allele_freq&quot;),
+                # &quot;ensembl_transcript_stable_id&quot;,
+                # &quot;consequence_type_tv&quot;),
   filters = &quot;snp_filter&quot;, 
-  values = dat.bmi.sel$SNP, 
+  values = &quot;rs1421085&quot;,#dat.bmi.sel$SNP, 
   mart = snp.ensembl)</code></pre>
 <p>This gives us - as chosen in <code>attributes</code> - the gene identifier, the SNP identifier, the chromosome name, chromosomal position (start + end), minor allele and minor allele frequency. The output in <code>out.bm</code> corresponds to <a href="https://www.ensembl.org/Homo_sapiens/Variation/Explore?r=16:53766542-53767542;v=rs1421085;vdb=variation;vf=984887">this</a> webpage entry on the ensembl webpage.</p>
 <pre class="r"><code>out.bm</code></pre>
