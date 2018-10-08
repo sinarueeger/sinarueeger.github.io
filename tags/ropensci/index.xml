@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Satrday on Analysing genetic data</title>
-    <link>/tags/satrday/</link>
-    <description>Recent content in Satrday on Analysing genetic data</description>
+    <title>Ropensci on Analysing genetic data</title>
+    <link>/tags/ropensci/</link>
+    <description>Recent content in Ropensci on Analysing genetic data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
     <lastBuildDate>Wed, 04 Jul 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/satrday/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/ropensci/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

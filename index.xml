@@ -7,10 +7,159 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 14 Apr 2018 10:00:03 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 04 Jul 2018 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>satRday Cardiff 2018</title>
+      <link>/2018/07/04/satrdaycardiff/</link>
+      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/07/04/satrdaycardiff/</guid>
+      <description>
+
+&lt;p&gt;This is a brief write-up of my &lt;a href=&#34;http://cardiff2018.satrdays.org/&#34;&gt;satRdays Cardiff&lt;/a&gt; experience.&lt;/p&gt;
+
+&lt;p&gt;First - what is a &lt;a href=&#34;http://satrdays.org/&#34;&gt;&lt;strong&gt;satRday&lt;/strong&gt;&lt;/a&gt;?&lt;/p&gt;
+
+&lt;p&gt;It is an awesome concept: attending an &lt;strong&gt;R conference&lt;/strong&gt; organised by a &lt;strong&gt;local RUG&lt;/strong&gt; on a &lt;strong&gt;Saturday&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&#34;http://cardiff2018.satrdays.org/#programme&#34;&gt;programme&lt;/a&gt; in Cardiff had parallel sessions - tough decision-making to pick between promising talks!&lt;/p&gt;
+
+&lt;h2 id=&#34;dplyr-workshop&#34;&gt;&lt;code&gt;dplyr&lt;/code&gt; workshop&lt;/h2&gt;
+
+&lt;p&gt;Kathrine Tansey kept us busy with a workshop on &lt;code&gt;dplyr&lt;/code&gt; in the morning.&lt;/p&gt;
+
+&lt;p&gt;💻 &lt;a href=&#34;https://rstudio.cloud/project/42122&#34;&gt;rstudio-cloud project&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937493-bf142a7c-7990-11e8-9174-ddb57641438b.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;packaging-workshop&#34;&gt;Packaging workshop&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/HeathrTurnr&#34;&gt;Heather Turner&lt;/a&gt; upgraded us on packaging.&lt;/p&gt;
+
+&lt;p&gt;💡 useful tips and workflow! Eager to apply what I learned.&lt;/p&gt;
+
+&lt;p&gt;💻 &lt;a href=&#34;https://rstudio.cloud/project/38916&#34;&gt;rstudio-cloud project&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;➡️ &lt;a href=&#34;https://github.com/forwards/workshops/blob/master/Cardiff-satRday/mini-course.pptx&#34;&gt;Slides&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;introduction-to-tidytext&#34;&gt;Introduction to tidytext&lt;/h2&gt;
+
+&lt;p&gt;Textmining with &lt;a href=&#34;https://twitter.com/Nujcharee&#34;&gt;Nujcharee (เป็ด)&lt;/a&gt;, applied to #metoo twitter data:&lt;/p&gt;
+
+&lt;blockquote class=&#34;twitter-tweet&#34; data-cards=&#34;hidden&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;My slide on Introduction to Tidytext &lt;a href=&#34;https://t.co/XOiEiedNjN&#34;&gt;https://t.co/XOiEiedNjN&lt;/a&gt; &lt;a href=&#34;https://twitter.com/satRdays_org?ref_src=twsrc%5Etfw&#34;&gt;@satRdays_org&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstats&lt;/a&gt;&lt;/p&gt;&amp;mdash; Nujcharee (เป็ด) (@Nujcharee) &lt;a href=&#34;https://twitter.com/Nujcharee/status/1010521563676991489?ref_src=twsrc%5Etfw&#34;&gt;June 23, 2018&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937494-bf3e2020-7990-11e8-8453-a6b566e3b469.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937495-bf6db1b4-7990-11e8-8ad3-cd9a5727feff.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;package-reviews-with-ropensci&#34;&gt;Package reviews with rOpenSci&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/ma_salmon&#34;&gt;Maëlle Salmon&lt;/a&gt; presented the review process of &lt;a href=&#34;https://ropensci.org/&#34;&gt;rOpenSci&lt;/a&gt; and then reviewed the review process using the force of textmining.&lt;/p&gt;
+
+&lt;p&gt;💡 Rigorous, but friendly reviewing process at &lt;a href=&#34;https://ropensci.org/&#34;&gt;rOpenSci&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;More info on submitting a package for review &lt;a href=&#34;https://ropensci.github.io/dev_guide/policies.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;➡️ &lt;a href=&#34;https://maelle.github.io/satrday_cardiff/slides&#34;&gt;Slides&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937496-bf8bc802-7990-11e8-8ec5-7854d7b5bbf0.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937497-bfa75bd0-7990-11e8-97a8-f4af880a2233.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;airtable-r&#34;&gt;Airtable &amp;amp; R&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/AmyMcDougall96&#34;&gt;Amy McDougall&lt;/a&gt; presented &lt;a href=&#34;https://airtable.com/&#34;&gt;airtable&lt;/a&gt; (💡!) and the R interface &lt;a href=&#34;https://github.com/bergant/airtabler&#34;&gt;&lt;code&gt;airtabler&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Amy wrote a blogpost on &lt;a href=&#34;https://itsalocke.com/blog/how-to-use-an-r-interface-with-airtable-api/&#34;&gt;this topic too&lt;/a&gt; (which I found through Locke Data&amp;rsquo;s write up &lt;a href=&#34;https://itsalocke.com/blog/satrdays-cardiff/&#34;&gt;here&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;➡️ &lt;a href=&#34;https://github.com/Amymcdougall/talks/tree/master/airtable-and-r&#34;&gt;Slides&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937499-bfe9f562-7990-11e8-90f5-62c866c54055.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;lightening-talks&#34;&gt;Lightening talks&lt;/h2&gt;
+
+&lt;h3 id=&#34;counting-and-weighing-penguins&#34;&gt;Counting and weighing Penguins&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/pboesu&#34;&gt;Philipp Boersch-Supan&lt;/a&gt; telling us about the challenges of counting penguins (and apparently &lt;code&gt;Rcpp&lt;/code&gt; helps).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937501-c02f66ec-7990-11e8-8768-7c72c4347e7d.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;integrating-command-line-tools-with-r&#34;&gt;Integrating command-line tools with R&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/wuergh&#34;&gt;Erle Holgersen&lt;/a&gt;: embrace the &lt;code&gt;system()&lt;/code&gt; function for command-line snippets in R.&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ls.directory &amp;lt;- system(&amp;quot;ls -all&amp;quot;, intern = TRUE)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;💡 &lt;code&gt;intern = TRUE&lt;/code&gt; is my new friend!&lt;/p&gt;
+
+&lt;p&gt;Other tips:
+- use the command line functionality in &lt;code&gt;data.table::fread(&amp;quot;&amp;quot;)&lt;/code&gt;
+- make use of &lt;code&gt;tempfile()&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937502-c04b0a3c-7990-11e8-80d4-093b6e22ba5c.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;git-in-five&#34;&gt;git in five&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/TheStephLocke&#34;&gt;Steph Locke&lt;/a&gt; gave &lt;em&gt;git in a nutshell&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;💡 Recommendation: use &lt;a href=&#34;https://www.gitkraken.com/&#34;&gt;GitKraken&lt;/a&gt; as a GUI client.&lt;/p&gt;
+
+&lt;h3 id=&#34;tidy-eval&#34;&gt;tidy eval&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/nic_crane&#34;&gt;Nic Crane&lt;/a&gt; explaining the basics of &lt;a href=&#34;https://thisisnic.github.io/2018/03/29/what-is-tidy-eval-and-why-should-i-care/&#34;&gt;&lt;em&gt;tidy eval&lt;/em&gt;&lt;/a&gt; and when it is needed (💡 functions!).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937503-c07f5328-7990-11e8-911d-0935036da635.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;a-simple-bayesian-workflow&#34;&gt;A simple Bayesian workflow&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/brennanpcardiff&#34;&gt;Paul Robinson&lt;/a&gt; presented his &lt;a href=&#34;https://bioconductor.org/&#34;&gt;Bioconductor&lt;/a&gt; package dealing with proteins.&lt;/p&gt;
+
+&lt;p&gt;➡️ &lt;a href=&#34;https://rpubs.com/brennanpincardiff/drawproteins_satRday_2018&#34;&gt;Slides&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;r-forwards-and-r-ladies-remote&#34;&gt;R-Forwards and R-Ladies Remote&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/HeathrTurnr&#34;&gt;Heather Turner&lt;/a&gt; presented two #rstats related initiatives.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://forwards.github.io/&#34;&gt;&lt;strong&gt;R Forwards&lt;/strong&gt;&lt;/a&gt; is an initiative to widen the participation of under-represented groups ➡️ looking for volunteers that take on &lt;a href=&#34;https://github.com/forwards/tasks/issues&#34;&gt;tasks&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937505-c0bee56a-7990-11e8-9ab3-ed7bf54967e0.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/rladiesremote?lang=en&#34;&gt;&lt;strong&gt;R-Ladies remote&lt;/strong&gt;&lt;/a&gt; chapter: has monthly coffee breaks on slack!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937506-c106292a-7990-11e8-9160-5e745c5de340.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;final-remarks&#34;&gt;Final remarks&lt;/h2&gt;
+
+&lt;p&gt;👏 Kudos to the organisers! They paid lots of attention to details and did an awesome job in making everyone feel welcome!&lt;/p&gt;
+
+&lt;p&gt;✍️ Mental note to self: I should probably learn how to take pics at the right time + live tweet 😉&lt;/p&gt;
+
+&lt;h2 id=&#34;further-information&#34;&gt;Further information&lt;/h2&gt;
+
+&lt;p&gt;📁 &lt;a href=&#34;https://github.com/satRdays/cardiff2018_talks&#34;&gt;Slides repo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;📘 Check out Maëlle&amp;rsquo;s blogpost on &lt;a href=&#34;https://masalmon.eu/2018/06/26/storrrify-satrdaycdf-2018/&#34;&gt;Storrrify #satRdayCDF 2018&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;📘 Loads of info from the &lt;a href=&#34;https://itsalocke.com/blog/satrdays-cardiff/&#34;&gt;Locke Data team members&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/search?q=satRdayCDF&amp;amp;src=typd&#34;&gt;#satRdayCDF&lt;/a&gt; on Twitter.&lt;/p&gt;
+
+&lt;p&gt;⏭️ &lt;a href=&#34;https://amsterdam2018.satrdays.org/&#34;&gt;Next satRday&lt;/a&gt; is on September 1 2018 in Amsterdam.&lt;/p&gt;
+
+&lt;p&gt;📅 Check all &lt;a href=&#34;satrdays.org/events/&#34;&gt;upcoming events&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Also 👇&lt;/p&gt;
+
+&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;If you would like a satRday near you, why not run one?&lt;br&gt;&lt;br&gt;Here&amp;#39;s what you need to know to decide if it&amp;#39;s right for you &lt;a href=&#34;https://t.co/Szy7AMB3rF&#34;&gt;https://t.co/Szy7AMB3rF&lt;/a&gt;&lt;/p&gt;&amp;mdash; satRdays (@satRdays_org) &lt;a href=&#34;https://twitter.com/satRdays_org/status/1011627085507506177?ref_src=twsrc%5Etfw&#34;&gt;June 26, 2018&lt;/a&gt;&lt;/blockquote&gt;
+</description>
+    </item>
     
     <item>
       <title>Setting up the Blogdown website</title>
