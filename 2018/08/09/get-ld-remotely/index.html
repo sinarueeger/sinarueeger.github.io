@@ -235,20 +235,20 @@ r &lt;- GET(paste(server, ext, sep = &quot;&quot;), content_type(&quot;applicati
 stop_for_status(r)
  
 head(fromJSON(toJSON(content(r))))</code></pre>
-<pre><code>##                      name
-## 1 1000GENOMES:phase_3:ACB
-## 2 1000GENOMES:phase_3:ASW
-## 3 1000GENOMES:phase_3:BEB
-## 4 1000GENOMES:phase_3:CDX
-## 5 1000GENOMES:phase_3:CEU
-## 6 1000GENOMES:phase_3:CHB
-##                                                  description size
-## 1                              African Caribbean in Barbados   96
-## 2                           African Ancestry in Southwest US   61
-## 3                                      Bengali in Bangladesh   86
-## 4                        Chinese Dai in Xishuangbanna, China   93
-## 5 Utah residents with Northern and Western European ancestry   99
-## 6                               Han Chinese in Bejing, China  103</code></pre>
+<pre><code>##   size                    name
+## 1   96 1000GENOMES:phase_3:ACB
+## 2   61 1000GENOMES:phase_3:ASW
+## 3   86 1000GENOMES:phase_3:BEB
+## 4   93 1000GENOMES:phase_3:CDX
+## 5   99 1000GENOMES:phase_3:CEU
+## 6  103 1000GENOMES:phase_3:CHB
+##                                                  description
+## 1                              African Caribbean in Barbados
+## 2                           African Ancestry in Southwest US
+## 3                                      Bengali in Bangladesh
+## 4                        Chinese Dai in Xishuangbanna, China
+## 5 Utah residents with Northern and Western European ancestry
+## 6                               Han Chinese in Bejing, China</code></pre>
 <p><code>name</code> stands for the population identifier. <code>size</code> refers to the number of individuals in the reference panel. Note that these are all populations with around 100 individuals (meaning, we are accessing correlation estimations with a large error margin). There are also the five super population available (although not listed here), simply replace the last three characters by <code>EUR</code>, <code>AFR</code>, <code>AMR</code>, <code>EAS</code>, <code>SAS</code>.</p>
 <p>Here is a better overview of the all populations, source code <a href="https://github.com/sinarueeger/map-1000genomes">here</a>.</p>
 <iframe seamless src="/misc/map-1000genomes-populations.html" width="100%" height="500">
@@ -415,32 +415,31 @@ LD.SNP.SNPs</code></pre>
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] xml2_1.2.0       jsonlite_1.5     httr_1.3.1       rsnps_0.2.6.9414
-##  [5] bindrcpp_0.2.2   forcats_0.3.0    stringr_1.3.1    dplyr_0.7.6     
+##  [1] bindrcpp_0.2.2   xml2_1.2.0       jsonlite_1.5     httr_1.3.1      
+##  [5] rsnps_0.2.6.9414 forcats_0.3.0    stringr_1.3.1    dplyr_0.7.6     
 ##  [9] purrr_0.2.5      readr_1.1.1      tidyr_0.8.1      tibble_1.4.2    
 ## [13] ggplot2_3.0.0    tidyverse_1.2.1 
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] tidyselect_0.2.4   xfun_0.3           haven_1.1.2       
 ##  [4] lattice_0.20-35    colorspace_1.3-2   htmltools_0.3.6   
-##  [7] yaml_2.2.0         utf8_1.1.4         XML_3.98-1.16     
-## [10] rlang_0.2.2        pillar_1.3.0       httpcode_0.2.0    
-## [13] glue_1.3.0         withr_2.1.2        RColorBrewer_1.1-2
-## [16] modelr_0.1.2       readxl_1.1.0       bindr_0.1.1       
-## [19] plyr_1.8.4         munsell_0.5.0      blogdown_0.8      
-## [22] gtable_0.2.0       cellranger_1.1.0   rvest_0.3.2       
-## [25] codetools_0.2-15   evaluate_0.11      labeling_0.3      
-## [28] knitr_1.20         curl_3.2           fansi_0.3.0       
-## [31] triebeard_0.3.0    urltools_1.7.1     broom_0.5.0       
-## [34] Rcpp_0.12.18       scales_1.0.0       backports_1.1.2   
-## [37] hms_0.4.2          digest_0.6.17      stringi_1.2.4     
-## [40] bookdown_0.7       grid_3.5.1         rprojroot_1.3-2   
-## [43] cli_1.0.0          tools_3.5.1        magrittr_1.5      
-## [46] lazyeval_0.2.1     crul_0.6.0         crayon_1.3.4      
-## [49] pkgconfig_2.0.2    data.table_1.11.4  lubridate_1.7.4   
-## [52] assertthat_0.2.0   rmarkdown_1.10     rstudioapi_0.7    
-## [55] R6_2.2.2           icon_0.1.0         nlme_3.1-137      
-## [58] compiler_3.5.1</code></pre>
+##  [7] yaml_2.2.0         XML_3.98-1.16      rlang_0.2.2       
+## [10] pillar_1.3.0       httpcode_0.2.0     glue_1.3.0        
+## [13] withr_2.1.2        RColorBrewer_1.1-2 modelr_0.1.2      
+## [16] readxl_1.1.0       bindr_0.1.1        plyr_1.8.4        
+## [19] munsell_0.5.0      blogdown_0.8       gtable_0.2.0      
+## [22] cellranger_1.1.0   rvest_0.3.2        evaluate_0.11     
+## [25] labeling_0.3       knitr_1.20         curl_3.2          
+## [28] triebeard_0.3.0    urltools_1.7.1     broom_0.5.0       
+## [31] Rcpp_0.12.18       scales_1.0.0       backports_1.1.2   
+## [34] hms_0.4.2          digest_0.6.17      stringi_1.2.4     
+## [37] bookdown_0.7       grid_3.5.1         rprojroot_1.3-2   
+## [40] cli_1.0.0          tools_3.5.1        magrittr_1.5      
+## [43] lazyeval_0.2.1     crul_0.6.0         crayon_1.3.4      
+## [46] pkgconfig_2.0.2    data.table_1.11.4  lubridate_1.7.4   
+## [49] assertthat_0.2.0   rmarkdown_1.10     rstudioapi_0.7    
+## [52] R6_2.2.2           icon_0.1.0         nlme_3.1-137      
+## [55] compiler_3.5.1</code></pre>
 </div>
 </div>
 
