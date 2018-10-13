@@ -235,20 +235,20 @@ r &lt;- GET(paste(server, ext, sep = &quot;&quot;), content_type(&quot;applicati
 stop_for_status(r)
  
 head(fromJSON(toJSON(content(r))))</code></pre>
-<pre><code>##                      name
-## 1 1000GENOMES:phase_3:ACB
-## 2 1000GENOMES:phase_3:ASW
-## 3 1000GENOMES:phase_3:BEB
-## 4 1000GENOMES:phase_3:CDX
-## 5 1000GENOMES:phase_3:CEU
-## 6 1000GENOMES:phase_3:CHB
-##                                                  description size
-## 1                              African Caribbean in Barbados   96
-## 2                           African Ancestry in Southwest US   61
-## 3                                      Bengali in Bangladesh   86
-## 4                        Chinese Dai in Xishuangbanna, China   93
-## 5 Utah residents with Northern and Western European ancestry   99
-## 6                               Han Chinese in Bejing, China  103</code></pre>
+<pre><code>##   size                    name
+## 1   96 1000GENOMES:phase_3:ACB
+## 2   61 1000GENOMES:phase_3:ASW
+## 3   86 1000GENOMES:phase_3:BEB
+## 4   93 1000GENOMES:phase_3:CDX
+## 5   99 1000GENOMES:phase_3:CEU
+## 6  103 1000GENOMES:phase_3:CHB
+##                                                  description
+## 1                              African Caribbean in Barbados
+## 2                           African Ancestry in Southwest US
+## 3                                      Bengali in Bangladesh
+## 4                        Chinese Dai in Xishuangbanna, China
+## 5 Utah residents with Northern and Western European ancestry
+## 6                               Han Chinese in Bejing, China</code></pre>
 <p><code>name</code> stands for the population identifier. <code>size</code> refers to the number of individuals in the reference panel. Note that these are all populations with around 100 individuals (meaning, we are accessing correlation estimations with a large error margin). There are also the five super population available (although not listed here), simply replace the last three characters by <code>EUR</code>, <code>AFR</code>, <code>AMR</code>, <code>EAS</code>, <code>SAS</code>.</p>
 <p>Here is a better overview of the all populations, source code <a href="https://github.com/sinarueeger/map-1000genomes">here</a>.</p>
 <iframe seamless src="/misc/map-1000genomes-populations.html" width="100%" height="500">
@@ -292,18 +292,18 @@ stop_for_status(r)
 LD.matrix &lt;- as_tibble(fromJSON(toJSON(content(r)))) %&gt;% unnest()
 LD.matrix</code></pre>
 <pre><code>## # A tibble: 31,874 x 5
-##    variation2  r2       variation1  d_prime  population_name        
-##    &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;                  
-##  1 rs530568312 0.995908 rs7190396   1.000000 1000GENOMES:phase_3:EUR
-##  2 rs11646715  0.210147 rs67019605  0.508388 1000GENOMES:phase_3:EUR
-##  3 rs576360210 0.075850 rs1075440   0.510602 1000GENOMES:phase_3:EUR
-##  4 rs62048378  0.541160 rs11861870  0.999992 1000GENOMES:phase_3:EUR
-##  5 rs2042032   0.067882 rs74498370  0.502037 1000GENOMES:phase_3:EUR
-##  6 rs114078316 1.000000 rs200847717 1.000000 1000GENOMES:phase_3:EUR
-##  7 rs56108343  0.164164 rs3751814   0.999968 1000GENOMES:phase_3:EUR
-##  8 rs12448529  0.073074 rs111832229 0.999848 1000GENOMES:phase_3:EUR
-##  9 rs77178696  0.132869 rs72622243  0.956391 1000GENOMES:phase_3:EUR
-## 10 rs76442450  0.055009 rs9939973   0.999955 1000GENOMES:phase_3:EUR
+##    d_prime  variation1 r2       population_name         variation2 
+##    &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;                   &lt;chr&gt;      
+##  1 0.999943 rs10521307 0.137483 1000GENOMES:phase_3:EUR rs17818997 
+##  2 0.995401 rs1861869  0.821725 1000GENOMES:phase_3:EUR rs11354436 
+##  3 0.983529 rs4784326  0.201861 1000GENOMES:phase_3:EUR rs146746378
+##  4 0.999922 rs8054908  0.134482 1000GENOMES:phase_3:EUR rs1344501  
+##  5 0.406763 rs17525605 0.130793 1000GENOMES:phase_3:EUR rs8045332  
+##  6 0.665497 rs6499642  0.232699 1000GENOMES:phase_3:EUR rs8063946  
+##  7 0.999986 rs9302652  0.271971 1000GENOMES:phase_3:EUR rs7203051  
+##  8 0.483534 rs11643744 0.117837 1000GENOMES:phase_3:EUR rs11646715 
+##  9 0.889222 rs74020803 0.078826 1000GENOMES:phase_3:EUR rs8055802  
+## 10 0.959997 rs9925952  0.080351 1000GENOMES:phase_3:EUR rs17818920 
 ## # ... with 31,864 more rows</code></pre>
 <p>Using <code>LD.matrix</code> we could make a traditional LD matrix plot (scale white to red). But again we refrain from that because of my poor laptop.</p>
 <pre class="r"><code>ggplot(data = LD.matrix) + geom_tile(aes(x = variation1, y = variation2, fill = r2)) + scale_fill_gradient(low = &#39;white&#39;, high = &quot;red&quot;)</code></pre>
@@ -331,18 +331,18 @@ other.snps &lt;- intersect(LD.SNP.region$variation2, dat.bmi.sel.region$SNP) ## 
 LD.SNP.SNPs &lt;- purrr::map_df(other.snps, f.extract.ld, snp, &quot;EUR&quot;) %&gt;% mutate(r2 = as.numeric(r2)) %&gt;% bind_rows() %&gt;% unnest()
 LD.SNP.SNPs</code></pre>
 <pre><code>## # A tibble: 10 x 5
-##    variation2 population_name         variation1     r2 d_prime 
-##    &lt;chr&gt;      &lt;chr&gt;                   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;   
-##  1 rs11075987 1000GENOMES:phase_3:EUR rs1421085  0.575  0.900608
-##  2 rs17817449 1000GENOMES:phase_3:EUR rs1421085  0.921  0.995704
-##  3 rs1558902  1000GENOMES:phase_3:EUR rs1421085  1      1.000000
-##  4 rs9930506  1000GENOMES:phase_3:EUR rs1421085  0.819  0.916287
-##  5 rs1121980  1000GENOMES:phase_3:EUR rs1421085  0.957  1.000000
-##  6 rs9941349  1000GENOMES:phase_3:EUR rs1421085  0.877  0.953708
-##  7 rs3751813  1000GENOMES:phase_3:EUR rs1421085  0.602  0.994207
-##  8 rs9939609  1000GENOMES:phase_3:EUR rs1421085  0.918  0.995690
-##  9 rs8050136  1000GENOMES:phase_3:EUR rs1421085  0.918  0.995690
-## 10 rs1421085  1000GENOMES:phase_3:EUR rs6499640  0.0765 0.393204</code></pre>
+##    variation2     r2 variation1 d_prime  population_name        
+##    &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;                  
+##  1 rs1421085  0.0765 rs6499640  0.393204 1000GENOMES:phase_3:EUR
+##  2 rs8050136  0.918  rs1421085  0.995690 1000GENOMES:phase_3:EUR
+##  3 rs9939609  0.918  rs1421085  0.995690 1000GENOMES:phase_3:EUR
+##  4 rs9941349  0.877  rs1421085  0.953708 1000GENOMES:phase_3:EUR
+##  5 rs3751813  0.602  rs1421085  0.994207 1000GENOMES:phase_3:EUR
+##  6 rs1121980  0.957  rs1421085  1.000000 1000GENOMES:phase_3:EUR
+##  7 rs9930506  0.819  rs1421085  0.916287 1000GENOMES:phase_3:EUR
+##  8 rs1558902  1      rs1421085  1.000000 1000GENOMES:phase_3:EUR
+##  9 rs17817449 0.921  rs1421085  0.995704 1000GENOMES:phase_3:EUR
+## 10 rs11075987 0.575  rs1421085  0.900608 1000GENOMES:phase_3:EUR</code></pre>
 <p>To calculate the LD matrix (<code>LD.matrix</code>) or the LD between SNP pairs (<code>LD.SNP.SNPs</code>) takes a substantial amount of time.</p>
 </div>
 <div id="colored-locuszoom-plot" class="section level3">
@@ -415,8 +415,8 @@ LD.SNP.SNPs</code></pre>
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] bindrcpp_0.2.2   xml2_1.2.0       jsonlite_1.5     httr_1.3.1      
-##  [5] rsnps_0.2.6.9414 forcats_0.3.0    stringr_1.3.1    dplyr_0.7.6     
+##  [1] xml2_1.2.0       jsonlite_1.5     httr_1.3.1       rsnps_0.2.6.9414
+##  [5] bindrcpp_0.2.2   forcats_0.3.0    stringr_1.3.1    dplyr_0.7.6     
 ##  [9] purrr_0.2.5      readr_1.1.1      tidyr_0.8.1      tibble_1.4.2    
 ## [13] ggplot2_3.0.0    tidyverse_1.2.1 
 ## 
