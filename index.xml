@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Analysing genetic data</title>
-    <link>/</link>
+    <link>https://sinarueeger.github.io/</link>
     <description>Recent content on Analysing genetic data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
     <lastBuildDate>Tue, 09 Oct 2018 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://sinarueeger.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Tidying workflows in R</title>
-      <link>/2018/10/09/workflow/</link>
+      <link>https://sinarueeger.github.io/2018/10/09/workflow/</link>
       <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/10/09/workflow/</guid>
+      <guid>https://sinarueeger.github.io/2018/10/09/workflow/</guid>
       <description>&lt;p&gt;Recently, I started to seriously&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; think about the tidiness of data analysis project folders, and the implications of tidying up.&lt;/p&gt;
 &lt;p&gt;I was lucky enough to talk about what I have figured out so far at the &lt;a href=&#34;https://www.meetup.com/Geneve-R-User-Group/&#34;&gt;Geneve R User Group&lt;/a&gt;. While I am not done yet with reflecting on this&lt;a href=&#34;#fn2&#34; class=&#34;footnoteRef&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;, I wanted to write down my thoughts that lead to &lt;a href=&#34;https://sinarueeger.github.io/20181004-geneve-rug/slides#1&#34;&gt;my presentation&lt;/a&gt;&lt;a href=&#34;#fn3&#34; class=&#34;footnoteRef&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;. So all what follows is just “thinking out loud”.&lt;/p&gt;
 &lt;figure&gt;
-&lt;img src=&#34;/post/workflow/trailer.mp4&#34; alt=&#34;Trailer&#34; align=&#34;middle&#34; style=&#34;width: 400px;&#34;/&gt;
+&lt;img src=&#34;https://sinarueeger.github.io/post/workflow/trailer.mp4&#34; alt=&#34;Trailer&#34; align=&#34;middle&#34; style=&#34;width: 400px;&#34;/&gt;
 &lt;figcaption&gt;
 &lt;small&gt;Presentation trailer made with &lt;a href=&#34;https://masalmon.eu/2018/10/07/trailer/&#34;&gt;Maëlle Salmon’s instructions&lt;/a&gt;. &lt;/small&gt;
 &lt;/figcaption&gt;
@@ -30,7 +30,7 @@
 &lt;h2&gt;What is a “project folder”?&lt;/h2&gt;
 &lt;p&gt;To me a project folder is anything that contains the (R-)scripts necessary to run a data analysis and create the corresponding report. It is like a framed piece of work that you can take and place somewhere else. It is likely to take the form of the Figure from the &lt;a href=&#34;http://r4ds.had.co.nz/explore-intro.html&#34;&gt;R4DS&lt;/a&gt; book below:&lt;/p&gt;
 &lt;figure&gt;
-&lt;img src=&#34;/post/workflow/workflow.png&#34; alt=&#34;Drawing of a table.&#34; align=&#34;middle&#34; style=&#34;width: 600px;&#34;/&gt;
+&lt;img src=&#34;https://sinarueeger.github.io/post/workflow/workflow.png&#34; alt=&#34;Drawing of a table.&#34; align=&#34;middle&#34; style=&#34;width: 600px;&#34;/&gt;
 &lt;figcaption&gt;
 &lt;small&gt;Adapted from Figure in &lt;a href=&#34;http://r4ds.had.co.nz/explore-intro.html&#34;&gt;R4DS book&lt;/a&gt;. &lt;/small&gt;
 &lt;/figcaption&gt;
@@ -50,7 +50,7 @@
 &lt;li&gt;If you want to compile an R-package you have little to no freedom in how to name folders. You must have a given folder and file structure. Otherwise it won’t compile. This dictated and unified folder structure makes it easy for R users to understand what is where in an R-package. No matter who coded it.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure&gt;
-&lt;img src=&#34;/post/workflow/package-files.png&#34; alt=&#34;Drawing of a table.&#34; align=&#34;middle&#34; style=&#34;width: 300px;&#34;/&gt;
+&lt;img src=&#34;https://sinarueeger.github.io/post/workflow/package-files.png&#34; alt=&#34;Drawing of a table.&#34; align=&#34;middle&#34; style=&#34;width: 300px;&#34;/&gt;
 &lt;figcaption&gt;
 &lt;small&gt;R package structure. Figure from &lt;a href=&#34;http://r-pkgs.had.co.nz/package.html.&#34;&gt;http://r-pkgs.had.co.nz/package.html&lt;/a&gt;. &lt;/small&gt;
 &lt;/figcaption&gt;
@@ -187,12 +187,12 @@ vis_drake_graph(config) &lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Locuszoom plot of GWAS summary statistics</title>
-      <link>/2018/07/30/locuszoomplot/</link>
+      <link>https://sinarueeger.github.io/2018/07/30/locuszoomplot/</link>
       <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/07/30/locuszoomplot/</guid>
-      <description>&lt;link href=&#34;/rmarkdown-libs/ionicons/css/ionicons.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+      <guid>https://sinarueeger.github.io/2018/07/30/locuszoomplot/</guid>
+      <description>&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/ionicons/css/ionicons.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;!--make a plot, that did not work with knitting--&gt;
@@ -422,7 +422,7 @@ BMI
 &lt;p&gt;For this blogpost, we keep it simple and only focus on the &lt;strong&gt;genes contained in a genomic region&lt;/strong&gt;, but this can be easily extended to any other annotation available in databases.&lt;/p&gt;
 &lt;p&gt;In the illustration below&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, we want to know the gene starting and end positions around one particular gene region to create an informative locuszoom plot.&lt;/p&gt;
 &lt;figure&gt;
-&lt;img src=&#34;/post/annotation/locuszoom-sketch.png&#34; alt=&#34;Drawing of a table.&#34; align=&#34;middle&#34; style=&#34;width: 600px;&#34;/&gt;
+&lt;img src=&#34;https://sinarueeger.github.io/post/annotation/locuszoom-sketch.png&#34; alt=&#34;Drawing of a table.&#34; align=&#34;middle&#34; style=&#34;width: 600px;&#34;/&gt;
 &lt;figcaption&gt;
 &lt;small&gt;In this case, we want to visualise the GWAS P-value (-log10(P-value)) of a genomic region (with each point representing a SNP), with the corresponding genes at the bottom. This is similar to a plot done with &lt;a href=&#34;http://locuszoom.org/&#34;&gt;LocusZoom&lt;/a&gt;, a tool that takes summary statistics as input and outputs a pretty graph for a desired genomic region, including gene annotation, LD information and more. &lt;/small&gt;
 &lt;/figcaption&gt;
@@ -523,7 +523,7 @@ dat.bmi &amp;lt;- dat.bmi %&amp;gt;% rename(SNP = SNPNAME, P = Pvalue)&lt;/code&
 &lt;h3&gt;Visualising associations&lt;/h3&gt;
 &lt;p&gt;Visualising all associations at once can be done with a Manhattan plot, where the x-axis represents chromosome&lt;code&gt;CHR&lt;/code&gt; and the chromosomal position &lt;code&gt;POS&lt;/code&gt;, and the y-axis the &lt;code&gt;-log10(P)&lt;/code&gt;-value. Let’s use the R-package &lt;code&gt;qqman&lt;/code&gt;&lt;a href=&#34;#fn6&#34; class=&#34;footnoteRef&#34; id=&#34;fnref6&#34;&gt;&lt;sup&gt;6&lt;/sup&gt;&lt;/a&gt; for that.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qqman::manhattan(dat.bmi %&amp;gt;% mutate(CHR = as.numeric(as.character(fct_recode(CHR, &amp;quot;23&amp;quot; = &amp;quot;X&amp;quot;)))) %&amp;gt;%   filter(-log10(P)&amp;gt;1), chr=&amp;quot;CHR&amp;quot;, bp=&amp;quot;POS&amp;quot;, snp=&amp;quot;SNP&amp;quot;, p=&amp;quot;P&amp;quot;, suggestiveline =FALSE, genomewideline = FALSE, chrlabs = c(1:22, &amp;quot;X&amp;quot;), cex = 0.4)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/mhtplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/mhtplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We can spot immediately, that there are loads of SNPs with P-values smaller than &lt;span class=&#34;math inline&#34;&gt;\(10^{-100}\)&lt;/span&gt; (sample size was around &lt;a href=&#34;https://www.biorxiv.org/content/early/2018/03/22/274654&#34;&gt;700K&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;Of course, there are many other solutions to spot real associations, but this is not the point of this blogpost ;-).&lt;/p&gt;
 &lt;/div&gt;
@@ -546,7 +546,7 @@ dat.bmi.sel.region &amp;lt;- dat.bmi %&amp;gt;% filter(CHR == sel.chr, between(P
   geom_point(aes(POS, -log10(P)), shape = 1) + 
   labs(title = &amp;quot;Locuszoomplot for BMI GWAS&amp;quot;, subtitle = paste(&amp;quot;Summary   statistics for chromosome&amp;quot;, sel.chr, &amp;quot;from&amp;quot;, format((sel.pos - range), big.mark = &amp;quot;&amp;#39;&amp;quot;), &amp;quot;to&amp;quot;, format((sel.pos + range), big.mark = &amp;quot;&amp;#39;&amp;quot;), &amp;quot;bp&amp;quot;), caption = paste(&amp;quot;Data source:&amp;quot;, url))
 print(p1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/plot-summarystats-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/plot-summarystats-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Next, we want to know if rs1421085 is part of a gene, and if yes, which one.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -725,7 +725,7 @@ ggplot(data = out.bm.genes.region) +
       geom_linerange(aes(x = external_gene_name, ymin = start_position, ymax = end_position)) + 
   coord_flip() + 
   ylab(&amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/plot-genes-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/plot-genes-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Let’s try to make that pretty. We can group the genes by &lt;code&gt;gene_biotype&lt;/code&gt; and colour them accordingly. And we move the protein-coding genes to the top row and color it black.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## define plot range for x-axis
 plot.range &amp;lt;- c(min(sel.pos - range, out.bm.genes.region$start_position), 
@@ -755,7 +755,7 @@ p2 &amp;lt;- ggplot(data = out.bm.genes.region) +
   ## hack to have 11 colors, but probably merging some gene biotype groups could make sense too. 
   ## consider colorblindr::palette_OkabeIto_black
 print(p2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/plot-genes-pretty-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/plot-genes-pretty-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;There are some short genes starting with &lt;em&gt;AC&lt;/em&gt; and &lt;em&gt;LINCO&lt;/em&gt;. We can &lt;a href=&#34;https://www.genenames.org/about/guidelines&#34;&gt;check&lt;/a&gt; what they are and/or consult a biologist.&lt;/p&gt;
 &lt;!-- GWAS + biomart info --&gt;
 &lt;/div&gt;
@@ -768,7 +768,7 @@ print(p2)&lt;/code&gt;&lt;/pre&gt;
 p1b &amp;lt;- p1 + xlab(&amp;quot;&amp;quot;) + theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank()) + xlim(plot.range)
 
 p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/summarystats-genes-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/summarystats-genes-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Having both plots combined, we can spot that the are 6 protein-coding genes in the region. But the P-value peak is located in gene FTO.&lt;/p&gt;
 &lt;p&gt;If this were work done for a real project, this would now be the time to get back to domain experts, discuss the results and figure out what other annotation they need&lt;a href=&#34;#fn8&#34; class=&#34;footnoteRef&#34; id=&#34;fnref8&#34;&gt;&lt;sup&gt;8&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
@@ -808,10 +808,10 @@ p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>satRday Cardiff 2018</title>
-      <link>/2018/07/04/satrdaycardiff/</link>
+      <link>https://sinarueeger.github.io/2018/07/04/satrdaycardiff/</link>
       <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/07/04/satrdaycardiff/</guid>
+      <guid>https://sinarueeger.github.io/2018/07/04/satrdaycardiff/</guid>
       <description>
 
 &lt;p&gt;This is a brief write-up of my &lt;a href=&#34;http://cardiff2018.satrdays.org/&#34;&gt;satRdays Cardiff&lt;/a&gt; experience.&lt;/p&gt;
@@ -957,10 +957,10 @@ p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Setting up the Blogdown website</title>
-      <link>/2018/04/14/setting-up-the-blogdown-website/</link>
+      <link>https://sinarueeger.github.io/2018/04/14/setting-up-the-blogdown-website/</link>
       <pubDate>Sat, 14 Apr 2018 10:00:03 +0200</pubDate>
       
-      <guid>/2018/04/14/setting-up-the-blogdown-website/</guid>
+      <guid>https://sinarueeger.github.io/2018/04/14/setting-up-the-blogdown-website/</guid>
       <description>
 
 &lt;p&gt;To set up this website I have used some excellent material around &lt;a href=&#34;https://bookdown.org/yihui/blogdown/get-started.html&#34;&gt;&lt;strong&gt;blogdown&lt;/strong&gt;&lt;/a&gt;, &lt;a href=&#34;https://pages.github.com/&#34;&gt;&lt;strong&gt;github&lt;/strong&gt;&lt;/a&gt; and &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;&lt;strong&gt;hugo&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
@@ -1031,10 +1031,10 @@ p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Getting started with encryption of documents</title>
-      <link>/2018/04/13/getting-started-with-encryption-of-documents/</link>
+      <link>https://sinarueeger.github.io/2018/04/13/getting-started-with-encryption-of-documents/</link>
       <pubDate>Fri, 13 Apr 2018 20:40:59 +0200</pubDate>
       
-      <guid>/2018/04/13/getting-started-with-encryption-of-documents/</guid>
+      <guid>https://sinarueeger.github.io/2018/04/13/getting-started-with-encryption-of-documents/</guid>
       <description>&lt;p&gt;I work (broadly speaking) in epidemiology. Within collaborations we often have to share &lt;strong&gt;sensitive data&lt;/strong&gt; across institutions and are therefore likely to not share IT facilities. But the most often used options - bare e-mail or file hosting - are not secure, as they both work via a server that could potentially be exposed.&lt;/p&gt;
 
 &lt;p&gt;There are a handful of secure options around (&lt;a href=&#34;https://protonmail.com/&#34;&gt;ProtonMail&lt;/a&gt; or &lt;a href=&#34;https://keybase.io/&#34;&gt;keybase.io&lt;/a&gt;, both working via &lt;a href=&#34;https://www.quora.com/Why-is-encryption-important&#34;&gt;encryption&lt;/a&gt;), but for those that &lt;strong&gt;trust open source projects&lt;/strong&gt; the most and are familiar with a &lt;strong&gt;terminal&lt;/strong&gt; I have written some basic instructions for asymmetric GPG encryption.&lt;/p&gt;
@@ -1047,10 +1047,10 @@ p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Contact</title>
-      <link>/page/contact/</link>
+      <link>https://sinarueeger.github.io/page/contact/</link>
       <pubDate>Fri, 13 Apr 2018 02:13:50 +0000</pubDate>
       
-      <guid>/page/contact/</guid>
+      <guid>https://sinarueeger.github.io/page/contact/</guid>
       <description>
 
 &lt;h2 id=&#34;contact&#34;&gt;Contact&lt;/h2&gt;
@@ -1063,13 +1063,13 @@ p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>About</title>
-      <link>/page/about/</link>
+      <link>https://sinarueeger.github.io/page/about/</link>
       <pubDate>Thu, 13 Apr 2017 02:13:50 +0000</pubDate>
       
-      <guid>/page/about/</guid>
+      <guid>https://sinarueeger.github.io/page/about/</guid>
       <description>
 
-&lt;p&gt;&lt;img src=&#34;/img/portrait.jpg&#34; alt=&#34;This is me.&#34; align=&#34;middle&#34; style=&#34;width: 200px;&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/img/portrait.jpg&#34; alt=&#34;This is me.&#34; align=&#34;middle&#34; style=&#34;width: 200px;&#34;/&gt;&lt;/p&gt;
 
 &lt;p align=&#34;justify&#34;&gt;I am a postdoc in the &lt;a href=&#34;https://fellay-lab.epfl.ch/&#34;&gt;Fellay Lab&lt;/a&gt; at EPFL where I focus on the &lt;b&gt;data analysis of human genomic data&lt;/b&gt; in the context of infectious diseases. &lt;/p&gt;
 
@@ -1090,7 +1090,7 @@ p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;resume&#34;&gt;Resume&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&#34;/files/resume_sinarueeger.pdf&#34;&gt;RESUME (PDF)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://sinarueeger.github.io/files/resume_sinarueeger.pdf&#34;&gt;RESUME (PDF)&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;publication-list&#34;&gt;Publication list&lt;/h2&gt;
 
@@ -1104,10 +1104,10 @@ p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Resources</title>
-      <link>/page/resources/</link>
+      <link>https://sinarueeger.github.io/page/resources/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/page/resources/</guid>
+      <guid>https://sinarueeger.github.io/page/resources/</guid>
       <description>
 
 &lt;h2 id=&#34;talks&#34;&gt;Talks&lt;/h2&gt;
@@ -1135,7 +1135,7 @@ p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Download html &lt;a href=&#34;https://github.com/sinarueeger/map-1000genomes/blob/master/map-1000genomes-populations.html&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;iframe seamless src=&#34;/misc/map-1000genomes-populations.html&#34; width=&#34;100%&#34; height=&#34;500&#34;&gt;&lt;/iframe&gt;
+&lt;iframe seamless src=&#34;https://sinarueeger.github.io/misc/map-1000genomes-populations.html&#34; width=&#34;100%&#34; height=&#34;500&#34;&gt;&lt;/iframe&gt;
 </description>
     </item>
     

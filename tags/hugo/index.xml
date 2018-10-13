@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on Analysing genetic data</title>
-    <link>/tags/hugo/</link>
+    <link>https://sinarueeger.github.io/tags/hugo/</link>
     <description>Recent content in Hugo on Analysing genetic data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
     <lastBuildDate>Sat, 14 Apr 2018 10:00:03 +0200</lastBuildDate>
     
-	<atom:link href="/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sinarueeger.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Setting up the Blogdown website</title>
-      <link>/2018/04/14/setting-up-the-blogdown-website/</link>
+      <link>https://sinarueeger.github.io/2018/04/14/setting-up-the-blogdown-website/</link>
       <pubDate>Sat, 14 Apr 2018 10:00:03 +0200</pubDate>
       
-      <guid>/2018/04/14/setting-up-the-blogdown-website/</guid>
+      <guid>https://sinarueeger.github.io/2018/04/14/setting-up-the-blogdown-website/</guid>
       <description>To set up this website I have used some excellent material around blogdown, github and hugo.
 Motivation Before going into the technical details, let me say something about motivation and inspiration. For me, it definitely helped to read the blogpost by David Robinson, being encouraged by Ma&amp;euml;lle Salmon and seeing many others leading by example (among many: Marie Christine Dussault or Kasia Kulma).
 I might get into a more personal motivation in a future blogpost.</description>

@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Analysing genetic data</title>
-    <link>/post/</link>
+    <link>https://sinarueeger.github.io/post/</link>
     <description>Recent content in Posts on Analysing genetic data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018. All rights reserved.</copyright>
     <lastBuildDate>Tue, 09 Oct 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sinarueeger.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Tidying workflows in R</title>
-      <link>/2018/10/09/workflow/</link>
+      <link>https://sinarueeger.github.io/2018/10/09/workflow/</link>
       <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/10/09/workflow/</guid>
+      <guid>https://sinarueeger.github.io/2018/10/09/workflow/</guid>
       <description>Recently, I started to seriously1 think about the tidiness of data analysis project folders, and the implications of tidying up.
 I was lucky enough to talk about what I have figured out so far at the Geneve R User Group. While I am not done yet with reflecting on this2, I wanted to write down my thoughts that lead to my presentation3. So all what follows is just “thinking out loud”.</description>
     </item>
     
     <item>
       <title>Locuszoom plot of GWAS summary statistics</title>
-      <link>/2018/07/30/locuszoomplot/</link>
+      <link>https://sinarueeger.github.io/2018/07/30/locuszoomplot/</link>
       <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/07/30/locuszoomplot/</guid>
+      <guid>https://sinarueeger.github.io/2018/07/30/locuszoomplot/</guid>
       <description>In the world of genome-wide association studies (GWAS) we often get a list of genetic markers (SNPs) that seem for some reason relevant for a particular outcome. At the same time, we have little knowledge about these genetic variants that come in cryptic combinations of characters and numbers.
 For example:
  We might get asked how frequent the SNP rs1421085 is in a range of populations.  We need to extract all known SNPs that are within 1 Mb of rs1421085.</description>
@@ -35,10 +35,10 @@ For example:
     
     <item>
       <title>satRday Cardiff 2018</title>
-      <link>/2018/07/04/satrdaycardiff/</link>
+      <link>https://sinarueeger.github.io/2018/07/04/satrdaycardiff/</link>
       <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/07/04/satrdaycardiff/</guid>
+      <guid>https://sinarueeger.github.io/2018/07/04/satrdaycardiff/</guid>
       <description>This is a brief write-up of my satRdays Cardiff experience.
 First - what is a satRday?
 It is an awesome concept: attending an R conference organised by a local RUG on a Saturday.
@@ -50,10 +50,10 @@ Packaging workshop Heather Turner upgraded us on packaging.</description>
     
     <item>
       <title>Setting up the Blogdown website</title>
-      <link>/2018/04/14/setting-up-the-blogdown-website/</link>
+      <link>https://sinarueeger.github.io/2018/04/14/setting-up-the-blogdown-website/</link>
       <pubDate>Sat, 14 Apr 2018 10:00:03 +0200</pubDate>
       
-      <guid>/2018/04/14/setting-up-the-blogdown-website/</guid>
+      <guid>https://sinarueeger.github.io/2018/04/14/setting-up-the-blogdown-website/</guid>
       <description>To set up this website I have used some excellent material around blogdown, github and hugo.
 Motivation Before going into the technical details, let me say something about motivation and inspiration. For me, it definitely helped to read the blogpost by David Robinson, being encouraged by Ma&amp;euml;lle Salmon and seeing many others leading by example (among many: Marie Christine Dussault or Kasia Kulma).
 I might get into a more personal motivation in a future blogpost.</description>
@@ -61,10 +61,10 @@ I might get into a more personal motivation in a future blogpost.</description>
     
     <item>
       <title>Getting started with encryption of documents</title>
-      <link>/2018/04/13/getting-started-with-encryption-of-documents/</link>
+      <link>https://sinarueeger.github.io/2018/04/13/getting-started-with-encryption-of-documents/</link>
       <pubDate>Fri, 13 Apr 2018 20:40:59 +0200</pubDate>
       
-      <guid>/2018/04/13/getting-started-with-encryption-of-documents/</guid>
+      <guid>https://sinarueeger.github.io/2018/04/13/getting-started-with-encryption-of-documents/</guid>
       <description>I work (broadly speaking) in epidemiology. Within collaborations we often have to share sensitive data across institutions and are therefore likely to not share IT facilities. But the most often used options - bare e-mail or file hosting - are not secure, as they both work via a server that could potentially be exposed.
 There are a handful of secure options around (ProtonMail or keybase.io, both working via encryption), but for those that trust open source projects the most and are familiar with a terminal I have written some basic instructions for asymmetric GPG encryption.</description>
     </item>
