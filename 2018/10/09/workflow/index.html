@@ -166,10 +166,10 @@ Trailer. Your browser does not support the video tag. </video>
 <p>Then I asked myself what I want to achieve with implementing (and sticking to) something new.</p>
 <ol style="list-style-type: decimal">
 <li>Making it easy for colleagues at work to <strong>rerun</strong> (and <strong>understand</strong>) the project → <em>“repeatability”</em></li>
-<li>Making it easy for others to <strong>rerun</strong> and to <strong>understand</strong> the project → <a href="https://twitter.com/jtleek/status/759822823552606208"><em>“reproducibility”</em></a></li>
-<li>Making it easy for others to rerun the code <strong>with different data</strong> → <a href="https://twitter.com/jtleek/status/759822823552606208"><em>“replicability”</em></a></li>
+<li>Making it easy for others to <strong>rerun</strong> and to <strong>understand</strong> the project → <a href="https://simplystatistics.org/2017/03/02/rr-glossy/"><em>“reproducibility”</em></a><a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a></li>
+<li>Making it easy for others to rerun the code <strong>with different data</strong> → <a href="https://simplystatistics.org/2017/03/02/rr-glossy/"><em>“replicability”</em></a></li>
 </ol>
-<p>Next I looked for solutions. First I would need to use coherent folder names. Second I would need to have a file that indicates the recipe of an analysis. Third, I would implement most free floating and redundant code into functions. Fourth, I would minimise unnecessary computation by caching results. Fifth, I would start using unit tests<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>.</p>
+<p>Next I looked for solutions. First I would need to use coherent folder names. Second I would need to have a file that indicates the recipe of an analysis. Third, I would implement most free floating and redundant code into functions. Fourth, I would minimise unnecessary computation by caching results. Fifth, I would start using unit tests<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>.</p>
 </div>
 <div id="the-options" class="section level2">
 <h2>The options</h2>
@@ -177,7 +177,7 @@ Trailer. Your browser does not support the video tag. </video>
 </div>
 <div id="drake" class="section level2">
 <h2>Drake</h2>
-<p>The presentation <em>Make-like declarative workflows with R</em> presented the R-package <a href="https://github.com/ropensci/drake">{drake}</a> (drake = Data Frames in R for Make<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>).</p>
+<p>The presentation <em>Make-like declarative workflows with R</em> presented the R-package <a href="https://github.com/ropensci/drake">{drake}</a> (drake = Data Frames in R for Make<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>).</p>
 <p>{Drake} was created by <a href="https://twitter.com/wmlandau">Will Landau</a> and reviewed by <a href="https://ropensci.org/">rOpenSci</a>. On the github page it says that {drake} is a “general-purpose workflow manager for data-driven tasks”. Sounds perfect!</p>
 <p>The way I understand it, is, that it is based on <code>make</code> (and overlaps with the R-package {remake}). Therefore when making a change to an analysis and re-running it, it only re-compute the dependent parts. But compared to <code>make</code>, {drake} is much more convenient to use. Plus it is scalable to parallel computing. And it is intuitive to use, meaning, colleagues can learn it quickly.</p>
 <div id="getting-started" class="section level3">
@@ -266,8 +266,9 @@ vis_drake_graph(config) </code></pre>
 <li id="fn2"><p>Just started reading <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510">Good enough practices in scientific computing</a> - great paper!<a href="#fnref2">↩</a></p></li>
 <li id="fn3"><p>Thanks to Maëlle for pointing out that this is a good thing to do!<a href="#fnref3">↩</a></p></li>
 <li id="fn4"><p>And while at it, I would totally decrease my coffee consumption too and never procrastinate again 😉.<a href="#fnref4">↩</a></p></li>
-<li id="fn5"><p>Thanks to my colleague for the idea!<a href="#fnref5">↩</a></p></li>
-<li id="fn6"><p>I am still wondering how “Data Frames in R for Make” adds up to “drake” 🤔.<a href="#fnref6">↩</a></p></li>
+<li id="fn5"><p>The terminology is really confusing at times. I rely on <a href="https://twitter.com/jtleek/status/759822823552606208">this</a> definition.<a href="#fnref5">↩</a></p></li>
+<li id="fn6"><p>Thanks to my colleague for the idea!<a href="#fnref6">↩</a></p></li>
+<li id="fn7"><p>I am still wondering how “Data Frames in R for Make” adds up to “drake” 🤔.<a href="#fnref7">↩</a></p></li>
 </ol>
 </div>
 
