@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.2.5">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Sina Rüeger">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Goal Two approaches Our toy data A solution that almost works: ensembl.org What reference panels / population can we choose from? Access LD between a SNP and its region Access LD matrix Access LD between a SNP and many other SNPs Colored locuszoom plot  2. Solutions that work half-through ldlink SNPsnap API provided by sph.umich  3. Solution that does not work rsnps::ld_search  Session Info   The squared correlation between genetic markers is one way to estimate linkage disequilibrium (LD).">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/get-ld-remotely/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#0375B4">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.d21a8d67724774c58d0e2b3c357854dc.css">
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/get-ld-remotely/">
+
+  
+  
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@sinarueeger">
+  <meta property="twitter:creator" content="@sinarueeger">
+  
+  <meta property="og:site_name" content="Sina Rüeger">
+  <meta property="og:url" content="/post/get-ld-remotely/">
+  <meta property="og:title" content="LD Part 1 | Sina Rüeger">
+  <meta property="og:description" content="Goal Two approaches Our toy data A solution that almost works: ensembl.org What reference panels / population can we choose from? Access LD between a SNP and its region Access LD matrix Access LD between a SNP and many other SNPs Colored locuszoom plot  2. Solutions that work half-through ldlink SNPsnap API provided by sph.umich  3. Solution that does not work rsnps::ld_search  Session Info   The squared correlation between genetic markers is one way to estimate linkage disequilibrium (LD)."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-05-21T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-05-21T00:00:00&#43;00:00">
+  
+
+  
+
+  
+
+  <title>LD Part 1 | Sina Rüeger</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Sina Rüeger</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/post/">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#publications">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">LD Part 1</h1>
+
+  
+  <p class="page-subtitle">Access precomputed LD</p>
+  
+
+  
+    
+
+
+
+<meta content="2019-05-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-05-21 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>May 21, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    9 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/get-ld-remotely/#disqus_thread"></a>
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=&amp;url="
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u="
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=&amp;body=">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+<link href="/rmarkdown-libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
+
+<div id="TOC">
+<ul>
+<li><a href="#goal">Goal</a></li>
+<li><a href="#two-approaches">Two approaches</a></li>
+<li><a href="#our-toy-data">Our toy data</a></li>
+<li><a href="#a-solution-that-almost-works-ensembl.org">A solution that almost works: ensembl.org</a><ul>
+<li><a href="#what-reference-panels-population-can-we-choose-from">What reference panels / population can we choose from?</a></li>
+<li><a href="#access-ld-between-a-snp-and-its-region">Access LD between a SNP and its region</a></li>
+<li><a href="#access-ld-matrix">Access LD matrix</a></li>
+<li><a href="#access-ld-between-a-snp-and-many-other-snps">Access LD between a SNP and many other SNPs</a></li>
+<li><a href="#colored-locuszoom-plot">Colored locuszoom plot</a></li>
+</ul></li>
+<li><a href="#solutions-that-work-half-through">2. Solutions that work half-through</a><ul>
+<li><a href="#ldlink">ldlink</a></li>
+<li><a href="#snpsnap">SNPsnap</a></li>
+<li><a href="#api-provided-by-sph.umich">API provided by sph.umich</a></li>
+</ul></li>
+<li><a href="#solution-that-does-not-work">3. Solution that does not work</a><ul>
+<li><a href="#rsnpsld_search"><code>rsnps::ld_search</code></a></li>
+</ul></li>
+<li><a href="#session-info">Session Info</a></li>
+</ul>
+</div>
+
+<p>The squared correlation between genetic markers is one way to estimate <a href="https://ldlink.nci.nih.gov/?tab=help">linkage disequilibrium</a> (LD). LD has to be computed <em>all the time</em> - either for as an input for statistical methods or to summarise results.</p>
+<p>However, accessing LD estimations quickly, for a specific population and in an automated way (e.g. with R) is actually suprisingly difficult.</p>
+<p>In this blogpost I am exploring how to do this efficiently.</p>
+<!---------- ------------------------------->
+<div id="goal" class="section level2">
+<h2>Goal</h2>
+<!---------- ------------------------------->
+<p>At the end of this blogpost, we want to know the genetic correlation between two or more markers in a specific human population, so we can populate the locuszoom plot from the <a href="https://sinarueeger.github.io/2018/07/30/locuszoomplot/">previous blogpost</a> with colored dots.</p>
+<p>For simplicity, I will use the terms correlation, squared correlation, r, r2 and LD interchangeably.</p>
+<!---------- ------------------------------->
+</div>
+<div id="two-approaches" class="section level2">
+<h2>Two approaches</h2>
+<!---------- ------------------------------->
+<p>In principal, there are two ways of doing accessing LD:</p>
+<ol style="list-style-type: decimal">
+<li>Download (or access) the genetic data from which you want to estimate your correlations + calculate the correlations using some efficient approach.</li>
+<li>Access precomputed LD estimations.</li>
+</ol>
+<table>
+<colgroup>
+<col width="9%" />
+<col width="22%" />
+<col width="39%" />
+<col width="28%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Approach <i class="fas  fa-wrench "></i></th>
+<th>Advantages <i class="fas  fa-smile "></i></th>
+<th>Downsides <i class="fas  fa-frown "></i></th>
+<th>Useful when…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(1) <strong>Local</strong> computation of LD</td>
+<td>LD matrix can be quickly updated to new reference panels</td>
+<td>Requires large computation and storage space (e.g. 1000 Genomes is <a href="https://console.cloud.google.com/storage/browser/genomics-public-data/1000-genomes-phase-3/vcf/?_ga=2.227457240.-473641130.1558969048">&gt;100 few GB large</a>).</td>
+<td>i) LD for a large set of SNPs is needed ii) LD from non-standard reference panel is needed.</td>
+</tr>
+<tr class="even">
+<td>(2) <strong>Access</strong> precomputed LD</td>
+<td>not need for large computation and storage space.</td>
+<td>limited to certain small sets of markers, limited to possibly outdated reference panels.</td>
+<td>LD for a small set of SNPs is needed</td>
+</tr>
+</tbody>
+</table>
+<p>For now I will focus on approach (2), and then explore approach (1) in a future blogpost.</p>
+<p>Spoiler: Using approach (2) does not get you far. It took me quite a while to gather all the solutions that are listed below, and yet there is not one perfect/ideal solution.</p>
+<!---------- ------------------------------->
+</div>
+<div id="our-toy-data" class="section level2">
+<h2>Our toy data</h2>
+<!---------- ------------------------------->
+<p>We will recycle the data from the <a href="https://sinarueeger.github.io/2018/07/30/locuszoomplot/">previous blogpost</a>, where the focus was on extracting annotation using the package <code>biomaRt</code>. In this blogpost, we will complete that locuszoomplot by adding the LD information.</p>
+<pre class="r"><code>## Data Source URL
+url &lt;- &quot;https://portals.broadinstitute.org/collaboration/giant/images/2/21/BMI_All_ancestry.fmt.gzip&quot;
+
+## Import BMI summary statistics dat.bmi &lt;- read_tsv(file = url) ##
+## taking too long, let&#39;s use fread instead.
+
+dat.bmi &lt;- data.table::fread(url, verbose = FALSE)
+
+## Rename some columns
+dat.bmi &lt;- dat.bmi %&gt;% rename(SNP = SNPNAME, P = Pvalue)
+
+## Extract region
+dat.bmi.sel &lt;- dat.bmi %&gt;% slice(which.min(P))
+dat.bmi.sel
+
+## range region
+range &lt;- 5e+05
+sel.chr &lt;- dat.bmi.sel$CHR
+sel.pos &lt;- dat.bmi.sel$POS
+
+dat.bmi.sel.region &lt;- dat.bmi %&gt;% 
+  filter(CHR == sel.chr, between(POS, sel.pos - 
+      range, sel.pos + range))</code></pre>
+<p>What we are interested in, is the LD between our top SNP rs1421085 and all remaining SNPs.</p>
+<p>Remember that this dataset has positions on build GRCh37, while most databases are on build GRCh38 by now.</p>
+<pre class="r"><code>library(rsnps)
+snp &lt;- dat.bmi.sel$SNP
+sm &lt;- ncbi_snp_summary(snp) %&gt;% separate(chrpos, c(&quot;chr&quot;, &quot;pos&quot;))
+sel.pos == as.numeric(sm$pos)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<!---------- ------------------------------->
+</div>
+<div id="a-solution-that-almost-works-ensembl.org" class="section level2">
+<h2>A solution that almost works: ensembl.org</h2>
+<!---------- ------------------------------->
+<p>Let’s quickly repeat what our primary goal is:</p>
+<p>Extract the correlation between SNPs</p>
+<ul>
+<li>without downloading any data,</li>
+<li>fairly quick and</li>
+<li>in R.</li>
+</ul>
+<p>Let’s first define our top SNP and the range in kb around that SNP for which we want LD information.</p>
+<pre class="r"><code>snp &lt;- dat.bmi.sel$SNP
+range.kb &lt;- range/1e3 ## in k bp</code></pre>
+<p>The <a href="https://rest.ensembl.org">REST API of Ensembl</a> can do a lot (see options <a href="https://rest.ensembl.org/documentation/">here</a>). For example: access precomputed LD. The webpage even provides R code to do so, which is from where I copied some snippets below.</p>
+<p>To access the rest API at ensembl, we need the following three packages loaded.</p>
+<pre class="r"><code>library(httr)
+library(jsonlite)
+library(xml2)
+library(tibble)
+library(tidyr)
+library(magrittr)</code></pre>
+<div id="what-reference-panels-population-can-we-choose-from" class="section level3">
+<h3>What reference panels / population can we choose from?</h3>
+<!------------------------------>
+<p>Currently, the largest and hence most popular public reference panel is <a href="http://www.internationalgenome.org/">1000 Genomes reference panel</a> (1KG). The 26 populations of roughly 100 individuals each can be grouped into five super populations: African (AFR), American (AMR), European (EUR), South Asian (SAS), East Asian (EAS).</p>
+<p>We can ask the ENSEMBL API from what populations reference panels are available. This will return us a dataframe.</p>
+<pre class="r"><code>server &lt;- &quot;https://rest.ensembl.org&quot;
+ext &lt;- &quot;/info/variation/populations/homo_sapiens?filter=LD&quot;
+ 
+r &lt;- GET(paste(server, ext, sep = &quot;&quot;), content_type(&quot;application/json&quot;))
+ 
+stop_for_status(r)
+ 
+head(fromJSON(toJSON(content(r))))</code></pre>
+<pre><code>##                      name
+## 1 1000GENOMES:phase_3:ACB
+## 2 1000GENOMES:phase_3:ASW
+## 3 1000GENOMES:phase_3:BEB
+## 4 1000GENOMES:phase_3:CDX
+## 5 1000GENOMES:phase_3:CEU
+## 6 1000GENOMES:phase_3:CHB
+##                                                  description size
+## 1                              African Caribbean in Barbados   96
+## 2                           African Ancestry in Southwest US   61
+## 3                                      Bengali in Bangladesh   86
+## 4                        Chinese Dai in Xishuangbanna, China   93
+## 5 Utah residents with Northern and Western European ancestry   99
+## 6                               Han Chinese in Bejing, China  103</code></pre>
+<p><code>name</code> stands for the population identifier. <code>size</code> refers to the number of individuals in the reference panel. Note that these are all populations with around 100 individuals (the correlation estimation will have an error that scales with the sample size). There are also the five super population available (although not listed here), simply replace the last three characters in <code>name</code> by <code>EUR</code>, <code>AFR</code>, <code>AMR</code>, <code>EAS</code>, <code>SAS</code>.</p>
+<iframe seamless src="/post/2018-08-09-put-the-color-into-the-points/map-1000genomes-populations.html" width="100%" height="500">
+</iframe>
+<p><sup>(From <a href="../1kgmap.html">this</a> blogpost.)</sup></p>
+<p>We want the LD information, so we can add this info to the locuszoom plot. But how do we know which population to pick? One way is, to read up what kind of individuals were present. In our case - mostly Europeans (<code>EUR</code>). But we could also build some pooled LD matrix of different populations.</p>
+<p>Now that we know which reference panel we want to use, we can use the different rest APIs.</p>
+<ul>
+<li><a href="#access-ld-between-a-snp-and-its-region">Access LD between a SNP and its region</a></li>
+<li><a href="#access-ld-matrix">Access LD matrix</a></li>
+<li><a href="#access-ld-between-a-snp-and-many-other-snps">Access LD between a SNP and many other SNPs</a></li>
+</ul>
+</div>
+<div id="access-ld-between-a-snp-and-its-region" class="section level3">
+<h3>Access LD between a SNP and its region</h3>
+<!------------------------------>
+<p>This API is described <a href="https://rest.ensembl.org/documentation/info/ld_id_get">here</a>.</p>
+<p>The default window size is 500 kb. There are also thresholds for <code>r2</code> (e.g. if you want to filter all SNPs with an <code>r2 &gt; 0.8</code>).</p>
+<p>The only input required is the SNP rsid, marked with <code>{snp}</code>.</p>
+<pre class="r"><code>snp</code></pre>
+<pre><code>## [1] &quot;rs1421085&quot;</code></pre>
+<pre class="r"><code>server &lt;- &quot;https://rest.ensembl.org&quot;
+ext &lt;- glue::glue(&quot;/ld/human/{snp}/1000GENOMES:phase_3:EUR?&quot;)
+## Window size in kb. The maximum allowed value for the window size is 500 kb. LD is computed for the given variant and all variants that are located within the specified window.
+
+r &lt;- GET(paste(server, ext, sep = &quot;&quot;), content_type(&quot;application/json&quot;))
+stop_for_status(r)
+LD.SNP.region &lt;- as_tibble(fromJSON(toJSON(content(r)))) %&gt;% unnest() %&gt;% mutate(r2 = as.numeric(r2))
+head(LD.SNP.region)</code></pre>
+<pre><code>## # A tibble: 6 x 5
+##   d_prime  variation1     r2 variation2  population_name        
+##   &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;                  
+## 1 0.541755 rs1421085  0.0514 rs1077128   1000GENOMES:phase_3:EUR
+## 2 0.639310 rs1421085  0.0679 rs141750185 1000GENOMES:phase_3:EUR
+## 3 0.394345 rs1421085  0.0779 rs7206010   1000GENOMES:phase_3:EUR
+## 4 0.393204 rs1421085  0.0765 rs6499640   1000GENOMES:phase_3:EUR
+## 5 1.000000 rs1421085  0.953  rs9928094   1000GENOMES:phase_3:EUR
+## 6 0.999999 rs1421085  0.922  rs17817497  1000GENOMES:phase_3:EUR</code></pre>
+<p>As a result, <code>LD.snp.region</code> contains the <code>r2</code> of our top SNP with all SNPs that were +/- 500 kb away.</p>
+<p>What if we want the correlation between all SNPs?</p>
+</div>
+<div id="access-ld-matrix" class="section level3">
+<h3>Access LD matrix</h3>
+<!------------------------------>
+<p>For this we need the rest API <a href="https://rest.ensembl.org/documentation/info/ld_region_get">here</a>.</p>
+<p>We can calculate the LD matrix of a full region, max 1 Mb wide. For fast computation we limit it to +/- 100 kb.</p>
+<p>We can then quickly visualise our LD matrix:</p>
+</div>
+<div id="access-ld-between-a-snp-and-many-other-snps" class="section level3">
+<h3>Access LD between a SNP and many other SNPs</h3>
+<!------------------------------>
+<p>The <a href="https://rest.ensembl.org/documentation/info/ld_pairwise_get">third and last option</a> is to pass on a set of SNP rs ids, and access the LD among these. Implemented in the ENSEMBL API is only the LD between two SNPs, so we will have to extend this to many SNPs.</p>
+<p>Calculate the LD matrix (<code>LD.matrix.region</code>) or the LD between SNP pairs (<code>LD.matrix.snps</code>) takes some time.</p>
+</div>
+<div id="colored-locuszoom-plot" class="section level3">
+<h3>Colored locuszoom plot</h3>
+<!---------- ------------------------------->
+<p>For the locuszoomplot we need only the correlation between the top SNP and all other SNPs. So we join the object <code>LD.SNP.region</code> to <code>dat.bmi.sel.region</code>.</p>
+<pre class="r"><code>dat.bmi.plot &lt;- dat.bmi.sel.region %&gt;% 
+  full_join(LD.SNP.region, by = c(&quot;SNP&quot; = &quot;variation2&quot;))</code></pre>
+<p>But wait, why are there so few SNPs in LD with this SNP?</p>
+<!-- REST API: https://rviews.rstudio.com/2018/07/23/rest-apis-and-plumber/ ----->
+<!---------- ------------------------------->
+</div>
+</div>
+<div id="solutions-that-work-half-through" class="section level2">
+<h2>2. Solutions that work half-through</h2>
+<!---------- ------------------------------->
+<div id="ldlink" class="section level3">
+<h3>ldlink</h3>
+<!------------------------------>
+<p><a href="https://ldlink.nci.nih.gov/?tab=help#Programatic%20Access">ldlink</a> is another rest API, but uses a limited set of 1KG populations.</p>
+<p>Here is an example, that you can execute in a terminal.</p>
+<pre class="bash"><code>curl -k -X GET &#39;https://ldlink.nci.nih.gov/LDlinkRest/ldmatrix?snps=rs3%0Ars4%0Ars148890987&amp;pop=CEU&amp;r2_d=d&amp;token=975d104d9f13&#39;
+</code></pre>
+<pre><code>##   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+##                                  Dload  Upload   Total   Spent    Left  Speed
+## 
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+100    94  100    94    0     0     47      0  0:00:02  0:00:01  0:00:01    47
+## RS_number    rs148890987 rs3 rs4
+## rs148890987  1.0 0.707   0.707
+## rs3  0.707   1.0 1.0
+## rs4  0.707   1.0 1.0</code></pre>
+</div>
+<div id="snpsnap" class="section level3">
+<h3>SNPsnap</h3>
+<!------------------------------>
+<ul>
+<li>SNPsnap: <a href="https://data.broadinstitute.org/mpg/snpsnap/database_download.html" class="uri">https://data.broadinstitute.org/mpg/snpsnap/database_download.html</a></li>
+<li>uses a limited set of 1KG populations (EUR, EAS, WAFR).</li>
+</ul>
+</div>
+<div id="api-provided-by-sph.umich" class="section level3">
+<h3>API provided by sph.umich</h3>
+<!------------------------------>
+<ul>
+<li><a href="http://portaldev.sph.umich.edu/docs/api/v1/?shell#single-variant-statistics">API</a></li>
+<li>uses limited set of 1KG populations (ALL, EUR)</li>
+<li>see <a href="https://github.com/statgen/locuszoom-api/issues/21#issuecomment-414434704">github issue</a>)</li>
+</ul>
+<!---- ### Using locuszoom software ----->
+<!------------------------------>
+<!---- One option (or rather a hack) would be to use [locuszoom software](https://genome.sph.umich.edu/wiki/LocusZoom_Standalone) to extract their LD information. However, locuszoom comes with database and LD files, [yielding up to 23 G](https://github.com/statgen/locuszoom-standalone). Besides, its not maintained anymore, since a [new version](https://github.com/statgen/locuszoom) for [interactive usage](http://locuszoom.org/locuszoomjs.php) was developed. 
+
+------->
+<!---------- ------------------------------->
+</div>
+</div>
+<div id="solution-that-does-not-work" class="section level2">
+<h2>3. Solution that does not work</h2>
+<!---------- ------------------------------->
+<div id="rsnpsld_search" class="section level3">
+<h3><code>rsnps::ld_search</code></h3>
+<!------------------------------>
+<p>A perfect solution would have been the function <code>ld_search</code> from R package <a href="ropensci%20webpage"><code>rsnps</code></a>. It has arguments to choose the reference panel, the population, the distance from the focal SNP.</p>
+<p>The problem is, that it only uses old reference panels (HapMap and 1KG-phase1). Meaning, many newer reference panel populations are left out.</p>
+<p>But the main problem is, that the broad institute has taken down the <a href="https://www.broadinstitute.org/snap/snap">snap server</a> that <code>ld_search</code> used to access (see <a href="https://github.com/ropensci/rsnps/issues/60">github issue</a>), hence <code>ld_search</code> <a href="https://github.com/ropensci/rsnps/blob/master/R/LDSearch.R">is defunct</a>.</p>
+</div>
+</div>
+<div id="session-info" class="section level2">
+<h2>Session Info</h2>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>## R version 3.5.1 (2018-07-02)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS  10.14.4
+## 
+## Matrix products: default
+## BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] rsnps_0.3.2.9121 magrittr_1.5     xml2_1.2.0       jsonlite_1.6    
+##  [5] httr_1.4.0       forcats_0.4.0    stringr_1.4.0    dplyr_0.8.1     
+##  [9] purrr_0.3.2      readr_1.3.1      tidyr_0.8.3      tibble_2.1.1    
+## [13] ggplot2_3.1.1    tidyverse_1.2.1 
+## 
+## loaded via a namespace (and not attached):
+##  [1] tidyselect_0.2.5  xfun_0.7          haven_2.1.0      
+##  [4] lattice_0.20-38   vctrs_0.1.0       colorspace_1.4-1 
+##  [7] generics_0.0.2    htmltools_0.3.6   yaml_2.2.0       
+## [10] utf8_1.1.4        XML_3.98-1.19     rlang_0.3.4      
+## [13] pillar_1.4.0      httpcode_0.2.0    glue_1.3.1.9000  
+## [16] withr_2.1.2       modelr_0.1.4      readxl_1.3.1     
+## [19] plyr_1.8.4        munsell_0.5.0     blogdown_0.12    
+## [22] gtable_0.3.0      cellranger_1.1.0  rvest_0.3.4      
+## [25] evaluate_0.13     knitr_1.23        curl_3.3         
+## [28] fansi_0.4.0       triebeard_0.3.0   urltools_1.7.3   
+## [31] broom_0.5.2       Rcpp_1.0.1        scales_1.0.0     
+## [34] backports_1.1.4   hms_0.4.2         digest_0.6.19    
+## [37] stringi_1.4.3     bookdown_0.10     grid_3.5.1       
+## [40] cli_1.1.0         tools_3.5.1       lazyeval_0.2.2   
+## [43] crul_0.7.4        zeallot_0.1.0     crayon_1.3.4     
+## [46] pkgconfig_2.0.2   data.table_1.12.2 lubridate_1.7.4  
+## [49] assertthat_0.2.1  rmarkdown_1.13    rstudioapi_0.10  
+## [52] R6_2.4.0          icon_0.1.0        nlme_3.1-140     
+## [55] compiler_3.5.1</code></pre>
+</div>
+
+    </div>
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/statistical-genetics/">statistical genetics</a>
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/tags/data-visualisation/">data visualisation</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  <img class="portrait mr-3" src="https://s.gravatar.com/avatar/a6d15adb27e347c38ba8bce6070993c5?s=200')" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Sina Rüeger</a></h5>
+    <h6 class="card-subtitle">Postdoctoral researcher in Genomics</h6>
+    <p class="card-text" itemprop="description"></p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/sinarueeger" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://scholar.google.co.uk/citations?user=OD9gCh4AAAAJ&amp;hl=en" target="_blank" rel="noopener">
+          <i class="ai ai-google-scholar"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/sinarueeger" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://www.linkedin.com/in/sinarueeger/" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="/files/resume.pdf" >
+          <i class="ai ai-cv"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/locuszoomplot/">Locuszoom plot of GWAS summary statistics</a></li>
+          
+          <li><a href="/post/1kgmap/">Create a map of the 1000 Genomes project reference populations</a></li>
+          
+          <li><a href="/post/drake/">Tidying workflows in R</a></li>
+          
+          <li><a href="/post/satrdaycardiff/">satRday Cardiff 2018</a></li>
+          
+          <li><a href="/talk/geek-girls-carrots/">An introduction to (problem solving with) R</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sinarueeger-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Privacy Policy</a>
+  </p>
+  
+
+  <p class="powered-by">
+    &copy; 2019. All rights reserved. &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//sinarueeger-github-io.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.d813ae958640746e240f434cafc95afb.js"></script>
+
+  </body>
+</html>
+

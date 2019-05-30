@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Projects on Analysing genetic data</title>
-    <link>https://sinarueeger.github.io/tags/projects/</link>
-    <description>Recent content in Projects on Analysing genetic data</description>
+    <title>projects on Sina Rüeger</title>
+    <link>/tags/projects/</link>
+    <description>Recent content in projects on Sina Rüeger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
     <lastBuildDate>Tue, 09 Oct 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://sinarueeger.github.io/tags/projects/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/projects/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Tidying workflows in R</title>
-      <link>https://sinarueeger.github.io/2018/10/09/workflow/</link>
+      <link>/post/drake/</link>
       <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://sinarueeger.github.io/2018/10/09/workflow/</guid>
-      <description>Recently, I started to seriously1 think about the tidiness of data analysis project folders, and the implications of tidying up.
-I was lucky enough to talk about what I have figured out so far at the Genève R User Group. While I am not done yet with reflecting on this2, I wanted to write down my thoughts that lead to my presentation3. So what follows is just “thinking out loud”.</description>
+      <guid>/post/drake/</guid>
+      <description>What is a “project folder”? Why now? Why we tidy up: authority and incentive Challenges What I want The options Drake Getting started More Examples Resources  But wait: drake does not care about messy folders What is next? When is the right time to tidy Is it really worth it   Recently, I started to seriously1 think about the tidiness of data analysis project folders, and the implications of tidying up.</description>
     </item>
     
   </channel>

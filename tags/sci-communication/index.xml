@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sci communication on Sina Rüeger</title>
+    <link>/tags/sci-communication/</link>
+    <description>Recent content in sci communication on Sina Rüeger</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 20 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/sci-communication/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Poster for scientific conferences</title>
+      <link>/post/2019-05-20-poster/</link>
+      <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-05-20-poster/</guid>
+      <description>This is a tutorial how to make a poster from scratch.
+It aims for first-time poster makers, but also for those (like me), that easily get lost in choosing the right font for hours.
+http://blogs.nature.com/naturejobs/2017/11/06/using-design-principles-to-inform-scientific-posters/ https://cedricscherer.netlify.com/2019/05/17/the-evolution-of-a-ggplot-ep.-1/
+It includes a few self-declared best practices that helped me in the past.
+ How to make a good poster Recipe Content Design  How to make a good poster An excellent video by Mike Morrison recently made the rounds on the internet.</description>
+    </item>
+    
+  </channel>
+</rss>

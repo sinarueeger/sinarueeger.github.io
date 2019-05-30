@@ -1,1149 +1,1129 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Analysing genetic data</title>
-    <link>https://sinarueeger.github.io/</link>
-    <description>Recent content on Analysing genetic data</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Sina Rüeger</title>
+    <link>/</link>
+    <description>Recent content on Sina Rüeger</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 09 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 28 May 2019 00:00:00 +0200</lastBuildDate>
     
-        <atom:link href="https://sinarueeger.github.io/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Tidying workflows in R</title>
-      <link>https://sinarueeger.github.io/2018/10/09/workflow/</link>
-      <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
+      <title>Integrative Statistical Analysis of -omics and GWAS data</title>
+      <link>/project/phd-thesis/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>https://sinarueeger.github.io/2018/10/09/workflow/</guid>
+      <guid>/project/phd-thesis/</guid>
       <description>
 
+&lt;p&gt;I finished my PhD under the main supervison of &lt;a href=&#34;https://wp.unil.ch/sgg/&#34;&gt;Zolt&amp;#225;n Kutalik&lt;/a&gt; in September 2018.&lt;/p&gt;
 
-&lt;p&gt;Recently, I started to seriously&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; think about the tidiness of data analysis project folders, and the implications of tidying up.&lt;/p&gt;
-&lt;p&gt;I was lucky enough to talk about what I have figured out so far at the &lt;a href=&#34;https://www.meetup.com/Geneve-R-User-Group/&#34;&gt;Genève R User Group&lt;/a&gt;. While I am not done yet with reflecting on this&lt;a href=&#34;#fn2&#34; class=&#34;footnoteRef&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;, I wanted to write down my thoughts that lead to &lt;a href=&#34;https://sinarueeger.github.io/20181004-geneve-rug/slides#1&#34;&gt;my presentation&lt;/a&gt;&lt;a href=&#34;#fn3&#34; class=&#34;footnoteRef&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;. So what follows is just “thinking out loud”.&lt;/p&gt;
-&lt;video width=&#34;70%&#34; controls&gt;
-&lt;source src=&#34;https://sinarueeger.github.io/post/workflow/trailer.mp4&#34;&gt;
-Trailer. Your browser does not support the video tag. &lt;/video&gt;
-&lt;figcaption&gt;
-&lt;small&gt;Presentation trailer made with &lt;a href=&#34;https://masalmon.eu/2018/10/07/trailer/&#34;&gt;Maëlle Salmon’s instructions&lt;/a&gt;. &lt;/small&gt;
-&lt;/figcaption&gt;
-&lt;div id=&#34;what-is-a-project-folder&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;What is a “project folder”?&lt;/h2&gt;
-&lt;p&gt;To me a project folder is anything that contains the (R-)scripts necessary to run a data analysis and create the corresponding report. It is like a framed piece of work that you can take and place somewhere else. And probably it will take the form of the Figure from the &lt;a href=&#34;http://r4ds.had.co.nz/explore-intro.html&#34;&gt;R4DS&lt;/a&gt; book below:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src=&#34;https://sinarueeger.github.io/post/workflow/workflow.png&#34; alt=&#34;Drawing of a table.&#34; align=&#34;middle&#34; style=&#34;width: 600px;&#34;/&gt;
-&lt;figcaption&gt;
-&lt;small&gt;Adapted from Figure in &lt;a href=&#34;http://r4ds.had.co.nz/explore-intro.html&#34;&gt;R4DS book&lt;/a&gt;. &lt;/small&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;Ideally you should be able to take that folder as it is, run it on another computer and get the same results. Unfortunately, this is not always the case - at least with my project folders.&lt;/p&gt;
-&lt;p&gt;I think that the tidiness of a project folder, how it is structured and how it tells the user to execute what and when, correlate strongly with the whole repeatability, replicability and reproducibility aspect.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;why-now&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Why now?&lt;/h2&gt;
-&lt;p&gt;The reason I started to dig deeper into workflow management possibilities in R, is, that I was changing jobs, and I had to clean up my old project folders from almost 5 years of analysing genetic data 😱. And so I faced &lt;del&gt;this gigantic mess&lt;/del&gt; a bit of a mess, spread over several servers and computers, some version controlled, others not, with implemented “best practices” from different waves of trying to improve. I tried to clean up as good as I could, but I told myself that this would not happen again. At my &lt;a href=&#34;https://fellay-lab.epfl.ch/&#34;&gt;new job&lt;/a&gt; I would use version control for everything and I would use something make-like (e.g. &lt;a href=&#34;https://github.com/richfitz/remake&#34;&gt;remake&lt;/a&gt;) to indicate the “recipe” of a project and be in control of what is recomputed and what is not&lt;a href=&#34;#fn4&#34; class=&#34;footnoteRef&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;why-we-tidy-up-authority-and-incentive&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Why we tidy up: authority and incentive&lt;/h2&gt;
-&lt;p&gt;I have a long-time interest in tidiness in general and from studying my own behaviour I came up with the theory that tidiness is only present when a) somebody tells you to do it, or b) you are rewarded for it.&lt;/p&gt;
-&lt;p&gt;Here are some examples:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;If you want to compile an R-package you have little to no freedom in how to name folders. You must have a given folder and file structure. Otherwise it won’t compile. This dictated and unified folder structure makes it easy for R users to understand what is where in an R-package. No matter who coded it.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure&gt;
-&lt;img src=&#34;https://sinarueeger.github.io/post/workflow/package-files.png&#34; alt=&#34;Drawing of a table.&#34; align=&#34;middle&#34; style=&#34;width: 300px;&#34;/&gt;
-&lt;figcaption&gt;
-&lt;small&gt;R package structure. Figure from &lt;a href=&#34;http://r-pkgs.had.co.nz/package.html.&#34;&gt;http://r-pkgs.had.co.nz/package.html&lt;/a&gt;. &lt;/small&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;If you work on several different projects at them same time, it is beneficial to have structure, so that you can quickly dive back into a project.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Following good practices also leaves you more time to do the fun stuff, like modelling and creating data visualisation.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;challenges&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Challenges&lt;/h2&gt;
-&lt;p&gt;I started by wondering why maintaining a tidy and coherent folder structure was so difficult for me to maintain. So I came up with a list (which is certainly going to change over time):&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Having &lt;strong&gt;different places&lt;/strong&gt; for computation (Laptop, Server1, Server2, …).&lt;/li&gt;
-&lt;li&gt;Not using &lt;strong&gt;&lt;code&gt;git&lt;/code&gt;&lt;/strong&gt; consistently.&lt;/li&gt;
-&lt;li&gt;Unclear separation of the folders &lt;strong&gt;&lt;code&gt;data&lt;/code&gt;&lt;/strong&gt; (raw input data), &lt;code&gt;processed-data&lt;/code&gt; and &lt;code&gt;output-data&lt;/code&gt; (results).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Data deliveries&lt;/strong&gt;: data hardly ever arrives in one tidy folder, but instead comes at different time points and so poses other challenges.&lt;/li&gt;
-&lt;li&gt;Having many different &lt;strong&gt;best practices&lt;/strong&gt; implemented: so each project would have its own set of folder names and file naming convention, leading to little &lt;strong&gt;overview of the analysis and its iteration steps&lt;/strong&gt; → cleaning, modelling, visualisation, reports.&lt;/li&gt;
-&lt;li&gt;Using similar code in many different R scripts → &lt;strong&gt;redundant&lt;/strong&gt; code.&lt;/li&gt;
-&lt;li&gt;Having no punishment for not cleaning up (and also not really seeing the benefit).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;what-i-want&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;What I want&lt;/h2&gt;
-&lt;p&gt;Then I asked myself what I want to achieve with implementing (and sticking to) something new.&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Making it easy for colleagues at work to &lt;strong&gt;rerun&lt;/strong&gt; (and &lt;strong&gt;understand&lt;/strong&gt;) the project → &lt;em&gt;“repeatability”&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Making it easy for others to &lt;strong&gt;rerun&lt;/strong&gt; and to &lt;strong&gt;understand&lt;/strong&gt; the project → &lt;a href=&#34;https://simplystatistics.org/2017/03/02/rr-glossy/&#34;&gt;&lt;em&gt;“reproducibility”&lt;/em&gt;&lt;/a&gt;&lt;a href=&#34;#fn5&#34; class=&#34;footnoteRef&#34; id=&#34;fnref5&#34;&gt;&lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Making it easy for others to rerun the code &lt;strong&gt;with different data&lt;/strong&gt; → &lt;a href=&#34;https://simplystatistics.org/2017/03/02/rr-glossy/&#34;&gt;&lt;em&gt;“replicability”&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Next I looked for solutions. First I would need to use coherent folder names. Second I would need to have a file that indicates the recipe of an analysis. Third, I would implement most free floating and redundant code into functions. Fourth, I would minimise unnecessary computation by caching results. Fifth, I would start using unit tests&lt;a href=&#34;#fn6&#34; class=&#34;footnoteRef&#34; id=&#34;fnref6&#34;&gt;&lt;sup&gt;6&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;the-options&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;The options&lt;/h2&gt;
-&lt;p&gt;There are many different ready-to-use software packages out there. I was thinking of going back to using &lt;code&gt;make&lt;/code&gt;, that I used years ago. Then I came across &lt;a href=&#34;https://github.com/richfitz/remake&#34;&gt;{remake}&lt;/a&gt;, which seemed just what I needed. A colleague at work was using &lt;code&gt;stu&lt;/code&gt; and was recommending it. But then the Swiss Institute of Bioinformatics offered a course on &lt;em&gt;Make-like declarative workflows with R&lt;/em&gt; taught by &lt;a href=&#34;https://github.com/krlmlr&#34;&gt;Kirill Müller&lt;/a&gt;, which I could not attend. Luckily, thanks to the awesome &lt;a href=&#34;https://github.com/krlmlr/drake-sib-zurich&#34;&gt;online course material&lt;/a&gt;, I could learn it by myself.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;drake&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Drake&lt;/h2&gt;
-&lt;p&gt;The presentation &lt;em&gt;Make-like declarative workflows with R&lt;/em&gt; presented the R-package &lt;a href=&#34;https://github.com/ropensci/drake&#34;&gt;{drake}&lt;/a&gt; (drake = Data Frames in R for Make&lt;a href=&#34;#fn7&#34; class=&#34;footnoteRef&#34; id=&#34;fnref7&#34;&gt;&lt;sup&gt;7&lt;/sup&gt;&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;{Drake} was created by &lt;a href=&#34;https://twitter.com/wmlandau&#34;&gt;Will Landau&lt;/a&gt; and reviewed by &lt;a href=&#34;https://ropensci.org/&#34;&gt;rOpenSci&lt;/a&gt;. On the github page it says that {drake} is a “general-purpose workflow manager for data-driven tasks”. Sounds perfect!&lt;/p&gt;
-&lt;p&gt;The way I understand it, is, that it is based on &lt;code&gt;make&lt;/code&gt; (and overlaps with the R-package {remake}). Therefore when making a change to an analysis and re-running it, it only re-compute the dependent parts. But compared to &lt;code&gt;make&lt;/code&gt;, {drake} is much more convenient to use. Plus it is scalable to parallel computing. And it is intuitive to use, meaning, colleagues can learn it quickly.&lt;/p&gt;
-&lt;div id=&#34;getting-started&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Getting started&lt;/h3&gt;
-&lt;p&gt;Best is, to run the mini example provided in the package, and then go from there. Drake has many other examples provided, you can check them by running &lt;code&gt;drake::drake_examples()&lt;/code&gt;.&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;code&gt;install.packages(&amp;quot;drake&amp;quot;)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Run &lt;code&gt;drake::drake_example(&amp;quot;main&amp;quot;)&lt;/code&gt; → this will download a folder called &lt;code&gt;main&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Go to the terminal. You can look at all the files contained in &lt;code&gt;main&lt;/code&gt; by writing &lt;code&gt;tree main&lt;/code&gt; (this works on MacOS)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;main/
-├── COPYRIGHT.md
-├── LICENSE.md
-├── README.md
-├── clean.R
-├── make.R
-├── raw_data.xlsx
-└── report.Rmd&lt;/code&gt;&lt;/pre&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Next, open &lt;code&gt;make.R&lt;/code&gt;. The key functions are &lt;code&gt;drake_plan()&lt;/code&gt; and &lt;code&gt;make()&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Add the following bit before and after &lt;code&gt;make(plan)&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;config &amp;lt;- drake_config(plan) 
-vis_drake_graph(config) &lt;/code&gt;&lt;/pre&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Run all code for a first time.&lt;/li&gt;
-&lt;li&gt;Change something (e.g. the plot function).&lt;/li&gt;
-&lt;li&gt;Rerun and watch the colors change in &lt;code&gt;vis_drake_graph(config)&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Use functions &lt;code&gt;readd()&lt;/code&gt; and &lt;code&gt;loadd()&lt;/code&gt; to work with the produced output.&lt;/li&gt;
-&lt;li&gt;checkout &lt;code&gt;.drake/&lt;/code&gt; folder. This is where all the cached work is stored.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;By running this example, you will see that &lt;code&gt;drake_plan()&lt;/code&gt; is used to create a recipe of the analysis and &lt;code&gt;make()&lt;/code&gt; is used to execute that recipe. &lt;code&gt;make()&lt;/code&gt; will create objects, such as &lt;code&gt;fit&lt;/code&gt; and &lt;code&gt;hist&lt;/code&gt; in the example and store them in the folder &lt;code&gt;.drake/&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;readd()&lt;/code&gt; is used to return an object from cache. This is handy when we only want to diplay an object. &lt;code&gt;loadd()&lt;/code&gt; on the other hand is used to load an object into our session (similarly to &lt;code&gt;load&lt;/code&gt;).&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;section&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;&lt;/h3&gt;
-&lt;p&gt;To checkout further options I recommend the &lt;a href=&#34;https://github.com/cstawitz/RLadies_Sea_drake&#34;&gt;slides&lt;/a&gt; from &lt;a href=&#34;https://github.com/cstawitz&#34;&gt;Christine Stawitz&lt;/a&gt; (presented at R-Ladies Seattle in June 2018). The slides contain a really good overview of the options {drake} provides.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;examples&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Examples&lt;/h3&gt;
-&lt;p&gt;I also created &lt;a href=&#34;https://github.com/sinarueeger/workflow-example&#34;&gt;some tiny examples&lt;/a&gt; that use genetic data. It has four folders:&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;code&gt;wild-west&lt;/code&gt;: this is how I was structuring folders till now (this example was used to introduce the analysis during the presentation).&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;wild-west-pro&lt;/code&gt;: same as 1. but with an &lt;code&gt;README.md&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;drake&lt;/code&gt;: implementing 1. into drake.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;drake-adv&lt;/code&gt;: implementing 1. into a more realistic, hierarchical folder structure.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;The examples use genetic data that was originally used in the &lt;a href=&#34;https://www.crowdai.org/challenges/opensnp-height-prediction&#34;&gt;crowdAI openSNP height prediction&lt;/a&gt; challenge. The full openSNP data set was prepared by my colleague &lt;a href=&#34;https://github.com/onaret&#34;&gt;Olivier Naret&lt;/a&gt; and can be downloaded &lt;a href=&#34;https://zenodo.org/record/1442755#.W8BGbVJ9jOQ&#34;&gt;here&lt;/a&gt;. The examples use a small subset of the full dataset that can be downloaded &lt;a href=&#34;https://github.com/sinarueeger/create-data-workflow-example&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;resources&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Resources&lt;/h3&gt;
-&lt;p&gt;Here are a bunch of resources that helped me understand {drake}:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/ropensci/drake&#34;&gt;Github Repo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/krlmlr/drake-sib-zurich&#34;&gt;This tutorial&lt;/a&gt; and &lt;a href=&#34;https://github.com/krlmlr/drake-sib-zurich/blob/master/cheat-sheet.pdf&#34;&gt;cheatsheet&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/krlmlr&#34;&gt;Kirill Müller&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Overview of options: &lt;a href=&#34;https://github.com/cstawitz/RLadies_Sea_drake&#34;&gt;Make-like declarative workflows with R&lt;/a&gt; by &lt;a href=&#34;https://github.com/cstawitz&#34;&gt;Christine Stawitz&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ropensci.github.io/drake/articles/best-practices.html&#34;&gt;Best practices&lt;/a&gt; for drake projects.&lt;/li&gt;
-&lt;li&gt;Lots of &lt;a href=&#34;https://github.com/ropensci/drake#tutorials&#34;&gt;tutorials&lt;/a&gt; and &lt;a href=&#34;https://github.com/ropensci/drake#examples&#34;&gt;examples&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;but-wait-drake-does-not-care-about-messy-folders&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;But wait: drake does not care about messy folders&lt;/h2&gt;
-&lt;p&gt;True! I can have a &lt;code&gt;make.R&lt;/code&gt; file anywhere and it will still work. But I believe that the shift in logic that you have to get used to with {drake} makes you care more about folder structure.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;what-is-next&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;What is next?&lt;/h2&gt;
-&lt;p&gt;I am currently reading the PlosCompBio paper &lt;a href=&#34;https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510&#34;&gt;Good enough practices in scientific computing&lt;/a&gt; - great read, giving me lots of ideas!&lt;/p&gt;
-&lt;p&gt;I want to use {drake} in a more complex setting. There are also other R-packages that help with project workflows. And I should invest some time to come up with a test suite for data analysis projects.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;when-is-the-right-time-to-tidy&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;When is the right time to tidy&lt;/h2&gt;
-&lt;p&gt;At the Genève RUG meetup we were also discussing when we think is the right time to tidy up.&lt;/p&gt;
-&lt;p&gt;Project folders evolve over time. Especially in the beginning of a project, we are busy figuring things out, wrangling data, fitting models, making plots and telling people what we found out. This can take some time. But at one point we are ready to write a report.&lt;/p&gt;
-&lt;p&gt;It is probably at that stage (when we write a report) that we can “frame” that project into something that is “stable” and “portable”.&lt;/p&gt;
-&lt;p&gt;Although - I am not sure we have to wait that long. I think the benefits of {drake} (e.g. caching) already help us at an earlier stage.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;is-it-really-worth-it&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Is it really worth it&lt;/h2&gt;
-&lt;p&gt;I think there is a trade-off between dedicating days to tidying up and not caring about structure at all. Same with tooling. For example, if we use a tool, say &lt;code&gt;make&lt;/code&gt; but no one else but us knows how to use it, it is going to be hard for colleagues to understand and use project folders that use &lt;code&gt;make&lt;/code&gt;. We have to keep that balance in mind.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;Seriously, meaning, different from previous, half-hearted attempts.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;Just started reading &lt;a href=&#34;https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510&#34;&gt;Good enough practices in scientific computing&lt;/a&gt; - great paper!&lt;a href=&#34;#fnref2&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;Thanks to Maëlle for pointing out that this is a good thing to do!&lt;a href=&#34;#fnref3&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn4&#34;&gt;&lt;p&gt;And while at it, I would totally decrease my coffee consumption too and never procrastinate again 😉.&lt;a href=&#34;#fnref4&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn5&#34;&gt;&lt;p&gt;The terminology is really confusing at times. I rely on &lt;a href=&#34;https://twitter.com/jtleek/status/759822823552606208&#34;&gt;this&lt;/a&gt; definition.&lt;a href=&#34;#fnref5&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn6&#34;&gt;&lt;p&gt;Thanks to my colleague for the idea!&lt;a href=&#34;#fnref6&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn7&#34;&gt;&lt;p&gt;I am still wondering how “Data Frames in R for Make” adds up to “drake” 🤔.&lt;a href=&#34;#fnref7&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
+&lt;p&gt;You can download &lt;a href=&#34;https://drive.switch.ch/index.php/s/FpWZlbw4Rfq20le&#34; target=&#34;_blank&#34;&gt;my thesis&lt;/a&gt;, or checkout the &lt;a href=&#34;https://sinarueeger.github.io/publicdefense/slides#1&#34; target=&#34;_blank&#34;&gt;slides&lt;/a&gt; from my public defense.&lt;/p&gt;
+
+&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
+
+&lt;p&gt;Increasing our knowledge about biology in humans is essential for advances in medicine, such as early-stage diagnoses of diseases, drug development, public health strategies, and precision medicine.
+One approach to tackle this task is, to collect data on different components of a biological mechanism of interest, link these parts and try to construct an underlying model that helps us to explain the disease.
+To collect data, DNA is measured and the status of a disease is recorded for each individual in a dedicated group of people.
+In a first step, an analyst compares for each genetic variant across the whole genome the genetic mutations between people with the disease and healthy people; this is called a genome-wide association study (GWAS).
+Such first association screens rarely point right away to the true causal variants, but combined with additional biomedical (-omics) data and additional statistical methods it is possible to narrow down the true cause and gain insight into the biology of a disease.
+For example, by using GWAS results for two diseases (e.g. cardiovascular disease and obesity) and a statistical method called Mendelian randomisation, we are able to examine the causal effect of obesity on cardiovascular disease, or vice versa.
+These statistical follow-up investigations often require GWAS results for genetic variants than were unmeasured.
+During my PhD, I investigated a method called summary statistic imputation that precisely aims to solve the problem of inferring GWAS results for unmeasured genetic variants. Summary statistic imputation uses GWAS results and data from public sequencing data. My main findings were that imputation accuracy varies depending on certain characteristics of a genetic variant (e.g. low accuracy for rare mutations), as well as the size of publicly available sequencing data (low accuracy for small sized sequencing data).
+A further finding is, that summary statistic imputation can compete with imputation techniques that are based on individual-level data for certain subgroups of genetic variants (e.g. common variants).&lt;/p&gt;
+
+&lt;p&gt;With the help of summary statistic imputation researchers can facilitate follow-up investigations and thus gain more insight into the biology of diseases.&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>Locuszoom plot of GWAS summary statistics</title>
-      <link>https://sinarueeger.github.io/2018/07/30/locuszoomplot/</link>
-      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+      <title>R-package GWAS.utils</title>
+      <link>/project/gwas.utils/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>https://sinarueeger.github.io/2018/07/30/locuszoomplot/</guid>
+      <guid>/project/gwas.utils/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R-package ggGWAS</title>
+      <link>/project/gggwas/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/project/gggwas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistical Genetics Resources</title>
+      <link>/project/stat-genetics-ressources/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/project/stat-genetics-ressources/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LD Part 1</title>
+      <link>/post/get-ld-remotely/</link>
+      <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/get-ld-remotely/</guid>
       <description>
-&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/ionicons/css/ionicons.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/font-awesome/css/fontawesome-all.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
 
-
-&lt;!--make a plot, that did not work with knitting--&gt;
-&lt;!-- what do we want --&gt;
-&lt;p&gt;In the world of &lt;a href=&#34;https://www.acsh.org/news/2018/07/27/genome-wide-association-studies-acsh-explains-13234&#34;&gt;genome-wide association studies&lt;/a&gt; (GWAS) we often get a list of genetic markers (&lt;a href=&#34;https://en.wikipedia.org/wiki/Single-nucleotide_polymorphism&#34;&gt;SNPs&lt;/a&gt;) that seem for some reason relevant for a particular outcome. At the same time, we have little knowledge about these genetic variants that come in cryptic combinations of characters and numbers.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;For example:&lt;/em&gt;&lt;/p&gt;
+&lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;em&gt;We might get asked how frequent the SNP &lt;a href=&#34;https://www.ensembl.org/Homo_sapiens/Variation/Explore?r=16:53766542-53767542;v=rs1421085;vdb=variation;vf=984887&#34;&gt;&lt;code&gt;rs1421085&lt;/code&gt;&lt;/a&gt; is in &lt;a href=&#34;https://www.ensembl.org/Homo_sapiens/Variation/Population?r=16:53766542-53767542;v=rs1421085;vdb=variation;vf=984887&#34;&gt;a range of populations.&lt;/a&gt; &lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;We need to extract all known SNPs that are within 1 Mb of &lt;a href=&#34;https://www.ensembl.org/Homo_sapiens/Variation/Explore?r=16:53766542-53767542;v=rs1421085;vdb=variation;vf=984887&#34;&gt;&lt;code&gt;rs1421085&lt;/code&gt;&lt;/a&gt;. &lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;A genomic region turns out to be highly relevant for some disease and we want to know all genes contained in that genomic region.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#goal&#34;&gt;Goal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#two-approaches&#34;&gt;Two approaches&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#our-toy-data&#34;&gt;Our toy data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#a-solution-that-almost-works-ensembl.org&#34;&gt;A solution that almost works: ensembl.org&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#what-reference-panels-population-can-we-choose-from&#34;&gt;What reference panels / population can we choose from?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#access-ld-between-a-snp-and-its-region&#34;&gt;Access LD between a SNP and its region&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#access-ld-matrix&#34;&gt;Access LD matrix&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#access-ld-between-a-snp-and-many-other-snps&#34;&gt;Access LD between a SNP and many other SNPs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#colored-locuszoom-plot&#34;&gt;Colored locuszoom plot&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#solutions-that-work-half-through&#34;&gt;2. Solutions that work half-through&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#ldlink&#34;&gt;ldlink&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#snpsnap&#34;&gt;SNPsnap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#api-provided-by-sph.umich&#34;&gt;API provided by sph.umich&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#solution-that-does-not-work&#34;&gt;3. Solution that does not work&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#rsnpsld_search&#34;&gt;&lt;code&gt;rsnps::ld_search&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#session-info&#34;&gt;Session Info&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Unless you sit on lots of genetic data, the list of SNPs come from a summarised form. Minimally, these summary statistic datasets contain the SNP identifier (&lt;code&gt;SNPNAME&lt;/code&gt;), the effect size (&lt;code&gt;beta&lt;/code&gt;) and the standard error (&lt;code&gt;se&lt;/code&gt;). Sometimes the position (&lt;code&gt;POS&lt;/code&gt;) and chromosome (&lt;code&gt;CHR&lt;/code&gt;) is provided instead of the SNP identifier, and sometimes both are available. Then there is usually other information coming from the study data, for example the allele frequency in the study &lt;i class=&#34;ion  ion-arrow-right-a &#34;&gt;&lt;/i&gt; this is shown on the LHS in table below. However, hardly ever do the datasets contain &lt;font color=&#34;#31a354&#34;&gt;annotation&lt;/font&gt;, such as the &lt;a href=&#34;https://www.cancer.gov/publications/dictionaries/cancer-terms/def/gene&#34;&gt;gene&lt;/a&gt; where the SNP resides, the phenotypes it is associated with or the minor allele frequency (MAF) in a certain population &lt;i class=&#34;ion  ion-arrow-right-a &#34;&gt;&lt;/i&gt; this is illustrated in the &lt;font color=&#34;#31a354&#34;&gt;green&lt;/font&gt; colored part in table below.&lt;/p&gt;
-&lt;table class=&#34;table table-striped table&#34; style=&#34;width: auto !important; margin-left: auto; margin-right: auto; font-size: 13px; margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The squared correlation between genetic markers is one way to estimate &lt;a href=&#34;https://ldlink.nci.nih.gov/?tab=help&#34;&gt;linkage disequilibrium&lt;/a&gt; (LD). LD has to be computed &lt;em&gt;all the time&lt;/em&gt; - either for as an input for statistical methods or to summarise results.&lt;/p&gt;
+&lt;p&gt;However, accessing LD estimations quickly, for a specific population and in an automated way (e.g. with R) is actually suprisingly difficult.&lt;/p&gt;
+&lt;p&gt;In this blogpost I am exploring how to do this efficiently.&lt;/p&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;div id=&#34;goal&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Goal&lt;/h2&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;p&gt;At the end of this blogpost, we want to know the genetic correlation between two or more markers in a specific human population, so we can populate the locuszoom plot from the &lt;a href=&#34;https://sinarueeger.github.io/2018/07/30/locuszoomplot/&#34;&gt;previous blogpost&lt;/a&gt; with colored dots.&lt;/p&gt;
+&lt;p&gt;For simplicity, I will use the terms correlation, squared correlation, r, r2 and LD interchangeably.&lt;/p&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;/div&gt;
+&lt;div id=&#34;two-approaches&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Two approaches&lt;/h2&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;p&gt;In principal, there are two ways of doing accessing LD:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Download (or access) the genetic data from which you want to estimate your correlations + calculate the correlations using some efficient approach.&lt;/li&gt;
+&lt;li&gt;Access precomputed LD estimations.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;9%&#34; /&gt;
+&lt;col width=&#34;22%&#34; /&gt;
+&lt;col width=&#34;39%&#34; /&gt;
+&lt;col width=&#34;28%&#34; /&gt;
+&lt;/colgroup&gt;
 &lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; &#34; colspan=&#34;7&#34;&gt;
-&lt;div style=&#34;border-bottom: 1px solid #ddd; padding-bottom: 5px;&#34;&gt;
-GWAS summary statistics dataset
-&lt;/div&gt;
-&lt;/th&gt;
-&lt;th style=&#34;border-bottom:hidden; padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; &#34; colspan=&#34;3&#34;&gt;
-&lt;div style=&#34;border-bottom: 1px solid #ddd; padding-bottom: 5px;&#34;&gt;
-Annotation
-&lt;/div&gt;
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-CHR
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-POS
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-SNPNAME
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-REF
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-ALT
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-beta
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-se
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-Gene
-&lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-Linked phenotype
-&lt;/th&gt;
-&lt;th style=&#34;text-align:right;&#34;&gt;
-Global MAF
-&lt;/th&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;Approach &lt;i class=&#34;fas  fa-wrench &#34;&gt;&lt;/i&gt;&lt;/th&gt;
+&lt;th&gt;Advantages &lt;i class=&#34;fas  fa-smile &#34;&gt;&lt;/i&gt;&lt;/th&gt;
+&lt;th&gt;Downsides &lt;i class=&#34;fas  fa-frown &#34;&gt;&lt;/i&gt;&lt;/th&gt;
+&lt;th&gt;Useful when…&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-7
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-75163169
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-rs1167827
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-A
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-G
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.028
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0032
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;color: white;background-color: #31a354;&#34;&gt;
-HIP1
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;color: white;background-color: #31a354;&#34;&gt;
-BMI
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;color: white;background-color: #31a354;&#34;&gt;
-0.4720450
-&lt;/td&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;(1) &lt;strong&gt;Local&lt;/strong&gt; computation of LD&lt;/td&gt;
+&lt;td&gt;LD matrix can be quickly updated to new reference panels&lt;/td&gt;
+&lt;td&gt;Requires large computation and storage space (e.g. 1000 Genomes is &lt;a href=&#34;https://console.cloud.google.com/storage/browser/genomics-public-data/1000-genomes-phase-3/vcf/?_ga=2.227457240.-473641130.1558969048&#34;&gt;&amp;gt;100 few GB large&lt;/a&gt;).&lt;/td&gt;
+&lt;td&gt;i) LD for a large set of SNPs is needed ii) LD from non-standard reference panel is needed.&lt;/td&gt;
 &lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-12
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-122781897
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-rs11057405
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-G
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-A
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
--0.021
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0037
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;color: white;background-color: #31a354;&#34;&gt;
-CLIP1
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;color: white;background-color: #31a354;&#34;&gt;
-BMI
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;color: white;background-color: #31a354;&#34;&gt;
-0.0327476
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-10
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-114758349
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-rs7903146
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-C
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-T
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
--0.031
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0023
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;color: white;background-color: #31a354;&#34;&gt;
-TCF7L2
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;color: white;background-color: #31a354;&#34;&gt;
-BMI
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;color: white;background-color: #31a354;&#34;&gt;
-0.2278350
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-1
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-49589847
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-rs657452
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-A
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-G
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
--0.015
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0025
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;color: white;background-color: #31a354;&#34;&gt;
-AGBL4
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;color: white;background-color: #31a354;&#34;&gt;
-BMI
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;color: white;background-color: #31a354;&#34;&gt;
-0.4532750
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-1
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-49589847
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-rs657452
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-A
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-G
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
--0.015
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;&#34;&gt;
-0.0025
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;color: white;background-color: #31a354;&#34;&gt;
-AC099788.1
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;color: white;background-color: #31a354;&#34;&gt;
-BMI
-&lt;/td&gt;
-&lt;td style=&#34;text-align:right;color: white;background-color: #31a354;&#34;&gt;
-0.4532750
-&lt;/td&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;(2) &lt;strong&gt;Access&lt;/strong&gt; precomputed LD&lt;/td&gt;
+&lt;td&gt;not need for large computation and storage space.&lt;/td&gt;
+&lt;td&gt;limited to certain small sets of markers, limited to possibly outdated reference panels.&lt;/td&gt;
+&lt;td&gt;LD for a small set of SNPs is needed&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;This makes sense. Genetic data from cohorts will be used for years and won’t change, but the annotation will change over the years. Take the chromosomal position of SNPs, that changes &lt;a href=&#34;https://en.wikipedia.org/wiki/Reference_genome&#34;&gt;with every new human genome reference assembley&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;To get our hands on annotation, we need to consult external databases that are - lucky us! - public. But first, let us define what we want to see at the &lt;a href=&#34;#end&#34;&gt;end&lt;/a&gt; of the blogpost.&lt;/p&gt;
-&lt;div id=&#34;goal&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Goal&lt;/h2&gt;
-&lt;p&gt;For this blogpost, we keep it simple and only focus on the &lt;strong&gt;genes contained in a genomic region&lt;/strong&gt;, but this can be easily extended to any other annotation available in databases.&lt;/p&gt;
-&lt;p&gt;In the illustration below&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, we want to know the gene starting and end positions around one particular gene region to create an informative locuszoom plot.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src=&#34;https://sinarueeger.github.io/post/annotation/locuszoom-sketch.png&#34; alt=&#34;Drawing of a table.&#34; align=&#34;middle&#34; style=&#34;width: 600px;&#34;/&gt;
-&lt;figcaption&gt;
-&lt;small&gt;In this case, we want to visualise the GWAS P-value (-log10(P-value)) of a genomic region (with each point representing a SNP), with the corresponding genes at the bottom. This is similar to a plot done with &lt;a href=&#34;http://locuszoom.org/&#34;&gt;LocusZoom&lt;/a&gt;, a tool that takes summary statistics as input and outputs a pretty graph for a desired genomic region, including gene annotation, LD information and more. &lt;/small&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
+&lt;p&gt;For now I will focus on approach (2), and then explore approach (1) in a future blogpost.&lt;/p&gt;
+&lt;p&gt;Spoiler: Using approach (2) does not get you far. It took me quite a while to gather all the solutions that are listed below, and yet there is not one perfect/ideal solution.&lt;/p&gt;
+&lt;!---------- -------------------------------&gt;
 &lt;/div&gt;
-&lt;div id=&#34;getting-it-done&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Getting it done&lt;/h2&gt;
-&lt;!---
-
-&lt;!-- how can we achieve this? --&gt;
-&lt;p&gt;There are currently more than 10 Mio SNPs known, and knowing their functions and genes by heart would equal to some super power. Which is why we &lt;i class=&#34;ion  ion-heart &#34;&gt;&lt;/i&gt;&lt;a href=&#34;#fn2&#34; class=&#34;footnoteRef&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; public databases, such as &lt;a href=&#34;https://www.ncbi.nlm.nih.gov/projects/SNP/&#34;&gt;dbSNP&lt;/a&gt; and &lt;a href=&#34;https://www.ensembl.org/index.html&#34;&gt;ensembl&lt;/a&gt;&lt;a href=&#34;#fn3&#34; class=&#34;footnoteRef&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;What we like even more, is, to make our analyses reproducible and automate annotation and lookups.&lt;/p&gt;
-&lt;p&gt;&lt;i class=&#34;ion  ion-arrow-right-a &#34;&gt;&lt;/i&gt; In this blogpost, I will show how to zoom into GWAS results and annotate the plot based on the information about that genomic region using R. &lt;!--r icon::ii_r_project().--&gt;&lt;/p&gt;
-&lt;!-- why do we need a locus zoom plot anyway ?--&gt;
-&lt;p&gt;Here is the plan:&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;a href=&#34;#get-summary-statistics&#34;&gt;Get summary statistics&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#extracting-annotation&#34;&gt;Extract annotation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#end&#34;&gt;Combine summary statistics and annotation&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Before tackling the first item, we want to have all R-packages installed &amp;amp; ready to use:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Packages needed to run code
-## ----------------------------
-# install.packages(&amp;quot;dplyr&amp;quot;)     ## data manipulation
-# install.packages(&amp;quot;data.table&amp;quot;) ## read data, fast!
-# install.packages(&amp;quot;forcats&amp;quot;)   ## dealing with factors
-# install.packages(&amp;quot;ggplot2&amp;quot;)   ## dataviz
-# install.packages(&amp;quot;magrittr&amp;quot;)  ## piping
-# install.packages(&amp;quot;metafolio&amp;quot;)  ## colorpalette
-# install.packages(&amp;quot;skimr&amp;quot;)     ## summarising data
-# install.packages(&amp;quot;qqman&amp;quot;)     ## Manhattan plot
-# install.packages(&amp;quot;patchwork&amp;quot;) ## assembling plots
-
-# source(&amp;quot;https://bioconductor.org/biocLite.R&amp;quot;)
-# biocLite(&amp;quot;biomaRt&amp;quot;)           ## annotation
-
-## Optional packages for Rmd
-## --------------------------
-# install.packages(&amp;quot;kableExtra&amp;quot;) ## making pretty tables
-# install.packages(&amp;quot;devtools&amp;quot;)
-# devtools::install_github(&amp;quot;hadley/emo&amp;quot;)        ## emojis
-# devtools::install_github(&amp;quot;ropenscilabs/icon&amp;quot;) ## icons&lt;/code&gt;&lt;/pre&gt;
-&lt;!-- data --&gt;
-&lt;/div&gt;
-&lt;div id=&#34;get-summary-statistics&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;1. Get summary statistics&lt;/h2&gt;
-&lt;p&gt;First, we need some GWAS summary statistics.&lt;/p&gt;
-&lt;p&gt;There are lots of &lt;a href=&#34;https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-data.md#gwas-summary-statistic-results&#34;&gt;&lt;strong&gt;resources&lt;/strong&gt;&lt;/a&gt; for publicly available GWAS summary statistics.&lt;/p&gt;
-&lt;!-- For example, if you would like to download the latest MDD results, search for *&#39;MDD2 2018&#39;*, for BD and SCZ search for *&#39;BIP and SCZ results from Cell Publication, 2018&#39;*.--&gt;
-&lt;p&gt;We will look at BMI, because it can be accessed easily&lt;a href=&#34;#fn4&#34; class=&#34;footnoteRef&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt; and because it is fairly small for a genomic dataset. The data is from the &lt;a href=&#34;https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files&#34;&gt;Genetic Investigation of ANthropometric Traits&lt;/a&gt; (GIANT) consortium. You can &lt;strong&gt;download&lt;/strong&gt; the dataset&lt;a href=&#34;#fn5&#34; class=&#34;footnoteRef&#34; id=&#34;fnref5&#34;&gt;&lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt; &lt;a href=&#34;https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files#GWAMA_Age-.2FSex-Stratified_2015_BMI_and_WHR&#34;&gt;here&lt;/a&gt; or load it &lt;strong&gt;directly into R&lt;/strong&gt;.&lt;/p&gt;
+&lt;div id=&#34;our-toy-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Our toy data&lt;/h2&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;p&gt;We will recycle the data from the &lt;a href=&#34;https://sinarueeger.github.io/2018/07/30/locuszoomplot/&#34;&gt;previous blogpost&lt;/a&gt;, where the focus was on extracting annotation using the package &lt;code&gt;biomaRt&lt;/code&gt;. In this blogpost, we will complete that locuszoomplot by adding the LD information.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Data Source URL
 url &amp;lt;- &amp;quot;https://portals.broadinstitute.org/collaboration/giant/images/2/21/BMI_All_ancestry.fmt.gzip&amp;quot;
-
-#url &amp;lt;- &amp;quot;jenger.riken.jp/1analysisresult_qtl_download/All_2017_BMI_BBJ_autosome.txt.gz&amp;quot;
 
 ## Import BMI summary statistics dat.bmi &amp;lt;- read_tsv(file = url) ##
 ## taking too long, let&amp;#39;s use fread instead.
 
-dat.bmi &amp;lt;- data.table::fread(url, verbose = FALSE)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;I added &lt;code&gt;verbose = FALSE&lt;/code&gt; because it will complain that there is an unexpected character in column 1, which appears to be numerical. This is because chromosome X will only appear towards the end of the dataset.&lt;/p&gt;
-&lt;p&gt;Next, we rename some columns to something more conventional.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Rename some columns
-dat.bmi &amp;lt;- dat.bmi %&amp;gt;% rename(SNP = SNPNAME, P = Pvalue)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now, let’s look at the data with the &lt;a href=&#34;https://github.com/ropensci/skimr&#34;&gt;&lt;code&gt;skimr&lt;/code&gt;&lt;/a&gt; package.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;skimr::skim(dat.bmi)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Skim summary statistics
-##  n obs: 246328 
-##  n variables: 10 
-## 
-## ── Variable type:character ─────────────────────────────────────────────────────────────────────────────
-##  variable missing complete      n min max empty n_unique
-##       ALT       0   246328 246328   1   1     0        4
-##       CHR       0   246328 246328   1   2     0       23
-##  ExAC_MAF       0   246328 246328   1 325     0    51423
-##      GMAF       0   246328 246328   1  17     0     9964
-##       REF       0   246328 246328   1   1     0        4
-##       SNP       0   246328 246328   1  11     0   243206
-## 
-## ── Variable type:integer ───────────────────────────────────────────────────────────────────────────────
-##  variable missing complete      n    mean      sd    p0     p25     p50
-##       POS       0   246328 246328 7.6e+07 5.7e+07 11885 3.2e+07 6.1e+07
-##      p75    p100     hist
-##  1.1e+08 2.5e+08 ▇▇▅▅▃▂▁▁
-## 
-## ── Variable type:numeric ───────────────────────────────────────────────────────────────────────────────
-##  variable missing complete      n      mean     sd        p0    p25
-##      beta     977   245351 246328   0.00051   0.13 -3.2      -0.032
-##         P     977   245351 246328   0.48      0.3   8.6e-269  0.21 
-##        se       0   246328 246328 Inf       NaN     0.002     0.023
-##       p50   p75  p100     hist
-##  -0.00017 0.031   3.2 ▁▁▁▇▇▁▁▁
-##   0.47    0.73    1   ▇▇▆▆▆▆▆▆
-##   0.059   0.11  Inf   ▇▁▁▁▁▁▁▁&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The reference allele (&lt;code&gt;REF&lt;/code&gt;), alternative allele (&lt;code&gt;ALT&lt;/code&gt;), SNP identifier (&lt;code&gt;SNP&lt;/code&gt;) and chromosome (&lt;code&gt;CHR&lt;/code&gt;) are characters. There are four unique values for &lt;code&gt;ALT&lt;/code&gt; and &lt;code&gt;REF&lt;/code&gt;: A, C, G, T, and 23 unique values for &lt;code&gt;CHR&lt;/code&gt; - seems about right. The two columns with the minor allele frequencies measured in &lt;a href=&#34;https://portals.broadinstitute.org/collaboration/giant/index.php/Main_Page&#34;&gt;GIANT&lt;/a&gt; and &lt;a href=&#34;http://exac.broadinstitute.org/&#34;&gt;ExAC&lt;/a&gt; datasets (&lt;code&gt;GMAF&lt;/code&gt;, &lt;code&gt;ExAC_MAF&lt;/code&gt;) are characters too, because the allele is concatenated. The chromosomal position (&lt;code&gt;POS&lt;/code&gt;) is an integer. Then there is the actual association of each SNP with BMI (&lt;code&gt;beta&lt;/code&gt;, &lt;code&gt;se&lt;/code&gt;, &lt;code&gt;P&lt;/code&gt;).&lt;/p&gt;
-&lt;!-- The first column indicates the chromosome (`CHR`), the second the chromosomal position (`POS`), then the reference allele (`REF`), the alternative allele (`ALT`), the SNP identifier (`SNP`), minor allele frequencies measured in [GIANT](https://portals.broadinstitute.org/collaboration/giant/index.php/Main_Page) and [ExAC](http://exac.broadinstitute.org/) datasets (`GMAF`, `ExAC_MAF`), followed by the association of that SNP with BMI (`beta`, `se`, `P`). --&gt;
-&lt;p&gt;This dataset has 246328 rows and 10 columns. What if we want to visualise this all at once? In particularly, we are interested if there are ANY associations between the genetic markers and BMI. The mini &lt;code&gt;P&lt;/code&gt; distribution in the skimr output does not reveal much.&lt;/p&gt;
-&lt;div id=&#34;visualising-associations&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Visualising associations&lt;/h3&gt;
-&lt;p&gt;Visualising all associations at once can be done with a Manhattan plot, where the x-axis represents chromosome&lt;code&gt;CHR&lt;/code&gt; and the chromosomal position &lt;code&gt;POS&lt;/code&gt;, and the y-axis the &lt;code&gt;-log10(P)&lt;/code&gt;-value. Let’s use the R-package &lt;code&gt;qqman&lt;/code&gt;&lt;a href=&#34;#fn6&#34; class=&#34;footnoteRef&#34; id=&#34;fnref6&#34;&gt;&lt;sup&gt;6&lt;/sup&gt;&lt;/a&gt; for that.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;qqman::manhattan(dat.bmi %&amp;gt;% mutate(CHR = as.numeric(as.character(fct_recode(CHR, &amp;quot;23&amp;quot; = &amp;quot;X&amp;quot;)))) %&amp;gt;%   filter(-log10(P)&amp;gt;1), chr=&amp;quot;CHR&amp;quot;, bp=&amp;quot;POS&amp;quot;, snp=&amp;quot;SNP&amp;quot;, p=&amp;quot;P&amp;quot;, suggestiveline =FALSE, genomewideline = FALSE, chrlabs = c(1:22, &amp;quot;X&amp;quot;), cex = 0.4)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/mhtplot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can spot immediately, that there are loads of SNPs with P-values smaller than &lt;span class=&#34;math inline&#34;&gt;\(10^{-100}\)&lt;/span&gt; (sample size was around &lt;a href=&#34;https://www.biorxiv.org/content/early/2018/03/22/274654&#34;&gt;700K&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;Of course, there are many other solutions to spot real associations, but this is not the point of this blogpost ;-).&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;identify-genomic-region-with-lowest-p-value&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Identify genomic region with lowest P-value&lt;/h3&gt;
-&lt;p&gt;Now that we know that there are lots of genetic markers associated with BMI, we want to look at a specific genomic region and figure out what genes it contains. For illustrative purposes, we pick the genomic region with the lowest P-value.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dat.bmi.sel &amp;lt;- dat.bmi %&amp;gt;% slice(which.min(P))
-dat.bmi.sel&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##    CHR      POS REF ALT       SNP     GMAF ExAC_MAF  beta     se        P
-## 1:  16 53800954   T   C rs1421085 C:0.2286        - 0.078 0.0022 8.6e-269&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;SNP identifier rs1421085 that has the lowest P-value (&lt;span class=&#34;math inline&#34;&gt;\(P = 8.6\times 10^{-269}\)&lt;/span&gt;).&lt;/p&gt;
-&lt;p&gt;Now we can visualise the summary statistics of that genomic region (&lt;span class=&#34;math inline&#34;&gt;\(\pm 500 \cdot 10^{3}\)&lt;/span&gt;).&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;range &amp;lt;- 5e+05
+dat.bmi &amp;lt;- data.table::fread(url, verbose = FALSE)
+
+## Rename some columns
+dat.bmi &amp;lt;- dat.bmi %&amp;gt;% rename(SNP = SNPNAME, P = Pvalue)
+
+## Extract region
+dat.bmi.sel &amp;lt;- dat.bmi %&amp;gt;% slice(which.min(P))
+dat.bmi.sel
+
+## range region
+range &amp;lt;- 5e+05
 sel.chr &amp;lt;- dat.bmi.sel$CHR
 sel.pos &amp;lt;- dat.bmi.sel$POS
 
-dat.bmi.sel.region &amp;lt;- dat.bmi %&amp;gt;% filter(CHR == sel.chr, between(POS, sel.pos - 
+dat.bmi.sel.region &amp;lt;- dat.bmi %&amp;gt;% 
+  filter(CHR == sel.chr, between(POS, sel.pos - 
       range, sel.pos + range))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p1 &amp;lt;- ggplot(data = dat.bmi.sel.region) + 
-  geom_point(aes(POS, -log10(P)), shape = 1) + 
-  labs(title = &amp;quot;Locuszoomplot for BMI GWAS&amp;quot;, subtitle = paste(&amp;quot;Summary   statistics for chromosome&amp;quot;, sel.chr, &amp;quot;from&amp;quot;, format((sel.pos - range), big.mark = &amp;quot;&amp;#39;&amp;quot;), &amp;quot;to&amp;quot;, format((sel.pos + range), big.mark = &amp;quot;&amp;#39;&amp;quot;), &amp;quot;bp&amp;quot;), caption = paste(&amp;quot;Data source:&amp;quot;, url))
-print(p1)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/plot-summarystats-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Next, we want to know if rs1421085 is part of a gene, and if yes, which one.&lt;/p&gt;
+&lt;p&gt;What we are interested in, is the LD between our top SNP rs1421085 and all remaining SNPs.&lt;/p&gt;
+&lt;p&gt;Remember that this dataset has positions on build GRCh37, while most databases are on build GRCh38 by now.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rsnps)
+snp &amp;lt;- dat.bmi.sel$SNP
+sm &amp;lt;- ncbi_snp_summary(snp) %&amp;gt;% separate(chrpos, c(&amp;quot;chr&amp;quot;, &amp;quot;pos&amp;quot;))
+sel.pos == as.numeric(sm$pos)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;!---------- -------------------------------&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;extracting-annotation&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2. Extracting annotation&lt;/h2&gt;
-&lt;div id=&#34;biomart&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;biomaRt&lt;/h3&gt;
-&lt;p&gt;Thankfully, there is an R-package called &lt;a href=&#34;https://bioconductor.org/packages/release/bioc/html/biomaRt.html&#34;&gt;&lt;code&gt;biomaRt&lt;/code&gt;&lt;/a&gt; that can do this for us.&lt;/p&gt;
-&lt;p&gt;I have only come across this package a few weeks ago, so I apologise in advance that I won’t make full use of all the features that the package offers.&lt;/p&gt;
-&lt;p&gt;&lt;i class=&#34;ion  ion-alert &#34;&gt;&lt;/i&gt; &lt;code&gt;biomaRt&lt;/code&gt; should not to be confused with &lt;a href=&#34;https://github.com/ropensci/biomartr&#34;&gt;&lt;code&gt;biomartr&lt;/code&gt;&lt;/a&gt;. &lt;code&gt;biomartr&lt;/code&gt; is an rOpenSci package by &lt;a href=&#34;https://twitter.com/HajkDrost&#34;&gt;Hajk-Georg Drost&lt;/a&gt;. I needed this tweet &lt;i class=&#34;ion  ion-arrow-down-a &#34;&gt;&lt;/i&gt; to realise that these were two separate, yet related R-packages.&lt;/p&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;
-&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;
-Did you ever want to reproducibly retrieve thousands of genomes across the tree of life using only one R command? Then have a look at the new version of biomartr which is on its way to CRAN! &lt;a href=&#34;https://t.co/kWF5XCoGhj&#34;&gt;https://t.co/kWF5XCoGhj&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/bioinformatics?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#bioinformatics&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstats&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/Genomics?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#Genomics&lt;/a&gt; &lt;a href=&#34;https://t.co/EZHJP0n1f9&#34;&gt;pic.twitter.com/EZHJP0n1f9&lt;/a&gt;
-&lt;/p&gt;
-— Hajk-Georg Drost (&lt;span class=&#34;citation&#34;&gt;@HajkDrost&lt;/span&gt;) &lt;a href=&#34;https://twitter.com/HajkDrost/status/1012280903488466945?ref_src=twsrc%5Etfw&#34;&gt;June 28, 2018&lt;/a&gt;
-&lt;/blockquote&gt;
-&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-&lt;p&gt;So far, I did not fully grasp the benefits of &lt;code&gt;biomartr&lt;/code&gt; compared to &lt;code&gt;biomaRt&lt;/code&gt; for annotation of human data. But I will definitely &lt;a href=&#34;https://ropensci.github.io/biomartr/articles/Functional_Annotation.html&#34;&gt;look more into it&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I also got a tip from &lt;a href=&#34;https://twitter.com/MariannaFoos&#34;&gt;Marianna Foos&lt;/a&gt; to check out &lt;a href=&#34;https://cran.r-project.org/web/packages/rsnps/vignettes/rsnps_vignette.html&#34;&gt;&lt;code&gt;rsnps&lt;/code&gt;&lt;/a&gt;, an R-package dealing with SNP annotation.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;learning-resources&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Learning resources&lt;/h3&gt;
-&lt;p&gt;I used mainly two sources to learn what I wanted to do:&lt;/p&gt;
+&lt;div id=&#34;a-solution-that-almost-works-ensembl.org&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;A solution that almost works: ensembl.org&lt;/h2&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;p&gt;Let’s quickly repeat what our primary goal is:&lt;/p&gt;
+&lt;p&gt;Extract the correlation between SNPs&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bioconductor.org/packages/devel/bioc/vignettes/biomaRt/inst/doc/biomaRt.html&#34;&gt;Vignette of biomaRt&lt;/a&gt; on Bioconductor&lt;a href=&#34;#fn7&#34; class=&#34;footnoteRef&#34; id=&#34;fnref7&#34;&gt;&lt;sup&gt;7&lt;/sup&gt;&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/41490657/best-way-to-get-list-of-snps-by-gene-id&#34;&gt;This question&lt;/a&gt; on StackOverflow.&lt;/li&gt;
+&lt;li&gt;without downloading any data,&lt;/li&gt;
+&lt;li&gt;fairly quick and&lt;/li&gt;
+&lt;li&gt;in R.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let’s first define our top SNP and the range in kb around that SNP for which we want LD information.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;snp &amp;lt;- dat.bmi.sel$SNP
+range.kb &amp;lt;- range/1e3 ## in k bp&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;a href=&#34;https://rest.ensembl.org&#34;&gt;REST API of Ensembl&lt;/a&gt; can do a lot (see options &lt;a href=&#34;https://rest.ensembl.org/documentation/&#34;&gt;here&lt;/a&gt;). For example: access precomputed LD. The webpage even provides R code to do so, which is from where I copied some snippets below.&lt;/p&gt;
+&lt;p&gt;To access the rest API at ensembl, we need the following three packages loaded.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(httr)
+library(jsonlite)
+library(xml2)
+library(tibble)
+library(tidyr)
+library(magrittr)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;what-reference-panels-population-can-we-choose-from&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;What reference panels / population can we choose from?&lt;/h3&gt;
+&lt;!------------------------------&gt;
+&lt;p&gt;Currently, the largest and hence most popular public reference panel is &lt;a href=&#34;http://www.internationalgenome.org/&#34;&gt;1000 Genomes reference panel&lt;/a&gt; (1KG). The 26 populations of roughly 100 individuals each can be grouped into five super populations: African (AFR), American (AMR), European (EUR), South Asian (SAS), East Asian (EAS).&lt;/p&gt;
+&lt;p&gt;We can ask the ENSEMBL API from what populations reference panels are available. This will return us a dataframe.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;server &amp;lt;- &amp;quot;https://rest.ensembl.org&amp;quot;
+ext &amp;lt;- &amp;quot;/info/variation/populations/homo_sapiens?filter=LD&amp;quot;
+ 
+r &amp;lt;- GET(paste(server, ext, sep = &amp;quot;&amp;quot;), content_type(&amp;quot;application/json&amp;quot;))
+ 
+stop_for_status(r)
+ 
+head(fromJSON(toJSON(content(r))))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                      name
+## 1 1000GENOMES:phase_3:ACB
+## 2 1000GENOMES:phase_3:ASW
+## 3 1000GENOMES:phase_3:BEB
+## 4 1000GENOMES:phase_3:CDX
+## 5 1000GENOMES:phase_3:CEU
+## 6 1000GENOMES:phase_3:CHB
+##                                                  description size
+## 1                              African Caribbean in Barbados   96
+## 2                           African Ancestry in Southwest US   61
+## 3                                      Bengali in Bangladesh   86
+## 4                        Chinese Dai in Xishuangbanna, China   93
+## 5 Utah residents with Northern and Western European ancestry   99
+## 6                               Han Chinese in Bejing, China  103&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;name&lt;/code&gt; stands for the population identifier. &lt;code&gt;size&lt;/code&gt; refers to the number of individuals in the reference panel. Note that these are all populations with around 100 individuals (the correlation estimation will have an error that scales with the sample size). There are also the five super population available (although not listed here), simply replace the last three characters in &lt;code&gt;name&lt;/code&gt; by &lt;code&gt;EUR&lt;/code&gt;, &lt;code&gt;AFR&lt;/code&gt;, &lt;code&gt;AMR&lt;/code&gt;, &lt;code&gt;EAS&lt;/code&gt;, &lt;code&gt;SAS&lt;/code&gt;.&lt;/p&gt;
+&lt;iframe seamless src=&#34;/post/2018-08-09-put-the-color-into-the-points/map-1000genomes-populations.html&#34; width=&#34;100%&#34; height=&#34;500&#34;&gt;
+&lt;/iframe&gt;
+&lt;p&gt;&lt;sup&gt;(From &lt;a href=&#34;../1kgmap.html&#34;&gt;this&lt;/a&gt; blogpost.)&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;We want the LD information, so we can add this info to the locuszoom plot. But how do we know which population to pick? One way is, to read up what kind of individuals were present. In our case - mostly Europeans (&lt;code&gt;EUR&lt;/code&gt;). But we could also build some pooled LD matrix of different populations.&lt;/p&gt;
+&lt;p&gt;Now that we know which reference panel we want to use, we can use the different rest APIs.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#access-ld-between-a-snp-and-its-region&#34;&gt;Access LD between a SNP and its region&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#access-ld-matrix&#34;&gt;Access LD matrix&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#access-ld-between-a-snp-and-many-other-snps&#34;&gt;Access LD between a SNP and many other SNPs&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
-&lt;div id=&#34;using-biomart&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Using biomaRt&lt;/h3&gt;
-&lt;p&gt;First, we need to load the &lt;code&gt;biomaRt&lt;/code&gt; &lt;a href=&#34;https://bioconductor.org/packages/release/bioc/html/biomaRt.html&#34;&gt;package from Bioconductor&lt;/a&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(biomaRt) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Next we specify which database to use. You can use the functions &lt;code&gt;listMart()&lt;/code&gt;, &lt;code&gt;listEnsembl()&lt;/code&gt; and &lt;code&gt;listDatasets()&lt;/code&gt; to select from the right biomart and dataset. We will need to extract SNPs, hence &lt;code&gt;biomart = &amp;quot;snp&amp;quot;&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;snp.ensembl &amp;lt;- useEnsembl(biomart = &amp;quot;snp&amp;quot;, dataset = &amp;quot;hsapiens_snp&amp;quot;)
+&lt;div id=&#34;access-ld-between-a-snp-and-its-region&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Access LD between a SNP and its region&lt;/h3&gt;
+&lt;!------------------------------&gt;
+&lt;p&gt;This API is described &lt;a href=&#34;https://rest.ensembl.org/documentation/info/ld_id_get&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The default window size is 500 kb. There are also thresholds for &lt;code&gt;r2&lt;/code&gt; (e.g. if you want to filter all SNPs with an &lt;code&gt;r2 &amp;gt; 0.8&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;The only input required is the SNP rsid, marked with &lt;code&gt;{snp}&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;snp&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;rs1421085&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;server &amp;lt;- &amp;quot;https://rest.ensembl.org&amp;quot;
+ext &amp;lt;- glue::glue(&amp;quot;/ld/human/{snp}/1000GENOMES:phase_3:EUR?&amp;quot;)
+## Window size in kb. The maximum allowed value for the window size is 500 kb. LD is computed for the given variant and all variants that are located within the specified window.
 
-class(snp.ensembl)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Mart&amp;quot;
-## attr(,&amp;quot;package&amp;quot;)
-## [1] &amp;quot;biomaRt&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# other ways of selecting the mart snp.mart &amp;lt;- useMart(biomart =
-# &amp;#39;ENSEMBL_MART_SNP&amp;#39;, dataset=&amp;#39;hsapiens_snp&amp;#39;) 
-# gene.mart &amp;lt;- useMart(&amp;#39;ensembl&amp;#39;, dataset=&amp;#39;hsapiens_gene_ensembl&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Last, we extract the gene id to which our SNP belongs using the function &lt;code&gt;getBM()&lt;/code&gt;. Along with that we also extract other information, like the minor allele frequency &lt;code&gt;minor_allele_freq&lt;/code&gt;. To check which attributes and filters are available, run &lt;code&gt;listAttributes(snp.ensembl)&lt;/code&gt; and &lt;code&gt;listFilters(snp.ensembl)&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;out.bm &amp;lt;- getBM(
-  attributes = c(&amp;quot;ensembl_gene_stable_id&amp;quot;, 
-                 &amp;quot;refsnp_id&amp;quot;, 
-                 &amp;quot;chr_name&amp;quot;, 
-                 &amp;quot;chrom_start&amp;quot;, 
-                 &amp;quot;chrom_end&amp;quot;, 
-                 &amp;quot;minor_allele&amp;quot;, 
-                 &amp;quot;minor_allele_freq&amp;quot;),
-                # &amp;quot;ensembl_transcript_stable_id&amp;quot;,
-                # &amp;quot;consequence_type_tv&amp;quot;),
-  filters = &amp;quot;snp_filter&amp;quot;, 
-  values = &amp;quot;rs1421085&amp;quot;,#dat.bmi.sel$SNP, 
-  mart = snp.ensembl)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This gives us - as chosen in &lt;code&gt;attributes&lt;/code&gt; - the gene identifier, the SNP identifier, the chromosome name, chromosomal position (start + end), minor allele and minor allele frequency. The output in &lt;code&gt;out.bm&lt;/code&gt; corresponds to &lt;a href=&#34;https://www.ensembl.org/Homo_sapiens/Variation/Explore?r=16:53766542-53767542;v=rs1421085;vdb=variation;vf=984887&#34;&gt;this&lt;/a&gt; webpage entry on the ensembl webpage.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;out.bm&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   ensembl_gene_stable_id refsnp_id chr_name chrom_start chrom_end
-## 1        ENSG00000140718 rs1421085       16    53767042  53767042
-##   minor_allele minor_allele_freq
-## 1            C          0.228634&lt;/code&gt;&lt;/pre&gt;
+r &amp;lt;- GET(paste(server, ext, sep = &amp;quot;&amp;quot;), content_type(&amp;quot;application/json&amp;quot;))
+stop_for_status(r)
+LD.SNP.region &amp;lt;- as_tibble(fromJSON(toJSON(content(r)))) %&amp;gt;% unnest() %&amp;gt;% mutate(r2 = as.numeric(r2))
+head(LD.SNP.region)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 5
+##   d_prime  variation1     r2 variation2  population_name        
+##   &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;                  
+## 1 0.541755 rs1421085  0.0514 rs1077128   1000GENOMES:phase_3:EUR
+## 2 0.639310 rs1421085  0.0679 rs141750185 1000GENOMES:phase_3:EUR
+## 3 0.394345 rs1421085  0.0779 rs7206010   1000GENOMES:phase_3:EUR
+## 4 0.393204 rs1421085  0.0765 rs6499640   1000GENOMES:phase_3:EUR
+## 5 1.000000 rs1421085  0.953  rs9928094   1000GENOMES:phase_3:EUR
+## 6 0.999999 rs1421085  0.922  rs17817497  1000GENOMES:phase_3:EUR&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As a result, &lt;code&gt;LD.snp.region&lt;/code&gt; contains the &lt;code&gt;r2&lt;/code&gt; of our top SNP with all SNPs that were +/- 500 kb away.&lt;/p&gt;
+&lt;p&gt;What if we want the correlation between all SNPs?&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;quick-d-tour-assembly-grch37-or-grch38&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Quick d-tour: assembly GRCh37 or GRCh38?&lt;/h3&gt;
-&lt;p&gt;Before getting the gene names, we want to check if the position in the dataset are from assembly GRCh37 or GRCh38. This is a handy thing, because oftentimes only SNP identifiers are reported. Or SNP identifiers are reported, but with positions on a &lt;a href=&#34;https://en.wikipedia.org/wiki/Reference_genome&#34;&gt;different assembly&lt;/a&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ifelse(sel.pos == out.bm$chrom_start, 
-       &amp;quot;\u2713: same assembley (GRCh38)&amp;quot;, 
-       &amp;quot;\u2717: not the same assembley&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;✗: not the same assembley&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The position is not matching, because the databases that we are looking at is based on the most recent &lt;code&gt;human assembly GRCh38&lt;/code&gt;, but the BMI summary statistics dataset is based on &lt;a href=&#34;https://grch37.ensembl.org/index.html&#34;&gt;&lt;code&gt;human assembly GRCh37&lt;/code&gt;&lt;/a&gt;. The command &lt;code&gt;listEnsemblArchives()&lt;/code&gt; will list you the URLs needed to get access to an archived assembly. So let’s pull out the archived GRCh37 version with the argument &lt;code&gt;host = &#39;http://grch37.ensembl.org&#39;&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;snp.ensembl.grch37 &amp;lt;- useMart(host=&amp;#39;http://grch37.ensembl.org&amp;#39;, 
-                     biomart=&amp;#39;ENSEMBL_MART_SNP&amp;#39;, 
-                     dataset=&amp;#39;hsapiens_snp&amp;#39;)
-
-out.bm.grch37 &amp;lt;- getBM(
-  attributes = c(&amp;#39;ensembl_gene_stable_id&amp;#39;, &amp;#39;refsnp_id&amp;#39;, &amp;#39;chr_name&amp;#39;, &amp;#39;chrom_start&amp;#39;, &amp;#39;chrom_end&amp;#39;, &amp;#39;minor_allele&amp;#39;, &amp;#39;minor_allele_freq&amp;#39;),
-  filters = &amp;#39;snp_filter&amp;#39;,
-  values = dat.bmi.sel$SNP,
-  mart = snp.ensembl.grch37
-)
-out.bm.grch37&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   ensembl_gene_stable_id refsnp_id chr_name chrom_start chrom_end
-## 1        ENSG00000140718 rs1421085       16    53800954  53800954
-##   minor_allele minor_allele_freq
-## 1            C          0.228634&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Let’s check again.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ifelse(sel.pos == out.bm.grch37$chrom_start,
-       &amp;quot;\u2713: same assembley (grch37)&amp;quot;, 
-       &amp;quot;\u2717: not the same assembley&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;✓: same assembley (grch37)&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/flaviahodel&#34;&gt;Flavia Hodel&lt;/a&gt; pointed out that adding the argument &lt;code&gt;GRCh = 37&lt;/code&gt; works too! That’s handy argument (but limited to GRCh versions 37 and 38).&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;snp.ensembl.grch37.alt &amp;lt;- useEnsembl(biomart = &amp;quot;snp&amp;quot;, dataset = &amp;quot;hsapiens_snp&amp;quot;, GRCh = 37)
-
-
-out.bm.grch37 &amp;lt;- getBM(
-  attributes = c(&amp;#39;ensembl_gene_stable_id&amp;#39;, &amp;#39;refsnp_id&amp;#39;, &amp;#39;chr_name&amp;#39;, &amp;#39;chrom_start&amp;#39;, &amp;#39;chrom_end&amp;#39;, &amp;#39;minor_allele&amp;#39;, &amp;#39;minor_allele_freq&amp;#39;),
-  filters = &amp;#39;snp_filter&amp;#39;,
-  values = dat.bmi.sel$SNP,
-  mart = snp.ensembl.grch37.alt
-)
-out.bm.grch37&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   ensembl_gene_stable_id refsnp_id chr_name chrom_start chrom_end
-## 1        ENSG00000140718 rs1421085       16    53800954  53800954
-##   minor_allele minor_allele_freq
-## 1            C          0.228634&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ifelse(sel.pos == out.bm.grch37$chrom_start,
-       &amp;quot;\u2713: same assembley (grch37)&amp;quot;, 
-       &amp;quot;\u2717: not the same assembley&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;✓: same assembley (grch37)&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;access-ld-matrix&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Access LD matrix&lt;/h3&gt;
+&lt;!------------------------------&gt;
+&lt;p&gt;For this we need the rest API &lt;a href=&#34;https://rest.ensembl.org/documentation/info/ld_region_get&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We can calculate the LD matrix of a full region, max 1 Mb wide. For fast computation we limit it to +/- 100 kb.&lt;/p&gt;
+&lt;p&gt;We can then quickly visualise our LD matrix:&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;extracting-gene-name-for-one-snp&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Extracting gene name for one SNP&lt;/h3&gt;
-&lt;p&gt;Next, we want to get the gene name where rs1421085 falls into.&lt;/p&gt;
-&lt;p&gt;Let’s check which &lt;code&gt;attributes&lt;/code&gt; contain the string &lt;code&gt;gene&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;listAttributes(snp.ensembl) %&amp;gt;% slice(str_which(name, &amp;quot;gene&amp;quot;)) &lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##                     name                    description page
-## 1        associated_gene Associated gene with phenotype  snp
-## 2 ensembl_gene_stable_id                 Gene stable ID  snp&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now use &lt;code&gt;ensembl_gene_stable_id&lt;/code&gt; and &lt;code&gt;associated_gene&lt;/code&gt; as additional attributes.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## extract gene
-## ----------
-out.bm.snp2gene &amp;lt;- getBM(
-  attributes = c(&amp;#39;refsnp_id&amp;#39;, &amp;#39;allele&amp;#39;, &amp;#39;chrom_start&amp;#39;, &amp;#39;chr_name&amp;#39;, &amp;#39;ensembl_gene_stable_id&amp;#39;), 
-      filters = c(&amp;#39;snp_filter&amp;#39;), 
-      values = dat.bmi.sel$SNP, 
-      mart = snp.ensembl)
-out.bm.snp2gene&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   refsnp_id allele chrom_start chr_name ensembl_gene_stable_id
-## 1 rs1421085    T/C    53767042       16        ENSG00000140718&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Attribute `associated_gene` is `Associated gene with phenotype`.
-
-## Extract string
-## ----------
-gene.ensembl &amp;lt;- useEnsembl(biomart = &amp;quot;ensembl&amp;quot;, dataset = &amp;quot;hsapiens_gene_ensembl&amp;quot;, GRCh = 37) # we will need an additional mart for genes
-## because we are using positions from GRCh = 37 in a next query, we need to pass that information on.
-out.bm.gene &amp;lt;- getBM(attributes = c(&amp;#39;external_gene_name&amp;#39;), 
-      filters = c(&amp;#39;ensembl_gene_id&amp;#39;),
-      values = unique(out.bm.snp2gene$ensembl_gene_stable_id), 
-      mart = gene.ensembl)
-out.bm.gene&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   external_gene_name
-## 1                FTO&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The gene that contains SNP rs1421085 is called FTO.&lt;/p&gt;
+&lt;div id=&#34;access-ld-between-a-snp-and-many-other-snps&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Access LD between a SNP and many other SNPs&lt;/h3&gt;
+&lt;!------------------------------&gt;
+&lt;p&gt;The &lt;a href=&#34;https://rest.ensembl.org/documentation/info/ld_pairwise_get&#34;&gt;third and last option&lt;/a&gt; is to pass on a set of SNP rs ids, and access the LD among these. Implemented in the ENSEMBL API is only the LD between two SNPs, so we will have to extend this to many SNPs.&lt;/p&gt;
+&lt;p&gt;Calculate the LD matrix (&lt;code&gt;LD.matrix.region&lt;/code&gt;) or the LD between SNP pairs (&lt;code&gt;LD.matrix.snps&lt;/code&gt;) takes some time.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;extracting-gene-names-for-genomic-region&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Extracting gene names for genomic region&lt;/h3&gt;
-&lt;p&gt;So now we know that rs1421085 is part of FTO. But where does FTO start and end? And what are the genes nearby? For this purpose, we want to visualise the summary statistics of the full genomic region (&lt;span class=&#34;math inline&#34;&gt;\(\pm 250 \cdot 10^3\)&lt;/span&gt; Mb). We just recycle the previous code, but instead of providing a SNP-id, we provide the chromosome, the start and the end position.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;out.bm.genes.region &amp;lt;- getBM(
-  attributes = c(&amp;#39;start_position&amp;#39;,&amp;#39;end_position&amp;#39;,&amp;#39;ensembl_gene_id&amp;#39;,&amp;#39;external_gene_name&amp;#39;, &amp;#39;gene_biotype&amp;#39;), 
-      filters = c(&amp;#39;chromosome_name&amp;#39;,&amp;#39;start&amp;#39;,&amp;#39;end&amp;#39;), 
-      values = list(sel.chr, sel.pos - range, sel.pos + range), 
-      mart = gene.ensembl)
-head(out.bm.genes.region)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   start_position end_position ensembl_gene_id external_gene_name
-## 1       53088945     53363062 ENSG00000177200               CHD9
-## 2       53332136     53333704 ENSG00000261056       RP11-454F8.2
-## 3       53368474     53368576 ENSG00000238645             snoU13
-## 4       53371365     53371483 ENSG00000202193          RNA5SP427
-## 5       53395931     53397590 ENSG00000259962       RP11-44F14.4
-## 6       53398894     53406995 ENSG00000260078       RP11-44F14.1
-##     gene_biotype
-## 1 protein_coding
-## 2     pseudogene
-## 3         snoRNA
-## 4           rRNA
-## 5     pseudogene
-## 6     pseudogene&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can plot &lt;code&gt;out.bm.genes.region&lt;/code&gt; with a linerange plot, where each horizontal line represents one gene.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## rank gene names according to start position
-out.bm.genes.region &amp;lt;- out.bm.genes.region %&amp;gt;% mutate(external_gene_name = fct_reorder(external_gene_name, 
-      start_position, .desc = TRUE))
-
-## plot
-ggplot(data = out.bm.genes.region) + 
-      geom_linerange(aes(x = external_gene_name, ymin = start_position, ymax = end_position)) + 
-  coord_flip() + 
-  ylab(&amp;quot;&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/plot-genes-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Let’s try to make that pretty. We can group the genes by &lt;code&gt;gene_biotype&lt;/code&gt; and colour them accordingly. And we move the protein-coding genes to the top row and color it black.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## define plot range for x-axis
-plot.range &amp;lt;- c(min(sel.pos - range, out.bm.genes.region$start_position), 
-      max(sel.pos + range, out.bm.genes.region$end_position))
-
-## rank gene_biotype label
-out.bm.genes.region &amp;lt;- out.bm.genes.region %&amp;gt;% mutate(gene_biotype_fac = fct_relevel(as.factor(gene_biotype), 
-      &amp;quot;protein_coding&amp;quot;), external_gene_name = fct_reorder2(external_gene_name, 
-      start_position, gene_biotype_fac, .desc = TRUE))
-
-
-## plot
-p2 &amp;lt;- ggplot(data = out.bm.genes.region) + 
-  geom_linerange(aes(x = external_gene_name, ymin = start_position, ymax = end_position, colour = gene_biotype_fac, group = gene_biotype_fac)) +
-  coord_flip() + ylab(&amp;quot;&amp;quot;) +
-  ylim(plot.range) + 
-  geom_text(aes(x = external_gene_name, y = start_position, label = external_gene_name, colour = gene_biotype_fac), fontface = 2, alpha = I(0.7), hjust = &amp;quot;right&amp;quot;, size= 2.5) + 
-  labs(title = &amp;quot;&amp;quot;, subtitle = paste0(&amp;quot;Genes&amp;quot;), caption = paste0(&amp;quot;Data source: &amp;quot;, gene.ensembl@host, &amp;quot; + Data set: &amp;quot;, gene.ensembl@dataset), color = &amp;quot;Gene Biotype&amp;quot;) +
-  theme(axis.title.y=element_blank(),
-        axis.text.y=element_blank(),
-        axis.ticks.y=element_blank(), 
-        strip.text.y = element_text(angle = 0),
-        legend.position=&amp;quot;bottom&amp;quot;, 
-        panel.grid.major.y = element_blank()) + 
-  expand_limits(y=c(-1, 1)) +
-  scale_color_manual(values = c(&amp;quot;black&amp;quot;, metafolio::gg_color_hue(nlevels(out.bm.genes.region$gene_biotype_fac)-1)))
-  ## hack to have 11 colors, but probably merging some gene biotype groups could make sense too. 
-  ## consider colorblindr::palette_OkabeIto_black
-print(p2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/plot-genes-pretty-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;There are some short genes starting with &lt;em&gt;AC&lt;/em&gt; and &lt;em&gt;LINCO&lt;/em&gt;. We can &lt;a href=&#34;https://www.genenames.org/about/guidelines&#34;&gt;check&lt;/a&gt; what they are and/or consult a biologist.&lt;/p&gt;
-&lt;!-- GWAS + biomart info --&gt;
+&lt;div id=&#34;colored-locuszoom-plot&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Colored locuszoom plot&lt;/h3&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;p&gt;For the locuszoomplot we need only the correlation between the top SNP and all other SNPs. So we join the object &lt;code&gt;LD.SNP.region&lt;/code&gt; to &lt;code&gt;dat.bmi.sel.region&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dat.bmi.plot &amp;lt;- dat.bmi.sel.region %&amp;gt;% 
+  full_join(LD.SNP.region, by = c(&amp;quot;SNP&amp;quot; = &amp;quot;variation2&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But wait, why are there so few SNPs in LD with this SNP?&lt;/p&gt;
+&lt;!-- REST API: https://rviews.rstudio.com/2018/07/23/rest-apis-and-plumber/ -----&gt;
+&lt;!---------- -------------------------------&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div id=&#34;end&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;3. Combining summary statistics and annotation&lt;/h2&gt;
-&lt;p&gt;Now we are ready to combine plot &lt;code&gt;p1&lt;/code&gt; and &lt;code&gt;p2&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(patchwork)
-
-p1b &amp;lt;- p1 + xlab(&amp;quot;&amp;quot;) + theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank()) + xlim(plot.range)
-
-p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/post/2018-07-04-plotting-local-genomic-association-results-in-r_files/figure-html/summarystats-genes-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Having both plots combined, we can spot that the are 6 protein-coding genes in the region. But the P-value peak is located in gene FTO.&lt;/p&gt;
-&lt;p&gt;If this were work done for a real project, this would now be the time to get back to domain experts, discuss the results and figure out what other annotation they need&lt;a href=&#34;#fn8&#34; class=&#34;footnoteRef&#34; id=&#34;fnref8&#34;&gt;&lt;sup&gt;8&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;div id=&#34;solutions-that-work-half-through&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2. Solutions that work half-through&lt;/h2&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;div id=&#34;ldlink&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;ldlink&lt;/h3&gt;
+&lt;!------------------------------&gt;
+&lt;p&gt;&lt;a href=&#34;https://ldlink.nci.nih.gov/?tab=help#Programatic%20Access&#34;&gt;ldlink&lt;/a&gt; is another rest API, but uses a limited set of 1KG populations.&lt;/p&gt;
+&lt;p&gt;Here is an example, that you can execute in a terminal.&lt;/p&gt;
+&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;curl -k -X GET &amp;#39;https://ldlink.nci.nih.gov/LDlinkRest/ldmatrix?snps=rs3%0Ars4%0Ars148890987&amp;amp;pop=CEU&amp;amp;r2_d=d&amp;amp;token=975d104d9f13&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+##                                  Dload  Upload   Total   Spent    Left  Speed
+## 
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+100    94  100    94    0     0     47      0  0:00:02  0:00:01  0:00:01    47
+## RS_number    rs148890987 rs3 rs4
+## rs148890987  1.0 0.707   0.707
+## rs3  0.707   1.0 1.0
+## rs4  0.707   1.0 1.0&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;div id=&#34;wouldnt-it-be-nice&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Wouldn’t it be nice…&lt;/h2&gt;
+&lt;div id=&#34;snpsnap&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;SNPsnap&lt;/h3&gt;
+&lt;!------------------------------&gt;
 &lt;ul&gt;
-&lt;li&gt;… to polish that plot even more? For starters, the colour code is not ideal…&lt;/li&gt;
-&lt;li&gt;… to add information about the correlation between SNPs, like in &lt;a href=&#34;http://locuszoom.org/&#34;&gt;LocusZoom plots&lt;/a&gt;?&lt;/li&gt;
-&lt;li&gt;… or have an interactive plot&lt;a href=&#34;#fn9&#34; class=&#34;footnoteRef&#34; id=&#34;fnref9&#34;&gt;&lt;sup&gt;9&lt;/sup&gt;&lt;/a&gt;: hovering over the SNP points would light up the corresponding genes or give some other information, like the allele frequency.&lt;/li&gt;
+&lt;li&gt;SNPsnap: &lt;a href=&#34;https://data.broadinstitute.org/mpg/snpsnap/database_download.html&#34; class=&#34;uri&#34;&gt;https://data.broadinstitute.org/mpg/snpsnap/database_download.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;uses a limited set of 1KG populations (EUR, EAS, WAFR).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Totally 😉 Seems like great material for future blogposts!&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;source&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Source&lt;/h2&gt;
+&lt;div id=&#34;api-provided-by-sph.umich&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;API provided by sph.umich&lt;/h3&gt;
+&lt;!------------------------------&gt;
 &lt;ul&gt;
-&lt;li&gt;The R Markdown file is &lt;a href=&#34;https://github.com/sinarueeger/webpage/blob/master/blogdown/content/post/2018-07-04-plotting-local-genomic-association-results-in-r.Rmd&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Some more &lt;code&gt;biomaRt&lt;/code&gt; code snippets are in a &lt;a href=&#34;https://gist.github.com/sinarueeger/4430492e67639fccaeacf4340f7cb7df&#34;&gt;gist&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://portaldev.sph.umich.edu/docs/api/v1/?shell#single-variant-statistics&#34;&gt;API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;uses limited set of 1KG populations (ALL, EUR)&lt;/li&gt;
+&lt;li&gt;see &lt;a href=&#34;https://github.com/statgen/locuszoom-api/issues/21#issuecomment-414434704&#34;&gt;github issue&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If you know another R-package to solve a similar problem or have feedback, you can comment below 👇.&lt;/p&gt;
+&lt;!---- ### Using locuszoom software -----&gt;
+&lt;!------------------------------&gt;
+&lt;!---- One option (or rather a hack) would be to use [locuszoom software](https://genome.sph.umich.edu/wiki/LocusZoom_Standalone) to extract their LD information. However, locuszoom comes with database and LD files, [yielding up to 23 G](https://github.com/statgen/locuszoom-standalone). Besides, its not maintained anymore, since a [new version](https://github.com/statgen/locuszoom) for [interactive usage](http://locuszoom.org/locuszoomjs.php) was developed. 
+
+-------&gt;
+&lt;!---------- -------------------------------&gt;
 &lt;/div&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-&lt;hr /&gt;
+&lt;/div&gt;
+&lt;div id=&#34;solution-that-does-not-work&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;3. Solution that does not work&lt;/h2&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;div id=&#34;rsnpsld_search&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;code&gt;rsnps::ld_search&lt;/code&gt;&lt;/h3&gt;
+&lt;!------------------------------&gt;
+&lt;p&gt;A perfect solution would have been the function &lt;code&gt;ld_search&lt;/code&gt; from R package &lt;a href=&#34;ropensci%20webpage&#34;&gt;&lt;code&gt;rsnps&lt;/code&gt;&lt;/a&gt;. It has arguments to choose the reference panel, the population, the distance from the focal SNP.&lt;/p&gt;
+&lt;p&gt;The problem is, that it only uses old reference panels (HapMap and 1KG-phase1). Meaning, many newer reference panel populations are left out.&lt;/p&gt;
+&lt;p&gt;But the main problem is, that the broad institute has taken down the &lt;a href=&#34;https://www.broadinstitute.org/snap/snap&#34;&gt;snap server&lt;/a&gt; that &lt;code&gt;ld_search&lt;/code&gt; used to access (see &lt;a href=&#34;https://github.com/ropensci/rsnps/issues/60&#34;&gt;github issue&lt;/a&gt;), hence &lt;code&gt;ld_search&lt;/code&gt; &lt;a href=&#34;https://github.com/ropensci/rsnps/blob/master/R/LDSearch.R&#34;&gt;is defunct&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;session-info&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Session Info&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sessionInfo()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## R version 3.5.1 (2018-07-02)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS  10.14.4
+## 
+## Matrix products: default
+## BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] rsnps_0.3.2.9121 magrittr_1.5     xml2_1.2.0       jsonlite_1.6    
+##  [5] httr_1.4.0       forcats_0.4.0    stringr_1.4.0    dplyr_0.8.1     
+##  [9] purrr_0.3.2      readr_1.3.1      tidyr_0.8.3      tibble_2.1.1    
+## [13] ggplot2_3.1.1    tidyverse_1.2.1 
+## 
+## loaded via a namespace (and not attached):
+##  [1] tidyselect_0.2.5  xfun_0.7          haven_2.1.0      
+##  [4] lattice_0.20-38   vctrs_0.1.0       colorspace_1.4-1 
+##  [7] generics_0.0.2    htmltools_0.3.6   yaml_2.2.0       
+## [10] utf8_1.1.4        XML_3.98-1.19     rlang_0.3.4      
+## [13] pillar_1.4.0      httpcode_0.2.0    glue_1.3.1.9000  
+## [16] withr_2.1.2       modelr_0.1.4      readxl_1.3.1     
+## [19] plyr_1.8.4        munsell_0.5.0     blogdown_0.12    
+## [22] gtable_0.3.0      cellranger_1.1.0  rvest_0.3.4      
+## [25] evaluate_0.13     knitr_1.23        curl_3.3         
+## [28] fansi_0.4.0       triebeard_0.3.0   urltools_1.7.3   
+## [31] broom_0.5.2       Rcpp_1.0.1        scales_1.0.0     
+## [34] backports_1.1.4   hms_0.4.2         digest_0.6.19    
+## [37] stringi_1.4.3     bookdown_0.10     grid_3.5.1       
+## [40] cli_1.1.0         tools_3.5.1       lazyeval_0.2.2   
+## [43] crul_0.7.4        zeallot_0.1.0     crayon_1.3.4     
+## [46] pkgconfig_2.0.2   data.table_1.12.2 lubridate_1.7.4  
+## [49] assertthat_0.2.1  rmarkdown_1.13    rstudioapi_0.10  
+## [52] R6_2.4.0          icon_0.1.0        nlme_3.1-140     
+## [55] compiler_3.5.1&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Poster for scientific conferences</title>
+      <link>/post/2019-05-20-poster/</link>
+      <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-05-20-poster/</guid>
+      <description>
+
+&lt;p&gt;This is a tutorial how to make a poster from scratch.&lt;/p&gt;
+
+&lt;p&gt;It aims for first-time poster makers, but also for those (like me), that easily get lost in choosing the right font for hours.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blogs.nature.com/naturejobs/2017/11/06/using-design-principles-to-inform-scientific-posters/&#34; target=&#34;_blank&#34;&gt;http://blogs.nature.com/naturejobs/2017/11/06/using-design-principles-to-inform-scientific-posters/&lt;/a&gt;
+&lt;a href=&#34;https://cedricscherer.netlify.com/2019/05/17/the-evolution-of-a-ggplot-ep.-1/&#34; target=&#34;_blank&#34;&gt;https://cedricscherer.netlify.com/2019/05/17/the-evolution-of-a-ggplot-ep.-1/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;It includes a few self-declared best practices that helped me in the past.&lt;/p&gt;
+
 &lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;Thanks to &lt;a href=&#34;https://twitter.com/ma_salmon&#34;&gt;Maëlle Salmon&lt;/a&gt; you get a real plot here instead of a blurry hand drawing 😉 She gave lots of feedback on my first version - much appreciated!&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;Awesome icons in R? &lt;i class=&#34;ion  ion-camera &#34;&gt;&lt;/i&gt; &lt;i class=&#34;ion  ion-thumbsup &#34;&gt;&lt;/i&gt; &lt;i class=&#34;ion  ion-social-apple &#34;&gt;&lt;/i&gt; &lt;i class=&#34;ion  ion-paperclip &#34;&gt;&lt;/i&gt; &lt;i class=&#34;ion  ion-arrow-right-a &#34;&gt;&lt;/i&gt; checkout &lt;a href=&#34;https://ropensci.org/technotes/2018/05/15/icon/&#34;&gt;these instructions by Mitchell O’Hara-Wild on the rOpenSci webpage&lt;/a&gt;.&lt;a href=&#34;#fnref2&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;Thanks to my colleagues with biology background for explaining me the differences between these databases and what a biomart is!&lt;a href=&#34;#fnref3&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn4&#34;&gt;&lt;p&gt;Initially, I wanted to use data from two recent studies by the &lt;a href=&#34;https://www.med.unc.edu/pgc/&#34;&gt;Psychiatric Genomics Consortium&lt;/a&gt; (PGC) on &lt;a href=&#34;https://www.sciencedirect.com/science/article/pii/S0092867418306585?via%3Dihub&#34;&gt;schizophrenia (SCZ) and bipoloar disorder (BD)&lt;/a&gt;, as well as &lt;a href=&#34;https://www.nature.com/articles/s41588-018-0090-3&#34;&gt;Major depressive disorder (MDD)&lt;/a&gt;. Like most consortia, PGC provides summary statistics that can be &lt;a href=&#34;https://www.med.unc.edu/pgc/results-and-downloads/downloads&#34;&gt;downloaded&lt;/a&gt;. However, before downloading anything, the user needs to acknowledge and agree to a list of conditions - which I think is an excellent approach! - therefore we cannot directly load it into R.&lt;a href=&#34;#fnref4&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn5&#34;&gt;&lt;p&gt;Data source: &lt;a href=&#34;https://www.biorxiv.org/content/early/2018/03/22/274654&#34;&gt;Yengo et al. (2018)&lt;/a&gt;.&lt;a href=&#34;#fnref5&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn6&#34;&gt;&lt;p&gt;A guide to crafting Manhattan plots by &lt;a href=&#34;https://github.com/holtzy/&#34;&gt;Yan Holtz&lt;/a&gt; for the &lt;a href=&#34;https://www.r-graph-gallery.com/wp-content/uploads/2018/02/Manhattan_plot_in_R.html&#34;&gt;R graph gallery&lt;/a&gt;&lt;a href=&#34;#fnref6&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn7&#34;&gt;&lt;p&gt;I recently listened to a podcast by &lt;a href=&#34;https://twitter.com/trashystats&#34;&gt;Saskia Freytag&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/nj_tierney&#34;&gt;NJ Tierney&lt;/a&gt; where they talk about the differences between CRAN and Bioconductor (there are many!). The podcast is called &lt;a href=&#34;https://soundcloud.com/crediblycurious/episode-1-cran-and-bioconductor&#34;&gt;Credibly Curious&lt;/a&gt;.&lt;a href=&#34;#fnref7&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn8&#34;&gt;&lt;p&gt;+1 for reproducibility!&lt;a href=&#34;#fnref8&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn9&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://twitter.com/LizaMGD&#34;&gt;Liza Darrous&lt;/a&gt; pointed out the interactive Manhattan R function &lt;a href=&#34;https://moderndata.plot.ly/manhattanly-r-package-for-interactive-manhattan-plots/&#34;&gt;manhanttanly&lt;/a&gt;.&lt;a href=&#34;#fnref9&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-make-a-good-poster&#34;&gt;How to make a good poster&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#recipe&#34;&gt;Recipe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#content&#34;&gt;Content&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#design&#34;&gt;Design&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;how-to-make-a-good-poster&#34;&gt;How to make a good poster&lt;/h2&gt;
+
+&lt;p&gt;An excellent &lt;a href=&#34;https://www.youtube.com/watch?v=1RwJbhkCA58&#34; target=&#34;_blank&#34;&gt;video&lt;/a&gt; by Mike Morrison recently made the rounds on the internet. If you have not done so already, watch it before this tutorial.&lt;/p&gt;
+
+&lt;p&gt;Mike Morrison makes the point that most of the posters presented at conferences are not easy to grasp.&lt;/p&gt;
+
+&lt;p&gt;There are two principal reasons for this:
+1. Content is not adapted for a poster presentation.
+1. Poor design choices (e.g. small fonts, colors, low-resolution figures).&lt;/p&gt;
+
+&lt;p&gt;Sometimes it seems that a poster contains snippets from a manuscript.&lt;/p&gt;
+
+&lt;p&gt;Separating content from design is important (if you know latex, you know what I mean).&lt;/p&gt;
+
+&lt;p&gt;I will structure my tips into these two parts: &lt;a href=&#34;#content&#34;&gt;content&lt;/a&gt; and &lt;a href=&#34;#design&#34;&gt;design&lt;/a&gt;, along with a &lt;a href=&#34;#recipe&#34;&gt;recipe&lt;/a&gt; that I like to follow.&lt;/p&gt;
+
+&lt;h2 id=&#34;oral-versus-poster-presentation&#34;&gt;Oral versus poster presentation&lt;/h2&gt;
+
+&lt;p&gt;If you get a oral presentation (congrats!), then you know that your voice will carry most of the talk. While your slides should be &lt;a href=&#34;http://damian.conway.org/IBP.pdf&#34; target=&#34;_blank&#34;&gt;carefully designed&lt;/a&gt;, you can still rescue bad slides with a good talk.&lt;/p&gt;
+
+&lt;p&gt;Poster presentations are somewhat special because they are at an intersection of a talk and an art gallery. Meaning, you will have this 2 hour slot once during the conference where you will stand next to your poster. Once in a while, someone will be interested in the topic, and you will guide them trough. This is similar to a lightening talk.&lt;/p&gt;
+
+&lt;p&gt;The remainder of the conference, your poster will just hang there, and maybe some people will still try to understand your topic. No matter how good you are at talking, now it is the design that counts.&lt;/p&gt;
+
+&lt;p&gt;There are some really good examples of entertaining posters. Some read like a comic [link](). I like them in a certain context, mainly when there is no one to guide you through. But unless you are an artist, I would refrain from them. Too much work.&lt;/p&gt;
+
+&lt;h2 id=&#34;back-to-the-video&#34;&gt;Back to the video&lt;/h2&gt;
+
+&lt;p&gt;While overall, the video of Mike Morrison is excellent, I struggle with two things. First, it talks about a horizontal poster, and this is often not possible at conferences, due to space constraints&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:An-straight-forw&#34;&gt;&lt;a href=&#34;#fn:An-straight-forw&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;. Second, it talks about emphasising this very clear conclusion. However, in real life, this is often is not possible. For example, because a research project has just started. So instead of having this one research question, I&amp;rsquo;d go for a main message. That can be &lt;em&gt;we had a sample size of 100K&lt;/em&gt; or &lt;em&gt;we are developing a new method&amp;hellip;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;recipe&#34;&gt;Recipe&lt;/h2&gt;
+
+&lt;p&gt;Here is a recipe that I always follow.&lt;/p&gt;
+
+&lt;h3 id=&#34;get-ready&#34;&gt;Get ready&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Choose a &lt;strong&gt;tool&lt;/strong&gt; that is easy to operate. I choose keynote. More details &lt;a href=&#34;#tools&#34;&gt;below&lt;/a&gt;.
+&lt;img src=&#34;material/my-poster/my-poster.001.png&#34; alt=&#34;drawing&#34; style=&#34;width:100px;&#34;/&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Resize document&lt;/strong&gt; to the size recommended by the conference. This way, even though the poster might be proportional to A4, you can use the real size fonts.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#34;material/my-poster/my-poster.002.png&#34; alt=&#34;drawing&#34; style=&#34;width:100px;&#34;/&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Split&lt;/strong&gt; the document into different boxes (e.g. four horizontal lines and three vertical lines = 6 boxes). You can do this with &lt;em&gt;rulers&lt;/em&gt;, &lt;em&gt;guides&lt;/em&gt; or with lines. (picture). Each part will later answer a different question.&lt;br /&gt;
+&lt;img src=&#34;material/my-poster/my-poster.003.png&#34; alt=&#34;drawing&#34; style=&#34;width:100px;&#34;/&gt;&lt;/li&gt;
+&lt;li&gt;Get the &lt;strong&gt;logos&lt;/strong&gt; you need and store them in a folder next to your presentation &lt;code&gt;img/logo1.png&lt;/code&gt; etc.&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Get the &lt;strong&gt;figures&lt;/strong&gt; you want to show and store them in the same folder &lt;code&gt;img/figure1.png&lt;/code&gt; etc.
+&lt;img src=&#34;material/my-poster/my-poster.004.png&#34; alt=&#34;drawing&#34; style=&#34;width:100px;&#34;/&gt;&lt;/li&gt;
+&lt;li&gt;Now you are ready to add content.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;add-content&#34;&gt;Add content&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Font&lt;/strong&gt; choice: choose one of these popular sans-serif ones {Helvetica, Arial}. They were designed to be easy to read and look good on print. Later on, you can still decide to invest time into checkout out &lt;a href=&#34;https://fonts.google.com/?category=Sans+Serif&#34; target=&#34;_blank&#34;&gt;google fonts&lt;/a&gt;, but remember - it needs to be sans-serif. The smallest text size should be &lt;a href=&#34;https://guides.library.ucla.edu/c.php?g=223540&amp;amp;p=1480858&#34; target=&#34;_blank&#34;&gt;24 pt&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Add the title on top.&lt;/li&gt;
+&lt;li&gt;Add authors and affiliation right below.
+&lt;img src=&#34;material/my-poster/my-poster.005.png&#34; alt=&#34;drawing&#34; style=&#34;width:100px;&#34;/&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Add contact and lab webpage
+&lt;img src=&#34;material/my-poster/my-poster.006.png&#34; alt=&#34;drawing&#34; style=&#34;width:100px;&#34;/&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;No need to adjust and fiddle around with boxes at this stage. Just fill the &lt;a href=&#34;#content&#34;&gt;content&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Let&amp;rsquo;s say we have these 6 boxes.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The first box will take care of the &lt;a href=&#34;#introduction&#34;&gt;introduction&lt;/a&gt; and should answer the question: what motivated your research question?&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Disclaimer: I work in a field where data and methodology is central, so I always dedicate one box to data and method each.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The second box should present the &lt;a href=&#34;#methods&#34;&gt;methods&lt;/a&gt;: how does the method answer that we want to know?&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The third box takes care of &lt;a href=&#34;#data&#34;&gt;data&lt;/a&gt; presentation: what data was used and how is the data characterised?&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The fourth and fifth box should contain &lt;a href=&#34;#results&#34;&gt;results&lt;/a&gt;: Data and methods combined, what did we get out?&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The six box is dedicated to &lt;a href=&#34;#discussion&#34;&gt;discussion&lt;/a&gt;: What can we conclude from the results? What are our limitations? And where are we heading next?&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;polishing&#34;&gt;Polishing&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Now that you have all your content, start polishing it.&lt;/li&gt;
+&lt;li&gt;Replace text with cartoons or figures.&lt;/li&gt;
+&lt;li&gt;Align all text &amp;hellip;&lt;/li&gt;
+&lt;li&gt;Add a caption to your figures.&lt;/li&gt;
+&lt;li&gt;Are your figures (and the rest of your poster) colorblind
+Start adding &lt;a href=&#34;#colors&#34;&gt;colors&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;before-printing&#34;&gt;Before printing&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;See how it looks like on a printed A4 version.&lt;/li&gt;
+&lt;li&gt;Ask your colleagues what they think of the A4 version and the PDF that you send them.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;content&#34;&gt;Content&lt;/h2&gt;
+
+&lt;p&gt;Before adding any content, think about your audience. These will be scientists, and they might have a remote idea of your work, but there will only be a handful of people that know exactly what your domain, topic and method does. They are still interested though. So lets aim for these people as your audience.&lt;/p&gt;
+
+&lt;p&gt;After looking at your poster, the reader should have an idea what the title means. Your poster title might be super clear to you and your lab, but anyone else will have a hard time understanding right away what you are doing.&lt;/p&gt;
+
+&lt;p&gt;Therefore, one goal is, to clarify the words in your title. Title = message. And if title is clear, the message is too.&lt;/p&gt;
+
+&lt;p&gt;After separating your file, you will have 6 boxes.
+1. Introduction to topic
+1. Method
+1. Data
+1. Results general
+1. Results specific
+1. Discussion (including the Conclusion)&lt;/p&gt;
+
+&lt;p&gt;Don&amp;rsquo;t name these sections like this. Instead give them a catchy subtitle.&lt;/p&gt;
+
+&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://cs.stanford.edu/people/widom/paper-writing.html&#34; target=&#34;_blank&#34;&gt;https://cs.stanford.edu/people/widom/paper-writing.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;What is the problem?&lt;/li&gt;
+&lt;li&gt;Why is it interesting and important?&lt;/li&gt;
+&lt;li&gt;Why is it hard? (E.g., why do naive approaches fail?)&lt;/li&gt;
+&lt;li&gt;Why hasn&amp;rsquo;t it been solved before? (Or, what&amp;rsquo;s wrong with previous proposed solutions? How does mine differ?)&lt;/li&gt;
+&lt;li&gt;What are the key components of my approach and results? Also include any specific limitations.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;method&#34;&gt;Method&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Go from general to specific.&lt;/li&gt;
+&lt;li&gt;If equation, annotate equation&lt;/li&gt;
+&lt;li&gt;..&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;data&#34;&gt;Data&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;present the data you used&lt;/li&gt;
+&lt;li&gt;How did you process it?&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;results&#34;&gt;Results&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;go from general to specific&lt;/li&gt;
+&lt;li&gt;Figures: use caption&lt;/li&gt;
+&lt;li&gt;Make sure that the results are follow the notation of data and methodology. E.g. if you present results for a trend in age, make sure you have presented age before.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;future plans&lt;/li&gt;
+&lt;li&gt;limitaitons&lt;/li&gt;
+&lt;li&gt;conclusion&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;contact&#34;&gt;Contact&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;add your email address&lt;/li&gt;
+&lt;li&gt;add lab webpage + the QR code&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;add important references (software!)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;design&#34;&gt;Design&lt;/h2&gt;
+
+&lt;h3 id=&#34;colors&#34;&gt;Colors&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Test in R: &lt;a href=&#34;https://github.com/clauswilke/colorblindr&#34; target=&#34;_blank&#34;&gt;https://github.com/clauswilke/colorblindr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Test in browser: for example &lt;a href=&#34;https://www.color-blindness.com/coblis-color-blindness-simulator/&#34; target=&#34;_blank&#34;&gt;https://www.color-blindness.com/coblis-color-blindness-simulator/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Use colors that work better for colorblind people:&lt;/li&gt;
+&lt;li&gt;If you use more colors than available in a discrete color palette - drop that encoding.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/clauswilke/colorblindr/blob/master/R/palettes.R&#34; target=&#34;_blank&#34;&gt;https://github.com/clauswilke/colorblindr/blob/master/R/palettes.R&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blogs.nature.com/nautilus/2007/02/post_4.html&#34; target=&#34;_blank&#34;&gt;http://blogs.nature.com/nautilus/2007/02/post_4.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+library(colorblindr)
+library(dplyr)
+library(kableExtra)
+dat &amp;lt;- data.frame(hex = colorblindr::palette_OkabeIto, swatch = colorblindr::palette_OkabeIto)
+
+
+dat %&amp;gt;%
+  mutate(swatch = cell_spec(
+    swatch, color = &amp;quot;white&amp;quot;, bold = T,
+    background = hex
+  )) %&amp;gt;%
+  kable(escape = F, align = &amp;quot;c&amp;quot;) %&amp;gt;%
+  kable_styling(c(&amp;quot;striped&amp;quot;, &amp;quot;condensed&amp;quot;), full_width = F)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;fonts&#34;&gt;Fonts&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;no matter what sophisticated typeface you had in mind, choose one of these popular sans-serif ones {Helvetica, Arial}.&lt;/li&gt;
+&lt;li&gt;Most tools have a &lt;code&gt;replace font&lt;/code&gt;, so you can replace a font through out your presenation.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://fonts.google.com/?category=Sans+Serif&#34; target=&#34;_blank&#34;&gt;google fonts&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;whatever works for you&lt;/li&gt;
+&lt;li&gt;remember to pay for special fonts&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;font-size&#34;&gt;Font size&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;min 24 pt&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;icons&#34;&gt;Icons&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;free icons here:&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;tools&#34;&gt;Tools&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;decent zoom&lt;/li&gt;
+&lt;li&gt;operate at ease&lt;/li&gt;
+&lt;li&gt;you can use over the years&lt;/li&gt;
+&lt;li&gt;google presentation, &lt;a href=&#34;https://guides.library.ucla.edu/c.php?g=223540&amp;amp;p=1480858tag&#34; target=&#34;_blank&#34;&gt;PowerPoint&lt;/a&gt;, keynote&lt;/li&gt;
+&lt;li&gt;inkscape, Adobe Illustrator&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;resolution-of-figures&#34;&gt;Resolution of figures&lt;/h3&gt;
+
+&lt;p&gt;If you can, work with PDFs.
+Regardless, your principal figures should &lt;em&gt;always&lt;/em&gt; be stored as PDF format. This way, you can easily turn them into a high-resolution PNG or JPEG (big discussions which one is better suited for print).&lt;/p&gt;
+
+&lt;p&gt;To turn a PDF into a high-resolution raster image, use &lt;a href=&#34;https://imagemagick.org/script/convert.php&#34; target=&#34;_blank&#34;&gt;convert from imagemagick&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If your file is called &lt;code&gt;figure-1.pdf&lt;/code&gt;, then write:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;convert -quality 100 -background white -alpha background -compress lzw -units pixelsperinch -resize &amp;quot;789x2625&amp;quot; -density 300 figure-1.pdf figure-1b.png
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you have lots of pdf starting with &lt;code&gt;figure-*&lt;/code&gt;, then write:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;for file in figure-*.pdf; do \
+echo $file;\
+convert -quality 100 -background white -alpha background -compress lzw -flatten -units pixelsperinch -resize &amp;quot;789x2625&amp;quot; -density 300 $file `echo $file|cut -f1 -d&#39;.&#39;`.png;\
+done
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you only have raster images and you want to resize them, apply the same command. However, you might end up with poor quality images.&lt;/p&gt;
+
+&lt;h3 id=&#34;entertainment&#34;&gt;Entertainment&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;comic&lt;/li&gt;
+&lt;li&gt;speaking&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:An-straight-forw&#34;&gt;An straight forward solution is, to turn his design by 90 degrees. &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:An-straight-forw&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
     </item>
     
     <item>
-      <title>satRday Cardiff 2018</title>
-      <link>https://sinarueeger.github.io/2018/07/04/satrdaycardiff/</link>
-      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      <title>Slides</title>
+      <link>/slides/example/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://sinarueeger.github.io/2018/07/04/satrdaycardiff/</guid>
+      <guid>/slides/example/</guid>
       <description>
 
-&lt;p&gt;This is a brief write-up of my &lt;a href=&#34;http://cardiff2018.satrdays.org/&#34;&gt;satRdays Cardiff&lt;/a&gt; experience.&lt;/p&gt;
+&lt;h1 id=&#34;welcome-to-slides&#34;&gt;Welcome to Slides&lt;/h1&gt;
 
-&lt;p&gt;First - what is a &lt;a href=&#34;http://satrdays.org/&#34;&gt;&lt;strong&gt;satRday&lt;/strong&gt;&lt;/a&gt;?&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/&#34; target=&#34;_blank&#34;&gt;Academic&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;It is an awesome concept: attending an &lt;strong&gt;R conference&lt;/strong&gt; organised by a &lt;strong&gt;local RUG&lt;/strong&gt; on a &lt;strong&gt;Saturday&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;The &lt;a href=&#34;http://cardiff2018.satrdays.org/#programme&#34;&gt;programme&lt;/a&gt; in Cardiff had parallel sessions - tough decision-making to pick between promising talks!&lt;/p&gt;
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
 
-&lt;h2 id=&#34;dplyr-workshop&#34;&gt;&lt;code&gt;dplyr&lt;/code&gt; workshop&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Efficiently write slides in Markdown&lt;/li&gt;
+&lt;li&gt;3-in-1: Create, Present, and Publish your slides&lt;/li&gt;
+&lt;li&gt;Supports speaker notes&lt;/li&gt;
+&lt;li&gt;Mobile friendly slides&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Kathrine Tansey kept us busy with a workshop on &lt;code&gt;dplyr&lt;/code&gt; in the morning.&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;💻 &lt;a href=&#34;https://rstudio.cloud/project/42122&#34;&gt;rstudio-cloud project&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;controls&#34;&gt;Controls&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937493-bf142a7c-7990-11e8-9174-ddb57641438b.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Next: &lt;code&gt;Right Arrow&lt;/code&gt; or &lt;code&gt;Space&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Previous: &lt;code&gt;Left Arrow&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Start: &lt;code&gt;Home&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Finish: &lt;code&gt;End&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Overview: &lt;code&gt;Esc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Speaker notes: &lt;code&gt;S&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Fullscreen: &lt;code&gt;F&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Zoom: &lt;code&gt;Alt + Click&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hakimel/reveal.js#pdf-export&#34; target=&#34;_blank&#34;&gt;PDF Export&lt;/a&gt;: &lt;code&gt;E&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;h2 id=&#34;packaging-workshop&#34;&gt;Packaging workshop&lt;/h2&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/HeathrTurnr&#34;&gt;Heather Turner&lt;/a&gt; upgraded us on packaging.&lt;/p&gt;
+&lt;h2 id=&#34;code-highlighting&#34;&gt;Code Highlighting&lt;/h2&gt;
 
-&lt;p&gt;💡 useful tips and workflow! Eager to apply what I learned.&lt;/p&gt;
+&lt;p&gt;Inline code: &lt;code&gt;variable&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;💻 &lt;a href=&#34;https://rstudio.cloud/project/38916&#34;&gt;rstudio-cloud project&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Code block:&lt;/p&gt;
 
-&lt;p&gt;➡️ &lt;a href=&#34;https://github.com/forwards/workshops/blob/master/Cardiff-satRday/mini-course.pptx&#34;&gt;Slides&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;introduction-to-tidytext&#34;&gt;Introduction to tidytext&lt;/h2&gt;
-
-&lt;p&gt;Textmining with &lt;a href=&#34;https://twitter.com/Nujcharee&#34;&gt;Nujcharee (เป็ด)&lt;/a&gt;, applied to #metoo twitter data:&lt;/p&gt;
-
-&lt;blockquote class=&#34;twitter-tweet&#34; data-cards=&#34;hidden&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;My slide on Introduction to Tidytext &lt;a href=&#34;https://t.co/XOiEiedNjN&#34;&gt;https://t.co/XOiEiedNjN&lt;/a&gt; &lt;a href=&#34;https://twitter.com/satRdays_org?ref_src=twsrc%5Etfw&#34;&gt;@satRdays_org&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstats&lt;/a&gt;&lt;/p&gt;&amp;mdash; Nujcharee (เป็ด) (@Nujcharee) &lt;a href=&#34;https://twitter.com/Nujcharee/status/1010521563676991489?ref_src=twsrc%5Etfw&#34;&gt;June 23, 2018&lt;/a&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937494-bf3e2020-7990-11e8-8453-a6b566e3b469.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937495-bf6db1b4-7990-11e8-8ad3-cd9a5727feff.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;package-reviews-with-ropensci&#34;&gt;Package reviews with rOpenSci&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/ma_salmon&#34;&gt;Maëlle Salmon&lt;/a&gt; presented the review process of &lt;a href=&#34;https://ropensci.org/&#34;&gt;rOpenSci&lt;/a&gt; and then reviewed the review process using the force of textmining.&lt;/p&gt;
-
-&lt;p&gt;💡 Rigorous, but friendly reviewing process at &lt;a href=&#34;https://ropensci.org/&#34;&gt;rOpenSci&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;More info on submitting a package for review &lt;a href=&#34;https://ropensci.github.io/dev_guide/policies.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;➡️ &lt;a href=&#34;https://maelle.github.io/satrday_cardiff/slides&#34;&gt;Slides&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937496-bf8bc802-7990-11e8-8ec5-7854d7b5bbf0.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937497-bfa75bd0-7990-11e8-97a8-f4af880a2233.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;airtable-r&#34;&gt;Airtable &amp;amp; R&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/AmyMcDougall96&#34;&gt;Amy McDougall&lt;/a&gt; presented &lt;a href=&#34;https://airtable.com/&#34;&gt;airtable&lt;/a&gt; (💡!) and the R interface &lt;a href=&#34;https://github.com/bergant/airtabler&#34;&gt;&lt;code&gt;airtabler&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Amy wrote a blogpost on &lt;a href=&#34;https://itsalocke.com/blog/how-to-use-an-r-interface-with-airtable-api/&#34;&gt;this topic too&lt;/a&gt; (which I found through Locke Data&amp;rsquo;s write up &lt;a href=&#34;https://itsalocke.com/blog/satrdays-cardiff/&#34;&gt;here&lt;/a&gt;).&lt;/p&gt;
-
-&lt;p&gt;➡️ &lt;a href=&#34;https://github.com/Amymcdougall/talks/tree/master/airtable-and-r&#34;&gt;Slides&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937499-bfe9f562-7990-11e8-90f5-62c866c54055.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;lightening-talks&#34;&gt;Lightening talks&lt;/h2&gt;
-
-&lt;h3 id=&#34;counting-and-weighing-penguins&#34;&gt;Counting and weighing Penguins&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/pboesu&#34;&gt;Philipp Boersch-Supan&lt;/a&gt; telling us about the challenges of counting penguins (and apparently &lt;code&gt;Rcpp&lt;/code&gt; helps).&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937501-c02f66ec-7990-11e8-8768-7c72c4347e7d.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;integrating-command-line-tools-with-r&#34;&gt;Integrating command-line tools with R&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/wuergh&#34;&gt;Erle Holgersen&lt;/a&gt;: embrace the &lt;code&gt;system()&lt;/code&gt; function for command-line snippets in R.&lt;/p&gt;
-
-&lt;p&gt;For example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ls.directory &amp;lt;- system(&amp;quot;ls -all&amp;quot;, intern = TRUE)
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;porridge = &amp;quot;blueberry&amp;quot;
+if porridge == &amp;quot;blueberry&amp;quot;:
+    print(&amp;quot;Eating...&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;💡 &lt;code&gt;intern = TRUE&lt;/code&gt; is my new friend!&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;Other tips:
-- use the command line functionality in &lt;code&gt;data.table::fread(&amp;quot;&amp;quot;)&lt;/code&gt;
-- make use of &lt;code&gt;tempfile()&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;math&#34;&gt;Math&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937502-c04b0a3c-7990-11e8-80d4-093b6e22ba5c.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;In-line math: $x + y = z$&lt;/p&gt;
 
-&lt;h3 id=&#34;git-in-five&#34;&gt;git in five&lt;/h3&gt;
+&lt;p&gt;Block math:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/TheStephLocke&#34;&gt;Steph Locke&lt;/a&gt; gave &lt;em&gt;git in a nutshell&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;$$
+f\left( x \right) = \;\frac{{2\left( {x + 4} \right)\left( {x - 4} \right)}}{{\left( {x + 4} \right)\left( {x + 1} \right)}}
+$$&lt;/p&gt;
 
-&lt;p&gt;💡 Recommendation: use &lt;a href=&#34;https://www.gitkraken.com/&#34;&gt;GitKraken&lt;/a&gt; as a GUI client.&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;h3 id=&#34;tidy-eval&#34;&gt;tidy eval&lt;/h3&gt;
+&lt;h2 id=&#34;fragments&#34;&gt;Fragments&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/nic_crane&#34;&gt;Nic Crane&lt;/a&gt; explaining the basics of &lt;a href=&#34;https://thisisnic.github.io/2018/03/29/what-is-tidy-eval-and-why-should-i-care/&#34;&gt;&lt;em&gt;tidy eval&lt;/em&gt;&lt;/a&gt; and when it is needed (💡 functions!).&lt;/p&gt;
+&lt;p&gt;Make content appear incrementally&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937503-c07f5328-7990-11e8-911d-0935036da635.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;a-simple-bayesian-workflow&#34;&gt;A simple Bayesian workflow&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/brennanpcardiff&#34;&gt;Paul Robinson&lt;/a&gt; presented his &lt;a href=&#34;https://bioconductor.org/&#34;&gt;Bioconductor&lt;/a&gt; package dealing with proteins.&lt;/p&gt;
-
-&lt;p&gt;➡️ &lt;a href=&#34;https://rpubs.com/brennanpincardiff/drawproteins_satRday_2018&#34;&gt;Slides&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;r-forwards-and-r-ladies-remote&#34;&gt;R-Forwards and R-Ladies Remote&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/HeathrTurnr&#34;&gt;Heather Turner&lt;/a&gt; presented two #rstats related initiatives.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://forwards.github.io/&#34;&gt;&lt;strong&gt;R Forwards&lt;/strong&gt;&lt;/a&gt; is an initiative to widen the participation of under-represented groups ➡️ looking for volunteers that take on &lt;a href=&#34;https://github.com/forwards/tasks/issues&#34;&gt;tasks&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937505-c0bee56a-7990-11e8-9ab3-ed7bf54967e0.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/rladiesremote?lang=en&#34;&gt;&lt;strong&gt;R-Ladies remote&lt;/strong&gt;&lt;/a&gt; chapter: has monthly coffee breaks on slack!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/4454726/41937506-c106292a-7990-11e8-9160-5e745c5de340.jpg&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;final-remarks&#34;&gt;Final remarks&lt;/h2&gt;
-
-&lt;p&gt;👏 Kudos to the organisers! They paid lots of attention to details and did an awesome job in making everyone feel welcome!&lt;/p&gt;
-
-&lt;p&gt;✍️ Mental note to self: I should probably learn how to take pics at the right time + live tweet 😉&lt;/p&gt;
-
-&lt;h2 id=&#34;further-information&#34;&gt;Further information&lt;/h2&gt;
-
-&lt;p&gt;📁 &lt;a href=&#34;https://github.com/satRdays/cardiff2018_talks&#34;&gt;Slides repo&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;📘 Check out Maëlle&amp;rsquo;s blogpost on &lt;a href=&#34;https://masalmon.eu/2018/06/26/storrrify-satrdaycdf-2018/&#34;&gt;Storrrify #satRdayCDF 2018&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;📘 Loads of info from the &lt;a href=&#34;https://itsalocke.com/blog/satrdays-cardiff/&#34;&gt;Locke Data team members&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://twitter.com/search?q=satRdayCDF&amp;amp;src=typd&#34;&gt;#satRdayCDF&lt;/a&gt; on Twitter.&lt;/p&gt;
-
-&lt;p&gt;⏭️ &lt;a href=&#34;https://amsterdam2018.satrdays.org/&#34;&gt;Next satRday&lt;/a&gt; is on September 1 2018 in Amsterdam.&lt;/p&gt;
-
-&lt;p&gt;📅 Check all &lt;a href=&#34;satrdays.org/events/&#34;&gt;upcoming events&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Also 👇&lt;/p&gt;
-
-&lt;blockquote class=&#34;twitter-tweet&#34; data-lang=&#34;en&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;If you would like a satRday near you, why not run one?&lt;br&gt;&lt;br&gt;Here&amp;#39;s what you need to know to decide if it&amp;#39;s right for you &lt;a href=&#34;https://t.co/Szy7AMB3rF&#34;&gt;https://t.co/Szy7AMB3rF&lt;/a&gt;&lt;/p&gt;&amp;mdash; satRdays (@satRdays_org) &lt;a href=&#34;https://twitter.com/satRdays_org/status/1011627085507506177?ref_src=twsrc%5Etfw&#34;&gt;June 26, 2018&lt;/a&gt;&lt;/blockquote&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Setting up the Blogdown website</title>
-      <link>https://sinarueeger.github.io/2018/04/14/setting-up-the-blogdown-website/</link>
-      <pubDate>Sat, 14 Apr 2018 10:00:03 +0200</pubDate>
-      
-      <guid>https://sinarueeger.github.io/2018/04/14/setting-up-the-blogdown-website/</guid>
-      <description>
-
-&lt;p&gt;To set up this website I have used some excellent material around &lt;a href=&#34;https://bookdown.org/yihui/blogdown/get-started.html&#34;&gt;&lt;strong&gt;blogdown&lt;/strong&gt;&lt;/a&gt;, &lt;a href=&#34;https://pages.github.com/&#34;&gt;&lt;strong&gt;github&lt;/strong&gt;&lt;/a&gt; and &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;&lt;strong&gt;hugo&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
-
-&lt;p&gt;Before going into the technical details, let me say something about motivation and inspiration. For me, it definitely helped to read the blogpost by &lt;a href=&#34;http://varianceexplained.org/r/start-blog/&#34;&gt;David Robinson&lt;/a&gt;, being encouraged by &lt;a href=&#34;http://www.masalmon.eu/rladiesct/slides#1&#34;&gt;Ma&amp;euml;lle Salmon&lt;/a&gt; and seeing many others leading by example (among many: &lt;a href=&#34;http://mcdussault.rbind.io/post/building-your-blog-using-blogdown/&#34;&gt;Marie Christine Dussault&lt;/a&gt; or &lt;a href=&#34;https://kkulma.github.io/2017-12-29-end-of-year-thoughts/&#34;&gt;Kasia Kulma&lt;/a&gt;).&lt;/p&gt;
-
-&lt;p&gt;I might get into a more personal motivation in a future blogpost.&lt;/p&gt;
-
-&lt;h2 id=&#34;instructions-to-get-a-first-version-running&#34;&gt;Instructions to get a first version running&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;blogdown&lt;/strong&gt; &lt;em&gt;package&lt;/em&gt; &amp;amp; &lt;em&gt;instructions&lt;/em&gt; by &lt;a href=&#34;https://bookdown.org/yihui/blogdown/get-started.html&#34;&gt;Yihui Xie, Amber Thomas and Alison Presmanes Hill&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html&#34;&gt;Emily Zabor&lt;/a&gt; gives a general &lt;strong&gt;overview&lt;/strong&gt; of how to make websites, not limited to blogging. But from her tutorial I learned about the &lt;code&gt;serve site&lt;/code&gt; feature.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Instructions by &lt;a href=&#34;http://mcdussault.rbind.io/post/building-your-blog-using-blogdown/&#34;&gt;Marie Christine Dussault&lt;/a&gt; include the nitty-gritty details of &lt;strong&gt;changing the domain name&lt;/strong&gt; when deploying to &lt;a href=&#34;https://www.netlify.com/&#34;&gt;Netlify&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;changing-the-layout&#34;&gt;Changing the layout&lt;/h2&gt;
-
-&lt;h3 id=&#34;1-choose-a-theme&#34;&gt;1. Choose a theme&lt;/h3&gt;
-
-&lt;p&gt;Ideally, you should choose a theme &lt;strong&gt;before&lt;/strong&gt; you create your website with blogdown.&lt;/p&gt;
-
-&lt;p&gt;I did not, but my page had not much content yet. I had the &lt;em&gt;academic&lt;/em&gt; theme first, then changed to &lt;em&gt;ghostwriter&lt;/em&gt;, because I like simplicity and wanted the blog posts to have their own page.&lt;/p&gt;
-
-&lt;p&gt;Hugo has a &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;gallery&lt;/a&gt; with different themes. Choose one (be aware that not all themes were &lt;a href=&#34;https://bookdown.org/yihui/blogdown/other-themes.html&#34;&gt;tested against&lt;/a&gt; blogdown!).&lt;/p&gt;
-
-&lt;p&gt;While the &lt;em&gt;academic&lt;/em&gt; theme offers different color palettes in the &lt;code&gt;.toml&lt;/code&gt; file, the &lt;strong&gt;ghostwriter&lt;/strong&gt; does not have this feature.&lt;/p&gt;
-
-&lt;h3 id=&#34;2-personalising-the-css-file&#34;&gt;2. Personalising the &lt;code&gt;.css&lt;/code&gt; file&lt;/h3&gt;
-
-&lt;p&gt;Luckily, you can access the &lt;code&gt;.css&lt;/code&gt; file and change everything you want (depending on how experienced you are with css files).&lt;/p&gt;
-
-&lt;p&gt;The &lt;code&gt;.css&lt;/code&gt; file is located in &lt;code&gt;/themes/ghostwriter/static/dist/style.css&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;I wanted to personalise two things:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;color&lt;/li&gt;
-&lt;li&gt;font&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;color&#34;&gt;Color&lt;/h4&gt;
-
-&lt;p&gt;The default color theme is red. But I wanted something dark blue. So I went through all the colors (look for &lt;code&gt;#&lt;/code&gt;) and changed all red to &lt;code&gt;#003366&lt;/code&gt; and all light red to &lt;code&gt;#deebf7&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h4 id=&#34;font&#34;&gt;Font&lt;/h4&gt;
-
-&lt;p&gt;The default font is &lt;a href=&#34;https://fonts.google.com/specimen/Open+Sans&#34;&gt;&lt;font face=&#34;Open Sans&#34;&gt;Open Sans&lt;/font&gt;&lt;/a&gt;. But you can add other fonts too. &lt;del&gt;I went for Futura &lt;a href=&#34;https://fonts.google.com/specimen/Dosis&#34;&gt;Dosis&lt;/a&gt;, simply, because I prefer it (currently).&lt;/del&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;3-caution&#34;&gt;3. Caution!&lt;/h3&gt;
-
-&lt;p&gt;When choosing a theme and changing the &lt;code&gt;css&lt;/code&gt; file keep the last paragraph from this &lt;a href=&#34;https://bookdown.org/yihui/blogdown/other-themes.html&#34;&gt;section&lt;/a&gt; from the blogdown instructions in mind!&lt;/p&gt;
-
-&lt;h2 id=&#34;incorporating-gist-files&#34;&gt;Incorporating &lt;em&gt;gist&lt;/em&gt; files&lt;/h2&gt;
-
-&lt;p&gt;My first post was written on &lt;a href=&#34;https://gist.github.com/&#34;&gt;gist.github&lt;/a&gt; first. To embed &lt;em&gt;gist&lt;/em&gt; posts, I used the workaround documented &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#gist&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The following code snippet will only display the file &lt;code&gt;encryption_files.md&lt;/code&gt; from the &lt;em&gt;gist&lt;/em&gt; &lt;code&gt;https://gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;{{&amp;lt; gist sinarueeger aadfe4916cf285e32d5a55f320a82a6f &amp;#34;encryption_files.md&amp;#34; &amp;gt;}}
+&lt;pre&gt;&lt;code&gt;{{% fragment %}} One {{% /fragment %}}
+{{% fragment %}} **Two** {{% /fragment %}}
+{{% fragment %}} Three {{% /fragment %}}
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Press &lt;code&gt;Space&lt;/code&gt; to play!&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&#34;fragment &#34; &gt;
+   One
+&lt;/span&gt;
+&lt;span class=&#34;fragment &#34; &gt;
+   &lt;strong&gt;Two&lt;/strong&gt;
+&lt;/span&gt;
+&lt;span class=&#34;fragment &#34; &gt;
+   Three
+&lt;/span&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;A fragment can accept two optional parameters:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;class&lt;/code&gt;: use a custom style (requires definition in custom CSS)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;weight&lt;/code&gt;: sets the order in which a fragment appears&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;speaker-notes&#34;&gt;Speaker Notes&lt;/h2&gt;
+
+&lt;p&gt;Add speaker notes to your presentation&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;{{% speaker_note %}}
+- Only the speaker can read these notes
+- Press `S` key to view
+{{% /speaker_note %}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Press the &lt;code&gt;S&lt;/code&gt; key to view the speaker notes!&lt;/p&gt;
+
+&lt;aside class=&#34;notes&#34;&gt;
+  &lt;ul&gt;
+&lt;li&gt;Only the speaker can read these notes&lt;/li&gt;
+&lt;li&gt;Press &lt;code&gt;S&lt;/code&gt; key to view&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/aside&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;themes&#34;&gt;Themes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;black: Black background, white text, blue links (default)&lt;/li&gt;
+&lt;li&gt;white: White background, black text, blue links&lt;/li&gt;
+&lt;li&gt;league: Gray background, white text, blue links&lt;/li&gt;
+&lt;li&gt;beige: Beige background, dark text, brown links&lt;/li&gt;
+&lt;li&gt;sky: Blue background, thin dark text, blue links&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;night: Black background, thick white text, orange links&lt;/li&gt;
+&lt;li&gt;serif: Cappuccino background, gray text, brown links&lt;/li&gt;
+&lt;li&gt;simple: White background, black text, blue links&lt;/li&gt;
+&lt;li&gt;solarized: Cream-colored background, dark green text, blue links&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+
+&lt;section data-noprocess data-shortcode-slide
+  
+      
+      data-background-image=&#34;/img/boards.jpg&#34;
+  &gt;
+
+
+&lt;h2 id=&#34;custom-slide&#34;&gt;Custom Slide&lt;/h2&gt;
+
+&lt;p&gt;Customize the slide style and background&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;{{&amp;lt; slide background-image=&amp;quot;/img/boards.jpg&amp;quot; &amp;gt;}}
+{{&amp;lt; slide background-color=&amp;quot;#0000FF&amp;quot; &amp;gt;}}
+{{&amp;lt; slide class=&amp;quot;my-style&amp;quot; &amp;gt;}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;custom-css-example&#34;&gt;Custom CSS Example&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s make headers navy colored.&lt;/p&gt;
+
+&lt;p&gt;Create &lt;code&gt;assets/css/reveal_custom.css&lt;/code&gt; with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.reveal section h1,
+.reveal section h2,
+.reveal section h3 {
+  color: navy;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;questions&#34;&gt;Questions?&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://discourse.gohugo.io&#34; target=&#34;_blank&#34;&gt;Ask&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/&#34; target=&#34;_blank&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>Getting started with encryption of documents</title>
-      <link>https://sinarueeger.github.io/2018/04/13/getting-started-with-encryption-of-documents/</link>
-      <pubDate>Fri, 13 Apr 2018 20:40:59 +0200</pubDate>
+      <title>Introduction to Drake</title>
+      <link>/talk/r-ladies/</link>
+      <pubDate>Mon, 10 Dec 2018 19:00:00 +0100</pubDate>
       
-      <guid>https://sinarueeger.github.io/2018/04/13/getting-started-with-encryption-of-documents/</guid>
-      <description>&lt;p&gt;I work (broadly speaking) in epidemiology. Within collaborations we often have to share &lt;strong&gt;sensitive data&lt;/strong&gt; across institutions and are therefore likely to not share IT facilities. But the most often used options - bare e-mail or file hosting - are not secure, as they both work via a server that could potentially be exposed.&lt;/p&gt;
-
-&lt;p&gt;There are a handful of secure options around (&lt;a href=&#34;https://protonmail.com/&#34;&gt;ProtonMail&lt;/a&gt; or &lt;a href=&#34;https://keybase.io/&#34;&gt;keybase.io&lt;/a&gt;, both working via &lt;a href=&#34;https://www.quora.com/Why-is-encryption-important&#34;&gt;encryption&lt;/a&gt;), but for those that &lt;strong&gt;trust open source projects&lt;/strong&gt; the most and are familiar with a &lt;strong&gt;terminal&lt;/strong&gt; I have written some basic instructions for asymmetric GPG encryption.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;I should say that I am not an encryption expert at all. But, although there is a lot of talk about data protection, I never came across a compact, easy-to-follow instruction for the sender of the document and the recipient, valid for all three operating systems (Linux, Mac, Windows). Therefore, I tried to write one, mainly for myself and collaborators. Feedback is appreciated!&lt;/em&gt;&lt;/p&gt;
-
-&lt;script type=&#34;application/javascript&#34; src=&#34;//gist.github.com/sinarueeger/aadfe4916cf285e32d5a55f320a82a6f.js?file=encryption_files.md&#34;&gt;&lt;/script&gt;
+      <guid>/talk/r-ladies/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     
     <item>
-      <title>Contact</title>
-      <link>https://sinarueeger.github.io/page/contact/</link>
-      <pubDate>Fri, 13 Apr 2018 02:13:50 +0000</pubDate>
+      <title>Create a map of the 1000 Genomes project reference populations</title>
+      <link>/post/1kgmap/</link>
+      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://sinarueeger.github.io/page/contact/</guid>
+      <guid>/post/1kgmap/</guid>
       <description>
+&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/leaflet/leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/leafletfix/leafletfix.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/leaflet-binding/leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/leaflet-awesomemarkers/leaflet.awesome-markers.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/leaflet-awesomemarkers/leaflet.awesome-markers.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/fontawesome/font-awesome.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
 
-&lt;h2 id=&#34;contact&#34;&gt;Contact&lt;/h2&gt;
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#goal&#34;&gt;Goal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#get-started&#34;&gt;Get started&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data&#34;&gt;Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#add-geographical-coordinates&#34;&gt;Add geographical coordinates&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#create-leaflet&#34;&gt;Create leaflet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#save-the-map&#34;&gt;Save the map&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#reason-for-deviation-from-the-original&#34;&gt;Reason for deviation from the original&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 
-&lt;p&gt;E-mail: &lt;a href=&#34;mailto:sina.rueeger@gmail.com&#34;&gt;sina.rueeger@gmail.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This post provides the R-Code to map the 26 populations of the &lt;a href=&#34;http://www.internationalgenome.org/&#34;&gt;1000 Genomes project&lt;/a&gt;.&lt;/p&gt;
+&lt;div id=&#34;goal&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Goal&lt;/h2&gt;
+&lt;p&gt;Create a map similar to the one&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; on the front page of &lt;a href=&#34;http://www.internationalgenome.org/&#34; class=&#34;uri&#34;&gt;http://www.internationalgenome.org/&lt;/a&gt; in a reproducible manner.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;/post/2018-12-05-1000genomes-map/1000genomes-map.png&#34; alt=&#34;Version on internationalgenome.org&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;&lt;em&gt;Version on internationalgenome.org&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;get-started&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Get started&lt;/h2&gt;
+&lt;p&gt;Packages needed:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## accessed via ::
+# library(mapview)
+# library(readxl)
+# library(readr)
+# library(purrr)
+# library(tidyr)
+# library(forcats)
 
-&lt;p&gt;Or via &lt;a href=&#34;https://keybase.io/sinarueeger/&#34;&gt;@sinarueeger&lt;/a&gt; on &lt;a href=&#34;https://keybase.io/&#34;&gt;Keybase&lt;/a&gt;.&lt;/p&gt;
+library(leaflet) 
+library(dplyr) 
+library(ggmap) ## for geocode, devtools::install_github(&amp;quot;dkahle/ggmap&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;ggmap&lt;/code&gt; requires a google map api key&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;get one here: &lt;a href=&#34;https://developers.google.com/maps/documentation/geocoding/get-api-key&#34; class=&#34;uri&#34;&gt;https://developers.google.com/maps/documentation/geocoding/get-api-key&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;then run &lt;code&gt;register_google(key = &#34;my_api_key&#34;)&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;The population counts and labels are from ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/ (&lt;a href=&#34;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/20130606_sample_info.xlsx&#34;&gt;download xlsx file&lt;/a&gt;).&lt;/li&gt;
+&lt;li&gt;The super population labels are from &lt;a href=&#34;http://www.internationalgenome.org/faq/which-populations-are-part-your-study/&#34;&gt;here&lt;/a&gt; (pasted into a &lt;a href=&#34;/post/2018-12-05-1000genomes-map/sample_info_superpop.csv&#34;&gt;csv&lt;/a&gt;, then location was inferred).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Download the population counts and labels first:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;url &amp;lt;-
+&amp;quot;ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/20130606_sample_info.xlsx&amp;quot;
+url.bitly &amp;lt;- &amp;quot;http://bit.ly/2MQTr02&amp;quot;
+download.file(url, &amp;quot;20130606_sample_info.xlsx&amp;quot;, mode = &amp;quot;wb&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Import file into R:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df &amp;lt;-
+  readxl::read_excel(&amp;quot;20130606_sample_info.xlsx&amp;quot;, sheet = &amp;quot;Sample Info&amp;quot;)
+  #  &amp;gt;&amp;gt; Sample Info&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Some data wrangling:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## count number of individuals by population
+## rename population &amp;gt; POP
+n.pop &amp;lt;-
+  df %&amp;gt;% 
+  group_by(Population) %&amp;gt;% 
+  summarise(n = n()) %&amp;gt;% 
+  rename(POP = Population)
+
+## import super population names and details to the location of populations
+## copied from here:
+url.spop &amp;lt;-
+  &amp;quot;http://www.internationalgenome.org/faq/which-populations-are-part-your-study/&amp;quot;
+## added location manually (!) - found this the only option to prevent overlapping locations. 
+## Also, description involves a mix of location and origin.
+
+## rename superpopulation &amp;gt; SPOP
+n.spop &amp;lt;-
+  readr::read_csv(&amp;quot;../../static/post/2018-12-05-1000genomes-map/sample_info_superpop.csv&amp;quot;) %&amp;gt;% 
+  rename(POP = `Population Code`, SPOP = `Super Population Code`)
+
+## join the two information
+n.1kg &amp;lt;- left_join(n.pop, n.spop, by = c(&amp;quot;POP&amp;quot; = &amp;quot;POP&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;add-geographical-coordinates&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Add geographical coordinates&lt;/h2&gt;
+&lt;p&gt;Parts of the code below is from a map created by &lt;a href=&#34;https://github.com/d4tagirl&#34;&gt;Daniela Vazquez&lt;/a&gt; for R-Ladies: &lt;a href=&#34;https://github.com/rladies/Map-RLadies-Growing&#34; class=&#34;uri&#34;&gt;https://github.com/rladies/Map-RLadies-Growing&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This is the part where we annotate the dataframe &lt;code&gt;n.1kg&lt;/code&gt; with where the individuals live (not their ancestry).
+Repeat this until there are no &lt;code&gt;warnings()&lt;/code&gt; about &lt;code&gt;QUERY LIMITS&lt;/code&gt; (the &lt;code&gt;while&lt;/code&gt; loop takes care of this).&lt;/p&gt;
+&lt;p&gt;We will use the &lt;code&gt;ggmap&lt;/code&gt; package, which accesses the google maps api.&lt;/p&gt;
+&lt;p&gt;A workaround is to set &lt;code&gt;source = &#34;dsk&#34;&lt;/code&gt; (works for a limited number of queries)&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;n.1kg &amp;lt;- n.1kg %&amp;gt;% 
+  mutate(purrr::map(.$location, geocode, source = &amp;quot;dsk&amp;quot;)) %&amp;gt;% 
+  tidyr::unnest()
+
+## running into the inevitable QUERY LIMITS problems, lets use the approach from https://github.com/rladies/Map-RLadies-Growing
+n.1kg.withloc &amp;lt;- n.1kg %&amp;gt;% 
+  filter(!is.na(lon))
+
+while(nrow(n.1kg.withloc) != nrow(n.1kg))
+{
+  #   repeat this until there are no warnings() about QUERY LIMITS
+  temp &amp;lt;- n.1kg %&amp;gt;% 
+    select(-lon, -lat) %&amp;gt;% 
+    anti_join(n.1kg.withloc %&amp;gt;% select(-lon, -lat)) %&amp;gt;% 
+    mutate(longlat = purrr::map(.$location, geocode, source = &amp;quot;dsk&amp;quot;)) %&amp;gt;% 
+    tidyr::unnest() %&amp;gt;% 
+    filter(!is.na(lon))
+  
+  n.1kg.withloc &amp;lt;- n.1kg.withloc %&amp;gt;% 
+    bind_rows(temp) %&amp;gt;% 
+    distinct()
+}
+
+n.1kg &amp;lt;- n.1kg.withloc
+
+## glue POP and `Population Description` together
+n.1kg &amp;lt;-
+  n.1kg %&amp;gt;% mutate(pop.desc = paste0(POP, &amp;quot; : &amp;quot;, `Population Description`, &amp;quot; (&amp;quot;, SPOP, &amp;quot;)&amp;quot;))
+  
+## given that only a number of geolocation are possible with the google API, this 
+## should probably stored out
+## readr::write_csv(n.1kg, path = &amp;quot;1kg_sample_info_location.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;create-leaflet&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Create leaflet&lt;/h2&gt;
+&lt;p&gt;Map locations a world map with leaflet&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## if you have stroed the data in the previous chunk:
+## readr::read_csv(&amp;quot;1kg_sample_info_location.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Define shiny icons:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;icons &amp;lt;- awesomeIcons(
+  icon = &amp;#39;user&amp;#39;, #people&amp;#39;,
+  iconColor = &amp;#39;black&amp;#39;,
+  library = &amp;#39;fa&amp;#39;, #ion
+  markerColor = as.character(forcats::fct_recode(as.factor(n.1kg$SPOP), 
+                                                 red = &amp;quot;EUR&amp;quot;, 
+                                                 blue = &amp;quot;AFR&amp;quot;, 
+                                                 green = &amp;quot;AMR&amp;quot;, 
+                                                 gray = &amp;quot;EAS&amp;quot;, 
+                                                 orange = &amp;quot;SAS&amp;quot;)) 
+  ## ok, thats not too pretty, but turns out, hex colors won&amp;#39;t work
+)
+
+## we need to create a vector that maps cols to SPOP from the markerColor argument above
+cols &amp;lt;- c(&amp;quot;#E50102&amp;quot;, &amp;quot;#00A9DD&amp;quot;, &amp;quot;#57BA1F&amp;quot;, &amp;quot;#575757&amp;quot;, &amp;quot;#FD8E00&amp;quot;)
+SPOP &amp;lt;- c(&amp;quot;EUR&amp;quot;,  &amp;quot;AFR&amp;quot;, &amp;quot;AMR&amp;quot;, &amp;quot;EAS&amp;quot;, &amp;quot;SAS&amp;quot;)
+
+## separate icon that will display the information
+## ------------------------------------------------
+icon.info &amp;lt;- awesomeIcons(
+  icon = &amp;#39;info&amp;#39;, #people&amp;#39;,
+  iconColor = &amp;#39;white&amp;#39;,
+  library = &amp;#39;fa&amp;#39;, #ion
+  markerColor = &amp;quot;white&amp;quot;
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Create map:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m &amp;lt;- leaflet(data = n.1kg) %&amp;gt;%
+  addTiles() %&amp;gt;%  # Add default OpenStreetMap map tiles
+  addAwesomeMarkers(lat=~lat, lng=~lon, label = ~htmltools::htmlEscape(pop.desc), icon = icons) %&amp;gt;% 
+  addAwesomeMarkers(lat=-45, lng=-107, popup = glue::glue(&amp;quot;Source: https://github.com/sinarueeger/map-1000genomes&amp;quot;), icon = icon.info) %&amp;gt;% ## this bit has potential to be displayed as a href. 
+  #glue::glue(&amp;quot;Source: {url.bitly} + {url.spop} (manual tidying)&amp;quot;), icon = icon.info) %&amp;gt;% 
+  addLegend(&amp;quot;bottomright&amp;quot;, 
+            colors =cols,
+            labels= SPOP,
+            opacity = 1)
+
+m  # Print the map&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;leaflet html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; &lt;a href=\&#34;http://openstreetmap.org\&#34;&gt;OpenStreetMap&lt;\/a&gt; contributors, &lt;a href=\&#34;http://creativecommons.org/licenses/by-sa/2.0/\&#34;&gt;CC-BY-SA&lt;\/a&gt;&#34;}]},{&#34;method&#34;:&#34;addAwesomeMarkers&#34;,&#34;args&#34;:[[13.16667,34.5003,24,22.08829,40.11995,39.9075,35,4,10,60.16952,50.416667,29.845783,13.5,40,54.75844,35.6895,10.75,0.60751,7.13833,34.05223,-10,31.54972,18.24829,55.9483399,43.41667,7.38778],[-59.53333,-111.50098,90,101.0248,-111.67031,116.39723,105,-72,8,24.93545,-4.75,-96.919704,-15.5,-4,-2.69531,139.69171,106.66667,34.76966,-11.67056,-118.24368,-76,74.34361,-66.49989,-3.1932723,11,3.89639],{&#34;icon&#34;:&#34;user&#34;,&#34;markerColor&#34;:[&#34;blue&#34;,&#34;blue&#34;,&#34;orange&#34;,&#34;gray&#34;,&#34;red&#34;,&#34;gray&#34;,&#34;gray&#34;,&#34;green&#34;,&#34;blue&#34;,&#34;red&#34;,&#34;red&#34;,&#34;orange&#34;,&#34;blue&#34;,&#34;red&#34;,&#34;orange&#34;,&#34;gray&#34;,&#34;gray&#34;,&#34;blue&#34;,&#34;blue&#34;,&#34;green&#34;,&#34;green&#34;,&#34;orange&#34;,&#34;green&#34;,&#34;orange&#34;,&#34;red&#34;,&#34;blue&#34;],&#34;iconColor&#34;:&#34;black&#34;,&#34;spin&#34;:false,&#34;squareMarker&#34;:false,&#34;iconRotate&#34;:0,&#34;font&#34;:&#34;monospace&#34;,&#34;prefix&#34;:&#34;fa&#34;},null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},null,null,null,null,[&#34;ACB : African Caribbeans in Barbados (AFR)&#34;,&#34;ASW : Americans of African Ancestry in SW USA (AFR)&#34;,&#34;BEB : Bengali from Bangladesh (SAS)&#34;,&#34;CDX : Chinese Dai in Xishuangbanna, China (EAS)&#34;,&#34;CEU : Utah Residents (CEPH) with Northern and Western European Ancestry (EUR)&#34;,&#34;CHB : Han Chinese in Beijing, China (EAS)&#34;,&#34;CHS : Southern Han Chinese (EAS)&#34;,&#34;CLM : Colombians from Medellin, Colombia (AMR)&#34;,&#34;ESN : Esan in Nigeria (AFR)&#34;,&#34;FIN : Finnish in Finland (EUR)&#34;,&#34;GBR : British in England and Scotland (EUR)&#34;,&#34;GIH : Gujarati Indian from Houston, Texas (SAS)&#34;,&#34;GWD : Gambian in Western Divisions in the Gambia (AFR)&#34;,&#34;IBS : Iberian Population in Spain (EUR)&#34;,&#34;ITU : Indian Telugu from the UK (SAS)&#34;,&#34;JPT : Japanese in Tokyo, Japan (EAS)&#34;,&#34;KHV : Kinh in Ho Chi Minh City, Vietnam (EAS)&#34;,&#34;LWK : Luhya in Webuye, Kenya (AFR)&#34;,&#34;MSL : Mende in Sierra Leone (AFR)&#34;,&#34;MXL : Mexican Ancestry from Los Angeles USA (AMR)&#34;,&#34;PEL : Peruvians from Lima, Peru (AMR)&#34;,&#34;PJL : Punjabi from Lahore, Pakistan (SAS)&#34;,&#34;PUR : Puerto Ricans from Puerto Rico (AMR)&#34;,&#34;STU : Sri Lankan Tamil from the UK (SAS)&#34;,&#34;TSI : Toscani in Italia (EUR)&#34;,&#34;YRI : Yoruba in Ibadan, Nigeria (AFR)&#34;],{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]},{&#34;method&#34;:&#34;addAwesomeMarkers&#34;,&#34;args&#34;:[-45,-107,{&#34;icon&#34;:&#34;info&#34;,&#34;markerColor&#34;:&#34;white&#34;,&#34;iconColor&#34;:&#34;white&#34;,&#34;spin&#34;:false,&#34;squareMarker&#34;:false,&#34;iconRotate&#34;:0,&#34;font&#34;:&#34;monospace&#34;,&#34;prefix&#34;:&#34;fa&#34;},null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Source: https://github.com/sinarueeger/map-1000genomes&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]},{&#34;method&#34;:&#34;addLegend&#34;,&#34;args&#34;:[{&#34;colors&#34;:[&#34;#E50102&#34;,&#34;#00A9DD&#34;,&#34;#57BA1F&#34;,&#34;#575757&#34;,&#34;#FD8E00&#34;],&#34;labels&#34;:[&#34;EUR&#34;,&#34;AFR&#34;,&#34;AMR&#34;,&#34;EAS&#34;,&#34;SAS&#34;],&#34;na_color&#34;:null,&#34;na_label&#34;:&#34;NA&#34;,&#34;opacity&#34;:1,&#34;position&#34;:&#34;bottomright&#34;,&#34;type&#34;:&#34;unknown&#34;,&#34;title&#34;:null,&#34;extra&#34;:null,&#34;layerId&#34;:null,&#34;className&#34;:&#34;info legend&#34;,&#34;group&#34;:null}]}],&#34;limits&#34;:{&#34;lat&#34;:[-45,60.16952],&#34;lng&#34;:[-118.24368,139.69171]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;save-the-map&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Save the map&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## save to png
+## ------------
+mapview::mapshot(m, file = &amp;quot;map-1000genomes-populations.png&amp;quot;)
+
+## save to hmtl
+## -------------
+htmlwidgets::saveWidget(m, file=&amp;quot;map-1000genomes-populations.html&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;reason-for-deviation-from-the-original&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Reason for deviation from the original&lt;/h2&gt;
+&lt;p&gt;I mapped the populations according to the current location but coloured them according to ancestry.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;This is a png and cannot be altered.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;Seen here: &lt;a href=&#34;https://stackoverflow.com/questions/36175529/getting-over-query-limit-after-one-request-with-geocode&#34; class=&#34;uri&#34;&gt;https://stackoverflow.com/questions/36175529/getting-over-query-limit-after-one-request-with-geocode&lt;/a&gt;.&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;See &lt;a href=&#34;https://stackoverflow.com/questions/36175529/getting-over-query-limit-after-one-request-with-geocode&#34; class=&#34;uri&#34;&gt;https://stackoverflow.com/questions/36175529/getting-over-query-limit-after-one-request-with-geocode&lt;/a&gt;.&lt;a href=&#34;#fnref3&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
 </description>
     </item>
     
     <item>
-      <title>About</title>
-      <link>https://sinarueeger.github.io/page/about/</link>
-      <pubDate>Thu, 13 Apr 2017 02:13:50 +0000</pubDate>
+      <title>Workflow &amp; best practices for projects</title>
+      <link>/talk/r-lunchs/</link>
+      <pubDate>Tue, 04 Dec 2018 12:00:00 +0100</pubDate>
       
-      <guid>https://sinarueeger.github.io/page/about/</guid>
-      <description>
-
-&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/img/portrait.jpg&#34; alt=&#34;This is me.&#34; align=&#34;middle&#34; style=&#34;width: 200px;&#34;/&gt;&lt;/p&gt;
-
-&lt;p align=&#34;justify&#34;&gt;I am a postdoc in the &lt;a href=&#34;https://fellay-lab.epfl.ch/&#34;&gt;Fellay Lab&lt;/a&gt; at EPFL where I focus on the &lt;b&gt;data analysis of human genomic data&lt;/b&gt; in the context of infectious diseases. &lt;/p&gt;
-
-&lt;h2 id=&#34;my-journey&#34;&gt;My journey&lt;/h2&gt;
-
-&lt;p align=&#34;justify&#34;&gt;I studied Data Analysis &amp; Process Design at the School of Engineering in Winterthur, where I fell in love with applied statistics. I deepened my knowledge in statistical modelling with a Master&#39;s degree and by working as a research assistant. During my time as a biostatistician I enjoyed the interdisciplinary aspect and grew an interest in analysing genetic data - which ultimately inspired me to do a PhD in &lt;b&gt;Statistical Genetics&lt;/b&gt; under the supervision of &lt;a href=&#34;https://wp.unil.ch/sgg/&#34;&gt;Zolt&amp;#225;n Kutalik&lt;/a&gt; in Lausanne, Switzerland. The focus of my PhD was the analysis of GWAS, -omics and epidemiological data.&lt;/p&gt;
-
-&lt;h2 id=&#34;interests&#34;&gt;Interests&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Data analysis and statistical modelling paired with R&lt;/li&gt;
-&lt;li&gt;Visual representation of concepts and results&lt;/li&gt;
-&lt;li&gt;Interplay between health, medicine and technology&lt;/li&gt;
-&lt;li&gt;Reproducibility and open science&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p align=&#34;justify&#34;&gt;I am glad that I encountered &lt;a href=&#34;https://en.wikipedia.org/wiki/R_(programming_language)&#34;&gt;R&lt;/a&gt; early in my studies and I like how it has evolved over time. As an open source project, lots of people are making contributions and so there is always something to learn. I like to share my passion for R, and together with three colleagues I am organising &lt;a href=&#34;https://www.meetup.com/rladies-lausanne/&#34;&gt;R-Ladies Lausanne&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;resume&#34;&gt;Resume&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://sinarueeger.github.io/files/resume_sinarueeger.pdf&#34;&gt;RESUME (PDF)&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;publication-list&#34;&gt;Publication list&lt;/h2&gt;
-
-&lt;p&gt;&amp;rightarrow; &lt;a href=&#34;https://scholar.google.com/citations?view_op=list_works&amp;amp;hl=de&amp;amp;authuser=1&amp;amp;user=OD9gCh4AAAAJ&#34;&gt;scholar.google.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;other-than-that&#34;&gt;Other than that&amp;hellip;&lt;/h2&gt;
-
-&lt;p&gt;I am a keen cyclist and blog about bikepacking &lt;a href=&#34;https://medium.com/@sinarueeger/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Resources</title>
-      <link>https://sinarueeger.github.io/page/resources/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://sinarueeger.github.io/page/resources/</guid>
-      <description>
-
-&lt;h2 id=&#34;talks&#34;&gt;Talks&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://use-r-carlvogt.github.io/prochains-lunchs/&#34;&gt;R Lunchs Genève&lt;/a&gt;, 04-Dec-2018, &lt;a href=&#34;https://sinarueeger.github.io/20181204-r-lunchs-gva/#1&#34;&gt;Slides&lt;/a&gt;, &lt;a href=&#34;https://github.com/sinarueeger/20181204-r-lunchs-gva/&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.meetup.com/Geneve-R-User-Group/events/jmglvpyxqbjb/&#34;&gt;Genève R Users Meetup&lt;/a&gt;, 04-Oct-2018, &lt;a href=&#34;https://sinarueeger.github.io/20181004-geneve-rug/slides#1&#34;&gt;Slides&lt;/a&gt;, &lt;a href=&#34;https://github.com/sinarueeger/20181004-geneve-rug/&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;PhD public defense, 21-Sept-2018, &lt;a href=&#34;https://sinarueeger.github.io/publicdefense/slides#1&#34;&gt;Slides&lt;/a&gt;, &lt;a href=&#34;https://github.com/sinarueeger/publicdefense&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://www.meetup.com/Geek-Girls-Carrots-Geneva/events/253652159/&#34;&gt;Geek Girls Carrots Geneva&lt;/a&gt;, 12-Sept-2018, &lt;a href=&#34;https://sinarueeger.github.io/20180912-geek-girls-carrots/slides#1&#34;&gt;Slides&lt;/a&gt;, &lt;a href=&#34;https://github.com/sinarueeger/20180912-geek-girls-carrots&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;resources-in-statistical-genetics&#34;&gt;Resources in Statistical Genetics&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-data.md&#34;&gt;Data&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-reading.md&#34;&gt;Reading material&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-software.md&#34;&gt;Software&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;My &lt;a href=&#34;https://drive.switch.ch/index.php/s/FpWZlbw4Rfq20le&#34;&gt;PhD Thesis&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;map-of-1000-genomes-reference-panel-population&#34;&gt;Map of 1000 Genomes reference panel population&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Source code &lt;a href=&#34;https://github.com/sinarueeger/map-1000genomes&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Download html &lt;a href=&#34;https://github.com/sinarueeger/map-1000genomes/blob/master/map-1000genomes-populations.html&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;iframe seamless src=&#34;https://sinarueeger.github.io/misc/map-1000genomes-populations.html&#34; width=&#34;100%&#34; height=&#34;500&#34;&gt;&lt;/iframe&gt;
+      <guid>/talk/r-lunchs/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     

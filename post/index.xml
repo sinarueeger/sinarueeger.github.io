@@ -1,44 +1,75 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Analysing genetic data</title>
-    <link>https://sinarueeger.github.io/post/</link>
-    <description>Recent content in Posts on Analysing genetic data</description>
+    <title>Posts on Sina Rüeger</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on Sina Rüeger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 09 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 21 May 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://sinarueeger.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>LD Part 1</title>
+      <link>/post/get-ld-remotely/</link>
+      <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/get-ld-remotely/</guid>
+      <description>Goal Two approaches Our toy data A solution that almost works: ensembl.org What reference panels / population can we choose from? Access LD between a SNP and its region Access LD matrix Access LD between a SNP and many other SNPs Colored locuszoom plot  2. Solutions that work half-through ldlink SNPsnap API provided by sph.umich  3. Solution that does not work rsnps::ld_search  Session Info   The squared correlation between genetic markers is one way to estimate linkage disequilibrium (LD).</description>
+    </item>
+    
+    <item>
+      <title>Poster for scientific conferences</title>
+      <link>/post/2019-05-20-poster/</link>
+      <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019-05-20-poster/</guid>
+      <description>This is a tutorial how to make a poster from scratch.
+It aims for first-time poster makers, but also for those (like me), that easily get lost in choosing the right font for hours.
+http://blogs.nature.com/naturejobs/2017/11/06/using-design-principles-to-inform-scientific-posters/ https://cedricscherer.netlify.com/2019/05/17/the-evolution-of-a-ggplot-ep.-1/
+It includes a few self-declared best practices that helped me in the past.
+ How to make a good poster Recipe Content Design  How to make a good poster An excellent video by Mike Morrison recently made the rounds on the internet.</description>
+    </item>
+    
+    <item>
+      <title>Create a map of the 1000 Genomes project reference populations</title>
+      <link>/post/1kgmap/</link>
+      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/1kgmap/</guid>
+      <description>Goal Get started Data Add geographical coordinates Create leaflet Save the map Reason for deviation from the original   This post provides the R-Code to map the 26 populations of the 1000 Genomes project.
+Goal Create a map similar to the one1 on the front page of http://www.internationalgenome.org/ in a reproducible manner.
+Version on internationalgenome.org
+  Get started Packages needed:</description>
+    </item>
+    
+    <item>
       <title>Tidying workflows in R</title>
-      <link>https://sinarueeger.github.io/2018/10/09/workflow/</link>
+      <link>/post/drake/</link>
       <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://sinarueeger.github.io/2018/10/09/workflow/</guid>
-      <description>Recently, I started to seriously1 think about the tidiness of data analysis project folders, and the implications of tidying up.
-I was lucky enough to talk about what I have figured out so far at the Genève R User Group. While I am not done yet with reflecting on this2, I wanted to write down my thoughts that lead to my presentation3. So what follows is just “thinking out loud”.</description>
+      <guid>/post/drake/</guid>
+      <description>What is a “project folder”? Why now? Why we tidy up: authority and incentive Challenges What I want The options Drake Getting started More Examples Resources  But wait: drake does not care about messy folders What is next? When is the right time to tidy Is it really worth it   Recently, I started to seriously1 think about the tidiness of data analysis project folders, and the implications of tidying up.</description>
     </item>
     
     <item>
       <title>Locuszoom plot of GWAS summary statistics</title>
-      <link>https://sinarueeger.github.io/2018/07/30/locuszoomplot/</link>
+      <link>/post/locuszoomplot/</link>
       <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://sinarueeger.github.io/2018/07/30/locuszoomplot/</guid>
-      <description>In the world of genome-wide association studies (GWAS) we often get a list of genetic markers (SNPs) that seem for some reason relevant for a particular outcome. At the same time, we have little knowledge about these genetic variants that come in cryptic combinations of characters and numbers.
-For example:
- We might get asked how frequent the SNP rs1421085 is in a range of populations.  We need to extract all known SNPs that are within 1 Mb of rs1421085.</description>
+      <guid>/post/locuszoomplot/</guid>
+      <description>Goal Getting it done 1. Get summary statistics Visualising associations Identify genomic region with lowest P-value  2. Extracting annotation biomaRt Learning resources Using biomaRt Quick d-tour: assembly GRCh37 or GRCh38? Extracting gene name for one SNP Extracting gene names for genomic region  3. Combining summary statistics and annotation Wouldn’t it be nice… Source   In the world of genome-wide association studies (GWAS) we often get a list of genetic markers (SNPs) that seem for some reason relevant for a particular outcome.</description>
     </item>
     
     <item>
       <title>satRday Cardiff 2018</title>
-      <link>https://sinarueeger.github.io/2018/07/04/satrdaycardiff/</link>
+      <link>/post/satrdaycardiff/</link>
       <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://sinarueeger.github.io/2018/07/04/satrdaycardiff/</guid>
+      <guid>/post/satrdaycardiff/</guid>
       <description>This is a brief write-up of my satRdays Cardiff experience.
 First - what is a satRday?
 It is an awesome concept: attending an R conference organised by a local RUG on a Saturday.
@@ -49,22 +80,11 @@ Packaging workshop Heather Turner upgraded us on packaging.</description>
     </item>
     
     <item>
-      <title>Setting up the Blogdown website</title>
-      <link>https://sinarueeger.github.io/2018/04/14/setting-up-the-blogdown-website/</link>
-      <pubDate>Sat, 14 Apr 2018 10:00:03 +0200</pubDate>
-      
-      <guid>https://sinarueeger.github.io/2018/04/14/setting-up-the-blogdown-website/</guid>
-      <description>To set up this website I have used some excellent material around blogdown, github and hugo.
-Motivation Before going into the technical details, let me say something about motivation and inspiration. For me, it definitely helped to read the blogpost by David Robinson, being encouraged by Ma&amp;euml;lle Salmon and seeing many others leading by example (among many: Marie Christine Dussault or Kasia Kulma).
-I might get into a more personal motivation in a future blogpost.</description>
-    </item>
-    
-    <item>
       <title>Getting started with encryption of documents</title>
-      <link>https://sinarueeger.github.io/2018/04/13/getting-started-with-encryption-of-documents/</link>
+      <link>/post/2018-04-04-encryption-of-files/</link>
       <pubDate>Fri, 13 Apr 2018 20:40:59 +0200</pubDate>
       
-      <guid>https://sinarueeger.github.io/2018/04/13/getting-started-with-encryption-of-documents/</guid>
+      <guid>/post/2018-04-04-encryption-of-files/</guid>
       <description>I work (broadly speaking) in epidemiology. Within collaborations we often have to share sensitive data across institutions and are therefore likely to not share IT facilities. But the most often used options - bare e-mail or file hosting - are not secure, as they both work via a server that could potentially be exposed.
 There are a handful of secure options around (ProtonMail or keybase.io, both working via encryption), but for those that trust open source projects the most and are familiar with a terminal I have written some basic instructions for asymmetric GPG encryption.</description>
     </item>

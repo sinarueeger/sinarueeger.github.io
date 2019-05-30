@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.2.5">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Sina Rüeger">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="title: &lsquo;Locuszoom plot of GWAS summary statistics&rsquo; description: &lsquo;using the biomaRt R-package&rsquo; date: &lsquo;2018-07-30&rsquo; slug: get-ld-remotely code_download: true tags: - statgen - R - data visualisation - R - ggplot2 draft: true header: caption: &ldquo;
+image: &ldquo; library(showtext) library(tidyverse) #library(icon) ## for fa icons, installed via gh: https://github.com/ropenscilabs/icon  ## get data url &lt;- &quot;https://portals.broadinstitute.org/collaboration/giant/images/2/21/BMI_All_ancestry.fmt.gzip&quot; dat.bmi &lt;- data.table::fread(url, verbose = FALSE) start &lt;- 45e6 end &lt;- 55e6 dat.bmi.sketch &lt;- dat.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/2018-07-04-plotting-local-genomic-association-results-in-r/">
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#2962ff">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.a0afe72cd1619525a4d5a4824ac5755e.css">
+
+  
+
+  
+  
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/2018-07-04-plotting-local-genomic-association-results-in-r/">
+
+  
+  
+  
+  
+    
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@sinarueeger">
+  <meta property="twitter:creator" content="@sinarueeger">
+  
+  <meta property="og:site_name" content="Sina Rüeger">
+  <meta property="og:url" content="/post/2018-07-04-plotting-local-genomic-association-results-in-r/">
+  <meta property="og:title" content=" | Sina Rüeger">
+  <meta property="og:description" content="title: &lsquo;Locuszoom plot of GWAS summary statistics&rsquo; description: &lsquo;using the biomaRt R-package&rsquo; date: &lsquo;2018-07-30&rsquo; slug: get-ld-remotely code_download: true tags: - statgen - R - data visualisation - R - ggplot2 draft: true header: caption: &ldquo;
+image: &ldquo; library(showtext) library(tidyverse) #library(icon) ## for fa icons, installed via gh: https://github.com/ropenscilabs/icon  ## get data url &lt;- &quot;https://portals.broadinstitute.org/collaboration/giant/images/2/21/BMI_All_ancestry.fmt.gzip&quot; dat.bmi &lt;- data.table::fread(url, verbose = FALSE) start &lt;- 45e6 end &lt;- 55e6 dat.bmi.sketch &lt;- dat."><meta property="og:image" content="/post/2018-07-04-plotting-local-genomic-association-results-in-r/featured.png">
+  <meta property="og:locale" content="en-us">
+  
+  
+  
+  
+
+  
+
+  
+
+  <title> | Sina Rüeger</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" role="textbox" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Sina Rüeger</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/post/">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#publications">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="article-header d-xl-none">
+  <div class="featured-image" style="background-image: url('/post/2018-07-04-plotting-local-genomic-association-results-in-r/featured_hud6a4c7b5a4dcb72247178b49498f0872_95152_800x0_resize_lanczos_2.png');"></div>
+  
+</div>
+
+
+<div class="container-fluid split-header d-none d-xl-block">
+  <div class="row">
+    <div class="col-6">
+      <div class="split-header-content">
+        <h1 itemprop="name"></h1>
+
+        
+
+        
+
+
+
+<meta content="" itemprop="datePublished">
+<meta content="" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 1, 0001</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    16 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2018-07-04-plotting-local-genomic-association-results-in-r/#disqus_thread"></a>
+  
+
+  
+  
+
+  
+
+</div>
+
+
+        
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+        
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=&amp;url=%2fpost%2f2018-07-04-plotting-local-genomic-association-results-in-r%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2fpost%2f2018-07-04-plotting-local-genomic-association-results-in-r%2f"
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2fpost%2f2018-07-04-plotting-local-genomic-association-results-in-r%2f&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2fpost%2f2018-07-04-plotting-local-genomic-association-results-in-r%2f&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=&amp;body=%2fpost%2f2018-07-04-plotting-local-genomic-association-results-in-r%2f">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="split-header-image">
+        <img src="/post/2018-07-04-plotting-local-genomic-association-results-in-r/featured_hud6a4c7b5a4dcb72247178b49498f0872_95152_680x500_fill_q90_lanczos_smart1_2.png" itemprop="image" alt="">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="article-container d-xl-none">
+  <h1 itemprop="name"></h1>
+
+  
+
+  
+
+
+
+<meta content="" itemprop="datePublished">
+<meta content="" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jan 1, 0001</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    16 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/2018-07-04-plotting-local-genomic-association-results-in-r/#disqus_thread"></a>
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=&amp;url="
+         target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u="
+         target="_blank" rel="noopener">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=&amp;title="
+         target="_blank" rel="noopener">
+        <i class="fab fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=&amp;body=">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<hr />
+
+<p>title: &lsquo;Locuszoom plot of GWAS summary statistics&rsquo;
+description: &lsquo;using the <code>biomaRt</code> R-package&rsquo;
+date: &lsquo;2018-07-30&rsquo;
+slug: get-ld-remotely
+code_download: true
+tags:
+  - statgen
+  - R
+  - data visualisation
+  - R
+  - ggplot2
+draft: true
+header:
+  caption: &ldquo;</p>
+
+<h2 id="image">image: &ldquo;</h2>
+
+<pre><code class="language-r,">library(showtext)
+library(tidyverse)
+#library(icon) ## for fa icons, installed via gh: https://github.com/ropenscilabs/icon
+</code></pre>
+
+<!--make a plot, that did not work with knitting-->
+
+<pre><code class="language-r,">## get data
+url &lt;- &quot;https://portals.broadinstitute.org/collaboration/giant/images/2/21/BMI_All_ancestry.fmt.gzip&quot;
+dat.bmi &lt;- data.table::fread(url, verbose = FALSE)
+start &lt;- 45e6
+end &lt;- 55e6
+dat.bmi.sketch &lt;- dat.bmi %&gt;% filter(CHR == 12 &amp; POS &gt;=  start &amp; POS &lt;= end)
+
+
+</code></pre>
+
+<pre><code class="language-r,">
+# Code bits and showtext package from https://github.com/yixuan/showtext
+## Loading Google fonts (http://www.google.com/fonts)
+font_add_google(name = &quot;Caveat&quot;, family = &quot;Caveat&quot;, regular.wt = 400, bold.wt = 700)
+
+## Automatically use showtext to render text for future devices
+showtext_auto()
+
+## Tell showtext the resolution of the device,
+## only needed for bitmap graphics. Default is 96
+## showtext_opts(dpi = 96)
+
+
+## Plotting functions as usual
+col.blue &lt;- &quot;#377eb8&quot;
+col.red &lt;- &quot;#e41a1c&quot;
+font &lt;- &quot;Caveat&quot;
+
+png(&quot;./locuszoom-sketch.png&quot;, 800, 600, res = 96)
+
+op &lt;- par(cex.lab = 1.8, cex.axis = 1.3, cex.main = 2, las = 1, family = font, mar = c(5, 5, 5, 1))
+plot(dat.bmi.sketch$POS, -log10(dat.bmi.sketch$Pvalue), xlab = &quot;Chromosomal position (bp)&quot;, ylab = &quot;-log10(P-value)&quot;, ylim = c(-10, 40), yaxt=&quot;n&quot;)
+axis(2, at = seq(-10,40, 10), labels = c(&quot;&quot;, seq(0, 40, 10)))
+title(&quot;Zoom into GWAS results&quot;)
+dat.bmi.sketch.min &lt;- dat.bmi.sketch %&gt;% slice(which.min(Pvalue))
+text(dat.bmi.sketch.min$POS, -log10(dat.bmi.sketch.min$Pvalue), &quot;Each dot is a SNP&quot;,cex = 1.5, col = col.red, srt = 0, pos = 4)
+
+## add horizontal lines
+text(end - 2e6, -5, &quot;This is a gene&quot;,cex = 1.5, col = col.blue, srt = 0, pos = 4)
+text(start + 4e5, -10, &quot;This is another gene&quot;, cex = 1.5, col = col.blue, pos = 4)
+lines(c(start + 3e6, end - 2e6), c(-5, -5), col = col.blue, lwd = 5)
+lines(c(start + 1e5, start + 4e5), c(-10, -10), col = col.blue, lwd = 5)
+par(op)
+dev.off()
+
+</code></pre>
+
+<!-- what do we want -->
+
+<p>In the world of <a href="https://www.acsh.org/news/2018/07/27/genome-wide-association-studies-acsh-explains-13234" target="_blank">genome-wide association studies</a> (GWAS) we often get a list of genetic markers (<a href="https://en.wikipedia.org/wiki/Single-nucleotide_polymorphism" target="_blank">SNPs</a>) that seem for some reason relevant for a particular outcome. At the same time, we have little knowledge about these genetic variants that come in cryptic combinations of characters and numbers.</p>
+
+<p><em>For example:</em></p>
+
+<ul>
+<li>_We might get asked how frequent the SNP <a href="https://www.ensembl.org/Homo_sapiens/Variation/Explore?r=16:53766542-53767542;v=rs1421085;vdb=variation;vf=984887" target="_blank"><code>rs1421085</code></a> is in <a href="https://www.ensembl.org/Homo_sapiens/Variation/Population?r=16:53766542-53767542;v=rs1421085;vdb=variation;vf=984887" target="_blank">a range of populations.</a>_</li>
+<li>*We need to extract all known SNPs that are within 1 Mb of <a href="https://www.ensembl.org/Homo_sapiens/Variation/Explore?r=16:53766542-53767542;v=rs1421085;vdb=variation;vf=984887" target="_blank"><code>rs1421085</code></a>. *</li>
+<li><em>A genomic region turns out to be highly relevant for some disease and we want to know all genes contained in that genomic region.</em></li>
+</ul>
+
+<p>Unless you sit on lots of genetic data, the list of SNPs come from a summarised form. Minimally, these summary statistic datasets contain the SNP identifier (<code>SNPNAME</code>), the effect size (<code>beta</code>) and the standard error (<code>se</code>). Sometimes the position (<code>POS</code>) and chromosome (<code>CHR</code>) is provided instead of the SNP identifier, and sometimes both are available. Then there is usually other information coming from the study data, for example the allele frequency in the study <code>r icon::ii_arrow_right_a()</code> this is shown on the LHS in table below. However, hardly ever do the datasets contain <font color="#31a354">annotation</font>, such as the <a href="https://www.cancer.gov/publications/dictionaries/cancer-terms/def/gene" target="_blank">gene</a> where the SNP resides, the phenotypes it is associated with or the minor allele frequency (MAF) in a certain population <code>r icon::ii_arrow_right_a()</code> this is illustrated in the <font color="#31a354">green</font> colored part in table below.</p>
+
+<pre><code class="language-r">
+## SNP ids from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4382211/
+dat.bmi.head &lt;- dat.bmi %&gt;% filter(SNPNAME %in% c(&quot;rs657452&quot;, &quot;rs12286929&quot;,&quot;rs7903146&quot;, &quot;rs11057405&quot;,&quot;rs1167827&quot;))
+## annotate dat.bmi.sketch
+library(biomaRt)
+snp.ensembl &lt;- useEnsembl(biomart = &quot;snp&quot;, dataset = &quot;hsapiens_snp&quot;)
+out.bm.snp &lt;- getBM(
+  attributes = c('ensembl_gene_stable_id','phenotype_name', 'refsnp_id','minor_allele_freq'), 
+      filters = 'snp_filter', 
+      values = dat.bmi.head$SNPNAME, 
+      mart = snp.ensembl)
+
+gene.ensembl &lt;- useEnsembl(biomart = &quot;ensembl&quot;, dataset = &quot;hsapiens_gene_ensembl&quot;) # we will need an additional mart for genes
+out.bm.gene &lt;- getBM(attributes = c('external_gene_name','ensembl_gene_id'), 
+      filters = c('ensembl_gene_id'),
+      values = unique(out.bm.snp$ensembl_gene_stable_id), 
+      mart = gene.ensembl)
+
+out.bm.table &lt;- dat.bmi.head %&gt;% right_join(out.bm.snp, by = c(&quot;SNPNAME&quot; = &quot;refsnp_id&quot;)) %&gt;% right_join(out.bm.gene, by = c(&quot;ensembl_gene_stable_id&quot; = &quot;ensembl_gene_id&quot;)) %&gt;% filter(phenotype_name != &quot;&quot;)
+
+library(kableExtra)
+kable(out.bm.table %&gt;% as_tibble %&gt;% dplyr::select(CHR, POS, SNPNAME, REF, ALT, beta, se, external_gene_name, phenotype_name, minor_allele_freq) %&gt;% dplyr::rename(Gene = external_gene_name, `Linked phenotype` = phenotype_name, `Global MAF` = minor_allele_freq)) %&gt;%
+  kableExtra::kable_styling(&quot;striped&quot;, full_width = F) %&gt;%
+  kableExtra::column_spec(8:10, bold = F, color = &quot;white&quot;, background = &quot;#31a354&quot;) %&gt;%
+  kableExtra::add_header_above(c(&quot;GWAS summary statistics dataset&quot; = 7, &quot;Annotation&quot; = 3)) %&gt;%  
+  kableExtra::kable_styling(font_size = 13)
+  
+</code></pre>
+
+<p>This makes sense. Genetic data from cohorts will be used for years and won&rsquo;t change, but the annotation will change over the years. Take the chromosomal position of SNPs, that changes <a href="https://en.wikipedia.org/wiki/Reference_genome" target="_blank">with every new human genome reference assembley</a>.</p>
+
+<p>To get our hands on annotation, we need to consult external databases that are - lucky us! - public. But first, let us define what we want to see at the <a href="#end">end</a> of the blogpost.</p>
+
+<h2 id="goal">Goal</h2>
+
+<p>For this blogpost, we keep it simple and only focus on the <strong>genes contained in a genomic region</strong>, but this can be easily extended to any other annotation available in databases.</p>
+
+<p>In the illustration below<sup class="footnote-ref" id="fnref:Thanks-to-Ma-lle"><a href="#fn:Thanks-to-Ma-lle">1</a></sup>, we want to know the gene starting and end positions around one particular gene region to create an informative locuszoom plot.</p>
+
+<figure>
+<img src="/post/annotation/locuszoom-sketch.png" alt="Drawing of a table." align="middle" style="width: 600px;"/>
+<figcaption><small>In this case, we want to visualise the GWAS P-value (-log10(P-value)) of a genomic region (with each point representing a SNP), with the corresponding genes at the bottom. This is similar to a plot done with [LocusZoom](http://locuszoom.org/), a tool that takes summary statistics as input and outputs a pretty graph for a desired genomic region, including gene annotation, LD information and more.
+</small></figcaption>
+</figure>
+ 
+
+<h2 id="getting-it-done">Getting it done</h2>
+
+<!---
+
+<!-- how can we achieve this? -->
+
+<p>There are currently more than 10 Mio SNPs known, and knowing their functions and genes by heart would equal to some super power. Which is why we <code>r icon::ii_heart()</code><sup class="footnote-ref" id="fnref:Awesome-icons-in"><a href="#fn:Awesome-icons-in">2</a></sup> public databases, such as <a href="https://www.ncbi.nlm.nih.gov/projects/SNP/" target="_blank">dbSNP</a> and <a href="https://www.ensembl.org/index.html" target="_blank">ensembl</a><sup class="footnote-ref" id="fnref:Thanks-to-my-col"><a href="#fn:Thanks-to-my-col">3</a></sup>.</p>
+
+<p>What we like even more, is, to make our analyses reproducible and automate annotation and lookups.</p>
+
+<p><code>r icon::ii_arrow_right_a()</code> In this blogpost, I will show how to zoom into GWAS results and annotate the plot based on the information about that genomic region using R. <!--r icon::ii_r_project().--></p>
+
+<!-- why do we need a locus zoom plot anyway ?-->
+
+<p>Here is the plan:</p>
+
+<ol>
+<li><a href="#get-summary-statistics">Get summary statistics</a></li>
+<li><a href="#extracting-annotation">Extract annotation</a></li>
+<li><a href="#end">Combine summary statistics and annotation</a></li>
+</ol>
+
+<p>Before tackling the first item, we want to have all R-packages installed &amp; ready to use:</p>
+
+<pre><code class="language-r,">## Packages needed to run code
+## ----------------------------
+# install.packages(&quot;dplyr&quot;)     ## data manipulation
+# install.packages(&quot;data.table&quot;) ## read data, fast!
+# install.packages(&quot;forcats&quot;)   ## dealing with factors
+# install.packages(&quot;ggplot2&quot;)   ## dataviz
+# install.packages(&quot;magrittr&quot;)  ## piping
+# install.packages(&quot;metafolio&quot;)  ## colorpalette
+# install.packages(&quot;skimr&quot;)     ## summarising data
+# install.packages(&quot;qqman&quot;)     ## Manhattan plot
+# install.packages(&quot;patchwork&quot;) ## assembling plots
+
+# source(&quot;https://bioconductor.org/biocLite.R&quot;)
+# biocLite(&quot;biomaRt&quot;)           ## annotation
+
+## Optional packages for Rmd
+## --------------------------
+# install.packages(&quot;kableExtra&quot;) ## making pretty tables
+# install.packages(&quot;devtools&quot;)
+# devtools::install_github(&quot;hadley/emo&quot;)        ## emojis
+# devtools::install_github(&quot;ropenscilabs/icon&quot;) ## icons
+
+</code></pre>
+
+<!-- data -->
+
+<h2 id="1-get-summary-statistics">1. Get summary statistics</h2>
+
+<p>First, we need some GWAS summary statistics.</p>
+
+<p>There are lots of <a href="https://github.com/sinarueeger/statistical-genetics-resources/blob/master/statgen-data.md#gwas-summary-statistic-results" target="_blank"><strong>resources</strong></a> for publicly available GWAS summary statistics.</p>
+
+<!-- For example, if you would like to download the latest MDD results, search for *'MDD2 2018'*, for BD and SCZ search for *'BIP and SCZ results from Cell Publication, 2018'*.--> 
+
+<p>We will look at BMI, because it can be accessed easily<sup class="footnote-ref" id="fnref:Initially-I-want"><a href="#fn:Initially-I-want">4</a></sup> and because it is fairly small for a genomic dataset. The data is from the <a href="https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files" target="_blank">Genetic Investigation of ANthropometric Traits</a> (GIANT) consortium. You can <strong>download</strong> the dataset^[Data source: <a href="https://www.biorxiv.org/content/early/2018/03/22/274654" target="_blank">Yengo et al. (2018)</a>.] <a href="https://portals.broadinstitute.org/collaboration/giant/index.php/GIANT_consortium_data_files#GWAMA_Age-.2FSex-Stratified_2015_BMI_and_WHR" target="_blank">here</a> or load it <strong>directly into R</strong>.</p>
+
+<pre><code class="language-r,">## we are gonna need this
+library(tidyverse)
+theme_set(theme_bw())  ## make all ggplots white-ish
+
+</code></pre>
+
+<pre><code class="language-r,">
+## Data Source URL
+url &lt;- &quot;https://portals.broadinstitute.org/collaboration/giant/images/2/21/BMI_All_ancestry.fmt.gzip&quot;
+
+#url &lt;- &quot;jenger.riken.jp/1analysisresult_qtl_download/All_2017_BMI_BBJ_autosome.txt.gz&quot;
+
+## Import BMI summary statistics dat.bmi &lt;- read_tsv(file = url) ##
+## taking too long, let's use fread instead.
+
+dat.bmi &lt;- data.table::fread(url, verbose = FALSE)
+
+</code></pre>
+
+<p>I added <code>verbose = FALSE</code> because it will complain that there is an unexpected character in column 1, which appears to be numerical. This is because chromosome X will only appear towards the end of the dataset.</p>
+
+<p>Next, we rename some columns to something more conventional.</p>
+
+<pre><code class="language-r,">## Rename some columns
+dat.bmi &lt;- dat.bmi %&gt;% rename(SNP = SNPNAME, P = Pvalue)
+</code></pre>
+
+<p>Now, let&rsquo;s look at the data with the <a href="https://github.com/ropensci/skimr" target="_blank"><code>skimr</code></a> package.</p>
+
+<pre><code class="language-r,">skimr::skim(dat.bmi)
+</code></pre>
+
+<p>The reference allele (<code>REF</code>), alternative allele (<code>ALT</code>), SNP identifier (<code>SNP</code>) and chromosome (<code>CHR</code>) are characters. There are four unique values for <code>ALT</code> and <code>REF</code>: A, C, G, T, and 23 unique values for <code>CHR</code> - seems about right. The two columns with the minor allele frequencies measured in <a href="https://portals.broadinstitute.org/collaboration/giant/index.php/Main_Page" target="_blank">GIANT</a> and <a href="http://exac.broadinstitute.org/" target="_blank">ExAC</a> datasets (<code>GMAF</code>, <code>ExAC_MAF</code>) are characters too, because the allele is concatenated. The chromosomal position (<code>POS</code>) is an integer. Then there is the actual association of each SNP with BMI (<code>beta</code>, <code>se</code>, <code>P</code>).</p>
+
+<!-- The first column indicates the chromosome (`CHR`), the second the chromosomal position (`POS`), then the reference allele (`REF`), the alternative allele (`ALT`), the SNP identifier (`SNP`), minor allele frequencies measured in [GIANT](https://portals.broadinstitute.org/collaboration/giant/index.php/Main_Page) and [ExAC](http://exac.broadinstitute.org/) datasets (`GMAF`, `ExAC_MAF`), followed by the association of that SNP with BMI (`beta`, `se`, `P`). -->
+
+<p>This dataset has <code>r nrow(dat.bmi)</code> rows and <code>r ncol(dat.bmi)</code> columns. What if we want to visualise this all at once? In particularly, we are interested if there are ANY associations between the genetic markers and BMI. The mini <code>P</code> distribution in the skimr output does not reveal much.</p>
+
+<h3 id="visualising-associations">Visualising associations</h3>
+
+<p>Visualising all associations at once can be done with a Manhattan plot, where the x-axis represents chromosome<code>CHR</code> and the chromosomal position <code>POS</code>, and the y-axis the <code>-log10(P)</code>-value. Let&rsquo;s use the R-package <code>qqman</code><sup class="footnote-ref" id="fnref:A-guide-to-craft"><a href="#fn:A-guide-to-craft">5</a></sup> for that.</p>
+
+<pre><code class="language-r,">qqman::manhattan(dat.bmi %&gt;% mutate(CHR = as.numeric(as.character(fct_recode(CHR, &quot;23&quot; = &quot;X&quot;)))) %&gt;%   filter(-log10(P)&gt;1), chr=&quot;CHR&quot;, bp=&quot;POS&quot;, snp=&quot;SNP&quot;, p=&quot;P&quot;, suggestiveline =FALSE, genomewideline = FALSE, chrlabs = c(1:22, &quot;X&quot;), cex = 0.4)
+
+</code></pre>
+
+<p>We can spot immediately, that there are loads of SNPs with P-values smaller than $10^{-100}$ (sample size was around <a href="https://www.biorxiv.org/content/early/2018/03/22/274654" target="_blank">700K</a>).</p>
+
+<p>Of course, there are many other solutions to spot real associations, but this is not the point of this blogpost ;-).</p>
+
+<h3 id="identify-genomic-region-with-lowest-p-value">Identify genomic region with lowest P-value</h3>
+
+<p>Now that we know that there are lots of genetic markers associated with BMI, we want to look at a specific genomic region and figure out what genes it contains.
+For illustrative purposes, we pick the genomic region with the lowest P-value.</p>
+
+<pre><code class="language-r,">
+dat.bmi.sel &lt;- dat.bmi %&gt;% slice(which.min(P))
+dat.bmi.sel
+
+</code></pre>
+
+<p>SNP identifier <code>r dat.bmi.sel$SNP</code> that has the lowest P-value ($P = <code>r dat.bmi.sel$P</code>$).</p>
+
+<p>Now we can visualise the summary statistics of that genomic region ($\pm 500 \cdot 10^{3}$).</p>
+
+<pre><code class="language-r,">range &lt;- 5e+05
+sel.chr &lt;- dat.bmi.sel$CHR
+sel.pos &lt;- dat.bmi.sel$POS
+
+dat.bmi.sel.region &lt;- dat.bmi %&gt;% filter(CHR == sel.chr, between(POS, sel.pos - 
+      range, sel.pos + range))
+</code></pre>
+
+<pre><code class="language-r,">
+p1 &lt;- ggplot(data = dat.bmi.sel.region) + 
+  geom_point(aes(POS, -log10(P)), shape = 1) + 
+  labs(title = &quot;Locuszoomplot for BMI GWAS&quot;, subtitle = paste(&quot;Summary   statistics for chromosome&quot;, sel.chr, &quot;from&quot;, format((sel.pos - range), big.mark = &quot;'&quot;), &quot;to&quot;, format((sel.pos + range), big.mark = &quot;'&quot;), &quot;bp&quot;), caption = paste(&quot;Data source:&quot;, url))
+print(p1)
+
+</code></pre>
+
+<p>Next, we want to know if <code>r dat.bmi.sel$SNP</code> is part of a gene, and if yes, which one.</p>
+
+<h2 id="2-extracting-annotation">2. Extracting annotation</h2>
+
+<h3 id="biomart">biomaRt</h3>
+
+<p>Thankfully, there is an R-package called <a href="https://bioconductor.org/packages/release/bioc/html/biomaRt.html" target="_blank"><code>biomaRt</code></a> that can do this for us.</p>
+
+<p>I have only come across this package a few weeks ago, so I apologise in advance that I won&rsquo;t make full use of all the features that the package offers.</p>
+
+<p><code>r icon::ii_alert()</code> <code>biomaRt</code> should not to be confused with <a href="https://github.com/ropensci/biomartr" target="_blank"><code>biomartr</code></a>. <code>biomartr</code> is an rOpenSci package by <a href="https://twitter.com/HajkDrost" target="_blank">Hajk-Georg Drost</a>. I needed this tweet <code>r icon::ii_arrow_down_a()</code> to realise that these were two separate, yet related R-packages.</p>
+
+<p><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Did you ever want to reproducibly retrieve thousands of genomes across the tree of life using only one R command? Then have a look at the new version of biomartr which is on its way to CRAN!  <a href="https://t.co/kWF5XCoGhj">https://t.co/kWF5XCoGhj</a> <a href="https://twitter.com/hashtag/bioinformatics?src=hash&amp;ref_src=twsrc%5Etfw">#bioinformatics</a> <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://twitter.com/hashtag/Genomics?src=hash&amp;ref_src=twsrc%5Etfw">#Genomics</a> <a href="https://t.co/EZHJP0n1f9">pic.twitter.com/EZHJP0n1f9</a></p>&mdash; Hajk-Georg Drost (@HajkDrost) <a href="https://twitter.com/HajkDrost/status/1012280903488466945?ref_src=twsrc%5Etfw">June 28, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>So far, I did not fully grasp the benefits of <code>biomartr</code> compared to <code>biomaRt</code> for annotation of human data. But I will definitely <a href="https://ropensci.github.io/biomartr/articles/Functional_Annotation.html" target="_blank">look more into it</a>.</p>
+
+<p>I also got a tip from <a href="https://twitter.com/MariannaFoos" target="_blank">Marianna Foos</a> to check out <a href="https://cran.r-project.org/web/packages/rsnps/vignettes/rsnps_vignette.html" target="_blank"><code>rsnps</code></a>, an R-package dealing with SNP annotation.</p>
+
+<h3 id="learning-resources">Learning resources</h3>
+
+<p>I used mainly two sources to learn what I wanted to do:</p>
+
+<ul>
+<li><a href="https://www.bioconductor.org/packages/devel/bioc/vignettes/biomaRt/inst/doc/biomaRt.html" target="_blank">Vignette of biomaRt</a> on Bioconductor<sup class="footnote-ref" id="fnref:I-recently-liste"><a href="#fn:I-recently-liste">6</a></sup>.</li>
+<li><a href="https://stackoverflow.com/questions/41490657/best-way-to-get-list-of-snps-by-gene-id" target="_blank">This question</a> on StackOverflow.</li>
+</ul>
+
+<h3 id="using-biomart">Using biomaRt</h3>
+
+<p>First, we need to load the <code>biomaRt</code> <a href="https://bioconductor.org/packages/release/bioc/html/biomaRt.html" target="_blank">package from Bioconductor</a>.</p>
+
+<pre><code class="language-r,">library(biomaRt) 
+</code></pre>
+
+<p>Next we specify which database to use. You can use the functions <code>listMart()</code>, <code>listEnsembl()</code> and <code>listDatasets()</code> to select from the right biomart and dataset. We will need to extract SNPs, hence <code>biomart = &quot;snp&quot;</code>.</p>
+
+<pre><code class="language-r,">
+snp.ensembl &lt;- useEnsembl(biomart = &quot;snp&quot;, dataset = &quot;hsapiens_snp&quot;)
+
+class(snp.ensembl)
+
+# other ways of selecting the mart snp.mart &lt;- useMart(biomart =
+# 'ENSEMBL_MART_SNP', dataset='hsapiens_snp') 
+# gene.mart &lt;- useMart('ensembl', dataset='hsapiens_gene_ensembl')
+
+</code></pre>
+
+<p>Last, we extract the gene id to which our SNP belongs using the function <code>getBM()</code>. Along with that we also extract other information, like the minor allele frequency <code>minor_allele_freq</code>. To check which attributes and filters are available, run <code>listAttributes(snp.ensembl)</code> and <code>listFilters(snp.ensembl)</code>.</p>
+
+<pre><code class="language-r,">
+out.bm &lt;- getBM(
+  attributes = c(&quot;ensembl_gene_stable_id&quot;, 
+                 &quot;refsnp_id&quot;, 
+                 &quot;chr_name&quot;, 
+                 &quot;chrom_start&quot;, 
+                 &quot;chrom_end&quot;, 
+                 &quot;minor_allele&quot;, 
+                 &quot;minor_allele_freq&quot;),
+                # &quot;ensembl_transcript_stable_id&quot;,
+                # &quot;consequence_type_tv&quot;),
+  filters = &quot;snp_filter&quot;, 
+  values = &quot;rs1421085&quot;,#dat.bmi.sel$SNP, 
+  mart = snp.ensembl)
+
+</code></pre>
+
+<p>This gives us - as chosen in <code>attributes</code> - the gene identifier, the SNP identifier, the chromosome name, chromosomal position (start + end), minor allele and minor allele frequency. The output in <code>out.bm</code> corresponds to <a href="https://www.ensembl.org/Homo_sapiens/Variation/Explore?r=16:53766542-53767542;v=rs1421085;vdb=variation;vf=984887" target="_blank">this</a> webpage entry on the ensembl webpage.</p>
+
+<pre><code class="language-r,">out.bm
+</code></pre>
+
+<h3 id="quick-d-tour-assembly-grch37-or-grch38">Quick d-tour: assembly GRCh37 or GRCh38?</h3>
+
+<p>Before getting the gene names, we want to check if the position in the dataset are from assembly GRCh37 or GRCh38.
+This is a handy thing, because oftentimes only SNP identifiers are reported. Or SNP identifiers are reported, but with positions on a <a href="https://en.wikipedia.org/wiki/Reference_genome" target="_blank">different assembly</a>.</p>
+
+<pre><code class="language-r,">
+ifelse(sel.pos == out.bm$chrom_start, 
+       &quot;\u2713: same assembley (GRCh38)&quot;, 
+       &quot;\u2717: not the same assembley&quot;)
+
+</code></pre>
+
+<p>The position is not matching, because the databases that we are looking at is based on the most recent <code>human assembly GRCh38</code>, but the BMI summary statistics dataset is based on <a href="https://grch37.ensembl.org/index.html" target="_blank"><code>human assembly GRCh37</code></a>. The command <code>listEnsemblArchives()</code> will list you the URLs needed to get access to an archived assembly. So let&rsquo;s pull out the archived GRCh37 version with the argument <code>host = 'http://grch37.ensembl.org'</code>.</p>
+
+<pre><code class="language-r,">
+snp.ensembl.grch37 &lt;- useMart(host='http://grch37.ensembl.org', 
+                     biomart='ENSEMBL_MART_SNP', 
+                     dataset='hsapiens_snp')
+
+out.bm.grch37 &lt;- getBM(
+  attributes = c('ensembl_gene_stable_id', 'refsnp_id', 'chr_name', 'chrom_start', 'chrom_end', 'minor_allele', 'minor_allele_freq'),
+  filters = 'snp_filter',
+  values = dat.bmi.sel$SNP,
+  mart = snp.ensembl.grch37
+)
+out.bm.grch37
+
+</code></pre>
+
+<p>Let&rsquo;s check again.</p>
+
+<pre><code class="language-r,">
+ifelse(sel.pos == out.bm.grch37$chrom_start,
+       &quot;\u2713: same assembley (grch37)&quot;, 
+       &quot;\u2717: not the same assembley&quot;)
+</code></pre>
+
+<p><a href="https://twitter.com/flaviahodel" target="_blank">Flavia Hodel</a> pointed out that adding the argument <code>GRCh = 37</code> works too! That&rsquo;s handy argument (but limited to GRCh versions 37 and 38).</p>
+
+<pre><code class="language-r,">
+snp.ensembl.grch37.alt &lt;- useEnsembl(biomart = &quot;snp&quot;, dataset = &quot;hsapiens_snp&quot;, GRCh = 37)
+
+
+out.bm.grch37 &lt;- getBM(
+  attributes = c('ensembl_gene_stable_id', 'refsnp_id', 'chr_name', 'chrom_start', 'chrom_end', 'minor_allele', 'minor_allele_freq'),
+  filters = 'snp_filter',
+  values = dat.bmi.sel$SNP,
+  mart = snp.ensembl.grch37.alt
+)
+out.bm.grch37
+
+</code></pre>
+
+<pre><code class="language-r,">
+ifelse(sel.pos == out.bm.grch37$chrom_start,
+       &quot;\u2713: same assembley (grch37)&quot;, 
+       &quot;\u2717: not the same assembley&quot;)
+
+</code></pre>
+
+<h3 id="extracting-gene-name-for-one-snp">Extracting gene name for one SNP</h3>
+
+<p>Next, we want to get the gene name where <code>r dat.bmi.sel$SNP</code> falls into.</p>
+
+<p>Let&rsquo;s check which <code>attributes</code> contain the string <code>gene</code>.</p>
+
+<pre><code class="language-r,">listAttributes(snp.ensembl) %&gt;% slice(str_which(name, &quot;gene&quot;)) 
+</code></pre>
+
+<p>Now use <code>ensembl_gene_stable_id</code> and <code>associated_gene</code> as additional attributes.</p>
+
+<pre><code class="language-r,">
+## extract gene
+## ----------
+out.bm.snp2gene &lt;- getBM(
+  attributes = c('refsnp_id', 'allele', 'chrom_start', 'chr_name', 'ensembl_gene_stable_id'), 
+      filters = c('snp_filter'), 
+      values = dat.bmi.sel$SNP, 
+      mart = snp.ensembl)
+out.bm.snp2gene
+
+## Attribute `associated_gene` is `Associated gene with phenotype`.
+
+## Extract string
+## ----------
+gene.ensembl &lt;- useEnsembl(biomart = &quot;ensembl&quot;, dataset = &quot;hsapiens_gene_ensembl&quot;, GRCh = 37) # we will need an additional mart for genes
+## because we are using positions from GRCh = 37 in a next query, we need to pass that information on.
+out.bm.gene &lt;- getBM(attributes = c('external_gene_name'), 
+      filters = c('ensembl_gene_id'),
+      values = unique(out.bm.snp2gene$ensembl_gene_stable_id), 
+      mart = gene.ensembl)
+out.bm.gene
+
+
+</code></pre>
+
+<p>The gene that contains SNP <code>r dat.bmi.sel$SNP</code> is called <code>r out.bm.gene$external_gene_name</code>.</p>
+
+<h3 id="extracting-gene-names-for-genomic-region">Extracting gene names for genomic region</h3>
+
+<p>So now we know that <code>r dat.bmi.sel$SNP</code> is part of <code>r out.bm.gene$external_gene_name</code>. But where does <code>r out.bm.gene$external_gene_name</code> start and end? And what are the genes nearby? For this purpose, we want to visualise the summary statistics of the full genomic region ($\pm 250 \cdot 10^3$ Mb). We just recycle the previous code, but instead of providing a SNP-id, we provide the chromosome, the start and the end position.</p>
+
+<pre><code class="language-r,">
+out.bm.genes.region &lt;- getBM(
+  attributes = c('start_position','end_position','ensembl_gene_id','external_gene_name', 'gene_biotype'), 
+      filters = c('chromosome_name','start','end'), 
+      values = list(sel.chr, sel.pos - range, sel.pos + range), 
+      mart = gene.ensembl)
+head(out.bm.genes.region)
+
+
+</code></pre>
+
+<p>We can plot <code>out.bm.genes.region</code> with a linerange plot, where each horizontal line represents one gene.</p>
+
+<pre><code class="language-r,">
+## rank gene names according to start position
+out.bm.genes.region &lt;- out.bm.genes.region %&gt;% mutate(external_gene_name = fct_reorder(external_gene_name, 
+      start_position, .desc = TRUE))
+
+## plot
+ggplot(data = out.bm.genes.region) + 
+      geom_linerange(aes(x = external_gene_name, ymin = start_position, ymax = end_position)) + 
+  coord_flip() + 
+  ylab(&quot;&quot;)
+
+</code></pre>
+
+<p>Let&rsquo;s try to make that pretty. We can group the genes by <code>gene_biotype</code> and colour them accordingly. And we move the protein-coding genes to the top row and color it black.</p>
+
+<pre><code class="language-r,">
+## define plot range for x-axis
+plot.range &lt;- c(min(sel.pos - range, out.bm.genes.region$start_position), 
+      max(sel.pos + range, out.bm.genes.region$end_position))
+
+## rank gene_biotype label
+out.bm.genes.region &lt;- out.bm.genes.region %&gt;% mutate(gene_biotype_fac = fct_relevel(as.factor(gene_biotype), 
+      &quot;protein_coding&quot;), external_gene_name = fct_reorder2(external_gene_name, 
+      start_position, gene_biotype_fac, .desc = TRUE))
+
+
+## plot
+p2 &lt;- ggplot(data = out.bm.genes.region) + 
+  geom_linerange(aes(x = external_gene_name, ymin = start_position, ymax = end_position, colour = gene_biotype_fac, group = gene_biotype_fac)) +
+  coord_flip() + ylab(&quot;&quot;) +
+  ylim(plot.range) + 
+  geom_text(aes(x = external_gene_name, y = start_position, label = external_gene_name, colour = gene_biotype_fac), fontface = 2, alpha = I(0.7), hjust = &quot;right&quot;, size= 2.5) + 
+  labs(title = &quot;&quot;, subtitle = paste0(&quot;Genes&quot;), caption = paste0(&quot;Data source: &quot;, gene.ensembl@host, &quot; + Data set: &quot;, gene.ensembl@dataset), color = &quot;Gene Biotype&quot;) +
+  theme(axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(), 
+        strip.text.y = element_text(angle = 0),
+        legend.position=&quot;bottom&quot;, 
+        panel.grid.major.y = element_blank()) + 
+  expand_limits(y=c(-1, 1)) +
+  scale_color_manual(values = c(&quot;black&quot;, metafolio::gg_color_hue(nlevels(out.bm.genes.region$gene_biotype_fac)-1)))
+  ## hack to have 11 colors, but probably merging some gene biotype groups could make sense too. 
+  ## consider colorblindr::palette_OkabeIto_black
+print(p2)
+
+</code></pre>
+
+<p>There are some short genes starting with <em>AC</em> and <em>LINCO</em>. We can <a href="https://www.genenames.org/about/guidelines" target="_blank">check</a> what they are and/or consult a biologist.</p>
+
+<!-- GWAS + biomart info -->
+
+<h2 id="end">3. Combining summary statistics and annotation</h2>
+
+<p>Now we are ready to combine plot <code>p1</code> and <code>p2</code>.</p>
+
+<pre><code class="language-r,">
+library(patchwork)
+
+p1b &lt;- p1 + xlab(&quot;&quot;) + theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank()) + xlim(plot.range)
+
+p1b + p2 + plot_layout(ncol = 1, heights = c(6, 6))
+
+</code></pre>
+
+<p>Having both plots combined, we can spot that the are 6 protein-coding genes in the region. But the P-value peak is located in gene FTO.</p>
+
+<p>If this were work done for a real project, this would now be the time to get back to domain experts, discuss the results and figure out what other annotation they need<sup class="footnote-ref" id="fnref:1-for-reproducib"><a href="#fn:1-for-reproducib">7</a></sup>.</p>
+
+<h2 id="wouldn-t-it-be-nice">Wouldn&rsquo;t it be nice&hellip;</h2>
+
+<ul>
+<li>&hellip; to polish that plot even more? For starters, the colour code is not ideal&hellip;</li>
+<li>&hellip; to add information about the correlation between SNPs, like in <a href="http://locuszoom.org/" target="_blank">LocusZoom plots</a>?</li>
+<li>&hellip; or have an interactive plot<sup class="footnote-ref" id="fnref:Liza-Darrous-htt"><a href="#fn:Liza-Darrous-htt">8</a></sup>: hovering over the SNP points would light up the corresponding genes or give some other information, like the allele frequency.</li>
+</ul>
+
+<p>Totally <code>r emo::ji(&quot;wink&quot;)</code> Seems like great material for future blogposts!</p>
+
+<h2 id="source">Source</h2>
+
+<ul>
+<li>The R Markdown file is <a href="https://github.com/sinarueeger/webpage/blob/master/blogdown/content/post/2018-07-04-plotting-local-genomic-association-results-in-r.Rmd" target="_blank">here</a>.</li>
+<li>Some more <code>biomaRt</code> code snippets are in a <a href="https://gist.github.com/sinarueeger/4430492e67639fccaeacf4340f7cb7df" target="_blank">gist</a>.</li>
+</ul>
+
+<p>If you know another R-package to solve a similar problem or have feedback, you can comment below <code>r emo::ji(&quot;point_down&quot;)</code>.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:Thanks-to-Ma-lle">Thanks to <a href="https://twitter.com/ma_salmon" target="_blank">Maëlle Salmon</a> you get a real plot here instead of a blurry hand drawing <code>r emo::ji(&quot;wink&quot;)</code> She gave lots of feedback on my first version - much appreciated! <a class="footnote-return" href="#fnref:Thanks-to-Ma-lle"><sup>^</sup></a></li>
+<li id="fn:Awesome-icons-in">Awesome icons in R? <code>r icon::ii_camera()</code> <code>r icon::ii_thumbsup()</code> <code>r icon::ii_social_apple()</code> <code>r icon::ii_paperclip()</code> <code>r icon::ii_arrow_right_a()</code> checkout <a href="https://ropensci.org/technotes/2018/05/15/icon/" target="_blank">these instructions by Mitchell O&rsquo;Hara-Wild on the rOpenSci webpage</a>. <a class="footnote-return" href="#fnref:Awesome-icons-in"><sup>^</sup></a></li>
+<li id="fn:Thanks-to-my-col">Thanks to my colleagues with biology background for explaining me the differences between these databases and what a biomart is! <a class="footnote-return" href="#fnref:Thanks-to-my-col"><sup>^</sup></a></li>
+<li id="fn:Initially-I-want">Initially, I wanted to use data from two recent studies by the <a href="https://www.med.unc.edu/pgc/" target="_blank">Psychiatric Genomics Consortium</a> (PGC) on <a href="https://www.sciencedirect.com/science/article/pii/S0092867418306585?via%3Dihub" target="_blank">schizophrenia (SCZ) and bipoloar disorder (BD)</a>, as well as <a href="https://www.nature.com/articles/s41588-018-0090-3" target="_blank">Major depressive disorder (MDD)</a>. Like most consortia, PGC provides summary statistics that can be <a href="https://www.med.unc.edu/pgc/results-and-downloads/downloads" target="_blank">downloaded</a>.  However, before downloading anything, the user needs to acknowledge and agree to a list of conditions - which I think is an excellent approach! - therefore we cannot directly load it into R. <a class="footnote-return" href="#fnref:Initially-I-want"><sup>^</sup></a></li>
+<li id="fn:A-guide-to-craft">A guide to crafting Manhattan plots by <a href="https://github.com/holtzy/" target="_blank">Yan Holtz</a> for the <a href="https://www.r-graph-gallery.com/wp-content/uploads/2018/02/Manhattan_plot_in_R.html" target="_blank">R graph gallery</a> <a class="footnote-return" href="#fnref:A-guide-to-craft"><sup>^</sup></a></li>
+<li id="fn:I-recently-liste">I recently listened to a podcast by <a href="https://twitter.com/trashystats" target="_blank">Saskia Freytag</a> and <a href="https://twitter.com/nj_tierney" target="_blank">NJ Tierney</a> where they talk about the differences between CRAN and Bioconductor (there are many!). The podcast is called <a href="https://soundcloud.com/crediblycurious/episode-1-cran-and-bioconductor" target="_blank">Credibly Curious</a>. <a class="footnote-return" href="#fnref:I-recently-liste"><sup>^</sup></a></li>
+<li id="fn:1-for-reproducib">+1 for reproducibility! <a class="footnote-return" href="#fnref:1-for-reproducib"><sup>^</sup></a></li>
+<li id="fn:Liza-Darrous-htt"><a href="https://twitter.com/LizaMGD" target="_blank">Liza Darrous</a> pointed out the interactive Manhattan R function <a href="https://moderndata.plot.ly/manhattanly-r-package-for-interactive-manhattan-plots/" target="_blank">manhanttanly</a>. <a class="footnote-return" href="#fnref:Liza-Darrous-htt"><sup>^</sup></a></li>
+</ol>
+</div>
+
+    </div>
+
+    
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  <img class="portrait mr-3" src="https://s.gravatar.com/avatar/a6d15adb27e347c38ba8bce6070993c5?s=200')" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Sina Rüeger</a></h5>
+    <h6 class="card-subtitle">Postdoctoral researcher in Genomics</h6>
+    <p class="card-text" itemprop="description"></p>
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      <li>
+        <a itemprop="sameAs" href="mailto:sina.rueeger@gmail.com" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://www.linkedin.com/in/sinarueeger/" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/sinarueeger" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://scholar.google.co.uk/citations?user=OD9gCh4AAAAJ&amp;hl=en" target="_blank" rel="noopener">
+          <i class="ai ai-google-scholar"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/sinarueeger" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="/files/resume.pdf" >
+          <i class="ai ai-cv"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+      
+      
+    
+
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sinarueeger-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<div class="container">
+  <footer class="site-footer">
+  
+  <p class="powered-by">
+    <a href="/privacy/">Privacy Policy</a>
+  </p>
+  
+
+  <p class="powered-by">
+    &copy; 2019. All rights reserved. &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+</div>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    
+    <script src="/js/mathjax-config.js"></script>
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+      
+
+      
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//sinarueeger-github-io.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.d813ae958640746e240f434cafc95afb.js"></script>
+
+  </body>
+</html>
+

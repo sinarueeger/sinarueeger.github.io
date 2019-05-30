@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors on Sina Rüeger</title>
+    <link>/authors/</link>
+    <description>Recent content in Authors on Sina Rüeger</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 20 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>admin</title>
+      <link>/authors/admin/</link>
+      <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/authors/admin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>**R&amp;uuml;eger, S**</title>
+      <link>/authors/ruumleger-s/</link>
+      <pubDate>Sat, 01 Sep 2018 00:00:00 +0200</pubDate>
+      
+      <guid>/authors/ruumleger-s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kutalik, Z</title>
+      <link>/authors/kutalik-z/</link>
+      <pubDate>Sat, 01 Sep 2018 00:00:00 +0200</pubDate>
+      
+      <guid>/authors/kutalik-z/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>McDaid, A</title>
+      <link>/authors/mcdaid-a/</link>
+      <pubDate>Sat, 01 Sep 2018 00:00:00 +0200</pubDate>
+      
+      <guid>/authors/mcdaid-a/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Abel, L</title>
+      <link>/authors/abel-l/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0200</pubDate>
+      
+      <guid>/authors/abel-l/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Argiro, L</title>
+      <link>/authors/argiro-l/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0200</pubDate>
+      
+      <guid>/authors/argiro-l/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bochud, P-Y</title>
+      <link>/authors/bochud-p-y/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0200</pubDate>
+      
+      <guid>/authors/bochud-p-y/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Booth, D R</title>
+      <link>/authors/booth-d-r/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0200</pubDate>
+      
+      <guid>/authors/booth-d-r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bourli&amp;egrave;re, M</title>
+      <link>/authors/bourliegravere-m/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0200</pubDate>
+      
+      <guid>/authors/bourliegravere-m/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cerny, A</title>
+      <link>/authors/cerny-a/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0200</pubDate>
+      
+      <guid>/authors/cerny-a/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

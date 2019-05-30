@@ -1,104 +1,104 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Analysing genetic data</title>
-    <link>https://sinarueeger.github.io/tags/</link>
-    <description>Recent content in Tags on Analysing genetic data</description>
+    <title>Tags on Sina Rüeger</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on Sina Rüeger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2018. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 13 Apr 2018 20:40:59 +0200</lastBuildDate>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 28 May 2019 00:00:00 +0200</lastBuildDate>
     
-	<atom:link href="https://sinarueeger.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Best Practices</title>
-      <link>https://sinarueeger.github.io/tags/best-practices/</link>
-      <pubDate>Fri, 13 Apr 2018 20:40:59 +0200</pubDate>
+      <title></title>
+      <link>/tags/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>https://sinarueeger.github.io/tags/best-practices/</guid>
+      <guid>/tags/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Blogdown</title>
-      <link>https://sinarueeger.github.io/tags/blogdown/</link>
-      <pubDate>Sat, 14 Apr 2018 10:00:03 +0200</pubDate>
+      <title>R</title>
+      <link>/tags/r/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>https://sinarueeger.github.io/tags/blogdown/</guid>
+      <guid>/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Conference</title>
-      <link>https://sinarueeger.github.io/tags/conference/</link>
-      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      <title>data visualisation</title>
+      <link>/tags/data-visualisation/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>https://sinarueeger.github.io/tags/conference/</guid>
+      <guid>/tags/data-visualisation/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Data Visualisation</title>
-      <link>https://sinarueeger.github.io/tags/data-visualisation/</link>
-      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+      <title>statistical genetics</title>
+      <link>/tags/statistical-genetics/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>https://sinarueeger.github.io/tags/data-visualisation/</guid>
+      <guid>/tags/statistical-genetics/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Dplyr</title>
-      <link>https://sinarueeger.github.io/tags/dplyr/</link>
-      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      <title>conference</title>
+      <link>/tags/conference/</link>
+      <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://sinarueeger.github.io/tags/dplyr/</guid>
+      <guid>/tags/conference/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Drake</title>
-      <link>https://sinarueeger.github.io/tags/drake/</link>
-      <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
+      <title>science communication</title>
+      <link>/tags/science-communication/</link>
+      <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://sinarueeger.github.io/tags/drake/</guid>
+      <guid>/tags/science-communication/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Encryption</title>
-      <link>https://sinarueeger.github.io/tags/encryption/</link>
-      <pubDate>Fri, 13 Apr 2018 20:40:59 +0200</pubDate>
+      <title>R-Ladies</title>
+      <link>/tags/r-ladies/</link>
+      <pubDate>Mon, 10 Dec 2018 19:00:00 +0100</pubDate>
       
-      <guid>https://sinarueeger.github.io/tags/encryption/</guid>
+      <guid>/tags/r-ladies/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Ggplot2</title>
-      <link>https://sinarueeger.github.io/tags/ggplot2/</link>
-      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+      <title>workflow</title>
+      <link>/tags/workflow/</link>
+      <pubDate>Mon, 10 Dec 2018 19:00:00 +0100</pubDate>
       
-      <guid>https://sinarueeger.github.io/tags/ggplot2/</guid>
+      <guid>/tags/workflow/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Github</title>
-      <link>https://sinarueeger.github.io/tags/github/</link>
-      <pubDate>Sat, 14 Apr 2018 10:00:03 +0200</pubDate>
+      <title>maps</title>
+      <link>/tags/maps/</link>
+      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://sinarueeger.github.io/tags/github/</guid>
+      <guid>/tags/maps/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Hugo</title>
-      <link>https://sinarueeger.github.io/tags/hugo/</link>
-      <pubDate>Sat, 14 Apr 2018 10:00:03 +0200</pubDate>
+      <title>best practices</title>
+      <link>/tags/best-practices/</link>
+      <pubDate>Tue, 04 Dec 2018 12:00:00 +0100</pubDate>
       
-      <guid>https://sinarueeger.github.io/tags/hugo/</guid>
+      <guid>/tags/best-practices/</guid>
       <description></description>
     </item>
     
