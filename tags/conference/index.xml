@@ -2,35 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>conference on Sina Rüeger</title>
-    <link>/tags/conference/</link>
+    <link>https://sinarueeger.github.io/tags/conference/</link>
     <description>Recent content in conference on Sina Rüeger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 20 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Jul 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/conference/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sinarueeger.github.io/tags/conference/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Poster for scientific conferences</title>
-      <link>/post/2019-05-20-poster/</link>
-      <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019-05-20-poster/</guid>
-      <description>This is a tutorial how to make a poster from scratch.
-It aims for first-time poster makers, but also for those (like me), that easily get lost in choosing the right font for hours.
-http://blogs.nature.com/naturejobs/2017/11/06/using-design-principles-to-inform-scientific-posters/ https://cedricscherer.netlify.com/2019/05/17/the-evolution-of-a-ggplot-ep.-1/
-It includes a few self-declared best practices that helped me in the past.
- How to make a good poster Recipe Content Design  How to make a good poster An excellent video by Mike Morrison recently made the rounds on the internet.</description>
-    </item>
     
     <item>
       <title>satRday Cardiff 2018</title>
-      <link>/post/satrdaycardiff/</link>
+      <link>https://sinarueeger.github.io/post/satrdaycardiff/</link>
       <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/satrdaycardiff/</guid>
+      <guid>https://sinarueeger.github.io/post/satrdaycardiff/</guid>
       <description>This is a brief write-up of my satRdays Cardiff experience.
 First - what is a satRday?
 It is an awesome concept: attending an R conference organised by a local RUG on a Saturday.

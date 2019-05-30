@@ -2,103 +2,103 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Sina Rüeger</title>
-    <link>/tags/</link>
+    <link>https://sinarueeger.github.io/tags/</link>
     <description>Recent content in Tags on Sina Rüeger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
     <lastBuildDate>Tue, 28 May 2019 00:00:00 +0200</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sinarueeger.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title></title>
-      <link>/tags/</link>
+      <link>https://sinarueeger.github.io/tags/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>/tags/</guid>
+      <guid>https://sinarueeger.github.io/tags/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>/tags/r/</link>
+      <link>https://sinarueeger.github.io/tags/r/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>/tags/r/</guid>
+      <guid>https://sinarueeger.github.io/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data visualisation</title>
-      <link>/tags/data-visualisation/</link>
+      <link>https://sinarueeger.github.io/tags/data-visualisation/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>/tags/data-visualisation/</guid>
+      <guid>https://sinarueeger.github.io/tags/data-visualisation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>statistical genetics</title>
-      <link>/tags/statistical-genetics/</link>
+      <link>https://sinarueeger.github.io/tags/statistical-genetics/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>/tags/statistical-genetics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>conference</title>
-      <link>/tags/conference/</link>
-      <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/conference/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>science communication</title>
-      <link>/tags/science-communication/</link>
-      <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/science-communication/</guid>
+      <guid>https://sinarueeger.github.io/tags/statistical-genetics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R-Ladies</title>
-      <link>/tags/r-ladies/</link>
+      <link>https://sinarueeger.github.io/tags/r-ladies/</link>
       <pubDate>Mon, 10 Dec 2018 19:00:00 +0100</pubDate>
       
-      <guid>/tags/r-ladies/</guid>
+      <guid>https://sinarueeger.github.io/tags/r-ladies/</guid>
       <description></description>
     </item>
     
     <item>
       <title>workflow</title>
-      <link>/tags/workflow/</link>
+      <link>https://sinarueeger.github.io/tags/workflow/</link>
       <pubDate>Mon, 10 Dec 2018 19:00:00 +0100</pubDate>
       
-      <guid>/tags/workflow/</guid>
+      <guid>https://sinarueeger.github.io/tags/workflow/</guid>
       <description></description>
     </item>
     
     <item>
       <title>maps</title>
-      <link>/tags/maps/</link>
+      <link>https://sinarueeger.github.io/tags/maps/</link>
       <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/maps/</guid>
+      <guid>https://sinarueeger.github.io/tags/maps/</guid>
       <description></description>
     </item>
     
     <item>
       <title>best practices</title>
-      <link>/tags/best-practices/</link>
+      <link>https://sinarueeger.github.io/tags/best-practices/</link>
       <pubDate>Tue, 04 Dec 2018 12:00:00 +0100</pubDate>
       
-      <guid>/tags/best-practices/</guid>
+      <guid>https://sinarueeger.github.io/tags/best-practices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>drake</title>
+      <link>https://sinarueeger.github.io/tags/drake/</link>
+      <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://sinarueeger.github.io/tags/drake/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>projects</title>
+      <link>https://sinarueeger.github.io/tags/projects/</link>
+      <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://sinarueeger.github.io/tags/projects/</guid>
       <description></description>
     </item>
     

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sina Rüeger</title>
-    <link>/</link>
+    <link>https://sinarueeger.github.io/</link>
     <description>Recent content on Sina Rüeger</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
     <lastBuildDate>Tue, 28 May 2019 00:00:00 +0200</lastBuildDate>
     
-	    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://sinarueeger.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Integrative Statistical Analysis of -omics and GWAS data</title>
-      <link>/project/phd-thesis/</link>
+      <link>https://sinarueeger.github.io/project/phd-thesis/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>/project/phd-thesis/</guid>
+      <guid>https://sinarueeger.github.io/project/phd-thesis/</guid>
       <description>
 
 &lt;p&gt;I finished my PhD under the main supervison of &lt;a href=&#34;https://wp.unil.ch/sgg/&#34;&gt;Zolt&amp;#225;n Kutalik&lt;/a&gt; in September 2018.&lt;/p&gt;
@@ -42,676 +42,37 @@ A further finding is, that summary statistic imputation can compete with imputat
     
     <item>
       <title>R-package GWAS.utils</title>
-      <link>/project/gwas.utils/</link>
+      <link>https://sinarueeger.github.io/project/gwas.utils/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>/project/gwas.utils/</guid>
+      <guid>https://sinarueeger.github.io/project/gwas.utils/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R-package ggGWAS</title>
-      <link>/project/gggwas/</link>
+      <link>https://sinarueeger.github.io/project/gggwas/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>/project/gggwas/</guid>
+      <guid>https://sinarueeger.github.io/project/gggwas/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Statistical Genetics Resources</title>
-      <link>/project/stat-genetics-ressources/</link>
+      <link>https://sinarueeger.github.io/project/stat-genetics-ressources/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>/project/stat-genetics-ressources/</guid>
+      <guid>https://sinarueeger.github.io/project/stat-genetics-ressources/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>LD Part 1</title>
-      <link>/post/get-ld-remotely/</link>
-      <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/get-ld-remotely/</guid>
-      <description>
-&lt;link href=&#34;/rmarkdown-libs/font-awesome/css/fontawesome-all.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
-
-&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#goal&#34;&gt;Goal&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#two-approaches&#34;&gt;Two approaches&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#our-toy-data&#34;&gt;Our toy data&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#a-solution-that-almost-works-ensembl.org&#34;&gt;A solution that almost works: ensembl.org&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#what-reference-panels-population-can-we-choose-from&#34;&gt;What reference panels / population can we choose from?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#access-ld-between-a-snp-and-its-region&#34;&gt;Access LD between a SNP and its region&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#access-ld-matrix&#34;&gt;Access LD matrix&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#access-ld-between-a-snp-and-many-other-snps&#34;&gt;Access LD between a SNP and many other SNPs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#colored-locuszoom-plot&#34;&gt;Colored locuszoom plot&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#solutions-that-work-half-through&#34;&gt;2. Solutions that work half-through&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#ldlink&#34;&gt;ldlink&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#snpsnap&#34;&gt;SNPsnap&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#api-provided-by-sph.umich&#34;&gt;API provided by sph.umich&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#solution-that-does-not-work&#34;&gt;3. Solution that does not work&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#rsnpsld_search&#34;&gt;&lt;code&gt;rsnps::ld_search&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#session-info&#34;&gt;Session Info&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;p&gt;The squared correlation between genetic markers is one way to estimate &lt;a href=&#34;https://ldlink.nci.nih.gov/?tab=help&#34;&gt;linkage disequilibrium&lt;/a&gt; (LD). LD has to be computed &lt;em&gt;all the time&lt;/em&gt; - either for as an input for statistical methods or to summarise results.&lt;/p&gt;
-&lt;p&gt;However, accessing LD estimations quickly, for a specific population and in an automated way (e.g. with R) is actually suprisingly difficult.&lt;/p&gt;
-&lt;p&gt;In this blogpost I am exploring how to do this efficiently.&lt;/p&gt;
-&lt;!---------- -------------------------------&gt;
-&lt;div id=&#34;goal&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Goal&lt;/h2&gt;
-&lt;!---------- -------------------------------&gt;
-&lt;p&gt;At the end of this blogpost, we want to know the genetic correlation between two or more markers in a specific human population, so we can populate the locuszoom plot from the &lt;a href=&#34;https://sinarueeger.github.io/2018/07/30/locuszoomplot/&#34;&gt;previous blogpost&lt;/a&gt; with colored dots.&lt;/p&gt;
-&lt;p&gt;For simplicity, I will use the terms correlation, squared correlation, r, r2 and LD interchangeably.&lt;/p&gt;
-&lt;!---------- -------------------------------&gt;
-&lt;/div&gt;
-&lt;div id=&#34;two-approaches&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Two approaches&lt;/h2&gt;
-&lt;!---------- -------------------------------&gt;
-&lt;p&gt;In principal, there are two ways of doing accessing LD:&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Download (or access) the genetic data from which you want to estimate your correlations + calculate the correlations using some efficient approach.&lt;/li&gt;
-&lt;li&gt;Access precomputed LD estimations.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;table&gt;
-&lt;colgroup&gt;
-&lt;col width=&#34;9%&#34; /&gt;
-&lt;col width=&#34;22%&#34; /&gt;
-&lt;col width=&#34;39%&#34; /&gt;
-&lt;col width=&#34;28%&#34; /&gt;
-&lt;/colgroup&gt;
-&lt;thead&gt;
-&lt;tr class=&#34;header&#34;&gt;
-&lt;th&gt;Approach &lt;i class=&#34;fas  fa-wrench &#34;&gt;&lt;/i&gt;&lt;/th&gt;
-&lt;th&gt;Advantages &lt;i class=&#34;fas  fa-smile &#34;&gt;&lt;/i&gt;&lt;/th&gt;
-&lt;th&gt;Downsides &lt;i class=&#34;fas  fa-frown &#34;&gt;&lt;/i&gt;&lt;/th&gt;
-&lt;th&gt;Useful when…&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td&gt;(1) &lt;strong&gt;Local&lt;/strong&gt; computation of LD&lt;/td&gt;
-&lt;td&gt;LD matrix can be quickly updated to new reference panels&lt;/td&gt;
-&lt;td&gt;Requires large computation and storage space (e.g. 1000 Genomes is &lt;a href=&#34;https://console.cloud.google.com/storage/browser/genomics-public-data/1000-genomes-phase-3/vcf/?_ga=2.227457240.-473641130.1558969048&#34;&gt;&amp;gt;100 few GB large&lt;/a&gt;).&lt;/td&gt;
-&lt;td&gt;i) LD for a large set of SNPs is needed ii) LD from non-standard reference panel is needed.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td&gt;(2) &lt;strong&gt;Access&lt;/strong&gt; precomputed LD&lt;/td&gt;
-&lt;td&gt;not need for large computation and storage space.&lt;/td&gt;
-&lt;td&gt;limited to certain small sets of markers, limited to possibly outdated reference panels.&lt;/td&gt;
-&lt;td&gt;LD for a small set of SNPs is needed&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;For now I will focus on approach (2), and then explore approach (1) in a future blogpost.&lt;/p&gt;
-&lt;p&gt;Spoiler: Using approach (2) does not get you far. It took me quite a while to gather all the solutions that are listed below, and yet there is not one perfect/ideal solution.&lt;/p&gt;
-&lt;!---------- -------------------------------&gt;
-&lt;/div&gt;
-&lt;div id=&#34;our-toy-data&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Our toy data&lt;/h2&gt;
-&lt;!---------- -------------------------------&gt;
-&lt;p&gt;We will recycle the data from the &lt;a href=&#34;https://sinarueeger.github.io/2018/07/30/locuszoomplot/&#34;&gt;previous blogpost&lt;/a&gt;, where the focus was on extracting annotation using the package &lt;code&gt;biomaRt&lt;/code&gt;. In this blogpost, we will complete that locuszoomplot by adding the LD information.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Data Source URL
-url &amp;lt;- &amp;quot;https://portals.broadinstitute.org/collaboration/giant/images/2/21/BMI_All_ancestry.fmt.gzip&amp;quot;
-
-## Import BMI summary statistics dat.bmi &amp;lt;- read_tsv(file = url) ##
-## taking too long, let&amp;#39;s use fread instead.
-
-dat.bmi &amp;lt;- data.table::fread(url, verbose = FALSE)
-
-## Rename some columns
-dat.bmi &amp;lt;- dat.bmi %&amp;gt;% rename(SNP = SNPNAME, P = Pvalue)
-
-## Extract region
-dat.bmi.sel &amp;lt;- dat.bmi %&amp;gt;% slice(which.min(P))
-dat.bmi.sel
-
-## range region
-range &amp;lt;- 5e+05
-sel.chr &amp;lt;- dat.bmi.sel$CHR
-sel.pos &amp;lt;- dat.bmi.sel$POS
-
-dat.bmi.sel.region &amp;lt;- dat.bmi %&amp;gt;% 
-  filter(CHR == sel.chr, between(POS, sel.pos - 
-      range, sel.pos + range))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;What we are interested in, is the LD between our top SNP rs1421085 and all remaining SNPs.&lt;/p&gt;
-&lt;p&gt;Remember that this dataset has positions on build GRCh37, while most databases are on build GRCh38 by now.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rsnps)
-snp &amp;lt;- dat.bmi.sel$SNP
-sm &amp;lt;- ncbi_snp_summary(snp) %&amp;gt;% separate(chrpos, c(&amp;quot;chr&amp;quot;, &amp;quot;pos&amp;quot;))
-sel.pos == as.numeric(sm$pos)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
-&lt;!---------- -------------------------------&gt;
-&lt;/div&gt;
-&lt;div id=&#34;a-solution-that-almost-works-ensembl.org&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;A solution that almost works: ensembl.org&lt;/h2&gt;
-&lt;!---------- -------------------------------&gt;
-&lt;p&gt;Let’s quickly repeat what our primary goal is:&lt;/p&gt;
-&lt;p&gt;Extract the correlation between SNPs&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;without downloading any data,&lt;/li&gt;
-&lt;li&gt;fairly quick and&lt;/li&gt;
-&lt;li&gt;in R.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Let’s first define our top SNP and the range in kb around that SNP for which we want LD information.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;snp &amp;lt;- dat.bmi.sel$SNP
-range.kb &amp;lt;- range/1e3 ## in k bp&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The &lt;a href=&#34;https://rest.ensembl.org&#34;&gt;REST API of Ensembl&lt;/a&gt; can do a lot (see options &lt;a href=&#34;https://rest.ensembl.org/documentation/&#34;&gt;here&lt;/a&gt;). For example: access precomputed LD. The webpage even provides R code to do so, which is from where I copied some snippets below.&lt;/p&gt;
-&lt;p&gt;To access the rest API at ensembl, we need the following three packages loaded.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(httr)
-library(jsonlite)
-library(xml2)
-library(tibble)
-library(tidyr)
-library(magrittr)&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;what-reference-panels-population-can-we-choose-from&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;What reference panels / population can we choose from?&lt;/h3&gt;
-&lt;!------------------------------&gt;
-&lt;p&gt;Currently, the largest and hence most popular public reference panel is &lt;a href=&#34;http://www.internationalgenome.org/&#34;&gt;1000 Genomes reference panel&lt;/a&gt; (1KG). The 26 populations of roughly 100 individuals each can be grouped into five super populations: African (AFR), American (AMR), European (EUR), South Asian (SAS), East Asian (EAS).&lt;/p&gt;
-&lt;p&gt;We can ask the ENSEMBL API from what populations reference panels are available. This will return us a dataframe.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;server &amp;lt;- &amp;quot;https://rest.ensembl.org&amp;quot;
-ext &amp;lt;- &amp;quot;/info/variation/populations/homo_sapiens?filter=LD&amp;quot;
- 
-r &amp;lt;- GET(paste(server, ext, sep = &amp;quot;&amp;quot;), content_type(&amp;quot;application/json&amp;quot;))
- 
-stop_for_status(r)
- 
-head(fromJSON(toJSON(content(r))))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##                      name
-## 1 1000GENOMES:phase_3:ACB
-## 2 1000GENOMES:phase_3:ASW
-## 3 1000GENOMES:phase_3:BEB
-## 4 1000GENOMES:phase_3:CDX
-## 5 1000GENOMES:phase_3:CEU
-## 6 1000GENOMES:phase_3:CHB
-##                                                  description size
-## 1                              African Caribbean in Barbados   96
-## 2                           African Ancestry in Southwest US   61
-## 3                                      Bengali in Bangladesh   86
-## 4                        Chinese Dai in Xishuangbanna, China   93
-## 5 Utah residents with Northern and Western European ancestry   99
-## 6                               Han Chinese in Bejing, China  103&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;name&lt;/code&gt; stands for the population identifier. &lt;code&gt;size&lt;/code&gt; refers to the number of individuals in the reference panel. Note that these are all populations with around 100 individuals (the correlation estimation will have an error that scales with the sample size). There are also the five super population available (although not listed here), simply replace the last three characters in &lt;code&gt;name&lt;/code&gt; by &lt;code&gt;EUR&lt;/code&gt;, &lt;code&gt;AFR&lt;/code&gt;, &lt;code&gt;AMR&lt;/code&gt;, &lt;code&gt;EAS&lt;/code&gt;, &lt;code&gt;SAS&lt;/code&gt;.&lt;/p&gt;
-&lt;iframe seamless src=&#34;/post/2018-08-09-put-the-color-into-the-points/map-1000genomes-populations.html&#34; width=&#34;100%&#34; height=&#34;500&#34;&gt;
-&lt;/iframe&gt;
-&lt;p&gt;&lt;sup&gt;(From &lt;a href=&#34;../1kgmap.html&#34;&gt;this&lt;/a&gt; blogpost.)&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;We want the LD information, so we can add this info to the locuszoom plot. But how do we know which population to pick? One way is, to read up what kind of individuals were present. In our case - mostly Europeans (&lt;code&gt;EUR&lt;/code&gt;). But we could also build some pooled LD matrix of different populations.&lt;/p&gt;
-&lt;p&gt;Now that we know which reference panel we want to use, we can use the different rest APIs.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#access-ld-between-a-snp-and-its-region&#34;&gt;Access LD between a SNP and its region&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#access-ld-matrix&#34;&gt;Access LD matrix&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#access-ld-between-a-snp-and-many-other-snps&#34;&gt;Access LD between a SNP and many other SNPs&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;access-ld-between-a-snp-and-its-region&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Access LD between a SNP and its region&lt;/h3&gt;
-&lt;!------------------------------&gt;
-&lt;p&gt;This API is described &lt;a href=&#34;https://rest.ensembl.org/documentation/info/ld_id_get&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The default window size is 500 kb. There are also thresholds for &lt;code&gt;r2&lt;/code&gt; (e.g. if you want to filter all SNPs with an &lt;code&gt;r2 &amp;gt; 0.8&lt;/code&gt;).&lt;/p&gt;
-&lt;p&gt;The only input required is the SNP rsid, marked with &lt;code&gt;{snp}&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;snp&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;rs1421085&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;server &amp;lt;- &amp;quot;https://rest.ensembl.org&amp;quot;
-ext &amp;lt;- glue::glue(&amp;quot;/ld/human/{snp}/1000GENOMES:phase_3:EUR?&amp;quot;)
-## Window size in kb. The maximum allowed value for the window size is 500 kb. LD is computed for the given variant and all variants that are located within the specified window.
-
-r &amp;lt;- GET(paste(server, ext, sep = &amp;quot;&amp;quot;), content_type(&amp;quot;application/json&amp;quot;))
-stop_for_status(r)
-LD.SNP.region &amp;lt;- as_tibble(fromJSON(toJSON(content(r)))) %&amp;gt;% unnest() %&amp;gt;% mutate(r2 = as.numeric(r2))
-head(LD.SNP.region)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 5
-##   d_prime  variation1     r2 variation2  population_name        
-##   &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;                  
-## 1 0.541755 rs1421085  0.0514 rs1077128   1000GENOMES:phase_3:EUR
-## 2 0.639310 rs1421085  0.0679 rs141750185 1000GENOMES:phase_3:EUR
-## 3 0.394345 rs1421085  0.0779 rs7206010   1000GENOMES:phase_3:EUR
-## 4 0.393204 rs1421085  0.0765 rs6499640   1000GENOMES:phase_3:EUR
-## 5 1.000000 rs1421085  0.953  rs9928094   1000GENOMES:phase_3:EUR
-## 6 0.999999 rs1421085  0.922  rs17817497  1000GENOMES:phase_3:EUR&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;As a result, &lt;code&gt;LD.snp.region&lt;/code&gt; contains the &lt;code&gt;r2&lt;/code&gt; of our top SNP with all SNPs that were +/- 500 kb away.&lt;/p&gt;
-&lt;p&gt;What if we want the correlation between all SNPs?&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;access-ld-matrix&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Access LD matrix&lt;/h3&gt;
-&lt;!------------------------------&gt;
-&lt;p&gt;For this we need the rest API &lt;a href=&#34;https://rest.ensembl.org/documentation/info/ld_region_get&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;We can calculate the LD matrix of a full region, max 1 Mb wide. For fast computation we limit it to +/- 100 kb.&lt;/p&gt;
-&lt;p&gt;We can then quickly visualise our LD matrix:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;access-ld-between-a-snp-and-many-other-snps&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Access LD between a SNP and many other SNPs&lt;/h3&gt;
-&lt;!------------------------------&gt;
-&lt;p&gt;The &lt;a href=&#34;https://rest.ensembl.org/documentation/info/ld_pairwise_get&#34;&gt;third and last option&lt;/a&gt; is to pass on a set of SNP rs ids, and access the LD among these. Implemented in the ENSEMBL API is only the LD between two SNPs, so we will have to extend this to many SNPs.&lt;/p&gt;
-&lt;p&gt;Calculate the LD matrix (&lt;code&gt;LD.matrix.region&lt;/code&gt;) or the LD between SNP pairs (&lt;code&gt;LD.matrix.snps&lt;/code&gt;) takes some time.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;colored-locuszoom-plot&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Colored locuszoom plot&lt;/h3&gt;
-&lt;!---------- -------------------------------&gt;
-&lt;p&gt;For the locuszoomplot we need only the correlation between the top SNP and all other SNPs. So we join the object &lt;code&gt;LD.SNP.region&lt;/code&gt; to &lt;code&gt;dat.bmi.sel.region&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dat.bmi.plot &amp;lt;- dat.bmi.sel.region %&amp;gt;% 
-  full_join(LD.SNP.region, by = c(&amp;quot;SNP&amp;quot; = &amp;quot;variation2&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;But wait, why are there so few SNPs in LD with this SNP?&lt;/p&gt;
-&lt;!-- REST API: https://rviews.rstudio.com/2018/07/23/rest-apis-and-plumber/ -----&gt;
-&lt;!---------- -------------------------------&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;solutions-that-work-half-through&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;2. Solutions that work half-through&lt;/h2&gt;
-&lt;!---------- -------------------------------&gt;
-&lt;div id=&#34;ldlink&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;ldlink&lt;/h3&gt;
-&lt;!------------------------------&gt;
-&lt;p&gt;&lt;a href=&#34;https://ldlink.nci.nih.gov/?tab=help#Programatic%20Access&#34;&gt;ldlink&lt;/a&gt; is another rest API, but uses a limited set of 1KG populations.&lt;/p&gt;
-&lt;p&gt;Here is an example, that you can execute in a terminal.&lt;/p&gt;
-&lt;pre class=&#34;bash&#34;&gt;&lt;code&gt;curl -k -X GET &amp;#39;https://ldlink.nci.nih.gov/LDlinkRest/ldmatrix?snps=rs3%0Ars4%0Ars148890987&amp;amp;pop=CEU&amp;amp;r2_d=d&amp;amp;token=975d104d9f13&amp;#39;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-##                                  Dload  Upload   Total   Spent    Left  Speed
-## 
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
-100    94  100    94    0     0     47      0  0:00:02  0:00:01  0:00:01    47
-## RS_number    rs148890987 rs3 rs4
-## rs148890987  1.0 0.707   0.707
-## rs3  0.707   1.0 1.0
-## rs4  0.707   1.0 1.0&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;snpsnap&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;SNPsnap&lt;/h3&gt;
-&lt;!------------------------------&gt;
-&lt;ul&gt;
-&lt;li&gt;SNPsnap: &lt;a href=&#34;https://data.broadinstitute.org/mpg/snpsnap/database_download.html&#34; class=&#34;uri&#34;&gt;https://data.broadinstitute.org/mpg/snpsnap/database_download.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;uses a limited set of 1KG populations (EUR, EAS, WAFR).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;api-provided-by-sph.umich&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;API provided by sph.umich&lt;/h3&gt;
-&lt;!------------------------------&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://portaldev.sph.umich.edu/docs/api/v1/?shell#single-variant-statistics&#34;&gt;API&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;uses limited set of 1KG populations (ALL, EUR)&lt;/li&gt;
-&lt;li&gt;see &lt;a href=&#34;https://github.com/statgen/locuszoom-api/issues/21#issuecomment-414434704&#34;&gt;github issue&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!---- ### Using locuszoom software -----&gt;
-&lt;!------------------------------&gt;
-&lt;!---- One option (or rather a hack) would be to use [locuszoom software](https://genome.sph.umich.edu/wiki/LocusZoom_Standalone) to extract their LD information. However, locuszoom comes with database and LD files, [yielding up to 23 G](https://github.com/statgen/locuszoom-standalone). Besides, its not maintained anymore, since a [new version](https://github.com/statgen/locuszoom) for [interactive usage](http://locuszoom.org/locuszoomjs.php) was developed. 
-
--------&gt;
-&lt;!---------- -------------------------------&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;solution-that-does-not-work&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;3. Solution that does not work&lt;/h2&gt;
-&lt;!---------- -------------------------------&gt;
-&lt;div id=&#34;rsnpsld_search&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;&lt;code&gt;rsnps::ld_search&lt;/code&gt;&lt;/h3&gt;
-&lt;!------------------------------&gt;
-&lt;p&gt;A perfect solution would have been the function &lt;code&gt;ld_search&lt;/code&gt; from R package &lt;a href=&#34;ropensci%20webpage&#34;&gt;&lt;code&gt;rsnps&lt;/code&gt;&lt;/a&gt;. It has arguments to choose the reference panel, the population, the distance from the focal SNP.&lt;/p&gt;
-&lt;p&gt;The problem is, that it only uses old reference panels (HapMap and 1KG-phase1). Meaning, many newer reference panel populations are left out.&lt;/p&gt;
-&lt;p&gt;But the main problem is, that the broad institute has taken down the &lt;a href=&#34;https://www.broadinstitute.org/snap/snap&#34;&gt;snap server&lt;/a&gt; that &lt;code&gt;ld_search&lt;/code&gt; used to access (see &lt;a href=&#34;https://github.com/ropensci/rsnps/issues/60&#34;&gt;github issue&lt;/a&gt;), hence &lt;code&gt;ld_search&lt;/code&gt; &lt;a href=&#34;https://github.com/ropensci/rsnps/blob/master/R/LDSearch.R&#34;&gt;is defunct&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;session-info&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Session Info&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sessionInfo()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## R version 3.5.1 (2018-07-02)
-## Platform: x86_64-apple-darwin15.6.0 (64-bit)
-## Running under: macOS  10.14.4
-## 
-## Matrix products: default
-## BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
-## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
-## 
-## locale:
-## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
-## other attached packages:
-##  [1] rsnps_0.3.2.9121 magrittr_1.5     xml2_1.2.0       jsonlite_1.6    
-##  [5] httr_1.4.0       forcats_0.4.0    stringr_1.4.0    dplyr_0.8.1     
-##  [9] purrr_0.3.2      readr_1.3.1      tidyr_0.8.3      tibble_2.1.1    
-## [13] ggplot2_3.1.1    tidyverse_1.2.1 
-## 
-## loaded via a namespace (and not attached):
-##  [1] tidyselect_0.2.5  xfun_0.7          haven_2.1.0      
-##  [4] lattice_0.20-38   vctrs_0.1.0       colorspace_1.4-1 
-##  [7] generics_0.0.2    htmltools_0.3.6   yaml_2.2.0       
-## [10] utf8_1.1.4        XML_3.98-1.19     rlang_0.3.4      
-## [13] pillar_1.4.0      httpcode_0.2.0    glue_1.3.1.9000  
-## [16] withr_2.1.2       modelr_0.1.4      readxl_1.3.1     
-## [19] plyr_1.8.4        munsell_0.5.0     blogdown_0.12    
-## [22] gtable_0.3.0      cellranger_1.1.0  rvest_0.3.4      
-## [25] evaluate_0.13     knitr_1.23        curl_3.3         
-## [28] fansi_0.4.0       triebeard_0.3.0   urltools_1.7.3   
-## [31] broom_0.5.2       Rcpp_1.0.1        scales_1.0.0     
-## [34] backports_1.1.4   hms_0.4.2         digest_0.6.19    
-## [37] stringi_1.4.3     bookdown_0.10     grid_3.5.1       
-## [40] cli_1.1.0         tools_3.5.1       lazyeval_0.2.2   
-## [43] crul_0.7.4        zeallot_0.1.0     crayon_1.3.4     
-## [46] pkgconfig_2.0.2   data.table_1.12.2 lubridate_1.7.4  
-## [49] assertthat_0.2.1  rmarkdown_1.13    rstudioapi_0.10  
-## [52] R6_2.4.0          icon_0.1.0        nlme_3.1-140     
-## [55] compiler_3.5.1&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Poster for scientific conferences</title>
-      <link>/post/2019-05-20-poster/</link>
-      <pubDate>Mon, 20 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2019-05-20-poster/</guid>
-      <description>
-
-&lt;p&gt;This is a tutorial how to make a poster from scratch.&lt;/p&gt;
-
-&lt;p&gt;It aims for first-time poster makers, but also for those (like me), that easily get lost in choosing the right font for hours.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://blogs.nature.com/naturejobs/2017/11/06/using-design-principles-to-inform-scientific-posters/&#34; target=&#34;_blank&#34;&gt;http://blogs.nature.com/naturejobs/2017/11/06/using-design-principles-to-inform-scientific-posters/&lt;/a&gt;
-&lt;a href=&#34;https://cedricscherer.netlify.com/2019/05/17/the-evolution-of-a-ggplot-ep.-1/&#34; target=&#34;_blank&#34;&gt;https://cedricscherer.netlify.com/2019/05/17/the-evolution-of-a-ggplot-ep.-1/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;It includes a few self-declared best practices that helped me in the past.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;#how-to-make-a-good-poster&#34;&gt;How to make a good poster&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#recipe&#34;&gt;Recipe&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#content&#34;&gt;Content&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#design&#34;&gt;Design&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;how-to-make-a-good-poster&#34;&gt;How to make a good poster&lt;/h2&gt;
-
-&lt;p&gt;An excellent &lt;a href=&#34;https://www.youtube.com/watch?v=1RwJbhkCA58&#34; target=&#34;_blank&#34;&gt;video&lt;/a&gt; by Mike Morrison recently made the rounds on the internet. If you have not done so already, watch it before this tutorial.&lt;/p&gt;
-
-&lt;p&gt;Mike Morrison makes the point that most of the posters presented at conferences are not easy to grasp.&lt;/p&gt;
-
-&lt;p&gt;There are two principal reasons for this:
-1. Content is not adapted for a poster presentation.
-1. Poor design choices (e.g. small fonts, colors, low-resolution figures).&lt;/p&gt;
-
-&lt;p&gt;Sometimes it seems that a poster contains snippets from a manuscript.&lt;/p&gt;
-
-&lt;p&gt;Separating content from design is important (if you know latex, you know what I mean).&lt;/p&gt;
-
-&lt;p&gt;I will structure my tips into these two parts: &lt;a href=&#34;#content&#34;&gt;content&lt;/a&gt; and &lt;a href=&#34;#design&#34;&gt;design&lt;/a&gt;, along with a &lt;a href=&#34;#recipe&#34;&gt;recipe&lt;/a&gt; that I like to follow.&lt;/p&gt;
-
-&lt;h2 id=&#34;oral-versus-poster-presentation&#34;&gt;Oral versus poster presentation&lt;/h2&gt;
-
-&lt;p&gt;If you get a oral presentation (congrats!), then you know that your voice will carry most of the talk. While your slides should be &lt;a href=&#34;http://damian.conway.org/IBP.pdf&#34; target=&#34;_blank&#34;&gt;carefully designed&lt;/a&gt;, you can still rescue bad slides with a good talk.&lt;/p&gt;
-
-&lt;p&gt;Poster presentations are somewhat special because they are at an intersection of a talk and an art gallery. Meaning, you will have this 2 hour slot once during the conference where you will stand next to your poster. Once in a while, someone will be interested in the topic, and you will guide them trough. This is similar to a lightening talk.&lt;/p&gt;
-
-&lt;p&gt;The remainder of the conference, your poster will just hang there, and maybe some people will still try to understand your topic. No matter how good you are at talking, now it is the design that counts.&lt;/p&gt;
-
-&lt;p&gt;There are some really good examples of entertaining posters. Some read like a comic [link](). I like them in a certain context, mainly when there is no one to guide you through. But unless you are an artist, I would refrain from them. Too much work.&lt;/p&gt;
-
-&lt;h2 id=&#34;back-to-the-video&#34;&gt;Back to the video&lt;/h2&gt;
-
-&lt;p&gt;While overall, the video of Mike Morrison is excellent, I struggle with two things. First, it talks about a horizontal poster, and this is often not possible at conferences, due to space constraints&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:An-straight-forw&#34;&gt;&lt;a href=&#34;#fn:An-straight-forw&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;. Second, it talks about emphasising this very clear conclusion. However, in real life, this is often is not possible. For example, because a research project has just started. So instead of having this one research question, I&amp;rsquo;d go for a main message. That can be &lt;em&gt;we had a sample size of 100K&lt;/em&gt; or &lt;em&gt;we are developing a new method&amp;hellip;&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;recipe&#34;&gt;Recipe&lt;/h2&gt;
-
-&lt;p&gt;Here is a recipe that I always follow.&lt;/p&gt;
-
-&lt;h3 id=&#34;get-ready&#34;&gt;Get ready&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Choose a &lt;strong&gt;tool&lt;/strong&gt; that is easy to operate. I choose keynote. More details &lt;a href=&#34;#tools&#34;&gt;below&lt;/a&gt;.
-&lt;img src=&#34;material/my-poster/my-poster.001.png&#34; alt=&#34;drawing&#34; style=&#34;width:100px;&#34;/&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Resize document&lt;/strong&gt; to the size recommended by the conference. This way, even though the poster might be proportional to A4, you can use the real size fonts.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&#34;material/my-poster/my-poster.002.png&#34; alt=&#34;drawing&#34; style=&#34;width:100px;&#34;/&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Split&lt;/strong&gt; the document into different boxes (e.g. four horizontal lines and three vertical lines = 6 boxes). You can do this with &lt;em&gt;rulers&lt;/em&gt;, &lt;em&gt;guides&lt;/em&gt; or with lines. (picture). Each part will later answer a different question.&lt;br /&gt;
-&lt;img src=&#34;material/my-poster/my-poster.003.png&#34; alt=&#34;drawing&#34; style=&#34;width:100px;&#34;/&gt;&lt;/li&gt;
-&lt;li&gt;Get the &lt;strong&gt;logos&lt;/strong&gt; you need and store them in a folder next to your presentation &lt;code&gt;img/logo1.png&lt;/code&gt; etc.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Get the &lt;strong&gt;figures&lt;/strong&gt; you want to show and store them in the same folder &lt;code&gt;img/figure1.png&lt;/code&gt; etc.
-&lt;img src=&#34;material/my-poster/my-poster.004.png&#34; alt=&#34;drawing&#34; style=&#34;width:100px;&#34;/&gt;&lt;/li&gt;
-&lt;li&gt;Now you are ready to add content.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;add-content&#34;&gt;Add content&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Font&lt;/strong&gt; choice: choose one of these popular sans-serif ones {Helvetica, Arial}. They were designed to be easy to read and look good on print. Later on, you can still decide to invest time into checkout out &lt;a href=&#34;https://fonts.google.com/?category=Sans+Serif&#34; target=&#34;_blank&#34;&gt;google fonts&lt;/a&gt;, but remember - it needs to be sans-serif. The smallest text size should be &lt;a href=&#34;https://guides.library.ucla.edu/c.php?g=223540&amp;amp;p=1480858&#34; target=&#34;_blank&#34;&gt;24 pt&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Add the title on top.&lt;/li&gt;
-&lt;li&gt;Add authors and affiliation right below.
-&lt;img src=&#34;material/my-poster/my-poster.005.png&#34; alt=&#34;drawing&#34; style=&#34;width:100px;&#34;/&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Add contact and lab webpage
-&lt;img src=&#34;material/my-poster/my-poster.006.png&#34; alt=&#34;drawing&#34; style=&#34;width:100px;&#34;/&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;No need to adjust and fiddle around with boxes at this stage. Just fill the &lt;a href=&#34;#content&#34;&gt;content&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Let&amp;rsquo;s say we have these 6 boxes.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;The first box will take care of the &lt;a href=&#34;#introduction&#34;&gt;introduction&lt;/a&gt; and should answer the question: what motivated your research question?&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Disclaimer: I work in a field where data and methodology is central, so I always dedicate one box to data and method each.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;The second box should present the &lt;a href=&#34;#methods&#34;&gt;methods&lt;/a&gt;: how does the method answer that we want to know?&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;The third box takes care of &lt;a href=&#34;#data&#34;&gt;data&lt;/a&gt; presentation: what data was used and how is the data characterised?&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;The fourth and fifth box should contain &lt;a href=&#34;#results&#34;&gt;results&lt;/a&gt;: Data and methods combined, what did we get out?&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;The six box is dedicated to &lt;a href=&#34;#discussion&#34;&gt;discussion&lt;/a&gt;: What can we conclude from the results? What are our limitations? And where are we heading next?&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;polishing&#34;&gt;Polishing&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Now that you have all your content, start polishing it.&lt;/li&gt;
-&lt;li&gt;Replace text with cartoons or figures.&lt;/li&gt;
-&lt;li&gt;Align all text &amp;hellip;&lt;/li&gt;
-&lt;li&gt;Add a caption to your figures.&lt;/li&gt;
-&lt;li&gt;Are your figures (and the rest of your poster) colorblind
-Start adding &lt;a href=&#34;#colors&#34;&gt;colors&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;before-printing&#34;&gt;Before printing&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;See how it looks like on a printed A4 version.&lt;/li&gt;
-&lt;li&gt;Ask your colleagues what they think of the A4 version and the PDF that you send them.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;content&#34;&gt;Content&lt;/h2&gt;
-
-&lt;p&gt;Before adding any content, think about your audience. These will be scientists, and they might have a remote idea of your work, but there will only be a handful of people that know exactly what your domain, topic and method does. They are still interested though. So lets aim for these people as your audience.&lt;/p&gt;
-
-&lt;p&gt;After looking at your poster, the reader should have an idea what the title means. Your poster title might be super clear to you and your lab, but anyone else will have a hard time understanding right away what you are doing.&lt;/p&gt;
-
-&lt;p&gt;Therefore, one goal is, to clarify the words in your title. Title = message. And if title is clear, the message is too.&lt;/p&gt;
-
-&lt;p&gt;After separating your file, you will have 6 boxes.
-1. Introduction to topic
-1. Method
-1. Data
-1. Results general
-1. Results specific
-1. Discussion (including the Conclusion)&lt;/p&gt;
-
-&lt;p&gt;Don&amp;rsquo;t name these sections like this. Instead give them a catchy subtitle.&lt;/p&gt;
-
-&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://cs.stanford.edu/people/widom/paper-writing.html&#34; target=&#34;_blank&#34;&gt;https://cs.stanford.edu/people/widom/paper-writing.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;What is the problem?&lt;/li&gt;
-&lt;li&gt;Why is it interesting and important?&lt;/li&gt;
-&lt;li&gt;Why is it hard? (E.g., why do naive approaches fail?)&lt;/li&gt;
-&lt;li&gt;Why hasn&amp;rsquo;t it been solved before? (Or, what&amp;rsquo;s wrong with previous proposed solutions? How does mine differ?)&lt;/li&gt;
-&lt;li&gt;What are the key components of my approach and results? Also include any specific limitations.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;method&#34;&gt;Method&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Go from general to specific.&lt;/li&gt;
-&lt;li&gt;If equation, annotate equation&lt;/li&gt;
-&lt;li&gt;..&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;data&#34;&gt;Data&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;present the data you used&lt;/li&gt;
-&lt;li&gt;How did you process it?&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;results&#34;&gt;Results&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;go from general to specific&lt;/li&gt;
-&lt;li&gt;Figures: use caption&lt;/li&gt;
-&lt;li&gt;Make sure that the results are follow the notation of data and methodology. E.g. if you present results for a trend in age, make sure you have presented age before.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;future plans&lt;/li&gt;
-&lt;li&gt;limitaitons&lt;/li&gt;
-&lt;li&gt;conclusion&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;contact&#34;&gt;Contact&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;add your email address&lt;/li&gt;
-&lt;li&gt;add lab webpage + the QR code&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;add important references (software!)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;design&#34;&gt;Design&lt;/h2&gt;
-
-&lt;h3 id=&#34;colors&#34;&gt;Colors&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Test in R: &lt;a href=&#34;https://github.com/clauswilke/colorblindr&#34; target=&#34;_blank&#34;&gt;https://github.com/clauswilke/colorblindr&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Test in browser: for example &lt;a href=&#34;https://www.color-blindness.com/coblis-color-blindness-simulator/&#34; target=&#34;_blank&#34;&gt;https://www.color-blindness.com/coblis-color-blindness-simulator/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Use colors that work better for colorblind people:&lt;/li&gt;
-&lt;li&gt;If you use more colors than available in a discrete color palette - drop that encoding.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/clauswilke/colorblindr/blob/master/R/palettes.R&#34; target=&#34;_blank&#34;&gt;https://github.com/clauswilke/colorblindr/blob/master/R/palettes.R&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blogs.nature.com/nautilus/2007/02/post_4.html&#34; target=&#34;_blank&#34;&gt;http://blogs.nature.com/nautilus/2007/02/post_4.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
-library(colorblindr)
-library(dplyr)
-library(kableExtra)
-dat &amp;lt;- data.frame(hex = colorblindr::palette_OkabeIto, swatch = colorblindr::palette_OkabeIto)
-
-
-dat %&amp;gt;%
-  mutate(swatch = cell_spec(
-    swatch, color = &amp;quot;white&amp;quot;, bold = T,
-    background = hex
-  )) %&amp;gt;%
-  kable(escape = F, align = &amp;quot;c&amp;quot;) %&amp;gt;%
-  kable_styling(c(&amp;quot;striped&amp;quot;, &amp;quot;condensed&amp;quot;), full_width = F)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;fonts&#34;&gt;Fonts&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;no matter what sophisticated typeface you had in mind, choose one of these popular sans-serif ones {Helvetica, Arial}.&lt;/li&gt;
-&lt;li&gt;Most tools have a &lt;code&gt;replace font&lt;/code&gt;, so you can replace a font through out your presenation.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://fonts.google.com/?category=Sans+Serif&#34; target=&#34;_blank&#34;&gt;google fonts&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;whatever works for you&lt;/li&gt;
-&lt;li&gt;remember to pay for special fonts&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;font-size&#34;&gt;Font size&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;min 24 pt&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;icons&#34;&gt;Icons&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;free icons here:&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;tools&#34;&gt;Tools&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;decent zoom&lt;/li&gt;
-&lt;li&gt;operate at ease&lt;/li&gt;
-&lt;li&gt;you can use over the years&lt;/li&gt;
-&lt;li&gt;google presentation, &lt;a href=&#34;https://guides.library.ucla.edu/c.php?g=223540&amp;amp;p=1480858tag&#34; target=&#34;_blank&#34;&gt;PowerPoint&lt;/a&gt;, keynote&lt;/li&gt;
-&lt;li&gt;inkscape, Adobe Illustrator&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;resolution-of-figures&#34;&gt;Resolution of figures&lt;/h3&gt;
-
-&lt;p&gt;If you can, work with PDFs.
-Regardless, your principal figures should &lt;em&gt;always&lt;/em&gt; be stored as PDF format. This way, you can easily turn them into a high-resolution PNG or JPEG (big discussions which one is better suited for print).&lt;/p&gt;
-
-&lt;p&gt;To turn a PDF into a high-resolution raster image, use &lt;a href=&#34;https://imagemagick.org/script/convert.php&#34; target=&#34;_blank&#34;&gt;convert from imagemagick&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;If your file is called &lt;code&gt;figure-1.pdf&lt;/code&gt;, then write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;convert -quality 100 -background white -alpha background -compress lzw -units pixelsperinch -resize &amp;quot;789x2625&amp;quot; -density 300 figure-1.pdf figure-1b.png
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you have lots of pdf starting with &lt;code&gt;figure-*&lt;/code&gt;, then write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;for file in figure-*.pdf; do \
-echo $file;\
-convert -quality 100 -background white -alpha background -compress lzw -flatten -units pixelsperinch -resize &amp;quot;789x2625&amp;quot; -density 300 $file `echo $file|cut -f1 -d&#39;.&#39;`.png;\
-done
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you only have raster images and you want to resize them, apply the same command. However, you might end up with poor quality images.&lt;/p&gt;
-
-&lt;h3 id=&#34;entertainment&#34;&gt;Entertainment&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;comic&lt;/li&gt;
-&lt;li&gt;speaking&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-
-&lt;hr /&gt;
-
-&lt;ol&gt;
-&lt;li id=&#34;fn:An-straight-forw&#34;&gt;An straight forward solution is, to turn his design by 90 degrees. &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:An-straight-forw&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Slides</title>
-      <link>/slides/example/</link>
+      <link>https://sinarueeger.github.io/slides/example/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/slides/example/</guid>
+      <guid>https://sinarueeger.github.io/slides/example/</guid>
       <description>
 
 &lt;h1 id=&#34;welcome-to-slides&#34;&gt;Welcome to Slides&lt;/h1&gt;
@@ -890,10 +251,10 @@ $$&lt;/p&gt;
     
     <item>
       <title>Introduction to Drake</title>
-      <link>/talk/r-ladies/</link>
+      <link>https://sinarueeger.github.io/talk/r-ladies/</link>
       <pubDate>Mon, 10 Dec 2018 19:00:00 +0100</pubDate>
       
-      <guid>/talk/r-ladies/</guid>
+      <guid>https://sinarueeger.github.io/talk/r-ladies/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
@@ -904,23 +265,23 @@ $$&lt;/p&gt;
     
     <item>
       <title>Create a map of the 1000 Genomes project reference populations</title>
-      <link>/post/1kgmap/</link>
+      <link>https://sinarueeger.github.io/post/1kgmap/</link>
       <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/1kgmap/</guid>
+      <guid>https://sinarueeger.github.io/post/1kgmap/</guid>
       <description>
-&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/leaflet/leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/leafletfix/leafletfix.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/leaflet-binding/leaflet.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/leaflet-awesomemarkers/leaflet.awesome-markers.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/leaflet-awesomemarkers/leaflet.awesome-markers.min.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/fontawesome/font-awesome.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/leaflet/leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/leafletfix/leafletfix.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/leaflet-binding/leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/leaflet-awesomemarkers/leaflet.awesome-markers.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/leaflet-awesomemarkers/leaflet.awesome-markers.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/fontawesome/font-awesome.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
@@ -939,7 +300,7 @@ $$&lt;/p&gt;
 &lt;h2&gt;Goal&lt;/h2&gt;
 &lt;p&gt;Create a map similar to the one&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; on the front page of &lt;a href=&#34;http://www.internationalgenome.org/&#34; class=&#34;uri&#34;&gt;http://www.internationalgenome.org/&lt;/a&gt; in a reproducible manner.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/post/2018-12-05-1000genomes-map/1000genomes-map.png&#34; alt=&#34;Version on internationalgenome.org&#34; /&gt;
+&lt;img src=&#34;https://sinarueeger.github.io/post/2018-12-05-1000genomes-map/1000genomes-map.png&#34; alt=&#34;Version on internationalgenome.org&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;&lt;em&gt;Version on internationalgenome.org&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -967,7 +328,7 @@ library(ggmap) ## for geocode, devtools::install_github(&amp;quot;dkahle/ggmap&a
 &lt;h2&gt;Data&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;The population counts and labels are from ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/ (&lt;a href=&#34;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/20130606_sample_info.xlsx&#34;&gt;download xlsx file&lt;/a&gt;).&lt;/li&gt;
-&lt;li&gt;The super population labels are from &lt;a href=&#34;http://www.internationalgenome.org/faq/which-populations-are-part-your-study/&#34;&gt;here&lt;/a&gt; (pasted into a &lt;a href=&#34;/post/2018-12-05-1000genomes-map/sample_info_superpop.csv&#34;&gt;csv&lt;/a&gt;, then location was inferred).&lt;/li&gt;
+&lt;li&gt;The super population labels are from &lt;a href=&#34;http://www.internationalgenome.org/faq/which-populations-are-part-your-study/&#34;&gt;here&lt;/a&gt; (pasted into a &lt;a href=&#34;https://sinarueeger.github.io/post/2018-12-05-1000genomes-map/sample_info_superpop.csv&#34;&gt;csv&lt;/a&gt;, then location was inferred).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Download the population counts and labels first:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;url &amp;lt;-
@@ -1115,10 +476,230 @@ htmlwidgets::saveWidget(m, file=&amp;quot;map-1000genomes-populations.html&amp;q
     
     <item>
       <title>Workflow &amp; best practices for projects</title>
-      <link>/talk/r-lunchs/</link>
+      <link>https://sinarueeger.github.io/talk/r-lunchs/</link>
       <pubDate>Tue, 04 Dec 2018 12:00:00 +0100</pubDate>
       
-      <guid>/talk/r-lunchs/</guid>
+      <guid>https://sinarueeger.github.io/talk/r-lunchs/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tidying workflows in R</title>
+      <link>https://sinarueeger.github.io/post/drake/</link>
+      <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://sinarueeger.github.io/post/drake/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#what-is-a-project-folder&#34;&gt;What is a “project folder”?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#why-now&#34;&gt;Why now?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#why-we-tidy-up-authority-and-incentive&#34;&gt;Why we tidy up: authority and incentive&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#challenges&#34;&gt;Challenges&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#what-i-want&#34;&gt;What I want&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#the-options&#34;&gt;The options&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#drake&#34;&gt;Drake&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#getting-started&#34;&gt;Getting started&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#more&#34;&gt;More&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#examples&#34;&gt;Examples&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#resources&#34;&gt;Resources&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#but-wait-drake-does-not-care-about-messy-folders&#34;&gt;But wait: drake does not care about messy folders&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#what-is-next&#34;&gt;What is next?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#when-is-the-right-time-to-tidy&#34;&gt;When is the right time to tidy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#is-it-really-worth-it&#34;&gt;Is it really worth it&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Recently, I started to seriously&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; think about the tidiness of data analysis project folders, and the implications of tidying up.&lt;/p&gt;
+&lt;p&gt;I was lucky enough to talk about what I have figured out so far at the &lt;a href=&#34;https://www.meetup.com/Geneve-R-User-Group/&#34;&gt;Genève R User Group&lt;/a&gt;. While I am not done yet with reflecting on this&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;, I wanted to write down my thoughts that lead to &lt;a href=&#34;https://sinarueeger.github.io/20181004-geneve-rug/slides#1&#34;&gt;my presentation&lt;/a&gt;&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;. So what follows is just “thinking out loud”.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Update: In February 2019, &lt;a href=&#34;https://github.com/aedobbyn&#34;&gt;Amanda Dobbyn&lt;/a&gt; gave a talk at R-Ladies NYC about drake. All material &lt;a href=&#34;https://dobb.ae/2019/02/12/drakes-plan/&#34;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;video width=&#34;70%&#34; controls&gt;
+&lt;source src=&#34;https://sinarueeger.github.io/post/2018-10-08-workflow-mgmt-in-r/trailer.mp4&#34;&gt;
+Trailer. Your browser does not support the video tag.
+&lt;/video&gt;
+&lt;figcaption&gt;
+&lt;small&gt;Presentation trailer made with &lt;a href=&#34;https://masalmon.eu/2018/10/07/trailer/&#34;&gt;Maëlle Salmon’s instructions&lt;/a&gt;.
+&lt;/small&gt;
+&lt;/figcaption&gt;
+&lt;div id=&#34;what-is-a-project-folder&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What is a “project folder”?&lt;/h2&gt;
+&lt;p&gt;To me a project folder is anything that contains the (R-)scripts necessary to run a data analysis and create the corresponding report. It is like a framed piece of work that you can take and place somewhere else. And probably it will take the form of the Figure from the &lt;a href=&#34;http://r4ds.had.co.nz/explore-intro.html&#34;&gt;R4DS&lt;/a&gt; book below:&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&#34;https://sinarueeger.github.io/post/2018-10-08-workflow-mgmt-in-r/workflow.png&#34; alt=&#34;Drawing of a table.&#34; align=&#34;middle&#34; style=&#34;width: 600px;&#34;/&gt;
+&lt;figcaption&gt;
+&lt;small&gt;Adapted from Figure in &lt;a href=&#34;http://r4ds.had.co.nz/explore-intro.html&#34;&gt;R4DS book&lt;/a&gt;.
+&lt;/small&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Ideally you should be able to take that folder as it is, run it on another computer and get the same results. Unfortunately, this is not always the case - at least with my project folders.&lt;/p&gt;
+&lt;p&gt;I think that the tidiness of a project folder, how it is structured and how it tells the user to execute what and when, correlate strongly with the whole repeatability, replicability and reproducibility aspect.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;why-now&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Why now?&lt;/h2&gt;
+&lt;p&gt;The reason I started to dig deeper into workflow management possibilities in R, is, that I was changing jobs, and I had to clean up my old project folders from almost 5 years of analysing genetic data 😱. And so I faced &lt;del&gt;this gigantic mess&lt;/del&gt; a bit of a mess, spread over several servers and computers, some version controlled, others not, with implemented “best practices” from different waves of trying to improve. I tried to clean up as good as I could, but I told myself that this would not happen again. At my &lt;a href=&#34;https://fellay-lab.epfl.ch/&#34;&gt;new job&lt;/a&gt; I would use version control for everything and I would use something make-like (e.g. &lt;a href=&#34;https://github.com/richfitz/remake&#34;&gt;remake&lt;/a&gt;) to indicate the “recipe” of a project and be in control of what is recomputed and what is not&lt;a href=&#34;#fn4&#34; class=&#34;footnote-ref&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;why-we-tidy-up-authority-and-incentive&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Why we tidy up: authority and incentive&lt;/h2&gt;
+&lt;p&gt;I have a long-time interest in tidiness in general and from studying my own behaviour I came up with the theory that tidiness is only present when a) somebody tells you to do it, or b) you are rewarded for it.&lt;/p&gt;
+&lt;p&gt;Here are some examples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you want to compile an R-package you have little to no freedom in how to name folders. You must have a given folder and file structure. Otherwise it won’t compile. This dictated and unified folder structure makes it easy for R users to understand what is where in an R-package. No matter who coded it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure&gt;
+&lt;img src=&#34;https://sinarueeger.github.io/post/2018-10-08-workflow-mgmt-in-r/package-files.png&#34; alt=&#34;Drawing of a table.&#34; align=&#34;middle&#34; style=&#34;width: 300px;&#34;/&gt;
+&lt;figcaption&gt;
+&lt;small&gt;R package structure. Figure from &lt;a href=&#34;http://r-pkgs.had.co.nz/package.html.&#34;&gt;http://r-pkgs.had.co.nz/package.html&lt;/a&gt;.
+&lt;/small&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;If you work on several different projects at them same time, it is beneficial to have structure, so that you can quickly dive back into a project.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Following good practices also leaves you more time to do the fun stuff, like modelling and creating data visualisation.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;challenges&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Challenges&lt;/h2&gt;
+&lt;p&gt;I started by wondering why maintaining a tidy and coherent folder structure was so difficult for me to maintain. So I came up with a list (which is certainly going to change over time):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Having &lt;strong&gt;different places&lt;/strong&gt; for computation (Laptop, Server1, Server2, …).&lt;/li&gt;
+&lt;li&gt;Not using &lt;strong&gt;&lt;code&gt;git&lt;/code&gt;&lt;/strong&gt; consistently.&lt;/li&gt;
+&lt;li&gt;Unclear separation of the folders &lt;strong&gt;&lt;code&gt;data&lt;/code&gt;&lt;/strong&gt; (raw input data), &lt;code&gt;processed-data&lt;/code&gt; and &lt;code&gt;output-data&lt;/code&gt; (results).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data deliveries&lt;/strong&gt;: data hardly ever arrives in one tidy folder, but instead comes at different time points and so poses other challenges.&lt;/li&gt;
+&lt;li&gt;Having many different &lt;strong&gt;best practices&lt;/strong&gt; implemented: so each project would have its own set of folder names and file naming convention, leading to little &lt;strong&gt;overview of the analysis and its iteration steps&lt;/strong&gt; → cleaning, modelling, visualisation, reports.&lt;/li&gt;
+&lt;li&gt;Using similar code in many different R scripts → &lt;strong&gt;redundant&lt;/strong&gt; code.&lt;/li&gt;
+&lt;li&gt;Having no punishment for not cleaning up (and also not really seeing the benefit).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;what-i-want&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What I want&lt;/h2&gt;
+&lt;p&gt;Then I asked myself what I want to achieve with implementing (and sticking to) something new.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Making it easy for colleagues at work to &lt;strong&gt;rerun&lt;/strong&gt; (and &lt;strong&gt;understand&lt;/strong&gt;) the project → &lt;em&gt;“repeatability”&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Making it easy for others to &lt;strong&gt;rerun&lt;/strong&gt; and to &lt;strong&gt;understand&lt;/strong&gt; the project → &lt;a href=&#34;https://simplystatistics.org/2017/03/02/rr-glossy/&#34;&gt;&lt;em&gt;“reproducibility”&lt;/em&gt;&lt;/a&gt;&lt;a href=&#34;#fn5&#34; class=&#34;footnote-ref&#34; id=&#34;fnref5&#34;&gt;&lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Making it easy for others to rerun the code &lt;strong&gt;with different data&lt;/strong&gt; → &lt;a href=&#34;https://simplystatistics.org/2017/03/02/rr-glossy/&#34;&gt;&lt;em&gt;“replicability”&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Next I looked for solutions. First I would need to use coherent folder names. Second I would need to have a file that indicates the recipe of an analysis. Third, I would implement most free floating and redundant code into functions. Fourth, I would minimise unnecessary computation by caching results. Fifth, I would start using unit tests&lt;a href=&#34;#fn6&#34; class=&#34;footnote-ref&#34; id=&#34;fnref6&#34;&gt;&lt;sup&gt;6&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-options&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The options&lt;/h2&gt;
+&lt;p&gt;There are many different ready-to-use software packages out there. I was thinking of going back to using &lt;code&gt;make&lt;/code&gt;, that I used years ago. Then I came across &lt;a href=&#34;https://github.com/richfitz/remake&#34;&gt;{remake}&lt;/a&gt;, which seemed just what I needed. A colleague at work was using &lt;code&gt;stu&lt;/code&gt; and was recommending it. But then the Swiss Institute of Bioinformatics offered a course on &lt;em&gt;Make-like declarative workflows with R&lt;/em&gt; taught by &lt;a href=&#34;https://github.com/krlmlr&#34;&gt;Kirill Müller&lt;/a&gt;, which I could not attend. Luckily, thanks to the awesome &lt;a href=&#34;https://github.com/krlmlr/drake-sib-zurich&#34;&gt;online course material&lt;/a&gt;, I could learn it by myself.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;drake&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Drake&lt;/h2&gt;
+&lt;p&gt;The presentation &lt;em&gt;Make-like declarative workflows with R&lt;/em&gt; presented the R-package &lt;a href=&#34;https://github.com/ropensci/drake&#34;&gt;{drake}&lt;/a&gt; (drake = Data Frames in R for Make&lt;a href=&#34;#fn7&#34; class=&#34;footnote-ref&#34; id=&#34;fnref7&#34;&gt;&lt;sup&gt;7&lt;/sup&gt;&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;{Drake} was created by &lt;a href=&#34;https://twitter.com/wmlandau&#34;&gt;Will Landau&lt;/a&gt; and reviewed by &lt;a href=&#34;https://ropensci.org/&#34;&gt;rOpenSci&lt;/a&gt;. On the github page it says that {drake} is a “general-purpose workflow manager for data-driven tasks”. Sounds perfect!&lt;/p&gt;
+&lt;p&gt;The way I understand it, is, that it is based on &lt;code&gt;make&lt;/code&gt; (and overlaps with the R-package {remake}). Therefore when making a change to an analysis and re-running it, it only re-compute the dependent parts. But compared to &lt;code&gt;make&lt;/code&gt;, {drake} is much more convenient to use. Plus it is scalable to parallel computing. And it is intuitive to use, meaning, colleagues can learn it quickly.&lt;/p&gt;
+&lt;div id=&#34;getting-started&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Getting started&lt;/h3&gt;
+&lt;p&gt;Best is, to run the mini example provided in the package, and then go from there. Drake has many other examples provided, you can check them by running &lt;code&gt;drake::drake_examples()&lt;/code&gt;.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;code&gt;install.packages(&#34;drake&#34;)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;drake::drake_example(&#34;main&#34;)&lt;/code&gt; → this will download a folder called &lt;code&gt;main&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Go to the terminal. You can look at all the files contained in &lt;code&gt;main&lt;/code&gt; by writing &lt;code&gt;tree main&lt;/code&gt; (this works on MacOS)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;main/
+├── COPYRIGHT.md
+├── LICENSE.md
+├── README.md
+├── clean.R
+├── make.R
+├── raw_data.xlsx
+└── report.Rmd&lt;/code&gt;&lt;/pre&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Next, open &lt;code&gt;make.R&lt;/code&gt;. The key functions are &lt;code&gt;drake_plan()&lt;/code&gt; and &lt;code&gt;make()&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Add the following bit before and after &lt;code&gt;make(plan)&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;config &amp;lt;- drake_config(plan) 
+vis_drake_graph(config) &lt;/code&gt;&lt;/pre&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Run all code for a first time.&lt;/li&gt;
+&lt;li&gt;Change something (e.g. the plot function).&lt;/li&gt;
+&lt;li&gt;Rerun and watch the colors change in &lt;code&gt;vis_drake_graph(config)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Use functions &lt;code&gt;readd()&lt;/code&gt; and &lt;code&gt;loadd()&lt;/code&gt; to work with the produced output.&lt;/li&gt;
+&lt;li&gt;checkout &lt;code&gt;.drake/&lt;/code&gt; folder. This is where all the cached work is stored.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;By running this example, you will see that &lt;code&gt;drake_plan()&lt;/code&gt; is used to create a recipe of the analysis and &lt;code&gt;make()&lt;/code&gt; is used to execute that recipe. &lt;code&gt;make()&lt;/code&gt; will create objects, such as &lt;code&gt;fit&lt;/code&gt; and &lt;code&gt;hist&lt;/code&gt; in the example and store them in the folder &lt;code&gt;.drake/&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;readd()&lt;/code&gt; is used to return an object from cache. This is handy when we only want to diplay an object. &lt;code&gt;loadd()&lt;/code&gt; on the other hand is used to load an object into our session (similarly to &lt;code&gt;load&lt;/code&gt;).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;more&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;More&lt;/h3&gt;
+&lt;p&gt;To checkout further options I recommend
+- The &lt;a href=&#34;https://github.com/cstawitz/RLadies_Sea_drake&#34;&gt;slides&lt;/a&gt; from &lt;a href=&#34;https://github.com/cstawitz&#34;&gt;Christine Stawitz&lt;/a&gt; (presented at R-Ladies Seattle in June 2018).
+- The &lt;a href=&#34;https://dobb.ae/2019/02/12/drakes-plan/&#34;&gt;material&lt;/a&gt; by &lt;a href=&#34;https://github.com/aedobbyn&#34;&gt;Amanda Dobbyn&lt;/a&gt; (presented at R-Ladies NYC in February 2019). (&lt;em&gt;Update&lt;/em&gt;)&lt;/p&gt;
+&lt;p&gt;Both presentations provide a good overview of the options {drake} provides.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;examples&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Examples&lt;/h3&gt;
+&lt;p&gt;I also created &lt;a href=&#34;https://github.com/sinarueeger/workflow-example&#34;&gt;some tiny examples&lt;/a&gt; that use genetic data. It has four folders:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;code&gt;wild-west&lt;/code&gt;: this is how I was structuring folders till now (this example was used to introduce the analysis during the presentation).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wild-west-pro&lt;/code&gt;: same as 1. but with an &lt;code&gt;README.md&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;drake&lt;/code&gt;: implementing 1. into drake.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;drake-adv&lt;/code&gt;: implementing 1. into a more realistic, hierarchical folder structure.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The examples use genetic data that was originally used in the &lt;a href=&#34;https://www.crowdai.org/challenges/opensnp-height-prediction&#34;&gt;crowdAI openSNP height prediction&lt;/a&gt; challenge. The full openSNP data set was prepared by my colleague &lt;a href=&#34;https://github.com/onaret&#34;&gt;Olivier Naret&lt;/a&gt; and can be downloaded &lt;a href=&#34;https://zenodo.org/record/1442755#.W8BGbVJ9jOQ&#34;&gt;here&lt;/a&gt;. The examples use a small subset of the full dataset that can be downloaded &lt;a href=&#34;https://github.com/sinarueeger/create-data-workflow-example&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;resources&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Resources&lt;/h3&gt;
+&lt;p&gt;Here are a bunch of resources that helped me understand {drake}:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ropensci/drake&#34;&gt;Github Repo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/krlmlr/drake-sib-zurich&#34;&gt;This tutorial&lt;/a&gt; and &lt;a href=&#34;https://github.com/krlmlr/drake-sib-zurich/blob/master/cheat-sheet.pdf&#34;&gt;cheatsheet&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/krlmlr&#34;&gt;Kirill Müller&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Overview of options: &lt;a href=&#34;https://github.com/cstawitz/RLadies_Sea_drake&#34;&gt;Make-like declarative workflows with R&lt;/a&gt; by &lt;a href=&#34;https://github.com/cstawitz&#34;&gt;Christine Stawitz&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ropensci.github.io/drake/articles/best-practices.html&#34;&gt;Best practices&lt;/a&gt; for drake projects.&lt;/li&gt;
+&lt;li&gt;Lots of &lt;a href=&#34;https://github.com/ropensci/drake#tutorials&#34;&gt;tutorials&lt;/a&gt; and &lt;a href=&#34;https://github.com/ropensci/drake#examples&#34;&gt;examples&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;but-wait-drake-does-not-care-about-messy-folders&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;But wait: drake does not care about messy folders&lt;/h2&gt;
+&lt;p&gt;True! I can have a &lt;code&gt;make.R&lt;/code&gt; file anywhere and it will still work.
+But I believe that the shift in logic that you have to get used to with {drake} makes you care more about folder structure.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;what-is-next&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What is next?&lt;/h2&gt;
+&lt;p&gt;I am currently reading the PlosCompBio paper &lt;a href=&#34;https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510&#34;&gt;Good enough practices in scientific computing&lt;/a&gt; - great read, giving me lots of ideas!&lt;/p&gt;
+&lt;p&gt;I want to use {drake} in a more complex setting. There are also other R-packages that help with project workflows. And I should invest some time to come up with a test suite for data analysis projects.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;when-is-the-right-time-to-tidy&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;When is the right time to tidy&lt;/h2&gt;
+&lt;p&gt;At the Genève RUG meetup we were also discussing when we think is the right time to tidy up.&lt;/p&gt;
+&lt;p&gt;Project folders evolve over time. Especially in the beginning of a project, we are busy figuring things out, wrangling data, fitting models, making plots and telling people what we found out. This can take some time. But at one point we are ready to write a report.&lt;/p&gt;
+&lt;p&gt;It is probably at that stage (when we write a report) that we can “frame” that project into something that is “stable” and “portable”.&lt;/p&gt;
+&lt;p&gt;Although - I am not sure we have to wait that long. I think the benefits of {drake} (e.g. caching) already help us at an earlier stage.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;is-it-really-worth-it&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Is it really worth it&lt;/h2&gt;
+&lt;p&gt;I think there is a trade-off between dedicating days to tidying up and not caring about structure at all. Same with tooling. For example, if we use a tool, say &lt;code&gt;make&lt;/code&gt; but no one else but us knows how to use it, it is going to be hard for colleagues to understand and use project folders that use &lt;code&gt;make&lt;/code&gt;. We have to keep that balance in mind.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;Seriously, meaning, different from previous, half-hearted attempts.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;Just started reading &lt;a href=&#34;https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510&#34;&gt;Good enough practices in scientific computing&lt;/a&gt; - great paper!&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;Thanks to Maëlle for pointing out that this is a good thing to do!&lt;a href=&#34;#fnref3&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn4&#34;&gt;&lt;p&gt;And while at it, I would totally decrease my coffee consumption too and never procrastinate again 😉.&lt;a href=&#34;#fnref4&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn5&#34;&gt;&lt;p&gt;The terminology is really confusing at times. I rely on &lt;a href=&#34;https://twitter.com/jtleek/status/759822823552606208&#34;&gt;this&lt;/a&gt; definition. &lt;a href=&#34;#fnref5&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn6&#34;&gt;&lt;p&gt;Thanks to my colleague for the idea!&lt;a href=&#34;#fnref6&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn7&#34;&gt;&lt;p&gt;I am still wondering how “Data Frames in R for Make” adds up to “drake” 🤔.&lt;a href=&#34;#fnref7&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tidying workflows &amp; R community</title>
+      <link>https://sinarueeger.github.io/talk/geneve-rug/</link>
+      <pubDate>Thu, 04 Oct 2018 19:00:00 +0200</pubDate>
+      
+      <guid>https://sinarueeger.github.io/talk/geneve-rug/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
