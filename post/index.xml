@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 05 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 21 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://sinarueeger.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LD Part 1</title>
+      <link>https://sinarueeger.github.io/post/get-ld-remotely/</link>
+      <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sinarueeger.github.io/post/get-ld-remotely/</guid>
+      <description>Goal Two approaches Our toy data 1A. A solution that works: ldlink from NIH LDproxy LDmatrix  1B. A solution that almost works: ensembl.org What reference panels/population can we choose from? Access LD between a SNP and its region Access LD matrix Access LD between a SNP and many other SNPs Coloured locuszoom plot  2. Solutions that work half-through SNPsnap API provided by sph.umich  3. A solution that does not work rsnps::ld_search  Conclusion Session Info   R-packages used:</description>
+    </item>
     
     <item>
       <title>Create a map of the 1000 Genomes project reference populations</title>
@@ -30,7 +39,7 @@ Version on internationalgenome.org
       <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://sinarueeger.github.io/post/drake/</guid>
-      <description>What is a “project folder”? Why now? Why we tidy up: authority and incentive Challenges What I want The options Drake Getting started More Examples Resources  But wait: drake does not care about messy folders What is next? When is the right time to tidy Is it really worth it   Recently, I started to seriously1 think about the tidiness of data analysis project folders, and the implications of tidying up.</description>
+      <description>What is a “project folder”? Why now? Why we tidy up: authority and incentive Challenges What I want The options Drake Getting started More Examples Resources  But wait: drake does not care about messy folders What is next? When is the right time to tidy Is it worth it?   Recently, I started to seriously1 think about the tidiness of data analysis project folders and the implications of tidying up.</description>
     </item>
     
     <item>
@@ -39,7 +48,7 @@ Version on internationalgenome.org
       <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://sinarueeger.github.io/post/locuszoomplot/</guid>
-      <description>Goal Getting it done 1. Get summary statistics Visualising associations Identify genomic region with lowest P-value  2. Extracting annotation biomaRt Learning resources Using biomaRt Quick d-tour: assembly GRCh37 or GRCh38? Extracting gene name for one SNP Extracting gene names for genomic region  3. Combining summary statistics and annotation Wouldn’t it be nice… Source   In the world of genome-wide association studies (GWAS) we often get a list of genetic markers (SNPs) that seem for some reason relevant for a particular outcome.</description>
+      <description>Goal Getting it done 1. Get summary statistics Visualising associations Identify genomic region with lowest P-value  2. Extracting annotation biomaRt Learning resources Using biomaRt Quick d-tour: assembly GRCh37 or GRCh38? Extracting gene name for one SNP Extracting gene names for genomic region  3. Combining summary statistics and annotation Wouldn’t it be nice… Source   In the world of genome-wide association studies (GWAS), we often get a list of genetic markers (SNPs) that seem for some reason relevant for a particular outcome.</description>
     </item>
     
     <item>

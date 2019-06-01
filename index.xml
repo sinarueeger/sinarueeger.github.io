@@ -20,9 +20,9 @@
       <guid>https://sinarueeger.github.io/project/phd-thesis/</guid>
       <description>
 
-&lt;p&gt;I finished my PhD under the main supervison of &lt;a href=&#34;https://wp.unil.ch/sgg/&#34;&gt;Zolt&amp;#225;n Kutalik&lt;/a&gt; in September 2018.&lt;/p&gt;
+&lt;p&gt;I finished my PhD under the main supervision of &lt;a href=&#34;https://wp.unil.ch/sgg/&#34;&gt;Zolt&amp;#225;n Kutalik&lt;/a&gt; in September 2018.&lt;/p&gt;
 
-&lt;p&gt;You can download &lt;a href=&#34;https://drive.switch.ch/index.php/s/FpWZlbw4Rfq20le&#34; target=&#34;_blank&#34;&gt;my thesis&lt;/a&gt;, or checkout the &lt;a href=&#34;https://sinarueeger.github.io/publicdefense/slides#1&#34; target=&#34;_blank&#34;&gt;slides&lt;/a&gt; from my public defense.&lt;/p&gt;
+&lt;p&gt;You can download &lt;a href=&#34;https://drive.switch.ch/index.php/s/FpWZlbw4Rfq20le&#34; target=&#34;_blank&#34;&gt;my thesis&lt;/a&gt; or check out the &lt;a href=&#34;https://sinarueeger.github.io/publicdefense/slides#1&#34; target=&#34;_blank&#34;&gt;slides&lt;/a&gt; from my public defense.&lt;/p&gt;
 
 &lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
 
@@ -65,6 +65,552 @@ A further finding is, that summary statistic imputation can compete with imputat
       
       <guid>https://sinarueeger.github.io/project/stat-genetics-ressources/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>LD Part 1</title>
+      <link>https://sinarueeger.github.io/post/get-ld-remotely/</link>
+      <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sinarueeger.github.io/post/get-ld-remotely/</guid>
+      <description>
+&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/font-awesome/css/fontawesome-all.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#goal&#34;&gt;Goal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#two-approaches&#34;&gt;Two approaches&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#our-toy-data&#34;&gt;Our toy data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#a.-a-solution-that-works-ldlink-from-nih&#34;&gt;1A. A solution that works: ldlink from NIH&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#ldproxy&#34;&gt;LDproxy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ldmatrix&#34;&gt;LDmatrix&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#b.-a-solution-that-almost-works-ensembl.org&#34;&gt;1B. A solution that almost works: ensembl.org&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#what-reference-panelspopulation-can-we-choose-from&#34;&gt;What reference panels/population can we choose from?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#access-ld-between-a-snp-and-its-region&#34;&gt;Access LD between a SNP and its region&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#access-ld-matrix&#34;&gt;Access LD matrix&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#access-ld-between-a-snp-and-many-other-snps&#34;&gt;Access LD between a SNP and many other SNPs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#coloured-locuszoom-plot&#34;&gt;Coloured locuszoom plot&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#solutions-that-work-half-through&#34;&gt;2. Solutions that work half-through&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#snpsnap&#34;&gt;SNPsnap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#api-provided-by-sph.umich&#34;&gt;API provided by sph.umich&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#a-solution-that-does-not-work&#34;&gt;3. A solution that does not work&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#rsnpsld_search&#34;&gt;&lt;code&gt;rsnps::ld_search&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#session-info&#34;&gt;Session Info&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;R-packages used:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(httr)
+library(jsonlite)
+library(xml2)
+library(ggplot2)
+theme_set(theme_bw())
+library(tibble)
+library(tidyr)
+library(magrittr)
+library(glue)
+library(purrr)
+library(rsnps)
+library(data.table)
+library(janitor)
+library(stringr)
+library(rsnps)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The squared correlation between genetic markers is one way to estimate &lt;a href=&#34;https://ldlink.nci.nih.gov/?tab=help&#34;&gt;linkage disequilibrium&lt;/a&gt; (LD). LD has to be computed &lt;em&gt;all the time&lt;/em&gt; - either for as an input for statistical methods or to summarise results.&lt;/p&gt;
+&lt;p&gt;However, accessing LD estimations quickly, for a specific population and in an automated way (e.g. with R) is suprisingly difficult.&lt;/p&gt;
+&lt;p&gt;In this blog post I am exploring how to do this efficiently.&lt;/p&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;div id=&#34;goal&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Goal&lt;/h2&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;p&gt;At the end of this blog post, we want to know the genetic correlation between two or more markers in a specific human population, so that we can populate the locuszoom plot from the &lt;a href=&#34;https://sinarueeger.github.io/2018/07/30/locuszoomplot/&#34;&gt;previous blog post&lt;/a&gt; with coloured dots.&lt;/p&gt;
+&lt;p&gt;For simplicity, I will use the terms correlation, squared correlation, r, r2 and LD interchangeably.&lt;/p&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;/div&gt;
+&lt;div id=&#34;two-approaches&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Two approaches&lt;/h2&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;p&gt;In principle, there are two ways of doing accessing LD:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Download (or access) the genetic data from which you want to estimate your correlations + calculate the correlations using some efficient approach.&lt;/li&gt;
+&lt;li&gt;Access precomputed LD estimations.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;9%&#34; /&gt;
+&lt;col width=&#34;22%&#34; /&gt;
+&lt;col width=&#34;39%&#34; /&gt;
+&lt;col width=&#34;28%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;Approach &lt;i class=&#34;fas  fa-wrench &#34;&gt;&lt;/i&gt;&lt;/th&gt;
+&lt;th&gt;Advantages &lt;i class=&#34;fas  fa-smile &#34;&gt;&lt;/i&gt;&lt;/th&gt;
+&lt;th&gt;Downsides &lt;i class=&#34;fas  fa-frown &#34;&gt;&lt;/i&gt;&lt;/th&gt;
+&lt;th&gt;Useful when…&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;(1) &lt;strong&gt;Local&lt;/strong&gt; computation of LD&lt;/td&gt;
+&lt;td&gt;LD matrix can be quickly updated to new reference panels&lt;/td&gt;
+&lt;td&gt;Requires large computation and storage space (e.g. 1000 Genomes is &lt;a href=&#34;https://console.cloud.google.com/storage/browser/genomics-public-data/1000-genomes-phase-3/vcf/?_ga=2.227457240.-473641130.1558969048&#34;&gt;&amp;gt;100 few GB large&lt;/a&gt;).&lt;/td&gt;
+&lt;td&gt;i) LD for a large set of SNPs is needed ii) LD from non-standard reference panel is needed.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;(2) &lt;strong&gt;Access&lt;/strong&gt; precomputed LD&lt;/td&gt;
+&lt;td&gt;not need for large computation and storage space.&lt;/td&gt;
+&lt;td&gt;limited to certain small sets of markers, limited to possibly outdated reference panels.&lt;/td&gt;
+&lt;td&gt;LD for a small set of SNPs is needed&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;For now, I will focus on approach (2), and then explore approach (1) in a future blog post.&lt;/p&gt;
+&lt;p&gt;Spoiler: Using approach (2) does not get you far. It took me quite a while to gather all the solutions that are listed below, and yet there is not one perfect/ideal solution.&lt;/p&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;/div&gt;
+&lt;div id=&#34;our-toy-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Our toy data&lt;/h2&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;p&gt;We will recycle the data from the &lt;a href=&#34;https://sinarueeger.github.io/2018/07/30/locuszoomplot/&#34;&gt;previous blog post&lt;/a&gt;, where the focus was on extracting annotation using the package &lt;code&gt;biomaRt&lt;/code&gt;. In this blog post, we will complete that locuszoom plot by adding the LD information.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Data Source URL
+url &amp;lt;- &amp;quot;https://portals.broadinstitute.org/collaboration/giant/images/2/21/BMI_All_ancestry.fmt.gzip&amp;quot;
+
+## Import BMI summary statistics dat.bmi &amp;lt;- read_tsv(file = url) ##
+## taking too long, let&amp;#39;s use fread instead.
+
+dat.bmi &amp;lt;- data.table::fread(url, verbose = FALSE)
+
+## Rename some columns
+dat.bmi &amp;lt;- dat.bmi %&amp;gt;% rename(SNP = SNPNAME, P = Pvalue)
+
+## Extract region
+dat.bmi.sel &amp;lt;- dat.bmi %&amp;gt;% slice(which.min(P))
+dat.bmi.sel
+
+## range region
+range &amp;lt;- 5e+05
+sel.chr &amp;lt;- dat.bmi.sel$CHR
+sel.pos &amp;lt;- dat.bmi.sel$POS
+
+data &amp;lt;- dat.bmi %&amp;gt;%
+  filter(CHR == sel.chr, between(POS, sel.pos -
+    range, sel.pos + range))
+
+head(data)
+
+(snp &amp;lt;- dat.bmi.sel$SNP)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;What we are interested in is the LD between our top SNP rs1421085 and all other 82 SNPs nearby.&lt;/p&gt;
+&lt;p&gt;This dataset has positions on build GRCh37, while most databases are on build GRCh38 by now.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sm &amp;lt;- rsnps::ncbi_snp_summary(snp) %&amp;gt;% separate(chrpos, c(&amp;quot;chr&amp;quot;, &amp;quot;pos&amp;quot;))
+sel.pos == as.numeric(sm$pos)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s quickly repeat what our primary goal is:&lt;/p&gt;
+&lt;p&gt;Extract the correlation between SNPs&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;without downloading any data,&lt;/li&gt;
+&lt;li&gt;fairly quick and&lt;/li&gt;
+&lt;li&gt;in R.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a.-a-solution-that-works-ldlink-from-nih&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;1A. A solution that works: ldlink from NIH&lt;/h2&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;p&gt;&lt;a href=&#34;https://ldlink.nci.nih.gov/?tab=home&#34;&gt;ldlink&lt;/a&gt; is a website provided by &lt;a href=&#34;https://dceg.cancer.gov/&#34;&gt;NIH&lt;/a&gt; to easily (and programmatically) request LD estimates in population groups.&lt;/p&gt;
+&lt;p&gt;LD is estimated from Phase 3 of the 1000 Genomes Project and super- and subpopulations can be selected.&lt;/p&gt;
+&lt;p&gt;There are different ways to access the LD estimations (e.g. &lt;code&gt;LDpair&lt;/code&gt;, &lt;code&gt;LDmatrix&lt;/code&gt;, &lt;code&gt;LDproxy&lt;/code&gt;) and the same modules are also available through the &lt;a href=&#34;https://ldlink.nci.nih.gov/?tab=help#Programatic%20Access&#34;&gt;API&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To access the API, you need to &lt;a href=&#34;https://ldlink.nci.nih.gov/?tab=apiaccess&#34;&gt;register&lt;/a&gt; for a token (takes a few seconds).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;MYTOKEN &amp;lt;- &amp;quot;a_mix_of_numbers_and_characters&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s look at two modules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#ldproxy&#34;&gt;LDproxy: access LD between a SNP and its region&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ldmatrix&#34;&gt;LDmatrix: access LD matrix&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;ldproxy&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;LDproxy&lt;/h3&gt;
+&lt;p&gt;To get the LD between a SNP and its region.&lt;/p&gt;
+&lt;p&gt;First, access the API:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;LDproxy_raw &amp;lt;- system(
+  glue::glue(&amp;quot;curl -k -X GET &amp;#39;https://ldlink.nci.nih.gov/LDlinkRest/ldproxy?var={snp}&amp;amp;pop=EUR&amp;amp;r2_d=r2&amp;amp;token={MYTOKEN}&amp;#39;&amp;quot;),
+  intern = TRUE
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, do a bit of data wrangling to get a tidy data frame:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;LDproxy &amp;lt;- LDproxy_raw %&amp;gt;%
+  purrr::map(., function(x) stringr::str_split(x, &amp;quot;\t&amp;quot;) %&amp;gt;%
+      unlist()) %&amp;gt;% ## remove all the tabs
+  do.call(rbind, .) %&amp;gt;% ## turn into a matrix
+  data.frame() %&amp;gt;% ## turn into a data frame
+  janitor::row_to_names(1) %&amp;gt;% ## make the first row the column names
+  rename(SNP = RS_Number) %&amp;gt;% ## rename RS_Number as SNP
+  mutate_at(vars(MAF:R2), function(x) as.numeric(as.character(x))) %&amp;gt;% ## turn MAF:R2 columns numeric
+  mutate(SNP = as.character(SNP)) ## turn SNP from a factor into a character
+head(LDproxy)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##          SNP          Coord Alleles    MAF Distance Dprime     R2
+## 1  rs1421085 chr16:53800954   (T/C) 0.4324        0 1.0000 1.0000
+## 2 rs11642015 chr16:53802494   (C/T) 0.4324     1540 1.0000 1.0000
+## 3 rs62048402 chr16:53803223   (G/A) 0.4324     2269 1.0000 1.0000
+## 4  rs1558902 chr16:53803574   (T/A) 0.4324     2620 1.0000 1.0000
+## 5 rs55872725 chr16:53809123   (C/T) 0.4324     8169 1.0000 1.0000
+## 6 rs56094641 chr16:53806453   (A/G) 0.4344     5499 0.9959 0.9839
+##   Correlated_Alleles RegulomeDB Function
+## 1            T=T,C=C          5       NA
+## 2            T=C,C=T          4       NA
+## 3            T=G,C=A          5       NA
+## 4            T=T,C=A          7       NA
+## 5            T=C,C=T          4       NA
+## 6            T=A,C=G          6       NA&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, join the original summary stats data with the &lt;code&gt;LDproxy&lt;/code&gt; data frame.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data_ldproxy &amp;lt;- data %&amp;gt;%
+  right_join(LDproxy, by = c(&amp;quot;SNP&amp;quot; = &amp;quot;SNP&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Lastly, plot the summary statistics with the point colour indicating the R2.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = data_ldproxy) +
+  geom_point(aes(POS, -log10(P), color = R2), shape = 16) +
+  labs(
+    title = &amp;quot;Locuszoom plot for BMI GWAS&amp;quot;,
+    subtitle = paste(
+      &amp;quot;Summary statistics for chromosome&amp;quot;, sel.chr, &amp;quot;from&amp;quot;,
+      format((sel.pos - range), big.mark = &amp;quot;&amp;#39;&amp;quot;), &amp;quot;to&amp;quot;,
+      format((sel.pos + range), big.mark = &amp;quot;&amp;#39;&amp;quot;), &amp;quot;bp&amp;quot;
+    ),
+    caption = paste(&amp;quot;Data source:&amp;quot;, url)
+  ) +
+  geom_point(
+    data = data_ldproxy %&amp;gt;% filter(SNP == snp),
+    aes(POS, -log10(P)), color = &amp;quot;black&amp;quot;, shape = 16
+  ) +
+  scale_color_distiller(&amp;quot;R2 (LDproxy)&amp;quot;,
+    type = &amp;quot;div&amp;quot;, palette = &amp;quot;Spectral&amp;quot;,
+    limits = c(0, 1)
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/post/2018-08-09-put-the-color-into-the-points_files/figure-html/plot-summarystats-ldlink-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ldmatrix&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;LDmatrix&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;LDmatrix&lt;/code&gt; module accesses the pairwise LD between a set of SNPs.&lt;/p&gt;
+&lt;p&gt;Again, first access the API:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;snplist &amp;lt;- data %&amp;gt;%
+  filter(str_detect(SNP, &amp;quot;rs&amp;quot;)) %&amp;gt;%
+  pull(SNP) %&amp;gt;%
+  paste(collapse = &amp;quot;%0A&amp;quot;)
+
+LDmatrix_raw &amp;lt;- system(
+  glue::glue(&amp;quot;curl -k -X GET &amp;#39;https://ldlink.nci.nih.gov/LDlinkRest/ldmatrix?snps={snplist}&amp;amp;pop=CEU%2BTSI%2BFIN%2BGBR%2BIBS&amp;amp;r2_d=r2&amp;amp;token={MYTOKEN}&amp;#39;&amp;quot;),
+  intern = TRUE
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;If you want to access the dprime (d’) values, write &lt;code&gt;r2_d=d&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;If you want to access certain sub populations, let’s say CEU, TSI and FIN, concatenate them with &lt;code&gt;%B&lt;/code&gt; in between: &lt;code&gt;CEU%2BTSI%2BFIN&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then, do a little data tidying:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;LDmatrix &amp;lt;- LDmatrix_raw %&amp;gt;%
+  purrr::map(., function(x) stringr::str_split(x, &amp;quot;\t&amp;quot;) %&amp;gt;%
+      unlist()) %&amp;gt;%
+  do.call(rbind, .) %&amp;gt;% ## turn into a matrix
+  data.frame() %&amp;gt;% ## turn into a data.frame
+  janitor::row_to_names(1) ## make the first line the column names
+
+LDmatrix_long &amp;lt;- LDmatrix %&amp;gt;%
+  gather(&amp;quot;SNP2&amp;quot;, &amp;quot;R2&amp;quot;, -RS_number) %&amp;gt;% ## from wide to long
+  rename(SNP = RS_number) %&amp;gt;% ## rename RS_number
+  mutate(R2 = as.numeric(R2)) %&amp;gt;% ## make R2 numeric
+  mutate_if(is.factor, as.character) ## make all factor columns characters&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: attributes are not identical across measure variables;
+## they will be dropped&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: NAs introduced by coercion&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(LDmatrix_long)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##           SNP       SNP2    R2
+## 1  rs61754093 rs61754093 1.000
+## 2 rs181111349 rs61754093    NA
+## 3 rs199662749 rs61754093    NA
+## 4 rs189080082 rs61754093 0.000
+## 5   rs6499548 rs61754093 0.023
+## 6 rs139704369 rs61754093    NA&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, join the original summary stats data with the &lt;code&gt;LDmatrix_long&lt;/code&gt; data frame.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data_ldmatrix &amp;lt;- data %&amp;gt;%
+  right_join(LDmatrix_long, by = c(&amp;quot;SNP&amp;quot; = &amp;quot;SNP&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Lastly, plot the summary statistics with the point colour indicating the R2.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = data_ldmatrix %&amp;gt;% filter(SNP2 == snp)) +
+  geom_point(aes(POS, -log10(P), color = R2)) +
+  labs(
+    title = &amp;quot;Locuszoom plot for BMI GWAS&amp;quot;,
+    subtitle = paste(
+      &amp;quot;Summary statistics for chromosome&amp;quot;, sel.chr, &amp;quot;from&amp;quot;,
+      format((sel.pos - range), big.mark = &amp;quot;&amp;#39;&amp;quot;), &amp;quot;to&amp;quot;,
+      format((sel.pos + range), big.mark = &amp;quot;&amp;#39;&amp;quot;), &amp;quot;bp&amp;quot;
+    ),
+    caption = paste(&amp;quot;Data source:&amp;quot;, url)
+  ) +
+  geom_point(
+    data = data_ldmatrix %&amp;gt;% filter(SNP == snp &amp;amp; SNP2 == snp),
+    aes(POS, -log10(P)), color = &amp;quot;black&amp;quot;, shape = 16
+  ) +
+  scale_color_distiller(&amp;quot;R2 (LDmatrix)&amp;quot;,
+    type = &amp;quot;div&amp;quot;, palette = &amp;quot;Spectral&amp;quot;,
+    limits = c(0, 1)
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/post/2018-08-09-put-the-color-into-the-points_files/figure-html/plot-summarystats-ldlink-matrix-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;b.-a-solution-that-almost-works-ensembl.org&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;1B. A solution that almost works: ensembl.org&lt;/h2&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;p&gt;The &lt;a href=&#34;https://rest.ensembl.org&#34;&gt;REST API of Ensembl&lt;/a&gt; can do a lot (see options &lt;a href=&#34;https://rest.ensembl.org/documentation/&#34;&gt;here&lt;/a&gt;). For example access precomputed LD. The webpage even provides R code to do so, which is from where I copied some snippets below.&lt;/p&gt;
+&lt;p&gt;To access the rest API at ensembl, we need the following three packages loaded.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(httr)
+library(jsonlite)
+library(xml2)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;what-reference-panelspopulation-can-we-choose-from&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;What reference panels/population can we choose from?&lt;/h3&gt;
+&lt;!------------------------------&gt;
+&lt;p&gt;Currently, the largest and hence most popular public reference panel is &lt;a href=&#34;http://www.internationalgenome.org/&#34;&gt;1000 Genomes reference panel&lt;/a&gt; (1KG). The 26 populations of roughly 100 individuals each can be grouped into five super populations: African (AFR), American (AMR), European (EUR), South Asian (SAS), East Asian (EAS).&lt;/p&gt;
+&lt;p&gt;We can ask the ENSEMBL API from what populations reference panels are available. This will return us a data frame.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;server &amp;lt;- &amp;quot;https://rest.ensembl.org&amp;quot;
+ext &amp;lt;- &amp;quot;/info/variation/populations/homo_sapiens?filter=LD&amp;quot;
+
+r &amp;lt;- GET(paste(server, ext, sep = &amp;quot;&amp;quot;), content_type(&amp;quot;application/json&amp;quot;))
+
+stop_for_status(r)
+
+head(fromJSON(toJSON(content(r))))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                                                  description size
+## 1                              African Caribbean in Barbados   96
+## 2                           African Ancestry in Southwest US   61
+## 3                                      Bengali in Bangladesh   86
+## 4                        Chinese Dai in Xishuangbanna, China   93
+## 5 Utah residents with Northern and Western European ancestry   99
+## 6                               Han Chinese in Bejing, China  103
+##                      name
+## 1 1000GENOMES:phase_3:ACB
+## 2 1000GENOMES:phase_3:ASW
+## 3 1000GENOMES:phase_3:BEB
+## 4 1000GENOMES:phase_3:CDX
+## 5 1000GENOMES:phase_3:CEU
+## 6 1000GENOMES:phase_3:CHB&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;name&lt;/code&gt; stands for the population identifier. &lt;code&gt;size&lt;/code&gt; refers to the number of individuals in the reference panel. Note that these are all populations with around 100 individuals (the correlation estimation will have an error that scales with the sample size). There are also the five super population available (although not listed here), simply replace the last three characters in &lt;code&gt;name&lt;/code&gt; by &lt;code&gt;EUR&lt;/code&gt;, &lt;code&gt;AFR&lt;/code&gt;, &lt;code&gt;AMR&lt;/code&gt;, &lt;code&gt;EAS&lt;/code&gt;, &lt;code&gt;SAS&lt;/code&gt;.&lt;/p&gt;
+&lt;iframe seamless src=&#34;https://sinarueeger.github.io/post/2018-08-09-put-the-color-into-the-points/map-1000genomes-populations.html&#34; width=&#34;100%&#34; height=&#34;500&#34;&gt;
+&lt;/iframe&gt;
+&lt;p&gt;&lt;sup&gt;(From &lt;a href=&#34;../1kgmap.html&#34;&gt;this&lt;/a&gt; blog post.)&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;We want the LD information, so that we can add this info to the locuszoom plot. But how do we know which population to pick? One way is to read up what kind of individuals were present. In our case - mostly Europeans (&lt;code&gt;EUR&lt;/code&gt;). But we could also build some pooled LD matrix of different populations.&lt;/p&gt;
+&lt;p&gt;Now that we know which reference panel we want to use, we can use the different rest APIs.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#access-ld-between-a-snp-and-its-region&#34;&gt;Access LD between a SNP and its region&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#access-ld-matrix&#34;&gt;Access LD matrix&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#access-ld-between-a-snp-and-many-other-snps&#34;&gt;Access LD between a SNP and many other SNPs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;access-ld-between-a-snp-and-its-region&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Access LD between a SNP and its region&lt;/h3&gt;
+&lt;!------------------------------&gt;
+&lt;p&gt;This API is described &lt;a href=&#34;https://rest.ensembl.org/documentation/info/ld_id_get&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The default window size is 500 kb. There are also thresholds for &lt;code&gt;r2&lt;/code&gt; (e.g. if you want to filter all SNPs with an &lt;code&gt;r2 &amp;gt; 0.8&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;The only input required is the SNP rsid, marked with &lt;code&gt;{snp}&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;snp&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;rs1421085&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;server &amp;lt;- &amp;quot;https://rest.ensembl.org&amp;quot;
+ext &amp;lt;- glue::glue(&amp;quot;/ld/human/{snp}/1000GENOMES:phase_3:EUR?&amp;quot;)
+## Window size in kb. The maximum allowed value for the window size is 500 kb. LD is computed for the given variant and all variants that are located within the specified window.
+
+r &amp;lt;- GET(paste(server, ext, sep = &amp;quot;&amp;quot;), content_type(&amp;quot;application/json&amp;quot;))
+stop_for_status(r)
+LD.SNP.region &amp;lt;- as_tibble(fromJSON(toJSON(content(r)))) %&amp;gt;%
+  unnest() %&amp;gt;%
+  mutate(r2 = as.numeric(r2))
+head(LD.SNP.region)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 5
+##       r2 population_name         variation2 d_prime  variation1
+##    &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;                   &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;     
+## 1 0.362  1000GENOMES:phase_3:EUR rs9932600  0.999986 rs1421085 
+## 2 0.922  1000GENOMES:phase_3:EUR rs7202296  0.999999 rs1421085 
+## 3 0.0737 1000GENOMES:phase_3:EUR rs8051422  0.584547 rs1421085 
+## 4 0.873  1000GENOMES:phase_3:EUR rs9931494  0.953559 rs1421085 
+## 5 0.918  1000GENOMES:phase_3:EUR rs8050136  0.995690 rs1421085 
+## 6 0.819  1000GENOMES:phase_3:EUR rs9932754  0.916287 rs1421085&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As a result, &lt;code&gt;LD.snp.region&lt;/code&gt; contains the &lt;code&gt;r2&lt;/code&gt; of our top SNP with all SNPs that were +/- 500 kb away.&lt;/p&gt;
+&lt;p&gt;What if we want the correlation between all SNPs?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;access-ld-matrix&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Access LD matrix&lt;/h3&gt;
+&lt;!------------------------------&gt;
+&lt;p&gt;For this, we need the rest API &lt;a href=&#34;https://rest.ensembl.org/documentation/info/ld_region_get&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We can calculate the LD matrix of a full region, max 1 Mb wide. For fast computation, we limit it to +/- 50 kb.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## Query region. A maximum of 1Mb is allowed.
+
+ext &amp;lt;- glue::glue(&amp;quot;/ld/human/region/{sel.chr}:{sel.pos - range/20}..{sel.pos + range/20}/1000GENOMES:phase_3:EUR?&amp;quot;)
+
+r &amp;lt;- GET(paste(server, ext, sep = &amp;quot;&amp;quot;), content_type(&amp;quot;application/json&amp;quot;))
+stop_for_status(r)
+LD.matrix.region &amp;lt;- as_tibble(fromJSON(toJSON(content(r)))) %&amp;gt;%
+  unnest() %&amp;gt;%
+  mutate(r2 = as.numeric(r2))
+
+head(LD.matrix.region)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 5
+##   population_name         variation2      r2 variation1 d_prime 
+##   &amp;lt;chr&amp;gt;                   &amp;lt;chr&amp;gt;        &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;   
+## 1 1000GENOMES:phase_3:EUR rs7190842   0.207  rs56897002 0.999974
+## 2 1000GENOMES:phase_3:EUR rs78602287  1      rs74719121 1.000000
+## 3 1000GENOMES:phase_3:EUR rs10468280  0.0670 rs58446593 0.999911
+## 4 1000GENOMES:phase_3:EUR rs111370419 0.201  rs61325775 0.572122
+## 5 1000GENOMES:phase_3:EUR rs62033414  0.106  rs11075991 0.999937
+## 6 1000GENOMES:phase_3:EUR rs61325775  0.961  rs9926451  1.000000&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;access-ld-between-a-snp-and-many-other-snps&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Access LD between a SNP and many other SNPs&lt;/h3&gt;
+&lt;!------------------------------&gt;
+&lt;p&gt;The &lt;a href=&#34;https://rest.ensembl.org/documentation/info/ld_pairwise_get&#34;&gt;third and last option&lt;/a&gt; is to pass on a set of SNP rs ids, and access the LD among these. Implemented in the ENSEMBL API is only the LD between two SNPs, so we will have to extend this to many SNPs.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;extract_ld &amp;lt;- function(SNP.id2 = NULL, SNP.id1 = NULL, POP = NULL) {
+  ext &amp;lt;- glue::glue(&amp;quot;/ld/human/pairwise/{SNP.id1}/{SNP.id2}/&amp;quot;) ## filter POP further down
+
+  server &amp;lt;- &amp;quot;https://rest.ensembl.org&amp;quot;
+
+  r &amp;lt;- GET(paste(server, ext, sep = &amp;quot;&amp;quot;), content_type(&amp;quot;application/json&amp;quot;))
+  stop_for_status(r)
+
+  out &amp;lt;- as_tibble(fromJSON(toJSON(content(r)))) %&amp;gt;%
+    unnest() %&amp;gt;%
+    filter(stringr::str_detect(population_name, POP))
+
+  return(out)
+}
+
+
+## see futher down why intersect here
+other.snps &amp;lt;- intersect(LD.SNP.region$variation2, data$SNP)
+
+## cacluate LD for all other.snps SNPs
+LD.matrix.snps &amp;lt;- purrr::map_df(other.snps, extract_ld, snp, &amp;quot;EUR&amp;quot;) %&amp;gt;%
+  mutate(r2 = as.numeric(r2)) %&amp;gt;%
+  bind_rows() %&amp;gt;%
+  unnest()
+LD.matrix.snps&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 0 x 5
+## # … with 5 variables: variation1 &amp;lt;chr&amp;gt;, d_prime &amp;lt;chr&amp;gt;, variation2 &amp;lt;chr&amp;gt;,
+## #   population_name &amp;lt;chr&amp;gt;, r2 &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Calculate the LD matrix (&lt;code&gt;LD.matrix.region&lt;/code&gt;) or the LD between SNP pairs (&lt;code&gt;LD.matrix.snps&lt;/code&gt;) takes &lt;em&gt;a lot&lt;/em&gt; of time!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;coloured-locuszoom-plot&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Coloured locuszoom plot&lt;/h3&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;p&gt;For the locuszoom plot we need only the correlation between the top SNP and all other SNPs. So we join the object &lt;code&gt;LD.SNP.region&lt;/code&gt; to &lt;code&gt;data&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data_ensembl &amp;lt;- data %&amp;gt;%
+  full_join(LD.SNP.region, by = c(&amp;quot;SNP&amp;quot; = &amp;quot;variation2&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = data_ensembl) +
+  geom_point(aes(POS, -log10(P), color = r2), shape = 16) +
+  labs(
+    title = &amp;quot;Locuszoom plot for BMI GWAS&amp;quot;,
+    subtitle = paste(&amp;quot;Summary statistics for chromosome&amp;quot;, sel.chr, &amp;quot;from&amp;quot;, format((sel.pos - range), big.mark = &amp;quot;&amp;#39;&amp;quot;), &amp;quot;to&amp;quot;, format((sel.pos + range), big.mark = &amp;quot;&amp;#39;&amp;quot;), &amp;quot;bp&amp;quot;),
+    caption = paste(&amp;quot;Data source:&amp;quot;, url)
+  ) +
+  geom_point(
+    data = data_ensembl %&amp;gt;% filter(SNP == &amp;quot;rs1421085&amp;quot;),
+    aes(POS, -log10(P)), color = &amp;quot;black&amp;quot;, shape = 16
+  ) +
+  scale_color_distiller(&amp;quot;R2 (ensembl)&amp;quot;, type = &amp;quot;div&amp;quot;, palette = &amp;quot;Spectral&amp;quot;, limits = c(0, 1))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Warning: Removed 205 rows containing missing values (geom_point).&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/post/2018-08-09-put-the-color-into-the-points_files/figure-html/plot-summarystats-ld-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;!-- REST API: https://rviews.rstudio.com/2018/07/23/rest-apis-and-plumber/ -----&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;solutions-that-work-half-through&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2. Solutions that work half-through&lt;/h2&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;div id=&#34;snpsnap&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;SNPsnap&lt;/h3&gt;
+&lt;!------------------------------&gt;
+&lt;ul&gt;
+&lt;li&gt;SNPsnap: &lt;a href=&#34;https://data.broadinstitute.org/mpg/snpsnap/database_download.html&#34; class=&#34;uri&#34;&gt;https://data.broadinstitute.org/mpg/snpsnap/database_download.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;uses a limited set of 1KG populations (EUR, EAS, WAFR).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;api-provided-by-sph.umich&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;API provided by sph.umich&lt;/h3&gt;
+&lt;!------------------------------&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://portaldev.sph.umich.edu/docs/api/v1/?shell#single-variant-statistics&#34;&gt;API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;uses limited set of 1KG populations (ALL, EUR)&lt;/li&gt;
+&lt;li&gt;see &lt;a href=&#34;https://github.com/statgen/locuszoom-api/issues/21#issuecomment-414434704&#34;&gt;github issue&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!---- ### Using locuszoom software -----&gt;
+&lt;!------------------------------&gt;
+&lt;!---- One option (or rather a hack) would be to use [locuszoom software](https://genome.sph.umich.edu/wiki/LocusZoom_Standalone) to extract their LD information. However, locuszoom comes with database and LD files, [yielding up to 23 G](https://github.com/statgen/locuszoom-standalone). Besides, its not maintained anymore, since a [new version](https://github.com/statgen/locuszoom) for [interactive usage](http://locuszoom.org/locuszoomjs.php) was developed. 
+
+-------&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-solution-that-does-not-work&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;3. A solution that does not work&lt;/h2&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;div id=&#34;rsnpsld_search&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;&lt;code&gt;rsnps::ld_search&lt;/code&gt;&lt;/h3&gt;
+&lt;!------------------------------&gt;
+&lt;p&gt;A perfect solution would have been the function &lt;code&gt;ld_search&lt;/code&gt; from R package &lt;a href=&#34;ropensci%20webpage&#34;&gt;&lt;code&gt;rsnps&lt;/code&gt;&lt;/a&gt;. It has arguments to choose the reference panel, the population, the distance from the focal SNP.&lt;/p&gt;
+&lt;p&gt;The problem is that it only uses old reference panels (HapMap and 1KG-phase1). Meaning, many newer reference panel populations are left out.&lt;/p&gt;
+&lt;p&gt;But the main problem is, that the broad institute has taken down the &lt;a href=&#34;https://www.broadinstitute.org/snap/snap&#34;&gt;snap server&lt;/a&gt; that &lt;code&gt;ld_search&lt;/code&gt; used to access (see &lt;a href=&#34;https://github.com/ropensci/rsnps/issues/60&#34;&gt;github issue&lt;/a&gt;); hence &lt;code&gt;ld_search&lt;/code&gt; &lt;a href=&#34;https://github.com/ropensci/rsnps/blob/master/R/LDSearch.R&#34;&gt;is defunct&lt;/a&gt;.&lt;/p&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;!---------- -------------------------------&gt;
+&lt;p&gt;The
+&lt;a href=&#34;https://ldlink.nci.nih.gov/?tab=home&#34;&gt;ldlink&lt;/a&gt; API with the &lt;code&gt;LDproxy&lt;/code&gt; module seems the most perfect solution for now.&lt;/p&gt;
+&lt;p&gt;This will probably change with changing technology and larger reference panels.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;session-info&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Session Info&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;sessionInfo()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## R version 3.5.1 (2018-07-02)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS  10.14.5
+## 
+## Matrix products: default
+## BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] janitor_1.2.0     data.table_1.12.2 rsnps_0.3.2.9121 
+##  [4] glue_1.3.1.9000   magrittr_1.5      xml2_1.2.0       
+##  [7] jsonlite_1.6      httr_1.4.0        forcats_0.4.0    
+## [10] stringr_1.4.0     dplyr_0.8.1       purrr_0.3.2      
+## [13] readr_1.3.1       tidyr_0.8.3       tibble_2.1.1     
+## [16] ggplot2_3.1.1     tidyverse_1.2.1  
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_1.0.1         lubridate_1.7.4    lattice_0.20-38   
+##  [4] assertthat_0.2.1   zeallot_0.1.0      digest_0.6.19     
+##  [7] utf8_1.1.4         R6_2.4.0           cellranger_1.1.0  
+## [10] plyr_1.8.4         backports_1.1.4    evaluate_0.13     
+## [13] icon_0.1.0         blogdown_0.12      pillar_1.4.0      
+## [16] rlang_0.3.4        lazyeval_0.2.2     curl_3.3          
+## [19] readxl_1.3.1       rstudioapi_0.10    rmarkdown_1.13    
+## [22] urltools_1.7.3     labeling_0.3       triebeard_0.3.0   
+## [25] munsell_0.5.0      broom_0.5.2        compiler_3.5.1    
+## [28] modelr_0.1.4       xfun_0.7           pkgconfig_2.0.2   
+## [31] htmltools_0.3.6    tidyselect_0.2.5   httpcode_0.2.0    
+## [34] bookdown_0.10      codetools_0.2-16   XML_3.98-1.19     
+## [37] fansi_0.4.0        crayon_1.3.4       withr_2.1.2       
+## [40] crul_0.7.4         grid_3.5.1         nlme_3.1-140      
+## [43] gtable_0.3.0       scales_1.0.0       cli_1.1.0         
+## [46] stringi_1.4.3      generics_0.0.2     vctrs_0.1.0       
+## [49] RColorBrewer_1.1-2 tools_3.5.1        hms_0.4.2         
+## [52] yaml_2.2.0         colorspace_1.4-1   rvest_0.3.4       
+## [55] knitr_1.23         haven_2.1.0&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
@@ -328,7 +874,7 @@ library(ggmap) ## for geocode, devtools::install_github(&amp;quot;dkahle/ggmap&a
 &lt;h2&gt;Data&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;The population counts and labels are from ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/ (&lt;a href=&#34;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/20130606_sample_info.xlsx&#34;&gt;download xlsx file&lt;/a&gt;).&lt;/li&gt;
-&lt;li&gt;The super population labels are from &lt;a href=&#34;http://www.internationalgenome.org/faq/which-populations-are-part-your-study/&#34;&gt;here&lt;/a&gt; (pasted into a &lt;a href=&#34;https://sinarueeger.github.io/post/2018-12-05-1000genomes-map/sample_info_superpop.csv&#34;&gt;csv&lt;/a&gt;, then location was inferred).&lt;/li&gt;
+&lt;li&gt;The super population labels are from &lt;a href=&#34;http://www.internationalgenome.org/faq/which-populations-are-part-your-study/&#34;&gt;here&lt;/a&gt; (pasted into a &lt;a href=&#34;https://sinarueeger.github.io/post/2018-12-05-1000genomes-map/sample_info_superpop.csv&#34;&gt;csv&lt;/a&gt;, then the location was inferred).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Download the population counts and labels first:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;url &amp;lt;-
@@ -513,11 +1059,11 @@ htmlwidgets::saveWidget(m, file=&amp;quot;map-1000genomes-populations.html&amp;q
 &lt;li&gt;&lt;a href=&#34;#but-wait-drake-does-not-care-about-messy-folders&#34;&gt;But wait: drake does not care about messy folders&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#what-is-next&#34;&gt;What is next?&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#when-is-the-right-time-to-tidy&#34;&gt;When is the right time to tidy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#is-it-really-worth-it&#34;&gt;Is it really worth it&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#is-it-worth-it&#34;&gt;Is it worth it?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Recently, I started to seriously&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; think about the tidiness of data analysis project folders, and the implications of tidying up.&lt;/p&gt;
+&lt;p&gt;Recently, I started to seriously&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; think about the tidiness of data analysis project folders and the implications of tidying up.&lt;/p&gt;
 &lt;p&gt;I was lucky enough to talk about what I have figured out so far at the &lt;a href=&#34;https://www.meetup.com/Geneve-R-User-Group/&#34;&gt;Genève R User Group&lt;/a&gt;. While I am not done yet with reflecting on this&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;, I wanted to write down my thoughts that lead to &lt;a href=&#34;https://sinarueeger.github.io/20181004-geneve-rug/slides#1&#34;&gt;my presentation&lt;/a&gt;&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;. So what follows is just “thinking out loud”.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Update: In February 2019, &lt;a href=&#34;https://github.com/aedobbyn&#34;&gt;Amanda Dobbyn&lt;/a&gt; gave a talk at R-Ladies NYC about drake. All material &lt;a href=&#34;https://dobb.ae/2019/02/12/drakes-plan/&#34;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 &lt;video width=&#34;70%&#34; controls&gt;
@@ -530,7 +1076,7 @@ Trailer. Your browser does not support the video tag.
 &lt;/figcaption&gt;
 &lt;div id=&#34;what-is-a-project-folder&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;What is a “project folder”?&lt;/h2&gt;
-&lt;p&gt;To me a project folder is anything that contains the (R-)scripts necessary to run a data analysis and create the corresponding report. It is like a framed piece of work that you can take and place somewhere else. And probably it will take the form of the Figure from the &lt;a href=&#34;http://r4ds.had.co.nz/explore-intro.html&#34;&gt;R4DS&lt;/a&gt; book below:&lt;/p&gt;
+&lt;p&gt;To me, a project folder is anything that contains the (R-)scripts necessary to run a data analysis and create the corresponding report. It is like a framed piece of work that you can take and place somewhere else. And probably it will take the form of the Figure from the &lt;a href=&#34;http://r4ds.had.co.nz/explore-intro.html&#34;&gt;R4DS&lt;/a&gt; book below:&lt;/p&gt;
 &lt;figure&gt;
 &lt;img src=&#34;https://sinarueeger.github.io/post/2018-10-08-workflow-mgmt-in-r/workflow.png&#34; alt=&#34;Drawing of a table.&#34; align=&#34;middle&#34; style=&#34;width: 600px;&#34;/&gt;
 &lt;figcaption&gt;
@@ -538,19 +1084,19 @@ Trailer. Your browser does not support the video tag.
 &lt;/small&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;Ideally you should be able to take that folder as it is, run it on another computer and get the same results. Unfortunately, this is not always the case - at least with my project folders.&lt;/p&gt;
+&lt;p&gt;Ideally, you should be able to take that folder as it is, run it on another computer and get the same results. Unfortunately, this is not always the case - at least with my project folders.&lt;/p&gt;
 &lt;p&gt;I think that the tidiness of a project folder, how it is structured and how it tells the user to execute what and when, correlate strongly with the whole repeatability, replicability and reproducibility aspect.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;why-now&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Why now?&lt;/h2&gt;
-&lt;p&gt;The reason I started to dig deeper into workflow management possibilities in R, is, that I was changing jobs, and I had to clean up my old project folders from almost 5 years of analysing genetic data 😱. And so I faced &lt;del&gt;this gigantic mess&lt;/del&gt; a bit of a mess, spread over several servers and computers, some version controlled, others not, with implemented “best practices” from different waves of trying to improve. I tried to clean up as good as I could, but I told myself that this would not happen again. At my &lt;a href=&#34;https://fellay-lab.epfl.ch/&#34;&gt;new job&lt;/a&gt; I would use version control for everything and I would use something make-like (e.g. &lt;a href=&#34;https://github.com/richfitz/remake&#34;&gt;remake&lt;/a&gt;) to indicate the “recipe” of a project and be in control of what is recomputed and what is not&lt;a href=&#34;#fn4&#34; class=&#34;footnote-ref&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The reason I started to dig deeper into workflow management possibilities in R, is, that I was changing jobs, and I had to clean up my old project folders from almost five years of analysing genetic data 😱. And so I faced &lt;del&gt;this gigantic mess&lt;/del&gt; a bit of a mess, spread over several servers and computers, some version controlled, others not, with implemented “best practices” from different waves of trying to improve. I tried to clean up as good as I could, but I told myself that this would not happen again. At my &lt;a href=&#34;https://fellay-lab.epfl.ch/&#34;&gt;new job&lt;/a&gt;, I would use version control for everything, and I would use something make-like (e.g. &lt;a href=&#34;https://github.com/richfitz/remake&#34;&gt;remake&lt;/a&gt;) to indicate the “recipe” of a project and be in control of what is recomputed and what is not&lt;a href=&#34;#fn4&#34; class=&#34;footnote-ref&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;why-we-tidy-up-authority-and-incentive&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Why we tidy up: authority and incentive&lt;/h2&gt;
-&lt;p&gt;I have a long-time interest in tidiness in general and from studying my own behaviour I came up with the theory that tidiness is only present when a) somebody tells you to do it, or b) you are rewarded for it.&lt;/p&gt;
+&lt;p&gt;I have a long-time interest in tidiness in general, and from studying my behaviour I came up with the theory that tidiness is only present when a) somebody tells you to do it, or b) you are rewarded for it.&lt;/p&gt;
 &lt;p&gt;Here are some examples:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;If you want to compile an R-package you have little to no freedom in how to name folders. You must have a given folder and file structure. Otherwise it won’t compile. This dictated and unified folder structure makes it easy for R users to understand what is where in an R-package. No matter who coded it.&lt;/li&gt;
+&lt;li&gt;If you want to compile an R-package you have little to no freedom in how to name folders. You must have a given folder and file structure. Otherwise, it won’t compile. This dictated and unified folder structure makes it easy for R users to understand what is where in an R-package. No matter who coded it.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;figure&gt;
 &lt;img src=&#34;https://sinarueeger.github.io/post/2018-10-08-workflow-mgmt-in-r/package-files.png&#34; alt=&#34;Drawing of a table.&#34; align=&#34;middle&#34; style=&#34;width: 300px;&#34;/&gt;
@@ -560,13 +1106,13 @@ Trailer. Your browser does not support the video tag.
 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;If you work on several different projects at them same time, it is beneficial to have structure, so that you can quickly dive back into a project.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If you work on several different projects at the same time, it is beneficial to have structure, so that you can quickly dive back into a project.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Following good practices also leaves you more time to do the fun stuff, like modelling and creating data visualisation.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;challenges&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Challenges&lt;/h2&gt;
-&lt;p&gt;I started by wondering why maintaining a tidy and coherent folder structure was so difficult for me to maintain. So I came up with a list (which is certainly going to change over time):&lt;/p&gt;
+&lt;p&gt;I started by wondering why maintaining a tidy and coherent folder structure was so difficult for me to maintain. So I came up with a list (which is undoubtedly going to change over time):&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Having &lt;strong&gt;different places&lt;/strong&gt; for computation (Laptop, Server1, Server2, …).&lt;/li&gt;
 &lt;li&gt;Not using &lt;strong&gt;&lt;code&gt;git&lt;/code&gt;&lt;/strong&gt; consistently.&lt;/li&gt;
@@ -574,7 +1120,7 @@ Trailer. Your browser does not support the video tag.
 &lt;li&gt;&lt;strong&gt;Data deliveries&lt;/strong&gt;: data hardly ever arrives in one tidy folder, but instead comes at different time points and so poses other challenges.&lt;/li&gt;
 &lt;li&gt;Having many different &lt;strong&gt;best practices&lt;/strong&gt; implemented: so each project would have its own set of folder names and file naming convention, leading to little &lt;strong&gt;overview of the analysis and its iteration steps&lt;/strong&gt; → cleaning, modelling, visualisation, reports.&lt;/li&gt;
 &lt;li&gt;Using similar code in many different R scripts → &lt;strong&gt;redundant&lt;/strong&gt; code.&lt;/li&gt;
-&lt;li&gt;Having no punishment for not cleaning up (and also not really seeing the benefit).&lt;/li&gt;
+&lt;li&gt;Having no punishment for not cleaning up (and also not seeing the benefit).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div id=&#34;what-i-want&#34; class=&#34;section level2&#34;&gt;
@@ -585,20 +1131,20 @@ Trailer. Your browser does not support the video tag.
 &lt;li&gt;Making it easy for others to &lt;strong&gt;rerun&lt;/strong&gt; and to &lt;strong&gt;understand&lt;/strong&gt; the project → &lt;a href=&#34;https://simplystatistics.org/2017/03/02/rr-glossy/&#34;&gt;&lt;em&gt;“reproducibility”&lt;/em&gt;&lt;/a&gt;&lt;a href=&#34;#fn5&#34; class=&#34;footnote-ref&#34; id=&#34;fnref5&#34;&gt;&lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Making it easy for others to rerun the code &lt;strong&gt;with different data&lt;/strong&gt; → &lt;a href=&#34;https://simplystatistics.org/2017/03/02/rr-glossy/&#34;&gt;&lt;em&gt;“replicability”&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Next I looked for solutions. First I would need to use coherent folder names. Second I would need to have a file that indicates the recipe of an analysis. Third, I would implement most free floating and redundant code into functions. Fourth, I would minimise unnecessary computation by caching results. Fifth, I would start using unit tests&lt;a href=&#34;#fn6&#34; class=&#34;footnote-ref&#34; id=&#34;fnref6&#34;&gt;&lt;sup&gt;6&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Next, I looked for solutions. First, I would need to use coherent folder names. Second, I would need to have a file that indicates the recipe of an analysis. Third, I would implement most free floating and redundant code into functions. Fourth, I would minimise unnecessary computation by caching results. Fifth, I would start using unit tests&lt;a href=&#34;#fn6&#34; class=&#34;footnote-ref&#34; id=&#34;fnref6&#34;&gt;&lt;sup&gt;6&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;the-options&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;The options&lt;/h2&gt;
-&lt;p&gt;There are many different ready-to-use software packages out there. I was thinking of going back to using &lt;code&gt;make&lt;/code&gt;, that I used years ago. Then I came across &lt;a href=&#34;https://github.com/richfitz/remake&#34;&gt;{remake}&lt;/a&gt;, which seemed just what I needed. A colleague at work was using &lt;code&gt;stu&lt;/code&gt; and was recommending it. But then the Swiss Institute of Bioinformatics offered a course on &lt;em&gt;Make-like declarative workflows with R&lt;/em&gt; taught by &lt;a href=&#34;https://github.com/krlmlr&#34;&gt;Kirill Müller&lt;/a&gt;, which I could not attend. Luckily, thanks to the awesome &lt;a href=&#34;https://github.com/krlmlr/drake-sib-zurich&#34;&gt;online course material&lt;/a&gt;, I could learn it by myself.&lt;/p&gt;
+&lt;p&gt;There are many different ready-to-use software packages out there. I was thinking of going back to using &lt;code&gt;make&lt;/code&gt;, that I used years ago. Then I came across &lt;a href=&#34;https://github.com/richfitz/remake&#34;&gt;{remake}&lt;/a&gt;, which seemed just what I needed. A colleague at work was using &lt;code&gt;stu&lt;/code&gt; and was recommending it. But then the Swiss Institute of Bioinformatics offered a course on &lt;em&gt;Make-like declarative workflows with R&lt;/em&gt; taught by &lt;a href=&#34;https://github.com/krlmlr&#34;&gt;Kirill Müller&lt;/a&gt;, which I could not attend. Luckily, thanks to the excellent &lt;a href=&#34;https://github.com/krlmlr/drake-sib-zurich&#34;&gt;online course material&lt;/a&gt;, I could learn it by myself.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;drake&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Drake&lt;/h2&gt;
 &lt;p&gt;The presentation &lt;em&gt;Make-like declarative workflows with R&lt;/em&gt; presented the R-package &lt;a href=&#34;https://github.com/ropensci/drake&#34;&gt;{drake}&lt;/a&gt; (drake = Data Frames in R for Make&lt;a href=&#34;#fn7&#34; class=&#34;footnote-ref&#34; id=&#34;fnref7&#34;&gt;&lt;sup&gt;7&lt;/sup&gt;&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;{Drake} was created by &lt;a href=&#34;https://twitter.com/wmlandau&#34;&gt;Will Landau&lt;/a&gt; and reviewed by &lt;a href=&#34;https://ropensci.org/&#34;&gt;rOpenSci&lt;/a&gt;. On the github page it says that {drake} is a “general-purpose workflow manager for data-driven tasks”. Sounds perfect!&lt;/p&gt;
-&lt;p&gt;The way I understand it, is, that it is based on &lt;code&gt;make&lt;/code&gt; (and overlaps with the R-package {remake}). Therefore when making a change to an analysis and re-running it, it only re-compute the dependent parts. But compared to &lt;code&gt;make&lt;/code&gt;, {drake} is much more convenient to use. Plus it is scalable to parallel computing. And it is intuitive to use, meaning, colleagues can learn it quickly.&lt;/p&gt;
+&lt;p&gt;The way I understand it is, that it is based on &lt;code&gt;make&lt;/code&gt; (and overlaps with the R-package {remake}). Therefore when making a change to an analysis and re-running it, it only re-compute the dependent parts. But compared to &lt;code&gt;make&lt;/code&gt;, {drake} is much more convenient to use. Plus it is scalable to parallel computing. And it is intuitive to use, meaning, colleagues can learn it quickly.&lt;/p&gt;
 &lt;div id=&#34;getting-started&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Getting started&lt;/h3&gt;
-&lt;p&gt;Best is, to run the mini example provided in the package, and then go from there. Drake has many other examples provided, you can check them by running &lt;code&gt;drake::drake_examples()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Best is, to run the mini example provided in the package, and then go from there. Drake has many other examples provided; you can check them by running &lt;code&gt;drake::drake_examples()&lt;/code&gt;.&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;code&gt;install.packages(&#34;drake&#34;)&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Run &lt;code&gt;drake::drake_example(&#34;main&#34;)&lt;/code&gt; → this will download a folder called &lt;code&gt;main&lt;/code&gt;.&lt;/li&gt;
@@ -621,16 +1167,16 @@ vis_drake_graph(config) &lt;/code&gt;&lt;/pre&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;Run all code for a first time.&lt;/li&gt;
 &lt;li&gt;Change something (e.g. the plot function).&lt;/li&gt;
-&lt;li&gt;Rerun and watch the colors change in &lt;code&gt;vis_drake_graph(config)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Rerun and watch the colours change in &lt;code&gt;vis_drake_graph(config)&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Use functions &lt;code&gt;readd()&lt;/code&gt; and &lt;code&gt;loadd()&lt;/code&gt; to work with the produced output.&lt;/li&gt;
 &lt;li&gt;checkout &lt;code&gt;.drake/&lt;/code&gt; folder. This is where all the cached work is stored.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;By running this example, you will see that &lt;code&gt;drake_plan()&lt;/code&gt; is used to create a recipe of the analysis and &lt;code&gt;make()&lt;/code&gt; is used to execute that recipe. &lt;code&gt;make()&lt;/code&gt; will create objects, such as &lt;code&gt;fit&lt;/code&gt; and &lt;code&gt;hist&lt;/code&gt; in the example and store them in the folder &lt;code&gt;.drake/&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;readd()&lt;/code&gt; is used to return an object from cache. This is handy when we only want to diplay an object. &lt;code&gt;loadd()&lt;/code&gt; on the other hand is used to load an object into our session (similarly to &lt;code&gt;load&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;readd()&lt;/code&gt; is used to return an object from cache. This is handy when we only want to display an object. &lt;code&gt;loadd()&lt;/code&gt; on the other hand is used to load an object into our session (similarly to &lt;code&gt;load&lt;/code&gt;).&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;more&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;More&lt;/h3&gt;
-&lt;p&gt;To checkout further options I recommend
+&lt;p&gt;To further checkout options I recommend
 - The &lt;a href=&#34;https://github.com/cstawitz/RLadies_Sea_drake&#34;&gt;slides&lt;/a&gt; from &lt;a href=&#34;https://github.com/cstawitz&#34;&gt;Christine Stawitz&lt;/a&gt; (presented at R-Ladies Seattle in June 2018).
 - The &lt;a href=&#34;https://dobb.ae/2019/02/12/drakes-plan/&#34;&gt;material&lt;/a&gt; by &lt;a href=&#34;https://github.com/aedobbyn&#34;&gt;Amanda Dobbyn&lt;/a&gt; (presented at R-Ladies NYC in February 2019). (&lt;em&gt;Update&lt;/em&gt;)&lt;/p&gt;
 &lt;p&gt;Both presentations provide a good overview of the options {drake} provides.&lt;/p&gt;
@@ -644,7 +1190,7 @@ vis_drake_graph(config) &lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;code&gt;drake&lt;/code&gt;: implementing 1. into drake.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;drake-adv&lt;/code&gt;: implementing 1. into a more realistic, hierarchical folder structure.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;The examples use genetic data that was originally used in the &lt;a href=&#34;https://www.crowdai.org/challenges/opensnp-height-prediction&#34;&gt;crowdAI openSNP height prediction&lt;/a&gt; challenge. The full openSNP data set was prepared by my colleague &lt;a href=&#34;https://github.com/onaret&#34;&gt;Olivier Naret&lt;/a&gt; and can be downloaded &lt;a href=&#34;https://zenodo.org/record/1442755#.W8BGbVJ9jOQ&#34;&gt;here&lt;/a&gt;. The examples use a small subset of the full dataset that can be downloaded &lt;a href=&#34;https://github.com/sinarueeger/create-data-workflow-example&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The examples use genetic data that was originally used in the &lt;a href=&#34;https://www.crowdai.org/challenges/opensnp-height-prediction&#34;&gt;crowdAI openSNP height prediction&lt;/a&gt; challenge. The full openSNP data set was prepared by my colleague &lt;a href=&#34;https://github.com/onaret&#34;&gt;Olivier Naret&lt;/a&gt; and can be downloaded &lt;a href=&#34;https://zenodo.org/record/1442755#.W8BGbVJ9jOQ&#34;&gt;here&lt;/a&gt;. The examples use a small subset of the entire dataset that can be downloaded &lt;a href=&#34;https://github.com/sinarueeger/create-data-workflow-example&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;resources&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Resources&lt;/h3&gt;
@@ -665,19 +1211,19 @@ But I believe that the shift in logic that you have to get used to with {drake} 
 &lt;/div&gt;
 &lt;div id=&#34;what-is-next&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;What is next?&lt;/h2&gt;
-&lt;p&gt;I am currently reading the PlosCompBio paper &lt;a href=&#34;https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510&#34;&gt;Good enough practices in scientific computing&lt;/a&gt; - great read, giving me lots of ideas!&lt;/p&gt;
+&lt;p&gt;I am currently reading the PlosCompBio paper &lt;a href=&#34;https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510&#34;&gt;Good enough practices in scientific computing&lt;/a&gt; - a great read, giving me lots of ideas!&lt;/p&gt;
 &lt;p&gt;I want to use {drake} in a more complex setting. There are also other R-packages that help with project workflows. And I should invest some time to come up with a test suite for data analysis projects.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;when-is-the-right-time-to-tidy&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;When is the right time to tidy&lt;/h2&gt;
-&lt;p&gt;At the Genève RUG meetup we were also discussing when we think is the right time to tidy up.&lt;/p&gt;
-&lt;p&gt;Project folders evolve over time. Especially in the beginning of a project, we are busy figuring things out, wrangling data, fitting models, making plots and telling people what we found out. This can take some time. But at one point we are ready to write a report.&lt;/p&gt;
+&lt;p&gt;At the Genève RUG meetup, we were also discussing when we think is the right time to tidy up.&lt;/p&gt;
+&lt;p&gt;Project folders evolve. Especially at the beginning of a project, we are busy figuring things out, wrangling data, fitting models, making plots and telling people what we found out. This can take some time. But at one point we are ready to write a report.&lt;/p&gt;
 &lt;p&gt;It is probably at that stage (when we write a report) that we can “frame” that project into something that is “stable” and “portable”.&lt;/p&gt;
 &lt;p&gt;Although - I am not sure we have to wait that long. I think the benefits of {drake} (e.g. caching) already help us at an earlier stage.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;is-it-really-worth-it&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Is it really worth it&lt;/h2&gt;
-&lt;p&gt;I think there is a trade-off between dedicating days to tidying up and not caring about structure at all. Same with tooling. For example, if we use a tool, say &lt;code&gt;make&lt;/code&gt; but no one else but us knows how to use it, it is going to be hard for colleagues to understand and use project folders that use &lt;code&gt;make&lt;/code&gt;. We have to keep that balance in mind.&lt;/p&gt;
+&lt;div id=&#34;is-it-worth-it&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Is it worth it?&lt;/h2&gt;
+&lt;p&gt;I think there is a trade-off between dedicating days to tidying up and not caring about structure at all. Same with tooling. For example, if we use a tool, say &lt;code&gt;make&lt;/code&gt;, but no one else but us knows how to use it, it is going to be hard for colleagues to understand and use project folders that use &lt;code&gt;make&lt;/code&gt;. We have to keep that balance in mind.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&#34;footnotes&#34;&gt;
 &lt;hr /&gt;
@@ -690,20 +1236,6 @@ But I believe that the shift in logic that you have to get used to with {drake} 
 &lt;li id=&#34;fn6&#34;&gt;&lt;p&gt;Thanks to my colleague for the idea!&lt;a href=&#34;#fnref6&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li id=&#34;fn7&#34;&gt;&lt;p&gt;I am still wondering how “Data Frames in R for Make” adds up to “drake” 🤔.&lt;a href=&#34;#fnref7&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Tidying workflows &amp; R community</title>
-      <link>https://sinarueeger.github.io/talk/geneve-rug/</link>
-      <pubDate>Thu, 04 Oct 2018 19:00:00 +0200</pubDate>
-      
-      <guid>https://sinarueeger.github.io/talk/geneve-rug/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
-  &lt;/div&gt;
 &lt;/div&gt;
 </description>
     </item>
