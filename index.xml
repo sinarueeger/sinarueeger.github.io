@@ -378,20 +378,20 @@ r &amp;lt;- GET(paste(server, ext, sep = &amp;quot;&amp;quot;), content_type(&am
 stop_for_status(r)
 
 head(fromJSON(toJSON(content(r))))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##                                                  description size
-## 1                              African Caribbean in Barbados   96
-## 2                           African Ancestry in Southwest US   61
-## 3                                      Bengali in Bangladesh   86
-## 4                        Chinese Dai in Xishuangbanna, China   93
-## 5 Utah residents with Northern and Western European ancestry   99
-## 6                               Han Chinese in Bejing, China  103
-##                      name
+&lt;pre&gt;&lt;code&gt;##                      name
 ## 1 1000GENOMES:phase_3:ACB
 ## 2 1000GENOMES:phase_3:ASW
 ## 3 1000GENOMES:phase_3:BEB
 ## 4 1000GENOMES:phase_3:CDX
 ## 5 1000GENOMES:phase_3:CEU
-## 6 1000GENOMES:phase_3:CHB&lt;/code&gt;&lt;/pre&gt;
+## 6 1000GENOMES:phase_3:CHB
+##                                                  description size
+## 1                              African Caribbean in Barbados   96
+## 2                           African Ancestry in Southwest US   61
+## 3                                      Bengali in Bangladesh   86
+## 4                        Chinese Dai in Xishuangbanna, China   93
+## 5 Utah residents with Northern and Western European ancestry   99
+## 6                               Han Chinese in Bejing, China  103&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;code&gt;name&lt;/code&gt; stands for the population identifier. &lt;code&gt;size&lt;/code&gt; refers to the number of individuals in the reference panel. Note that these are all populations with around 100 individuals (the correlation estimation will have an error that scales with the sample size). There are also the five super population available (although not listed here), simply replace the last three characters in &lt;code&gt;name&lt;/code&gt; by &lt;code&gt;EUR&lt;/code&gt;, &lt;code&gt;AFR&lt;/code&gt;, &lt;code&gt;AMR&lt;/code&gt;, &lt;code&gt;EAS&lt;/code&gt;, &lt;code&gt;SAS&lt;/code&gt;.&lt;/p&gt;
 &lt;iframe seamless src=&#34;https://sinarueeger.github.io/post/2018-08-09-put-the-color-into-the-points/map-1000genomes-populations.html&#34; width=&#34;100%&#34; height=&#34;500&#34;&gt;
 &lt;/iframe&gt;
@@ -423,14 +423,14 @@ LD.SNP.region &amp;lt;- as_tibble(fromJSON(toJSON(content(r)))) %&amp;gt;%
   mutate(r2 = as.numeric(r2))
 head(LD.SNP.region)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 5
-##       r2 population_name         variation2 d_prime  variation1
-##    &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;                   &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;     
-## 1 0.362  1000GENOMES:phase_3:EUR rs9932600  0.999986 rs1421085 
-## 2 0.922  1000GENOMES:phase_3:EUR rs7202296  0.999999 rs1421085 
-## 3 0.0737 1000GENOMES:phase_3:EUR rs8051422  0.584547 rs1421085 
-## 4 0.873  1000GENOMES:phase_3:EUR rs9931494  0.953559 rs1421085 
-## 5 0.918  1000GENOMES:phase_3:EUR rs8050136  0.995690 rs1421085 
-## 6 0.819  1000GENOMES:phase_3:EUR rs9932754  0.916287 rs1421085&lt;/code&gt;&lt;/pre&gt;
+##   d_prime  variation1     r2 population_name         variation2 
+##   &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;       &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;                   &amp;lt;chr&amp;gt;      
+## 1 0.541755 rs1421085  0.0514 1000GENOMES:phase_3:EUR rs1077128  
+## 2 0.639310 rs1421085  0.0679 1000GENOMES:phase_3:EUR rs141750185
+## 3 0.394345 rs1421085  0.0779 1000GENOMES:phase_3:EUR rs7206010  
+## 4 0.393204 rs1421085  0.0765 1000GENOMES:phase_3:EUR rs6499640  
+## 5 1.000000 rs1421085  0.953  1000GENOMES:phase_3:EUR rs9928094  
+## 6 0.999999 rs1421085  0.922  1000GENOMES:phase_3:EUR rs17817497&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;As a result, &lt;code&gt;LD.snp.region&lt;/code&gt; contains the &lt;code&gt;r2&lt;/code&gt; of our top SNP with all SNPs that were +/- 500 kb away.&lt;/p&gt;
 &lt;p&gt;What if we want the correlation between all SNPs?&lt;/p&gt;
 &lt;/div&gt;
@@ -586,29 +586,24 @@ LD.matrix.snps&lt;/code&gt;&lt;/pre&gt;
 ##  [4] glue_1.3.1.9000   magrittr_1.5      xml2_1.2.0       
 ##  [7] jsonlite_1.6      httr_1.4.0        forcats_0.4.0    
 ## [10] stringr_1.4.0     dplyr_0.8.1       purrr_0.3.2      
-## [13] readr_1.3.1       tidyr_0.8.3       tibble_2.1.1     
+## [13] readr_1.3.1       tidyr_0.8.3       tibble_2.1.2     
 ## [16] ggplot2_3.1.1     tidyverse_1.2.1  
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.1         lubridate_1.7.4    lattice_0.20-38   
-##  [4] assertthat_0.2.1   zeallot_0.1.0      digest_0.6.19     
-##  [7] utf8_1.1.4         R6_2.4.0           cellranger_1.1.0  
-## [10] plyr_1.8.4         backports_1.1.4    evaluate_0.13     
-## [13] icon_0.1.0         blogdown_0.12      pillar_1.4.0      
-## [16] rlang_0.3.4        lazyeval_0.2.2     curl_3.3          
-## [19] readxl_1.3.1       rstudioapi_0.10    rmarkdown_1.13    
-## [22] urltools_1.7.3     labeling_0.3       triebeard_0.3.0   
-## [25] munsell_0.5.0      broom_0.5.2        compiler_3.5.1    
-## [28] modelr_0.1.4       xfun_0.7           pkgconfig_2.0.2   
-## [31] htmltools_0.3.6    tidyselect_0.2.5   httpcode_0.2.0    
-## [34] bookdown_0.10      codetools_0.2-16   XML_3.98-1.19     
-## [37] fansi_0.4.0        crayon_1.3.4       withr_2.1.2       
-## [40] crul_0.7.4         grid_3.5.1         nlme_3.1-140      
-## [43] gtable_0.3.0       scales_1.0.0       cli_1.1.0         
-## [46] stringi_1.4.3      generics_0.0.2     vctrs_0.1.0       
-## [49] RColorBrewer_1.1-2 tools_3.5.1        hms_0.4.2         
-## [52] yaml_2.2.0         colorspace_1.4-1   rvest_0.3.4       
-## [55] knitr_1.23         haven_2.1.0&lt;/code&gt;&lt;/pre&gt;
+##  [1] tidyselect_0.2.5 xfun_0.7         haven_2.1.0      lattice_0.20-38 
+##  [5] vctrs_0.1.0      colorspace_1.4-1 generics_0.0.2   htmltools_0.3.6 
+##  [9] yaml_2.2.0       utf8_1.1.4       XML_3.98-1.19    rlang_0.3.4     
+## [13] pillar_1.4.1     httpcode_0.2.0   withr_2.1.2      modelr_0.1.4    
+## [17] readxl_1.3.1     plyr_1.8.4       munsell_0.5.0    blogdown_0.12   
+## [21] gtable_0.3.0     cellranger_1.1.0 rvest_0.3.4      evaluate_0.13   
+## [25] knitr_1.23       curl_3.3         fansi_0.4.0      triebeard_0.3.0 
+## [29] urltools_1.7.3   broom_0.5.2      Rcpp_1.0.1       scales_1.0.0    
+## [33] backports_1.1.4  hms_0.4.2        digest_0.6.19    stringi_1.4.3   
+## [37] bookdown_0.10    grid_3.5.1       cli_1.1.0        tools_3.5.1     
+## [41] lazyeval_0.2.2   crul_0.7.4       zeallot_0.1.0    crayon_1.3.4    
+## [45] pkgconfig_2.0.2  lubridate_1.7.4  assertthat_0.2.1 rmarkdown_1.13  
+## [49] rstudioapi_0.10  R6_2.4.0         icon_0.1.0       nlme_3.1-140    
+## [53] compiler_3.5.1&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>
