@@ -1,24 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Sina Rüeger</title>
+    <title>Sina Rüeger</title>
     <link>https://sinarueeger.github.io/tags/</link>
-    <description>Recent content in Tags on Sina Rüeger</description>
+    <description>Recent content on Sina Rüeger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 28 May 2019 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 10 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://sinarueeger.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title></title>
-      <link>https://sinarueeger.github.io/tags/</link>
-      <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
+      <title>Evaluation and application of summary statistic imputation to discover new height-associated loci</title>
+      <link>https://sinarueeger.github.io/publication/plosgen-2018-ssimp-application/</link>
+      <pubDate>Sat, 01 Sep 2018 00:00:00 +0200</pubDate>
       
-      <guid>https://sinarueeger.github.io/tags/</guid>
+      <guid>https://sinarueeger.github.io/publication/plosgen-2018-ssimp-application/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Improved imputation of summary statistics for admixed populations</title>
+      <link>https://sinarueeger.github.io/publication/biorxiv-2018-ssimp-method/</link>
+      <pubDate>Sat, 01 Sep 2018 00:00:00 +0200</pubDate>
+      
+      <guid>https://sinarueeger.github.io/publication/biorxiv-2018-ssimp-method/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>   <description></description>
     </item>
     
     <item>
@@ -81,24 +94,6 @@
       <pubDate>Tue, 04 Dec 2018 12:00:00 +0100</pubDate>
       
       <guid>https://sinarueeger.github.io/tags/best-practices/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>drake</title>
-      <link>https://sinarueeger.github.io/tags/drake/</link>
-      <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://sinarueeger.github.io/tags/drake/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>projects</title>
-      <link>https://sinarueeger.github.io/tags/projects/</link>
-      <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://sinarueeger.github.io/tags/projects/</guid>
       <description></description>
     </item>
     
