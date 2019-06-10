@@ -2,67 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>statistical genetics on Sina Rüeger</title>
-    <link>/tags/statistical-genetics/</link>
+    <link>https://sinarueeger.github.io/tags/statistical-genetics/</link>
     <description>Recent content in statistical genetics on Sina Rüeger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
     <lastBuildDate>Tue, 28 May 2019 00:00:00 +0200</lastBuildDate>
     
-	<atom:link href="/tags/statistical-genetics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sinarueeger.github.io/tags/statistical-genetics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Integrative Statistical Analysis of -omics and GWAS data</title>
-      <link>/project/phd-thesis/</link>
+      <link>https://sinarueeger.github.io/project/phd-thesis/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>/project/phd-thesis/</guid>
+      <guid>https://sinarueeger.github.io/project/phd-thesis/</guid>
       <description>PhD thesis material.</description>
     </item>
     
     <item>
       <title>R-package GWAS.utils</title>
-      <link>/project/gwas.utils/</link>
+      <link>https://sinarueeger.github.io/project/gwas.utils/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>/project/gwas.utils/</guid>
+      <guid>https://sinarueeger.github.io/project/gwas.utils/</guid>
       <description>Helper functions when working with GWAS (summary) data.</description>
     </item>
     
     <item>
       <title>R-package ggGWAS</title>
-      <link>/project/gggwas/</link>
+      <link>https://sinarueeger.github.io/project/gggwas/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>/project/gggwas/</guid>
+      <guid>https://sinarueeger.github.io/project/gggwas/</guid>
       <description>ggplot2 extension for visualising GWAS summary statistics.</description>
     </item>
     
     <item>
       <title>Statistical Genetics Resources</title>
-      <link>/project/stat-genetics-ressources/</link>
+      <link>https://sinarueeger.github.io/project/stat-genetics-ressources/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>/project/stat-genetics-ressources/</guid>
+      <guid>https://sinarueeger.github.io/project/stat-genetics-ressources/</guid>
       <description>Collection of resources needed in statistical genetics: data, readings, software.</description>
     </item>
     
     <item>
       <title>LD Part 1</title>
-      <link>/post/get-ld-remotely/</link>
+      <link>https://sinarueeger.github.io/post/get-ld-remotely/</link>
       <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/get-ld-remotely/</guid>
+      <guid>https://sinarueeger.github.io/post/get-ld-remotely/</guid>
       <description>Goal Two approaches Our toy data 1A. A solution that works: ldlink from NIH LDproxy LDmatrix  1B. A solution that almost works: ensembl.org What reference panels/population can we choose from? Access LD between a SNP and its region Access LD matrix Access LD between a SNP and many other SNPs Coloured locuszoom plot  2. Solutions that work half-through SNPsnap API provided by sph.umich  3. A solution that does not work rsnps::ld_search  Conclusion Session Info   R-packages used:</description>
     </item>
     
     <item>
       <title>Locuszoom plot of GWAS summary statistics</title>
-      <link>/post/locuszoomplot/</link>
+      <link>https://sinarueeger.github.io/post/locuszoomplot/</link>
       <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/locuszoomplot/</guid>
+      <guid>https://sinarueeger.github.io/post/locuszoomplot/</guid>
       <description>Goal Getting it done 1. Get summary statistics Visualising associations Identify genomic region with lowest P-value  2. Extracting annotation biomaRt Learning resources Using biomaRt Quick d-tour: assembly GRCh37 or GRCh38? Extracting gene name for one SNP Extracting gene names for genomic region  3. Combining summary statistics and annotation Wouldn’t it be nice… Source   In the world of genome-wide association studies (GWAS), we often get a list of genetic markers (SNPs) that seem for some reason relevant for a particular outcome.</description>
     </item>
     

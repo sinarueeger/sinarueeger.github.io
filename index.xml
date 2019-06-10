@@ -2,437 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sina Rüeger</title>
-    <link>/</link>
+    <link>https://sinarueeger.github.io/</link>
     <description>Recent content on Sina Rüeger</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 11 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 May 2019 00:00:00 +0200</lastBuildDate>
     
-	    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	    <atom:link href="https://sinarueeger.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>A guide to poster making for scientific conferences</title>
-      <link>/post/scientific-poster/</link>
-      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/scientific-poster/</guid>
-      <description>
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;#how-to-make-a-good-poster&#34;&gt;How to make a good poster&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#recipe&#34;&gt;Recipe&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#content&#34;&gt;Content&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#design&#34;&gt;Design&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;This is a tutorial on how to make a scientific poster from scratch.&lt;/p&gt;
-
-&lt;p&gt;It aims for first-time poster makers, but also for people like me that quickly lose themselves in choosing the right font for hours.&lt;/p&gt;
-
-&lt;p&gt;It includes a few self-declared best practices that helped me in the past. Those are at best ideas, and barely opinions. It is by no means a collection of strict rules and feedback is welcome!&lt;/p&gt;
-
-&lt;p&gt;I got lots of tips from &lt;a href=&#34;https://twitter.com/FlaviaHodel&#34; target=&#34;_blank&#34;&gt;Flavia Hodel&lt;/a&gt; during stimulating discussions around poster presentation.&lt;/p&gt;
-
-&lt;h2 id=&#34;how-to-make-a-good-poster&#34;&gt;How to make a good poster&lt;/h2&gt;
-
-&lt;p&gt;An excellent &lt;a href=&#34;https://www.youtube.com/watch?v=1RwJbhkCA58&#34; target=&#34;_blank&#34;&gt;video&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/mikemorrison&#34; target=&#34;_blank&#34;&gt;Mike Morrison&lt;/a&gt; recently made the rounds online. If you have not done so already, watch it before continuing.&lt;/p&gt;
-
-&lt;p&gt;Mike Morrison makes the point that most of the posters presented at conferences are not easy to grasp.&lt;/p&gt;
-
-&lt;p&gt;There are two principal reasons for this:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;The content is not adapted for a poster presentation. For example: reusing whole paragraphs from a manuscript.&lt;/li&gt;
-&lt;li&gt;Poor design choices. For example small fonts, problematic colour choices, low-resolution figures.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Separating content from design is important&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:If-you-know-Mark&#34;&gt;&lt;a href=&#34;#fn:If-you-know-Mark&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; because it will allow you to focus only on one or the other. Since &amp;ldquo;design&amp;rdquo; is a profession, a better description in what we are doing is &amp;ldquo;polishing&amp;rdquo; or &amp;ldquo;improving readability&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;I will structure my tips into these two parts: &lt;a href=&#34;#content&#34;&gt;content&lt;/a&gt; and &lt;a href=&#34;#design&#34;&gt;design&lt;/a&gt;, along with a &lt;a href=&#34;#recipe&#34;&gt;recipe&lt;/a&gt; that I like to follow.&lt;/p&gt;
-
-&lt;p&gt;But let&amp;rsquo;s talk first about what makes a poster presentation special.&lt;/p&gt;
-
-&lt;h2 id=&#34;oral-versus-poster-presentation&#34;&gt;Oral versus poster presentation&lt;/h2&gt;
-
-&lt;p&gt;If you get an oral presentation (congrats!), then you know that your voice will carry most of the talk. While your slides should be &lt;a href=&#34;http://damian.conway.org/IBP.pdf&#34; target=&#34;_blank&#34;&gt;carefully designed&lt;/a&gt;, you can still rescue imperfect slides with a good talk.&lt;/p&gt;
-
-&lt;p&gt;Poster presentations are somewhat special because they are at an intersection of a talk and an art exhibition. Meaning, you will once during the conference have the opportunity to guide other researchers through your poster. This is similar to a lightning talk, just more engaging.&lt;/p&gt;
-
-&lt;p&gt;The remainder of the conference, your poster will hang there, and maybe some people will still try to understand your topic. No matter how good you are at talking, now the poster has to be self explainable.&lt;/p&gt;
-
-&lt;p&gt;In fact, your poster should read like going through stand-alone slides (slides with more explanations to replace the speakers&amp;rsquo; voice).&lt;/p&gt;
-
-&lt;h2 id=&#34;back-to-the-video&#34;&gt;Back to the video&lt;/h2&gt;
-
-&lt;p&gt;While overall the video of Mike Morrison is excellent, I struggle with three things.&lt;/p&gt;
-
-&lt;p&gt;First, it talks about a horizontal poster, and this is often not possible at conferences, due to space constraints&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:However-a-straig&#34;&gt;&lt;a href=&#34;#fn:However-a-straig&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-
-&lt;p&gt;Second, it talks about emphasising this very clear conclusion. In real life, this is often not possible. For example, because a research project has just started. So instead of having this one research question, I&amp;rsquo;d go for the main message - what do you want that people remember? That can be the large sample size of your study or that you are developing a new method.&lt;/p&gt;
-
-&lt;p&gt;Third, the poster template still crams the details of the study into a small space, which is not ideal for readability.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;recipe&#34;&gt;Recipe&lt;/h2&gt;
-
-&lt;p&gt;Here is a recipe that I like to follow.&lt;/p&gt;
-
-&lt;h3 id=&#34;get-ready&#34;&gt;Get ready&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Start at least &lt;strong&gt;7 days&lt;/strong&gt; before the poster needs to go into print&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Make-sure-you-kn&#34;&gt;&lt;a href=&#34;#fn:Make-sure-you-kn&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Think of the &lt;strong&gt;main message&lt;/strong&gt;: what is the one thing that you want the reader to remember? Write that message into a text file.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Take a pen and &lt;strong&gt;sketch a draft&lt;/strong&gt; of your poster on an A4 paper. What do you want to present and where does this content go on the poster? What kind of figures and tables to you want the reader to see? No need to write proper sentences, instead use keywords and use skeletons of figures and tables. You can also to do step 4 - 7 first before sketching a draft.
-&lt;iframe src=&#34;https://giphy.com/embed/1W88Z61vUGMQo&#34; width=&#34;480&#34; height=&#34;360&#34; frameBorder=&#34;0&#34; class=&#34;giphy-embed&#34; allowFullScreen&gt;&lt;/iframe&gt;&lt;p&gt;&lt;a href=&#34;https://giphy.com/gifs/painting-the-addams-family-morticia-1W88Z61vUGMQo&#34;&gt;&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Get your abstract and extract &lt;strong&gt;title, author and affiliation&lt;/strong&gt; and save it into a text file too.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Create a folder &lt;code&gt;img&lt;/code&gt; somewhere on your computer.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Copy all &lt;strong&gt;text, tables and figures&lt;/strong&gt; you possibly need into the &lt;code&gt;img&lt;/code&gt; folder. Slides from previous talks can be a handy source.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Get the &lt;strong&gt;logos&lt;/strong&gt; of your university and affiliations and store them into the &lt;code&gt;img&lt;/code&gt; folder too. If you have the choice, go for PNGs, as they have &lt;a href=&#34;https://www.quora.com/What-is-the-difference-between-jpeg-and-png-files&#34; target=&#34;_blank&#34;&gt;transparent backgrounds&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Choose a &lt;strong&gt;tool&lt;/strong&gt; that is easy to operate and does the things you want. My choice is &lt;a href=&#34;https://www.apple.com/lae/keynote/&#34; target=&#34;_blank&#34;&gt;keynote&lt;/a&gt; because I cannot bother with Adobe Illustrator. More details &lt;a href=&#34;#tools&#34;&gt;below&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Resize document&lt;/strong&gt; to the size recommended by the conference or A0. This way, even though the poster might be proportional to A4, you can use the real size fonts.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Split&lt;/strong&gt; the document into different boxes (or any compartmentation according to your sketch). For example four horizontal lines and one vertical lines will turn 10 boxes. Use &lt;em&gt;rulers&lt;/em&gt;, &lt;em&gt;guides&lt;/em&gt; or lines to help you with that. Each box will later answer a different question.  &lt;img src=&#34;/post/2019-05-20-poster/illustration/illustration.001.png&#34; alt=&#34;drawing&#34; style=&#34;width:200px;&#34;/&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Now you are ready to add content.&lt;/p&gt;
-
-&lt;h3 id=&#34;add-content&#34;&gt;Add content&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Before adding content, choose a &lt;strong&gt;sans-serif font&lt;/strong&gt;. &lt;font face=&#34;Helvetica&#34;&gt;Helvetica&lt;/font&gt; or &lt;font face=&#34;Arial&#34;&gt;Arial&lt;/font&gt; will do a good job. These fonts were carefully designed to be easy to read and look good on print. Later on, you can still decide to invest time into checkout &lt;a href=&#34;https://fonts.google.com/?category=Sans+Serif&#34; target=&#34;_blank&#34;&gt;google fonts&lt;/a&gt;, but remember - it needs to be sans-serif. The smallest text size should be &lt;a href=&#34;https://guides.library.ucla.edu/c.php?g=223540&amp;amp;p=1480858&#34; target=&#34;_blank&#34;&gt;24 pt&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Fill the top rectangles.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Place the &lt;strong&gt;title on top&lt;/strong&gt;. This is the first thing the reader should see.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Add &lt;strong&gt;authors and affiliation&lt;/strong&gt; right below.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Next, add your main message below. &lt;img src=&#34;/post/2019-05-20-poster/illustration/illustration.002.png&#34; alt=&#34;drawing&#34; style=&#34;width:200px;&#34;/&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Add &lt;strong&gt;contact and lab webpage&lt;/strong&gt; at the very bottom of the poster. &lt;img src=&#34;/post/2019-05-20-poster/illustration/illustration.003.png&#34; alt=&#34;drawing&#34; style=&#34;width:200px;&#34;/&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;No need to adjust and fiddle around with boxes at this stage. Just fill the &lt;a href=&#34;#content&#34;&gt;content&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Now we are left with 7 boxes. How you distribute the content into these boxes depends on your topic. I work in a field where data and methodology is central, so I always dedicate one box to data and one box to methods. &lt;img src=&#34;/post/2019-05-20-poster/illustration/illustration.004.png&#34; alt=&#34;drawing&#34; style=&#34;width:200px;&#34;/&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;The first box will take care of the &lt;a href=&#34;#introduction&#34;&gt;&lt;strong&gt;introduction&lt;/strong&gt;&lt;/a&gt; and should answer the question &lt;em&gt;Why is your research needed?&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;The second box should present the &lt;a href=&#34;#methods&#34;&gt;&lt;strong&gt;methods&lt;/strong&gt;&lt;/a&gt;: &lt;em&gt;What method did you use to answer your research question?&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;The third box takes care of &lt;a href=&#34;#data&#34;&gt;&lt;strong&gt;data&lt;/strong&gt;&lt;/a&gt; presentation: &lt;em&gt;What kind of data did you use and how does it fit together with the method?&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;The fourth and fifth box are reserved for &lt;a href=&#34;#results&#34;&gt;&lt;strong&gt;results&lt;/strong&gt;&lt;/a&gt;: &lt;em&gt;What are the results if you combine data and methods?&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;The six box is dedicated to a &lt;a href=&#34;#discussion&#34;&gt;&lt;strong&gt;discussion&lt;/strong&gt;&lt;/a&gt; or summary: &lt;em&gt;What can you conclude from the results? What are the limitations? And where are you heading next?&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;The seventh box is for &lt;strong&gt;references and abbreviations&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;polishing-design&#34;&gt;Polishing &amp;amp; Design&lt;/h3&gt;
-
-&lt;p&gt;Now that you have all your content, you can start to &lt;strong&gt;improve the readability&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;In order to quickly grasp a poster, it should have &lt;strong&gt;as less text as possible&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Consider replacing some text with &lt;strong&gt;icons or figures&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Make use of &lt;strong&gt;bullet points&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Align&lt;/strong&gt; all text and shapes (again, rulers might help here).&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Make sure all secion titles are &lt;strong&gt;equally sized&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Are your figures (and the rest of your poster) &lt;strong&gt;colourblind friendly&lt;/strong&gt;?&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;You can start adding &lt;a href=&#34;#colours&#34;&gt;colours&lt;/a&gt; (if they serve a purpose).&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Think about whether your figures need captions or not.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;finalising&#34;&gt;Finalising&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;See how it looks like on a &lt;strong&gt;printed A4 version&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Ask your colleagues&lt;/strong&gt; for their opinion by showing them the printed A4 version.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;You might want to let it sit for a day or two. Then look at it with fresh and rested eyes.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;trick-trick-have-a-detailed-and-a-lean-version&#34;&gt;Trick-trick: Have a detailed and a lean version&lt;/h3&gt;
-
-&lt;p&gt;After a few days break you look at it again and you realise that it is still to busy with text.&lt;/p&gt;
-
-&lt;p&gt;Here is the trick - &lt;strong&gt;keep two versions&lt;/strong&gt;: the detailed one you already made, and one that has lot less details.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Make a copy&lt;/strong&gt; of your poster draft, name it &lt;code&gt;poster_detailed.pdf&lt;/code&gt;. Put this pdf somewhere online and get a link to it (for example dropbox).&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Generate a &lt;a href=&#34;https://www.qr-code-generator.com/&#34; target=&#34;_blank&#34;&gt;QR-code&lt;/a&gt; of that link and download the png to your &lt;code&gt;img/&lt;/code&gt; folder.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Continue working on your original file.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Count your words. Your aim is now to cut the number of words in half - roughly. If you don&amp;rsquo;t know where to remove content, &lt;strong&gt;present your poster to a colleague&lt;/strong&gt; from the same faculty (not the same lab). You will quickly realise over what details you jump. Remove those details.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;If you can &lt;strong&gt;simplify the graphs&lt;/strong&gt; - do that too.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Count the words again - has it been halfed?&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Add the &lt;strong&gt;QR-code&lt;/strong&gt; to the bottom of the poster.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&#34;printing&#34;&gt;Printing&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Print it again in A4 for yourself and check:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;if all text and shapes are aligned and equally distributed,&lt;/li&gt;
-&lt;li&gt;if the font is the same throughout the poster,&lt;/li&gt;
-&lt;li&gt;if all authors or affiliations are present,&lt;/li&gt;
-&lt;li&gt;for typos,&lt;/li&gt;
-&lt;li&gt;if figures are clearly readable (and in high resolution),&lt;/li&gt;
-&lt;li&gt;where the QR-code leads you,&lt;/li&gt;
-&lt;li&gt;whether your contact email address is correct.
-&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;That&amp;rsquo;s it - send it to the printing service!&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;content&#34;&gt;Content&lt;/h2&gt;
-
-&lt;p&gt;Before adding any content, think about your audience. These will be scientists, and they have probably heard about research you are working on, but don&amp;rsquo;t know the details and motivation behind your work. In fact, there will only be a handful of people that know exactly what your domain, topic and method does. All others are still interested though. So lets aim for these people as your audience.&lt;/p&gt;
-
-&lt;p&gt;After looking at your poster, the reader should have an idea what the title means. Your poster title might be super clear to you and your lab colleagues, but anyone else will have a hard time understanding right away what you are doing.&lt;/p&gt;
-
-&lt;p&gt;Therefore, one goal is, to clarify the words in your title.&lt;/p&gt;
-
-&lt;p&gt;After separating your file with rulers as described &lt;a href=&#34;#recipe&#34;&gt;above&lt;/a&gt;, you will have 8 boxes, of which you can use 6 for:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Introduction&lt;/li&gt;
-&lt;li&gt;Method&lt;/li&gt;
-&lt;li&gt;Data&lt;/li&gt;
-&lt;li&gt;General results&lt;/li&gt;
-&lt;li&gt;Specific results&lt;/li&gt;
-&lt;li&gt;Discussion &amp;amp; Summary&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I recommend to give your boxes titles so the reader can jump from one to the other.&lt;/p&gt;
-
-&lt;p&gt;What content should go in your boxes?&lt;/p&gt;
-
-&lt;p&gt;I believe that a poster cannot carry a condensed version of a full manuscript. I think it is ok to focus on only one or two threads of your work. Your story telling needs to be coherent - that is all the reader wants.&lt;/p&gt;
-
-&lt;h3 id=&#34;introduction&#34;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;I like to follow the &lt;a href=&#34;https://cs.stanford.edu/people/widom/paper-writing.html&#34; target=&#34;_blank&#34;&gt;paper writing guidelines&lt;/a&gt; by &lt;a href=&#34;https://cs.stanford.edu/people/widom/&#34; target=&#34;_blank&#34;&gt;Jennifer Widom&lt;/a&gt; as a rough guide:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;What is the problem?&lt;/li&gt;
-&lt;li&gt;Why is it interesting and important?&lt;/li&gt;
-&lt;li&gt;Why is it hard? (E.g., why do naive approaches fail?)&lt;/li&gt;
-&lt;li&gt;Why hasn&amp;rsquo;t it been solved before? (Or, what&amp;rsquo;s wrong with previous proposed solutions?   How does mine differ?)&lt;/li&gt;
-&lt;li&gt;What are the key components of my approach and results? Also include any specific limitations.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;method&#34;&gt;Method&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Unless your very focus is a new statistical methods, keep this secion simple and clear.&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Make sure that it is clear why the method is able to answer your research question.&lt;/li&gt;
-&lt;li&gt;You can use equations, but simplify them too, or annotate them with arrows and explain all fancy letters used.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;data&#34;&gt;Data&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Mention the origin(s) of your data.&lt;/li&gt;
-&lt;li&gt;What was the sample size?&lt;/li&gt;
-&lt;li&gt;No need to describe all the variables you used. To save space, you can also group them into larger categories.&lt;/li&gt;
-&lt;li&gt;Describe distinct features of your data that could influence the interpretation: e.g. if all your samples were male.&lt;/li&gt;
-&lt;li&gt;Mention how you processed the data. Again, no need to be specific. If your area uses standard QC methods, mention that the data was processed according to standard QC techniques.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;results&#34;&gt;Results&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Have two layers of detail. For example, go from general to specific; have a graph that summarises your results, then zoom into your results in a next graph.&lt;/li&gt;
-&lt;li&gt;Use figures to illustrate your results and avoid tables.&lt;/li&gt;
-&lt;li&gt;Simplify the figures and use the power of your poster making tool to annotate the figures.&lt;/li&gt;
-&lt;li&gt;Make sure that the results are follow the notation of data and methodology. E.g. if you present results for a trend in age, make sure you have mentioned age before.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;discussion&#34;&gt;Discussion&lt;/h3&gt;
-
-&lt;p&gt;This is the place to:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;summarise your work&lt;/li&gt;
-&lt;li&gt;conclude&lt;/li&gt;
-&lt;li&gt;talk about limitations&lt;/li&gt;
-&lt;li&gt;announce future plans&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;contact&#34;&gt;Contact&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Add your email address.&lt;/li&gt;
-&lt;li&gt;Add lab webpage.&lt;/li&gt;
-&lt;li&gt;Add the QR code that leads to your (detailed) poster.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Add important references, for example software that you used.&lt;/li&gt;
-&lt;li&gt;Make sure you cite original content.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;design&#34;&gt;Design&lt;/h2&gt;
-
-&lt;p&gt;Or &lt;em&gt;improving readability&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;tooling&#34;&gt;Tooling&lt;/h3&gt;
-
-&lt;p&gt;A good tool should satisfy the following criteria:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Decent in zooming in and out.&lt;/li&gt;
-&lt;li&gt;Variety of graphical options.&lt;/li&gt;
-&lt;li&gt;Operable with ease.&lt;/li&gt;
-&lt;li&gt;Something you can use over years.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;If you have practice with Adobe Illustrator or its&amp;rsquo; open-source counterpart &lt;a href=&#34;https://inkscape.org/&#34; target=&#34;_blank&#34;&gt;Inkscape&lt;/a&gt; - go for it!&lt;/p&gt;
-
-&lt;p&gt;Otherwise, &lt;a href=&#34;https://www.google.com/slides/about/&#34; target=&#34;_blank&#34;&gt;google slides&lt;/a&gt;, Powerpoint, &lt;a href=&#34;https://www.apple.com/lae/keynote/&#34; target=&#34;_blank&#34;&gt;keynote&lt;/a&gt; - although limiting - do a the job too.&lt;/p&gt;
-
-&lt;h3 id=&#34;fonts&#34;&gt;Fonts&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;No matter what sophisticated typeface you had in mind, choose one of these sans-serif ones for a start: &lt;font face=&#34;Helvetica&#34;&gt;Helvetica&lt;/font&gt; or &lt;font face=&#34;Arial&#34;&gt;Arial&lt;/font&gt;.&lt;/li&gt;
-&lt;li&gt;If you really have the time to play with other sans-serif fonts, check out &lt;a href=&#34;https://fonts.google.com/?category=Sans+Serif&#34; target=&#34;_blank&#34;&gt;google fonts&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Making fonts is an actual job - remember to pay for special fonts.&lt;/li&gt;
-&lt;li&gt;Most tools have a &lt;code&gt;replace font&lt;/code&gt; option, so you can replace a font through out your poster.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;font-size&#34;&gt;Font size&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Minimum 24 pt, but use it sparingly.&lt;/li&gt;
-&lt;li&gt;Title should be largest with approx. 150 pt.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;icons&#34;&gt;Icons&lt;/h3&gt;
-
-&lt;p&gt;Some icon services are for free, or at least partially: e.g. &lt;a href=&#34;https://www.flaticon.com/&#34; target=&#34;_blank&#34;&gt;flat icon&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;figures&#34;&gt;Figures&lt;/h3&gt;
-
-&lt;p&gt;Principles for data visualisations could easily occupy another blog post. There is much to say, but let&amp;rsquo;s keep it short here.&lt;/p&gt;
-
-&lt;p&gt;If you use R and ggplot2 for making your figures, use one of the black and white themes, e.g. &lt;code&gt;theme_set(theme_linedraw())&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Make sure that the axis text size is also 24pt once it is on the poster.&lt;/p&gt;
-
-&lt;h3 id=&#34;resolution-of-figures&#34;&gt;Resolution of figures&lt;/h3&gt;
-
-&lt;p&gt;Your principal figures should &lt;em&gt;always&lt;/em&gt; be stored as PDF format. This way, you can easily turn them into a high-resolution PNG.&lt;/p&gt;
-
-&lt;p&gt;To turn a PDF into a high-resolution raster image, use &lt;a href=&#34;https://imagemagick.org/script/convert.php&#34; target=&#34;_blank&#34;&gt;convert from imagemagick&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;If your file is called &lt;code&gt;figure-1.pdf&lt;/code&gt;, then write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;convert -quality 100 -background white -alpha background -compress lzw -units pixelsperinch -resize &amp;quot;789x2625&amp;quot; -density 300 figure-1.pdf figure-1b.png
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you have lots of pdf starting with &lt;code&gt;figure-*&lt;/code&gt;, then write:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;for file in figure-*.pdf; do \
-echo $file;\
-convert -quality 100 -background white -alpha background -compress lzw -flatten -units pixelsperinch -resize &amp;quot;789x2625&amp;quot; -density 300 $file `echo $file|cut -f1 -d&#39;.&#39;`.png;\
-done
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;colours&#34;&gt;Colours&lt;/h3&gt;
-
-&lt;p&gt;Colors are either used as decoration or to encode a variable. Do not use color for your background&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Black-or-gray-ba&#34;&gt;&lt;a href=&#34;#fn:Black-or-gray-ba&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Always&lt;/strong&gt; use &lt;a href=&#34;http://blogs.nature.com/nautilus/2007/02/post_4.html&#34; target=&#34;_blank&#34;&gt;colourblind friendly colours&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;You can test the colourblind friendlyness of your poster and figures in a browser: &lt;a href=&#34;https://www.color-blindness.com/coblis-color-blindness-simulator/&#34; target=&#34;_blank&#34;&gt;https://www.color-blindness.com/coblis-color-blindness-simulator/&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;For Figures:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;If you use more colours than available in a discrete colour palette - drop that encoding. No one will be able to grasp.&lt;/li&gt;
-&lt;li&gt;Use colorblind friendly palettes from the &lt;a href=&#34;https://github.com/clauswilke/colorblindr/blob/master/R/palettes.R&#34; target=&#34;_blank&#34;&gt;colorblindr&lt;/a&gt; R-package.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;!---------
-```r
-
-library(colorblindr)
-library(dplyr)
-library(kableExtra)
-dat &lt;- data.frame(hex = colorblindr::palette_OkabeIto, swatch = colorblindr::palette_OkabeIto)
-
-
-dat %&gt;%
-  mutate(swatch = cell_spec(
-    swatch, color = &#34;white&#34;, bold = T,
-    background = hex
-  )) %&gt;%
-  kable(escape = F, align = &#34;c&#34;) %&gt;%
-  kable_styling(c(&#34;striped&#34;, &#34;condensed&#34;), full_width = F)
-```
-----&gt;
-
-&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://guides.library.ucla.edu/c.php?g=223540&amp;amp;p=1480858tag&#34; target=&#34;_blank&#34;&gt;https://guides.library.ucla.edu/c.php?g=223540&amp;amp;p=1480858tag&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blogs.nature.com/naturejobs/2017/11/06/using-design-principles-to-inform-scientific-posters/&#34; target=&#34;_blank&#34;&gt;http://blogs.nature.com/naturejobs/2017/11/06/using-design-principles-to-inform-scientific-posters/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-
-&lt;hr /&gt;
-
-&lt;ol&gt;
-&lt;li id=&#34;fn:If-you-know-Mark&#34;&gt;If you know Markdown or LaTex, you know what I mean. &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:If-you-know-Mark&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:However-a-straig&#34;&gt;However, a straight forward solution is, to turn the design by 90 degrees. &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:However-a-straig&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:Make-sure-you-kn&#34;&gt;Make sure you know how much time the printing service needs to print your poster. &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:Make-sure-you-kn&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:Black-or-gray-ba&#34;&gt;Black or gray background and white text colour might work though. &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:Black-or-gray-ba&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
     
     <item>
       <title>Integrative Statistical Analysis of -omics and GWAS data</title>
-      <link>/project/phd-thesis/</link>
+      <link>https://sinarueeger.github.io/project/phd-thesis/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>/project/phd-thesis/</guid>
+      <guid>https://sinarueeger.github.io/project/phd-thesis/</guid>
       <description>
 
 &lt;p&gt;I finished my PhD under the main supervision of &lt;a href=&#34;https://wp.unil.ch/sgg/&#34;&gt;Zolt&amp;#225;n Kutalik&lt;/a&gt; in September 2018.&lt;/p&gt;
@@ -457,39 +42,39 @@ A further finding is, that summary statistic imputation can compete with imputat
     
     <item>
       <title>R-package GWAS.utils</title>
-      <link>/project/gwas.utils/</link>
+      <link>https://sinarueeger.github.io/project/gwas.utils/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>/project/gwas.utils/</guid>
+      <guid>https://sinarueeger.github.io/project/gwas.utils/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R-package ggGWAS</title>
-      <link>/project/gggwas/</link>
+      <link>https://sinarueeger.github.io/project/gggwas/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>/project/gggwas/</guid>
+      <guid>https://sinarueeger.github.io/project/gggwas/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Statistical Genetics Resources</title>
-      <link>/project/stat-genetics-ressources/</link>
+      <link>https://sinarueeger.github.io/project/stat-genetics-ressources/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
       
-      <guid>/project/stat-genetics-ressources/</guid>
+      <guid>https://sinarueeger.github.io/project/stat-genetics-ressources/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LD Part 1</title>
-      <link>/post/get-ld-remotely/</link>
+      <link>https://sinarueeger.github.io/post/get-ld-remotely/</link>
       <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/get-ld-remotely/</guid>
+      <guid>https://sinarueeger.github.io/post/get-ld-remotely/</guid>
       <description>
-&lt;link href=&#34;/rmarkdown-libs/font-awesome/css/fontawesome-all.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/font-awesome/css/fontawesome-all.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
@@ -702,7 +287,7 @@ head(LDproxy)&lt;/code&gt;&lt;/pre&gt;
     type = &amp;quot;div&amp;quot;, palette = &amp;quot;Spectral&amp;quot;,
     limits = c(0, 1)
   )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-08-09-put-the-color-into-the-points_files/figure-html/plot-summarystats-ldlink-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/post/2018-08-09-put-the-color-into-the-points_files/figure-html/plot-summarystats-ldlink-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;ldmatrix&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;LDmatrix&lt;/h3&gt;
@@ -768,7 +353,7 @@ LDmatrix_long &amp;lt;- LDmatrix %&amp;gt;%
     type = &amp;quot;div&amp;quot;, palette = &amp;quot;Spectral&amp;quot;,
     limits = c(0, 1)
   )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-08-09-put-the-color-into-the-points_files/figure-html/plot-summarystats-ldlink-matrix-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/post/2018-08-09-put-the-color-into-the-points_files/figure-html/plot-summarystats-ldlink-matrix-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;!---------- -------------------------------&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -808,7 +393,7 @@ head(fromJSON(toJSON(content(r))))&lt;/code&gt;&lt;/pre&gt;
 ## 5 Utah residents with Northern and Western European ancestry   99
 ## 6                               Han Chinese in Bejing, China  103&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;code&gt;name&lt;/code&gt; stands for the population identifier. &lt;code&gt;size&lt;/code&gt; refers to the number of individuals in the reference panel. Note that these are all populations with around 100 individuals (the correlation estimation will have an error that scales with the sample size). There are also the five super population available (although not listed here), simply replace the last three characters in &lt;code&gt;name&lt;/code&gt; by &lt;code&gt;EUR&lt;/code&gt;, &lt;code&gt;AFR&lt;/code&gt;, &lt;code&gt;AMR&lt;/code&gt;, &lt;code&gt;EAS&lt;/code&gt;, &lt;code&gt;SAS&lt;/code&gt;.&lt;/p&gt;
-&lt;iframe seamless src=&#34;/post/2018-08-09-put-the-color-into-the-points/map-1000genomes-populations.html&#34; width=&#34;100%&#34; height=&#34;500&#34;&gt;
+&lt;iframe seamless src=&#34;https://sinarueeger.github.io/post/2018-08-09-put-the-color-into-the-points/map-1000genomes-populations.html&#34; width=&#34;100%&#34; height=&#34;500&#34;&gt;
 &lt;/iframe&gt;
 &lt;p&gt;&lt;sup&gt;(From &lt;a href=&#34;../1kgmap.html&#34;&gt;this&lt;/a&gt; blog post.)&lt;/sup&gt;&lt;/p&gt;
 &lt;p&gt;We want the LD information, so that we can add this info to the locuszoom plot. But how do we know which population to pick? One way is to read up what kind of individuals were present. In our case - mostly Europeans (&lt;code&gt;EUR&lt;/code&gt;). But we could also build some pooled LD matrix of different populations.&lt;/p&gt;
@@ -928,7 +513,7 @@ LD.matrix.snps&lt;/code&gt;&lt;/pre&gt;
   ) +
   scale_color_distiller(&amp;quot;R2 (ensembl)&amp;quot;, type = &amp;quot;div&amp;quot;, palette = &amp;quot;Spectral&amp;quot;, limits = c(0, 1))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Warning: Removed 205 rows containing missing values (geom_point).&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-08-09-put-the-color-into-the-points_files/figure-html/plot-summarystats-ld-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sinarueeger.github.io/post/2018-08-09-put-the-color-into-the-points_files/figure-html/plot-summarystats-ld-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;!-- REST API: https://rviews.rstudio.com/2018/07/23/rest-apis-and-plumber/ -----&gt;
 &lt;!---------- -------------------------------&gt;
 &lt;/div&gt;
@@ -1025,10 +610,10 @@ LD.matrix.snps&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Slides</title>
-      <link>/slides/example/</link>
+      <link>https://sinarueeger.github.io/slides/example/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/slides/example/</guid>
+      <guid>https://sinarueeger.github.io/slides/example/</guid>
       <description>
 
 &lt;h1 id=&#34;welcome-to-slides&#34;&gt;Welcome to Slides&lt;/h1&gt;
@@ -1207,10 +792,10 @@ $$&lt;/p&gt;
     
     <item>
       <title>Introduction to Drake</title>
-      <link>/talk/r-ladies/</link>
+      <link>https://sinarueeger.github.io/talk/r-ladies/</link>
       <pubDate>Mon, 10 Dec 2018 19:00:00 +0100</pubDate>
       
-      <guid>/talk/r-ladies/</guid>
+      <guid>https://sinarueeger.github.io/talk/r-ladies/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
@@ -1221,23 +806,23 @@ $$&lt;/p&gt;
     
     <item>
       <title>Create a map of the 1000 Genomes project reference populations</title>
-      <link>/post/1kgmap/</link>
+      <link>https://sinarueeger.github.io/post/1kgmap/</link>
       <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/1kgmap/</guid>
+      <guid>https://sinarueeger.github.io/post/1kgmap/</guid>
       <description>
-&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/leaflet/leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/leafletfix/leafletfix.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/leaflet-binding/leaflet.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/leaflet-awesomemarkers/leaflet.awesome-markers.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/leaflet-awesomemarkers/leaflet.awesome-markers.min.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/fontawesome/font-awesome.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/leaflet/leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/leafletfix/leafletfix.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/leaflet-binding/leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/leaflet-awesomemarkers/leaflet.awesome-markers.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/leaflet-awesomemarkers/leaflet.awesome-markers.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/fontawesome/font-awesome.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
 
 &lt;div id=&#34;TOC&#34;&gt;
 &lt;ul&gt;
@@ -1256,7 +841,7 @@ $$&lt;/p&gt;
 &lt;h2&gt;Goal&lt;/h2&gt;
 &lt;p&gt;Create a map similar to the one&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; on the front page of &lt;a href=&#34;http://www.internationalgenome.org/&#34; class=&#34;uri&#34;&gt;http://www.internationalgenome.org/&lt;/a&gt; in a reproducible manner.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/post/2018-12-05-1000genomes-map/1000genomes-map.png&#34; alt=&#34;Version on internationalgenome.org&#34; /&gt;
+&lt;img src=&#34;https://sinarueeger.github.io/post/2018-12-05-1000genomes-map/1000genomes-map.png&#34; alt=&#34;Version on internationalgenome.org&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;&lt;em&gt;Version on internationalgenome.org&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1284,7 +869,7 @@ library(ggmap) ## for geocode, devtools::install_github(&amp;quot;dkahle/ggmap&a
 &lt;h2&gt;Data&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;The population counts and labels are from ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/ (&lt;a href=&#34;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/20130606_sample_info.xlsx&#34;&gt;download xlsx file&lt;/a&gt;).&lt;/li&gt;
-&lt;li&gt;The super population labels are from &lt;a href=&#34;http://www.internationalgenome.org/faq/which-populations-are-part-your-study/&#34;&gt;here&lt;/a&gt; (pasted into a &lt;a href=&#34;/post/2018-12-05-1000genomes-map/sample_info_superpop.csv&#34;&gt;csv&lt;/a&gt;, then the location was inferred).&lt;/li&gt;
+&lt;li&gt;The super population labels are from &lt;a href=&#34;http://www.internationalgenome.org/faq/which-populations-are-part-your-study/&#34;&gt;here&lt;/a&gt; (pasted into a &lt;a href=&#34;https://sinarueeger.github.io/post/2018-12-05-1000genomes-map/sample_info_superpop.csv&#34;&gt;csv&lt;/a&gt;, then the location was inferred).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Download the population counts and labels first:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;url &amp;lt;-
@@ -1432,14 +1017,220 @@ htmlwidgets::saveWidget(m, file=&amp;quot;map-1000genomes-populations.html&amp;q
     
     <item>
       <title>Workflow &amp; best practices for projects</title>
-      <link>/talk/r-lunchs/</link>
+      <link>https://sinarueeger.github.io/talk/r-lunchs/</link>
       <pubDate>Tue, 04 Dec 2018 12:00:00 +0100</pubDate>
       
-      <guid>/talk/r-lunchs/</guid>
+      <guid>https://sinarueeger.github.io/talk/r-lunchs/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
   &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tidying workflows in R</title>
+      <link>https://sinarueeger.github.io/post/drake/</link>
+      <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://sinarueeger.github.io/post/drake/</guid>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#what-is-a-project-folder&#34;&gt;What is a “project folder”?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#why-now&#34;&gt;Why now?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#why-we-tidy-up-authority-and-incentive&#34;&gt;Why we tidy up: authority and incentive&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#challenges&#34;&gt;Challenges&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#what-i-want&#34;&gt;What I want&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#the-options&#34;&gt;The options&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#drake&#34;&gt;Drake&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#getting-started&#34;&gt;Getting started&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#more&#34;&gt;More&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#examples&#34;&gt;Examples&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#resources&#34;&gt;Resources&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#but-wait-drake-does-not-care-about-messy-folders&#34;&gt;But wait: drake does not care about messy folders&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#what-is-next&#34;&gt;What is next?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#when-is-the-right-time-to-tidy&#34;&gt;When is the right time to tidy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#is-it-worth-it&#34;&gt;Is it worth it?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Recently, I started to seriously&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; think about the tidiness of data analysis project folders and the implications of tidying up.&lt;/p&gt;
+&lt;p&gt;I was lucky enough to talk about what I have figured out so far at the &lt;a href=&#34;https://www.meetup.com/Geneve-R-User-Group/&#34;&gt;Genève R User Group&lt;/a&gt;. While I am not done yet with reflecting on this&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;, I wanted to write down my thoughts that lead to &lt;a href=&#34;https://sinarueeger.github.io/20181004-geneve-rug/slides#1&#34;&gt;my presentation&lt;/a&gt;&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;. So what follows is just “thinking out loud”.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Update: In February 2019, &lt;a href=&#34;https://github.com/aedobbyn&#34;&gt;Amanda Dobbyn&lt;/a&gt; gave a talk at R-Ladies NYC about drake. All material &lt;a href=&#34;https://dobb.ae/2019/02/12/drakes-plan/&#34;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;video width=&#34;70%&#34; controls&gt;
+&lt;source src=&#34;https://sinarueeger.github.io/post/2018-10-08-workflow-mgmt-in-r/trailer.mp4&#34;&gt;
+Trailer. Your browser does not support the video tag.
+&lt;/video&gt;
+&lt;figcaption&gt;
+&lt;small&gt;Presentation trailer made with &lt;a href=&#34;https://masalmon.eu/2018/10/07/trailer/&#34;&gt;Maëlle Salmon’s instructions&lt;/a&gt;.
+&lt;/small&gt;
+&lt;/figcaption&gt;
+&lt;div id=&#34;what-is-a-project-folder&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What is a “project folder”?&lt;/h2&gt;
+&lt;p&gt;To me, a project folder is anything that contains the (R-)scripts necessary to run a data analysis and create the corresponding report. It is like a framed piece of work that you can take and place somewhere else. And probably it will take the form of the Figure from the &lt;a href=&#34;http://r4ds.had.co.nz/explore-intro.html&#34;&gt;R4DS&lt;/a&gt; book below:&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&#34;https://sinarueeger.github.io/post/2018-10-08-workflow-mgmt-in-r/workflow.png&#34; alt=&#34;Drawing of a table.&#34; align=&#34;middle&#34; style=&#34;width: 600px;&#34;/&gt;
+&lt;figcaption&gt;
+&lt;small&gt;Adapted from Figure in &lt;a href=&#34;http://r4ds.had.co.nz/explore-intro.html&#34;&gt;R4DS book&lt;/a&gt;.
+&lt;/small&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;Ideally, you should be able to take that folder as it is, run it on another computer and get the same results. Unfortunately, this is not always the case - at least with my project folders.&lt;/p&gt;
+&lt;p&gt;I think that the tidiness of a project folder, how it is structured and how it tells the user to execute what and when, correlate strongly with the whole repeatability, replicability and reproducibility aspect.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;why-now&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Why now?&lt;/h2&gt;
+&lt;p&gt;The reason I started to dig deeper into workflow management possibilities in R, is, that I was changing jobs, and I had to clean up my old project folders from almost five years of analysing genetic data 😱. And so I faced &lt;del&gt;this gigantic mess&lt;/del&gt; a bit of a mess, spread over several servers and computers, some version controlled, others not, with implemented “best practices” from different waves of trying to improve. I tried to clean up as good as I could, but I told myself that this would not happen again. At my &lt;a href=&#34;https://fellay-lab.epfl.ch/&#34;&gt;new job&lt;/a&gt;, I would use version control for everything, and I would use something make-like (e.g. &lt;a href=&#34;https://github.com/richfitz/remake&#34;&gt;remake&lt;/a&gt;) to indicate the “recipe” of a project and be in control of what is recomputed and what is not&lt;a href=&#34;#fn4&#34; class=&#34;footnote-ref&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;why-we-tidy-up-authority-and-incentive&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Why we tidy up: authority and incentive&lt;/h2&gt;
+&lt;p&gt;I have a long-time interest in tidiness in general, and from studying my behaviour I came up with the theory that tidiness is only present when a) somebody tells you to do it, or b) you are rewarded for it.&lt;/p&gt;
+&lt;p&gt;Here are some examples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you want to compile an R-package you have little to no freedom in how to name folders. You must have a given folder and file structure. Otherwise, it won’t compile. This dictated and unified folder structure makes it easy for R users to understand what is where in an R-package. No matter who coded it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure&gt;
+&lt;img src=&#34;https://sinarueeger.github.io/post/2018-10-08-workflow-mgmt-in-r/package-files.png&#34; alt=&#34;Drawing of a table.&#34; align=&#34;middle&#34; style=&#34;width: 300px;&#34;/&gt;
+&lt;figcaption&gt;
+&lt;small&gt;R package structure. Figure from &lt;a href=&#34;http://r-pkgs.had.co.nz/package.html.&#34;&gt;http://r-pkgs.had.co.nz/package.html&lt;/a&gt;.
+&lt;/small&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;If you work on several different projects at the same time, it is beneficial to have structure, so that you can quickly dive back into a project.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Following good practices also leaves you more time to do the fun stuff, like modelling and creating data visualisation.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;challenges&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Challenges&lt;/h2&gt;
+&lt;p&gt;I started by wondering why maintaining a tidy and coherent folder structure was so difficult for me to maintain. So I came up with a list (which is undoubtedly going to change over time):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Having &lt;strong&gt;different places&lt;/strong&gt; for computation (Laptop, Server1, Server2, …).&lt;/li&gt;
+&lt;li&gt;Not using &lt;strong&gt;&lt;code&gt;git&lt;/code&gt;&lt;/strong&gt; consistently.&lt;/li&gt;
+&lt;li&gt;Unclear separation of the folders &lt;strong&gt;&lt;code&gt;data&lt;/code&gt;&lt;/strong&gt; (raw input data), &lt;code&gt;processed-data&lt;/code&gt; and &lt;code&gt;output-data&lt;/code&gt; (results).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data deliveries&lt;/strong&gt;: data hardly ever arrives in one tidy folder, but instead comes at different time points and so poses other challenges.&lt;/li&gt;
+&lt;li&gt;Having many different &lt;strong&gt;best practices&lt;/strong&gt; implemented: so each project would have its own set of folder names and file naming convention, leading to little &lt;strong&gt;overview of the analysis and its iteration steps&lt;/strong&gt; → cleaning, modelling, visualisation, reports.&lt;/li&gt;
+&lt;li&gt;Using similar code in many different R scripts → &lt;strong&gt;redundant&lt;/strong&gt; code.&lt;/li&gt;
+&lt;li&gt;Having no punishment for not cleaning up (and also not seeing the benefit).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;what-i-want&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What I want&lt;/h2&gt;
+&lt;p&gt;Then I asked myself what I want to achieve with implementing (and sticking to) something new.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Making it easy for colleagues at work to &lt;strong&gt;rerun&lt;/strong&gt; (and &lt;strong&gt;understand&lt;/strong&gt;) the project → &lt;em&gt;“repeatability”&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Making it easy for others to &lt;strong&gt;rerun&lt;/strong&gt; and to &lt;strong&gt;understand&lt;/strong&gt; the project → &lt;a href=&#34;https://simplystatistics.org/2017/03/02/rr-glossy/&#34;&gt;&lt;em&gt;“reproducibility”&lt;/em&gt;&lt;/a&gt;&lt;a href=&#34;#fn5&#34; class=&#34;footnote-ref&#34; id=&#34;fnref5&#34;&gt;&lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Making it easy for others to rerun the code &lt;strong&gt;with different data&lt;/strong&gt; → &lt;a href=&#34;https://simplystatistics.org/2017/03/02/rr-glossy/&#34;&gt;&lt;em&gt;“replicability”&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Next, I looked for solutions. First, I would need to use coherent folder names. Second, I would need to have a file that indicates the recipe of an analysis. Third, I would implement most free floating and redundant code into functions. Fourth, I would minimise unnecessary computation by caching results. Fifth, I would start using unit tests&lt;a href=&#34;#fn6&#34; class=&#34;footnote-ref&#34; id=&#34;fnref6&#34;&gt;&lt;sup&gt;6&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-options&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The options&lt;/h2&gt;
+&lt;p&gt;There are many different ready-to-use software packages out there. I was thinking of going back to using &lt;code&gt;make&lt;/code&gt;, that I used years ago. Then I came across &lt;a href=&#34;https://github.com/richfitz/remake&#34;&gt;{remake}&lt;/a&gt;, which seemed just what I needed. A colleague at work was using &lt;code&gt;stu&lt;/code&gt; and was recommending it. But then the Swiss Institute of Bioinformatics offered a course on &lt;em&gt;Make-like declarative workflows with R&lt;/em&gt; taught by &lt;a href=&#34;https://github.com/krlmlr&#34;&gt;Kirill Müller&lt;/a&gt;, which I could not attend. Luckily, thanks to the excellent &lt;a href=&#34;https://github.com/krlmlr/drake-sib-zurich&#34;&gt;online course material&lt;/a&gt;, I could learn it by myself.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;drake&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Drake&lt;/h2&gt;
+&lt;p&gt;The presentation &lt;em&gt;Make-like declarative workflows with R&lt;/em&gt; presented the R-package &lt;a href=&#34;https://github.com/ropensci/drake&#34;&gt;{drake}&lt;/a&gt; (drake = Data Frames in R for Make&lt;a href=&#34;#fn7&#34; class=&#34;footnote-ref&#34; id=&#34;fnref7&#34;&gt;&lt;sup&gt;7&lt;/sup&gt;&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;{Drake} was created by &lt;a href=&#34;https://twitter.com/wmlandau&#34;&gt;Will Landau&lt;/a&gt; and reviewed by &lt;a href=&#34;https://ropensci.org/&#34;&gt;rOpenSci&lt;/a&gt;. On the github page it says that {drake} is a “general-purpose workflow manager for data-driven tasks”. Sounds perfect!&lt;/p&gt;
+&lt;p&gt;The way I understand it is, that it is based on &lt;code&gt;make&lt;/code&gt; (and overlaps with the R-package {remake}). Therefore when making a change to an analysis and re-running it, it only re-compute the dependent parts. But compared to &lt;code&gt;make&lt;/code&gt;, {drake} is much more convenient to use. Plus it is scalable to parallel computing. And it is intuitive to use, meaning, colleagues can learn it quickly.&lt;/p&gt;
+&lt;div id=&#34;getting-started&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Getting started&lt;/h3&gt;
+&lt;p&gt;Best is, to run the mini example provided in the package, and then go from there. Drake has many other examples provided; you can check them by running &lt;code&gt;drake::drake_examples()&lt;/code&gt;.&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;code&gt;install.packages(&#34;drake&#34;)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;drake::drake_example(&#34;main&#34;)&lt;/code&gt; → this will download a folder called &lt;code&gt;main&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Go to the terminal. You can look at all the files contained in &lt;code&gt;main&lt;/code&gt; by writing &lt;code&gt;tree main&lt;/code&gt; (this works on MacOS)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;main/
+├── COPYRIGHT.md
+├── LICENSE.md
+├── README.md
+├── clean.R
+├── make.R
+├── raw_data.xlsx
+└── report.Rmd&lt;/code&gt;&lt;/pre&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Next, open &lt;code&gt;make.R&lt;/code&gt;. The key functions are &lt;code&gt;drake_plan()&lt;/code&gt; and &lt;code&gt;make()&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Add the following bit before and after &lt;code&gt;make(plan)&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;config &amp;lt;- drake_config(plan) 
+vis_drake_graph(config) &lt;/code&gt;&lt;/pre&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Run all code for a first time.&lt;/li&gt;
+&lt;li&gt;Change something (e.g. the plot function).&lt;/li&gt;
+&lt;li&gt;Rerun and watch the colours change in &lt;code&gt;vis_drake_graph(config)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Use functions &lt;code&gt;readd()&lt;/code&gt; and &lt;code&gt;loadd()&lt;/code&gt; to work with the produced output.&lt;/li&gt;
+&lt;li&gt;checkout &lt;code&gt;.drake/&lt;/code&gt; folder. This is where all the cached work is stored.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;By running this example, you will see that &lt;code&gt;drake_plan()&lt;/code&gt; is used to create a recipe of the analysis and &lt;code&gt;make()&lt;/code&gt; is used to execute that recipe. &lt;code&gt;make()&lt;/code&gt; will create objects, such as &lt;code&gt;fit&lt;/code&gt; and &lt;code&gt;hist&lt;/code&gt; in the example and store them in the folder &lt;code&gt;.drake/&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;readd()&lt;/code&gt; is used to return an object from cache. This is handy when we only want to display an object. &lt;code&gt;loadd()&lt;/code&gt; on the other hand is used to load an object into our session (similarly to &lt;code&gt;load&lt;/code&gt;).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;more&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;More&lt;/h3&gt;
+&lt;p&gt;To further checkout options I recommend
+- The &lt;a href=&#34;https://github.com/cstawitz/RLadies_Sea_drake&#34;&gt;slides&lt;/a&gt; from &lt;a href=&#34;https://github.com/cstawitz&#34;&gt;Christine Stawitz&lt;/a&gt; (presented at R-Ladies Seattle in June 2018).
+- The &lt;a href=&#34;https://dobb.ae/2019/02/12/drakes-plan/&#34;&gt;material&lt;/a&gt; by &lt;a href=&#34;https://github.com/aedobbyn&#34;&gt;Amanda Dobbyn&lt;/a&gt; (presented at R-Ladies NYC in February 2019). (&lt;em&gt;Update&lt;/em&gt;)&lt;/p&gt;
+&lt;p&gt;Both presentations provide a good overview of the options {drake} provides.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;examples&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Examples&lt;/h3&gt;
+&lt;p&gt;I also created &lt;a href=&#34;https://github.com/sinarueeger/workflow-example&#34;&gt;some tiny examples&lt;/a&gt; that use genetic data. It has four folders:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;code&gt;wild-west&lt;/code&gt;: this is how I was structuring folders till now (this example was used to introduce the analysis during the presentation).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wild-west-pro&lt;/code&gt;: same as 1. but with an &lt;code&gt;README.md&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;drake&lt;/code&gt;: implementing 1. into drake.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;drake-adv&lt;/code&gt;: implementing 1. into a more realistic, hierarchical folder structure.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The examples use genetic data that was originally used in the &lt;a href=&#34;https://www.crowdai.org/challenges/opensnp-height-prediction&#34;&gt;crowdAI openSNP height prediction&lt;/a&gt; challenge. The full openSNP data set was prepared by my colleague &lt;a href=&#34;https://github.com/onaret&#34;&gt;Olivier Naret&lt;/a&gt; and can be downloaded &lt;a href=&#34;https://zenodo.org/record/1442755#.W8BGbVJ9jOQ&#34;&gt;here&lt;/a&gt;. The examples use a small subset of the entire dataset that can be downloaded &lt;a href=&#34;https://github.com/sinarueeger/create-data-workflow-example&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;resources&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Resources&lt;/h3&gt;
+&lt;p&gt;Here are a bunch of resources that helped me understand {drake}:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ropensci/drake&#34;&gt;Github Repo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/krlmlr/drake-sib-zurich&#34;&gt;This tutorial&lt;/a&gt; and &lt;a href=&#34;https://github.com/krlmlr/drake-sib-zurich/blob/master/cheat-sheet.pdf&#34;&gt;cheatsheet&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/krlmlr&#34;&gt;Kirill Müller&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Overview of options: &lt;a href=&#34;https://github.com/cstawitz/RLadies_Sea_drake&#34;&gt;Make-like declarative workflows with R&lt;/a&gt; by &lt;a href=&#34;https://github.com/cstawitz&#34;&gt;Christine Stawitz&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ropensci.github.io/drake/articles/best-practices.html&#34;&gt;Best practices&lt;/a&gt; for drake projects.&lt;/li&gt;
+&lt;li&gt;Lots of &lt;a href=&#34;https://github.com/ropensci/drake#tutorials&#34;&gt;tutorials&lt;/a&gt; and &lt;a href=&#34;https://github.com/ropensci/drake#examples&#34;&gt;examples&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;but-wait-drake-does-not-care-about-messy-folders&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;But wait: drake does not care about messy folders&lt;/h2&gt;
+&lt;p&gt;True! I can have a &lt;code&gt;make.R&lt;/code&gt; file anywhere and it will still work.
+But I believe that the shift in logic that you have to get used to with {drake} makes you care more about folder structure.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;what-is-next&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What is next?&lt;/h2&gt;
+&lt;p&gt;I am currently reading the PlosCompBio paper &lt;a href=&#34;https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510&#34;&gt;Good enough practices in scientific computing&lt;/a&gt; - a great read, giving me lots of ideas!&lt;/p&gt;
+&lt;p&gt;I want to use {drake} in a more complex setting. There are also other R-packages that help with project workflows. And I should invest some time to come up with a test suite for data analysis projects.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;when-is-the-right-time-to-tidy&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;When is the right time to tidy&lt;/h2&gt;
+&lt;p&gt;At the Genève RUG meetup, we were also discussing when we think is the right time to tidy up.&lt;/p&gt;
+&lt;p&gt;Project folders evolve. Especially at the beginning of a project, we are busy figuring things out, wrangling data, fitting models, making plots and telling people what we found out. This can take some time. But at one point we are ready to write a report.&lt;/p&gt;
+&lt;p&gt;It is probably at that stage (when we write a report) that we can “frame” that project into something that is “stable” and “portable”.&lt;/p&gt;
+&lt;p&gt;Although - I am not sure we have to wait that long. I think the benefits of {drake} (e.g. caching) already help us at an earlier stage.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;is-it-worth-it&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Is it worth it?&lt;/h2&gt;
+&lt;p&gt;I think there is a trade-off between dedicating days to tidying up and not caring about structure at all. Same with tooling. For example, if we use a tool, say &lt;code&gt;make&lt;/code&gt;, but no one else but us knows how to use it, it is going to be hard for colleagues to understand and use project folders that use &lt;code&gt;make&lt;/code&gt;. We have to keep that balance in mind.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;Seriously, meaning, different from previous, half-hearted attempts.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;Just started reading &lt;a href=&#34;https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510&#34;&gt;Good enough practices in scientific computing&lt;/a&gt; - great paper!&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;Thanks to Maëlle for pointing out that this is a good thing to do!&lt;a href=&#34;#fnref3&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn4&#34;&gt;&lt;p&gt;And while at it, I would totally decrease my coffee consumption too and never procrastinate again 😉.&lt;a href=&#34;#fnref4&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn5&#34;&gt;&lt;p&gt;The terminology is really confusing at times. I rely on &lt;a href=&#34;https://twitter.com/jtleek/status/759822823552606208&#34;&gt;this&lt;/a&gt; definition. &lt;a href=&#34;#fnref5&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn6&#34;&gt;&lt;p&gt;Thanks to my colleague for the idea!&lt;a href=&#34;#fnref6&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn7&#34;&gt;&lt;p&gt;I am still wondering how “Data Frames in R for Make” adds up to “drake” 🤔.&lt;a href=&#34;#fnref7&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;
 </description>
     </item>
