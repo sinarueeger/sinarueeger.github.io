@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sina Rüeger</title>
+    <title>Tags on Sina Rüeger</title>
     <link>https://sinarueeger.github.io/tags/</link>
-    <description>Recent content on Sina Rüeger</description>
+    <description>Recent content in Tags on Sina Rüeger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
@@ -13,25 +13,30 @@
     
     
     <item>
-      <title>Evaluation and application of summary statistic imputation to discover new height-associated loci</title>
-      <link>https://sinarueeger.github.io/publication/plosgen-2018-ssimp-application/</link>
-      <pubDate>Sat, 01 Sep 2018 00:00:00 +0200</pubDate>
+      <title></title>
+      <link>https://sinarueeger.github.io/tags/</link>
+      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://sinarueeger.github.io/publication/plosgen-2018-ssimp-application/</guid>
+      <guid>https://sinarueeger.github.io/tags/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Improved imputation of summary statistics for admixed populations</title>
-      <link>https://sinarueeger.github.io/publication/biorxiv-2018-ssimp-method/</link>
-      <pubDate>Sat, 01 Sep 2018 00:00:00 +0200</pubDate>
+      <title>conference</title>
+      <link>https://sinarueeger.github.io/tags/conference/</link>
+      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://sinarueeger.github.io/publication/biorxiv-2018-ssimp-method/</guid>
+      <guid>https://sinarueeger.github.io/tags/conference/</guid>
       <description></description>
     </item>
     
-  </channel>
-</rss>   <description></description>
+    <item>
+      <title>science communication</title>
+      <link>https://sinarueeger.github.io/tags/science-communication/</link>
+      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sinarueeger.github.io/tags/science-communication/</guid>
+      <description></description>
     </item>
     
     <item>
