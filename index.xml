@@ -72,7 +72,7 @@
 
 &lt;p&gt;Second, the poster template still crams the details of the study into a small space, which is not ideal for readability.&lt;/p&gt;
 
-&lt;p&gt;Third, it talks about a horizontal poster, and this is often not possible at conferences, due to space constraints&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:However-a-straig&#34;&gt;&lt;a href=&#34;#fn:However-a-straig&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;Third, it talks about a horizontal&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Update-As-Peter&#34;&gt;&lt;a href=&#34;#fn:Update-As-Peter&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; poster, and this is often not possible at conferences, due to space constraints&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:However-a-straig&#34;&gt;&lt;a href=&#34;#fn:However-a-straig&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -83,7 +83,7 @@
 &lt;h3 id=&#34;get-ready&#34;&gt;Get ready&lt;/h3&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Start at least &lt;strong&gt;7 days&lt;/strong&gt; before the poster needs to go into print&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Make-sure-you-kn&#34;&gt;&lt;a href=&#34;#fn:Make-sure-you-kn&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Start at least &lt;strong&gt;7 days&lt;/strong&gt; before the poster needs to go into print&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Make-sure-you-kn&#34;&gt;&lt;a href=&#34;#fn:Make-sure-you-kn&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Think of the &lt;strong&gt;main message&lt;/strong&gt;: what is the one thing that you want the reader to remember? Write that message into a text file.&lt;/p&gt;&lt;/li&gt;
 
@@ -99,6 +99,8 @@
 &lt;li&gt;&lt;p&gt;Get the &lt;strong&gt;logos&lt;/strong&gt; of your university and affiliations and store them into the &lt;code&gt;img&lt;/code&gt; folder too. If you have the choice, go for PNGs, as they have &lt;a href=&#34;https://www.quora.com/What-is-the-difference-between-jpeg-and-png-files&#34; target=&#34;_blank&#34;&gt;transparent backgrounds&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Choose a &lt;strong&gt;tool&lt;/strong&gt; that is easy to operate and does the things you want. My choice is &lt;a href=&#34;https://www.apple.com/lae/keynote/&#34; target=&#34;_blank&#34;&gt;keynote&lt;/a&gt; because I cannot bother with Adobe Illustrator. More details &lt;a href=&#34;#tooling&#34;&gt;below&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Update:&lt;/em&gt; Read the &lt;strong&gt;conference instructions&lt;/strong&gt;, particularly on poster size and orientation (as recommended by &lt;a href=&#34;https://twitter.com/ibddoctor/status/1138743458418561024&#34; target=&#34;_blank&#34;&gt;Peter Higgins&lt;/a&gt;).&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Resize document&lt;/strong&gt; to the size recommended by the conference or A0 (&lt;a href=&#34;http://www.printernational.org/iso-paper-sizes.php&#34; target=&#34;_blank&#34;&gt;841 mm x 1189 mm or 2384 pt x 3370 pt&lt;/a&gt;). This way, even though the poster might be proportional to A4, you can use the real size fonts.&lt;/p&gt;&lt;/li&gt;
 
@@ -166,9 +168,9 @@
 &lt;h3 id=&#34;finalising&#34;&gt;Finalising&lt;/h3&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;See how it looks like on a &lt;strong&gt;printed A4 version&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;See how it looks like on a &lt;strong&gt;printed A4 version&lt;/strong&gt; (&lt;em&gt;update&lt;/em&gt;: or for less troublesome reading print it on A3, as mentioned by &lt;a href=&#34;https://twitter.com/Sakkaden/status/1138562946680860677&#34; target=&#34;_blank&#34;&gt;Michael MacAskill&lt;/a&gt;).&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Ask your colleagues&lt;/strong&gt; for their opinion by showing them the printed A4 version.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Ask your colleagues&lt;/strong&gt; for their opinion by showing them the printed version.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;You might want to let it sit for a day or two. Then look at it with fresh and rested eyes.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -358,7 +360,7 @@
 
 &lt;h3 id=&#34;colours-a-name-colourblind-a&#34;&gt;Colours&lt;a name=&#34;colourblind&#34;&gt;&lt;/a&gt;&lt;/h3&gt;
 
-&lt;p&gt;Colours are either used as decoration or to encode a variable. Do not use colour for your background&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Black-or-gray-ba&#34;&gt;&lt;a href=&#34;#fn:Black-or-gray-ba&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;Colours are either used as decoration or to encode a variable. Do not use colour for your background&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:Black-or-gray-ba&#34;&gt;&lt;a href=&#34;#fn:Black-or-gray-ba&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Always&lt;/strong&gt; use &lt;a href=&#34;http://blogs.nature.com/nautilus/2007/02/post_4.html&#34; target=&#34;_blank&#34;&gt;colour-blind friendly colours&lt;/a&gt;.&lt;/p&gt;
 
@@ -414,6 +416,7 @@ done
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://guides.library.ucla.edu/c.php?g=223540&amp;amp;p=1480858tag&#34; target=&#34;_blank&#34;&gt;https://guides.library.ucla.edu/c.php?g=223540&amp;amp;p=1480858tag&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://blogs.nature.com/naturejobs/2017/11/06/using-design-principles-to-inform-scientific-posters/&#34; target=&#34;_blank&#34;&gt;http://blogs.nature.com/naturejobs/2017/11/06/using-design-principles-to-inform-scientific-posters/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Update:&lt;/em&gt; &lt;a href=&#34;https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0030102&#34; target=&#34;_blank&#34;&gt;Ten Simple Rules for a Good Poster Presentation (Plos CompBio)&lt;/a&gt; (mentioned by &lt;a href=&#34;https://twitter.com/FedeBioinfo&#34; target=&#34;_blank&#34;&gt;Federico Marini&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;full-disclosure&#34;&gt;Full disclosure&lt;/h2&gt;
@@ -439,6 +442,7 @@ done
 
 &lt;ol&gt;
 &lt;li id=&#34;fn:If-you-know-Mark&#34;&gt;If you know Markdown or LaTex, you know what I mean. &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:If-you-know-Mark&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:Update-As-Peter&#34;&gt;&lt;em&gt;Update:&lt;/em&gt; As &lt;a href=&#34;https://twitter.com/ibddoctor/status/1138743458418561024&#34; target=&#34;_blank&#34;&gt;Peter Higgins&lt;/a&gt; pointed out, horizontal is common in the US, vertical is common in Europe. &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:Update-As-Peter&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li id=&#34;fn:However-a-straig&#34;&gt;However, a straight forward solution is, to turn the design by 90 degrees. &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:However-a-straig&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li id=&#34;fn:Make-sure-you-kn&#34;&gt;Make sure you know how much time the printing service needs to print your poster. &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:Make-sure-you-kn&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;li id=&#34;fn:Black-or-gray-ba&#34;&gt;Black or gray background and white text colour might work though. &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:Black-or-gray-ba&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
