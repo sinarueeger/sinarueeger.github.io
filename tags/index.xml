@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Sina Rüeger</title>
+    <title>Sina Rüeger</title>
     <link>https://sinarueeger.github.io/tags/</link>
-    <description>Recent content in Tags on Sina Rüeger</description>
+    <description>Recent content on Sina Rüeger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
@@ -13,92 +13,20 @@
     
     
     <item>
-      <title></title>
-      <link>https://sinarueeger.github.io/tags/</link>
-      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
+      <title>Evaluation and application of summary statistic imputation to discover new height-associated loci</title>
+      <link>https://sinarueeger.github.io/publication/plosgen-2018-ssimp-application/</link>
+      <pubDate>Sat, 01 Sep 2018 00:00:00 +0200</pubDate>
       
-      <guid>https://sinarueeger.github.io/tags/</guid>
+      <guid>https://sinarueeger.github.io/publication/plosgen-2018-ssimp-application/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>conference</title>
-      <link>https://sinarueeger.github.io/tags/conference/</link>
-      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
+      <title>Improved imputation of summary statistics for admixed populations</title>
+      <link>https://sinarueeger.github.io/publication/biorxiv-2018-ssimp-method/</link>
+      <pubDate>Sat, 01 Sep 2018 00:00:00 +0200</pubDate>
       
-      <guid>https://sinarueeger.github.io/tags/conference/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>science communication</title>
-      <link>https://sinarueeger.github.io/tags/science-communication/</link>
-      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://sinarueeger.github.io/tags/science-communication/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://sinarueeger.github.io/tags/r/</link>
-      <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
-      
-      <guid>https://sinarueeger.github.io/tags/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>data visualisation</title>
-      <link>https://sinarueeger.github.io/tags/data-visualisation/</link>
-      <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
-      
-      <guid>https://sinarueeger.github.io/tags/data-visualisation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>statistical genetics</title>
-      <link>https://sinarueeger.github.io/tags/statistical-genetics/</link>
-      <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
-      
-      <guid>https://sinarueeger.github.io/tags/statistical-genetics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R-Ladies</title>
-      <link>https://sinarueeger.github.io/tags/r-ladies/</link>
-      <pubDate>Mon, 10 Dec 2018 19:00:00 +0100</pubDate>
-      
-      <guid>https://sinarueeger.github.io/tags/r-ladies/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>workflow</title>
-      <link>https://sinarueeger.github.io/tags/workflow/</link>
-      <pubDate>Mon, 10 Dec 2018 19:00:00 +0100</pubDate>
-      
-      <guid>https://sinarueeger.github.io/tags/workflow/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>maps</title>
-      <link>https://sinarueeger.github.io/tags/maps/</link>
-      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://sinarueeger.github.io/tags/maps/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>best practices</title>
-      <link>https://sinarueeger.github.io/tags/best-practices/</link>
-      <pubDate>Tue, 04 Dec 2018 12:00:00 +0100</pubDate>
-      
-      <guid>https://sinarueeger.github.io/tags/best-practices/</guid>
+      <guid>https://sinarueeger.github.io/publication/biorxiv-2018-ssimp-method/</guid>
       <description></description>
     </item>
     
