@@ -368,7 +368,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    13 min read
+    14 min read
   </span>
   
 
@@ -757,20 +757,20 @@ r &lt;- GET(paste(server, ext, sep = &quot;&quot;), content_type(&quot;applicati
 stop_for_status(r)
 
 head(fromJSON(toJSON(content(r))))</code></pre>
-<pre><code>##                      name
-## 1 1000GENOMES:phase_3:ACB
-## 2 1000GENOMES:phase_3:ASW
-## 3 1000GENOMES:phase_3:BEB
-## 4 1000GENOMES:phase_3:CDX
-## 5 1000GENOMES:phase_3:CEU
-## 6 1000GENOMES:phase_3:CHB
-##                                                  description size
-## 1                              African Caribbean in Barbados   96
-## 2                           African Ancestry in Southwest US   61
-## 3                                      Bengali in Bangladesh   86
-## 4                        Chinese Dai in Xishuangbanna, China   93
-## 5 Utah residents with Northern and Western European ancestry   99
-## 6                               Han Chinese in Bejing, China  103</code></pre>
+<pre><code>##   size                    name
+## 1   96 1000GENOMES:phase_3:ACB
+## 2   61 1000GENOMES:phase_3:ASW
+## 3   86 1000GENOMES:phase_3:BEB
+## 4   93 1000GENOMES:phase_3:CDX
+## 5   99 1000GENOMES:phase_3:CEU
+## 6  103 1000GENOMES:phase_3:CHB
+##                                                  description
+## 1                              African Caribbean in Barbados
+## 2                           African Ancestry in Southwest US
+## 3                                      Bengali in Bangladesh
+## 4                        Chinese Dai in Xishuangbanna, China
+## 5 Utah residents with Northern and Western European ancestry
+## 6                               Han Chinese in Bejing, China</code></pre>
 <p><code>name</code> stands for the population identifier. <code>size</code> refers to the number of individuals in the reference panel. Note that these are all populations with around 100 individuals (the correlation estimation will have an error that scales with the sample size). There are also the five super population available (although not listed here), simply replace the last three characters in <code>name</code> by <code>EUR</code>, <code>AFR</code>, <code>AMR</code>, <code>EAS</code>, <code>SAS</code>.</p>
 <iframe seamless src="https://sinarueeger.github.io/post/2018-08-09-put-the-color-into-the-points/map-1000genomes-populations.html" width="100%" height="500">
 </iframe>
@@ -799,17 +799,19 @@ r &lt;- GET(paste(server, ext, sep = &quot;&quot;), content_type(&quot;applicati
 stop_for_status(r)
 LD.SNP.region &lt;- as_tibble(fromJSON(toJSON(content(r)))) %&gt;%
   unnest() %&gt;%
-  mutate(r2 = as.numeric(r2))
-head(LD.SNP.region)</code></pre>
+  mutate(r2 = as.numeric(r2))</code></pre>
+<pre><code>## Warning: `cols` is now required.
+## Please use `cols = c(r2, population_name, variation2, d_prime, variation1)`</code></pre>
+<pre class="r"><code>head(LD.SNP.region)</code></pre>
 <pre><code>## # A tibble: 6 x 5
-##   d_prime  variation1     r2 population_name         variation2 
-##   &lt;chr&gt;    &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;                   &lt;chr&gt;      
-## 1 0.541755 rs1421085  0.0514 1000GENOMES:phase_3:EUR rs1077128  
-## 2 0.639310 rs1421085  0.0679 1000GENOMES:phase_3:EUR rs141750185
-## 3 0.394345 rs1421085  0.0779 1000GENOMES:phase_3:EUR rs7206010  
-## 4 0.393204 rs1421085  0.0765 1000GENOMES:phase_3:EUR rs6499640  
-## 5 1.000000 rs1421085  0.953  1000GENOMES:phase_3:EUR rs9928094  
-## 6 0.999999 rs1421085  0.922  1000GENOMES:phase_3:EUR rs17817497</code></pre>
+##       r2 population_name         variation2 d_prime  variation1
+##    &lt;dbl&gt; &lt;chr&gt;                   &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;     
+## 1 0.410  1000GENOMES:phase_3:EUR rs4783819  0.999995 rs1421085 
+## 2 0.910  1000GENOMES:phase_3:EUR rs3751812  0.991374 rs1421085 
+## 3 0.922  1000GENOMES:phase_3:EUR rs79994966 0.999999 rs1421085 
+## 4 0.918  1000GENOMES:phase_3:EUR rs8050136  0.995690 rs1421085 
+## 5 0.362  1000GENOMES:phase_3:EUR rs9932600  0.999986 rs1421085 
+## 6 0.0682 1000GENOMES:phase_3:EUR rs6499643  0.688216 rs1421085</code></pre>
 <p>As a result, <code>LD.snp.region</code> contains the <code>r2</code> of our top SNP with all SNPs that were +/- 500 kb away.</p>
 <p>What if we want the correlation between all SNPs?</p>
 </div>
@@ -826,18 +828,19 @@ r &lt;- GET(paste(server, ext, sep = &quot;&quot;), content_type(&quot;applicati
 stop_for_status(r)
 LD.matrix.region &lt;- as_tibble(fromJSON(toJSON(content(r)))) %&gt;%
   unnest() %&gt;%
-  mutate(r2 = as.numeric(r2))
-
-head(LD.matrix.region)</code></pre>
+  mutate(r2 = as.numeric(r2))</code></pre>
+<pre><code>## Warning: `cols` is now required.
+## Please use `cols = c(population_name, r2, variation2, variation1, d_prime)`</code></pre>
+<pre class="r"><code>head(LD.matrix.region)</code></pre>
 <pre><code>## # A tibble: 6 x 5
-##   population_name         variation2      r2 variation1 d_prime 
-##   &lt;chr&gt;                   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;   
-## 1 1000GENOMES:phase_3:EUR rs7190842   0.207  rs56897002 0.999974
-## 2 1000GENOMES:phase_3:EUR rs78602287  1      rs74719121 1.000000
-## 3 1000GENOMES:phase_3:EUR rs10468280  0.0670 rs58446593 0.999911
-## 4 1000GENOMES:phase_3:EUR rs111370419 0.201  rs61325775 0.572122
-## 5 1000GENOMES:phase_3:EUR rs62033414  0.106  rs11075991 0.999937
-## 6 1000GENOMES:phase_3:EUR rs61325775  0.961  rs9926451  1.000000</code></pre>
+##   population_name            r2 variation2  variation1 d_prime 
+##   &lt;chr&gt;                   &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;   
+## 1 1000GENOMES:phase_3:EUR 0.761 rs9933509   rs8057044  0.999998
+## 2 1000GENOMES:phase_3:EUR 1     rs150763868 rs72803680 1.000000
+## 3 1000GENOMES:phase_3:EUR 0.106 rs7206122   rs62033401 0.999940
+## 4 1000GENOMES:phase_3:EUR 0.731 rs9935401   rs8057044  0.999997
+## 5 1000GENOMES:phase_3:EUR 0.106 rs141816793 rs62033399 0.999943
+## 6 1000GENOMES:phase_3:EUR 0.996 rs9941349   rs9931900  1.000000</code></pre>
 </div>
 <div id="access-ld-between-a-snp-and-many-other-snps" class="section level3">
 <h3>Access LD between a SNP and many other SNPs</h3>
@@ -866,11 +869,35 @@ other.snps &lt;- intersect(LD.SNP.region$variation2, data$SNP)
 LD.matrix.snps &lt;- purrr::map_df(other.snps, extract_ld, snp, &quot;EUR&quot;) %&gt;%
   mutate(r2 = as.numeric(r2)) %&gt;%
   bind_rows() %&gt;%
-  unnest()
-LD.matrix.snps</code></pre>
+  unnest()</code></pre>
+<pre><code>## Warning: `cols` is now required.
+## Please use `cols = c(variation2, d_prime, variation1, r2, population_name)`
+
+## Warning: `cols` is now required.
+## Please use `cols = c(variation2, d_prime, variation1, r2, population_name)`
+
+## Warning: `cols` is now required.
+## Please use `cols = c(variation2, d_prime, variation1, r2, population_name)`</code></pre>
+<pre><code>## Warning: `cols` is now required.
+## Please use `cols = c(d_prime, variation1, variation2, r2, population_name)`</code></pre>
+<pre><code>## Warning: `cols` is now required.
+## Please use `cols = c(variation2, variation1, d_prime, population_name, r2)`</code></pre>
+<pre><code>## Warning: `cols` is now required.
+## Please use `cols = c(variation1, d_prime, variation2, population_name, r2)`</code></pre>
+<pre><code>## Warning: `cols` is now required.
+## Please use `cols = c(r2, population_name, d_prime, variation1, variation2)`</code></pre>
+<pre><code>## Warning: `cols` is now required.
+## Please use `cols = c(population_name, r2, variation1, d_prime, variation2)`</code></pre>
+<pre><code>## Warning: `cols` is now required.
+## Please use `cols = c(variation2, d_prime, variation1, r2, population_name)`</code></pre>
+<pre><code>## Warning: `cols` is now required.
+## Please use `cols = c(d_prime, variation1, variation2, r2, population_name)`</code></pre>
+<pre><code>## Warning: `cols` is now required.
+## Please use `cols = c()`</code></pre>
+<pre class="r"><code>LD.matrix.snps</code></pre>
 <pre><code>## # A tibble: 0 x 5
-## # … with 5 variables: variation1 &lt;chr&gt;, d_prime &lt;chr&gt;, variation2 &lt;chr&gt;,
-## #   population_name &lt;chr&gt;, r2 &lt;dbl&gt;</code></pre>
+## # … with 5 variables: variation2 &lt;chr&gt;, d_prime &lt;chr&gt;, variation1 &lt;chr&gt;,
+## #   r2 &lt;dbl&gt;, population_name &lt;chr&gt;</code></pre>
 <p>Calculate the LD matrix (<code>LD.matrix.region</code>) or the LD between SNP pairs (<code>LD.matrix.snps</code>) takes <em>a lot</em> of time!</p>
 </div>
 <div id="coloured-locuszoom-plot" class="section level3">
@@ -961,28 +988,33 @@ LD.matrix.snps</code></pre>
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] janitor_1.2.0     data.table_1.12.2 rsnps_0.3.2.9121 
-##  [4] glue_1.3.1.9000   magrittr_1.5      xml2_1.2.0       
-##  [7] jsonlite_1.6      httr_1.4.0        forcats_0.4.0    
-## [10] stringr_1.4.0     dplyr_0.8.1       purrr_0.3.2      
-## [13] readr_1.3.1       tidyr_0.8.3       tibble_2.1.2     
-## [16] ggplot2_3.1.1     tidyverse_1.2.1  
+##  [1] janitor_1.2.0      data.table_1.12.2  rsnps_0.3.2.9121  
+##  [4] glue_1.3.1.9000    magrittr_1.5       xml2_1.2.0        
+##  [7] jsonlite_1.6       httr_1.4.0         forcats_0.4.0.9000
+## [10] stringr_1.4.0      dplyr_0.8.3.9000   purrr_0.3.2       
+## [13] readr_1.3.1        tidyr_0.8.3.9000   tibble_2.1.3      
+## [16] ggplot2_3.2.0.9000 tidyverse_1.2.1   
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tidyselect_0.2.5 xfun_0.7         haven_2.1.0      lattice_0.20-38 
-##  [5] vctrs_0.1.0      colorspace_1.4-1 generics_0.0.2   htmltools_0.3.6 
-##  [9] yaml_2.2.0       utf8_1.1.4       XML_3.98-1.19    rlang_0.3.4     
-## [13] pillar_1.4.1     httpcode_0.2.0   withr_2.1.2      modelr_0.1.4    
-## [17] readxl_1.3.1     plyr_1.8.4       munsell_0.5.0    blogdown_0.12   
-## [21] gtable_0.3.0     cellranger_1.1.0 rvest_0.3.4      evaluate_0.13   
-## [25] knitr_1.23       curl_3.3         fansi_0.4.0      triebeard_0.3.0 
-## [29] urltools_1.7.3   broom_0.5.2      Rcpp_1.0.1       scales_1.0.0    
-## [33] backports_1.1.4  hms_0.4.2        digest_0.6.19    stringi_1.4.3   
-## [37] bookdown_0.10    grid_3.5.1       cli_1.1.0        tools_3.5.1     
-## [41] lazyeval_0.2.2   crul_0.7.4       zeallot_0.1.0    crayon_1.3.4    
-## [45] pkgconfig_2.0.2  lubridate_1.7.4  assertthat_0.2.1 rmarkdown_1.13  
-## [49] rstudioapi_0.10  R6_2.4.0         icon_0.1.0       nlme_3.1-140    
-## [53] compiler_3.5.1</code></pre>
+##  [1] tidyselect_0.2.5   xfun_0.8           haven_2.1.1       
+##  [4] lattice_0.20-38    colorspace_1.4-1   vctrs_0.2.0.9000  
+##  [7] generics_0.0.2     htmltools_0.3.6    yaml_2.2.0        
+## [10] utf8_1.1.4         XML_3.98-1.20      rlang_0.4.0       
+## [13] pillar_1.4.2       httpcode_0.2.0     withr_2.1.2       
+## [16] RColorBrewer_1.1-2 modelr_0.1.4       readxl_1.3.1      
+## [19] plyr_1.8.4         munsell_0.5.0      blogdown_0.13     
+## [22] gtable_0.3.0       cellranger_1.1.0   rvest_0.3.4       
+## [25] codetools_0.2-16   evaluate_0.14      labeling_0.3      
+## [28] knitr_1.23         curl_3.3           fansi_0.4.0       
+## [31] triebeard_0.3.0    urltools_1.7.3     broom_0.5.2       
+## [34] Rcpp_1.0.1         scales_1.0.0       backports_1.1.4   
+## [37] hms_0.4.2          digest_0.6.20      stringi_1.4.3     
+## [40] bookdown_0.11      grid_3.5.1         cli_1.1.0         
+## [43] tools_3.5.1        lazyeval_0.2.2     crul_0.8.0        
+## [46] crayon_1.3.4       pkgconfig_2.0.2    zeallot_0.1.0     
+## [49] ellipsis_0.2.0.1   lubridate_1.7.4    assertthat_0.2.1  
+## [52] rmarkdown_1.13     rstudioapi_0.10    R6_2.4.0          
+## [55] icon_0.1.0         nlme_3.1-140       compiler_3.5.1</code></pre>
 </div>
 
     </div>

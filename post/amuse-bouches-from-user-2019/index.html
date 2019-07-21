@@ -481,8 +481,16 @@ Check out the speakers’ materials - soon there will be recordings too."><meta 
 <div id="dplyr-example" class="section level3">
 <h3>dplyr example</h3>
 <p>Let’s say you have a dataset, here <code>iris</code>, and you want to compute the average <code>Petal.Length</code> for each <code>Species</code>:</p>
-<pre class="r"><code>library(dplyr)
-iris %&gt;% 
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>iris %&gt;% 
   group_by(Species) %&gt;%
   summarise(avg = mean(Petal.Length, na.rm = TRUE))</code></pre>
 <pre><code>## # A tibble: 3 x 2
@@ -664,7 +672,7 @@ datoy_long %&gt;%
 <p>Speaker: <a href="https://twitter.com/jimhester_">Jim Hester</a> (<a href="https://speakerdeck.com/jimhester/vroom">Slides</a> + <a href="screen%20cast:%20bit.ly/vroom-yt">Screencast</a>)</p>
 <pre class="r"><code>## install.packages(&quot;vroom&quot;)
 library(vroom)</code></pre>
-<p>Importing large datasets into R can be a painful task. Especially if you only need a subset of the columns. And apparently, our thoughts drift off after 10 sec<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> starring at the screen where it is <em>still</em> loading the dataset.</p>
+<p>Importing large datasets into R can be a painful task. Especially if you only need a subset of the columns. And apparently, our thoughts drift off after 10 sec<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> staring at the screen where it is <em>still</em> loading the dataset.</p>
 <p><code>data.table::fread()</code> is always here to help. But now comes <code>vroom</code>!</p>
 <div id="get-some-largeish-data" class="section level3">
 <h3>Get some large’ish data</h3>
@@ -739,9 +747,17 @@ table(data_combined$path)</code></pre>
 <p>Speaker: <a href="https://twitter.com/arun_sriniv">Arun Srinivasan</a> (<a href="https://t.co/TrvDVS07QD">Slides</a>)</p>
 <p><code>data.table</code> has a pretty cool feature<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>:</p>
 <pre class="r"><code># install.packages(&quot;data.table&quot;)
-library(data.table)
-
-## Create a giant data.table
+library(data.table)</code></pre>
+<pre><code>## Warning: package &#39;data.table&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## 
+## Attaching package: &#39;data.table&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dataAnim&#39;:
+## 
+##     :=</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     between, first, last</code></pre>
+<pre class="r"><code>## Create a giant data.table
 p &lt;- 2e6
 dat &lt;- data.table(x = sample(1e5, p, TRUE), y = runif(p))
 
