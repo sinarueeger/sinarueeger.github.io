@@ -1231,13 +1231,13 @@ r &amp;lt;- GET(paste(server, ext, sep = &amp;quot;&amp;quot;), content_type(&am
 stop_for_status(r)
 
 head(fromJSON(toJSON(content(r))))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##   size                    name
-## 1   96 1000GENOMES:phase_3:ACB
-## 2   61 1000GENOMES:phase_3:ASW
-## 3   86 1000GENOMES:phase_3:BEB
-## 4   93 1000GENOMES:phase_3:CDX
-## 5   99 1000GENOMES:phase_3:CEU
-## 6  103 1000GENOMES:phase_3:CHB
+&lt;pre&gt;&lt;code&gt;##                      name size
+## 1 1000GENOMES:phase_3:ACB   96
+## 2 1000GENOMES:phase_3:ASW   61
+## 3 1000GENOMES:phase_3:BEB   86
+## 4 1000GENOMES:phase_3:CDX   93
+## 5 1000GENOMES:phase_3:CEU   99
+## 6 1000GENOMES:phase_3:CHB  103
 ##                                                  description
 ## 1                              African Caribbean in Barbados
 ## 2                           African Ancestry in Southwest US
@@ -1275,17 +1275,17 @@ LD.SNP.region &amp;lt;- as_tibble(fromJSON(toJSON(content(r)))) %&amp;gt;%
   unnest() %&amp;gt;%
   mutate(r2 = as.numeric(r2))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Warning: `cols` is now required.
-## Please use `cols = c(r2, population_name, variation2, d_prime, variation1)`&lt;/code&gt;&lt;/pre&gt;
+## Please use `cols = c(variation1, d_prime, r2, variation2, population_name)`&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(LD.SNP.region)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 5
-##       r2 population_name         variation2 d_prime  variation1
-##    &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;                   &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;     
-## 1 0.410  1000GENOMES:phase_3:EUR rs4783819  0.999995 rs1421085 
-## 2 0.910  1000GENOMES:phase_3:EUR rs3751812  0.991374 rs1421085 
-## 3 0.922  1000GENOMES:phase_3:EUR rs79994966 0.999999 rs1421085 
-## 4 0.918  1000GENOMES:phase_3:EUR rs8050136  0.995690 rs1421085 
-## 5 0.362  1000GENOMES:phase_3:EUR rs9932600  0.999986 rs1421085 
-## 6 0.0682 1000GENOMES:phase_3:EUR rs6499643  0.688216 rs1421085&lt;/code&gt;&lt;/pre&gt;
+##   variation1 d_prime      r2 variation2  population_name        
+##   &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;     &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;                  
+## 1 rs1421085  0.995690 0.918  rs8043757   1000GENOMES:phase_3:EUR
+## 2 rs1421085  0.999999 0.922  rs62033405  1000GENOMES:phase_3:EUR
+## 3 rs1421085  0.479227 0.142  rs5816903   1000GENOMES:phase_3:EUR
+## 4 rs1421085  0.985278 0.223  rs113191842 1000GENOMES:phase_3:EUR
+## 5 rs1421085  0.999939 0.0518 rs58239912  1000GENOMES:phase_3:EUR
+## 6 rs1421085  0.562893 0.0577 rs7186637   1000GENOMES:phase_3:EUR&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;As a result, &lt;code&gt;LD.snp.region&lt;/code&gt; contains the &lt;code&gt;r2&lt;/code&gt; of our top SNP with all SNPs that were +/- 500 kb away.&lt;/p&gt;
 &lt;p&gt;What if we want the correlation between all SNPs?&lt;/p&gt;
 &lt;/div&gt;
@@ -1470,25 +1470,20 @@ LD.matrix.snps &amp;lt;- purrr::map_df(other.snps, extract_ld, snp, &amp;quot;EU
 ## [16] ggplot2_3.2.0.9000 tidyverse_1.2.1   
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tidyselect_0.2.5   xfun_0.8           haven_2.1.1       
-##  [4] lattice_0.20-38    colorspace_1.4-1   vctrs_0.2.0.9000  
-##  [7] generics_0.0.2     htmltools_0.3.6    yaml_2.2.0        
-## [10] utf8_1.1.4         XML_3.98-1.20      rlang_0.4.0       
-## [13] pillar_1.4.2       httpcode_0.2.0     withr_2.1.2       
-## [16] RColorBrewer_1.1-2 modelr_0.1.4       readxl_1.3.1      
-## [19] plyr_1.8.4         munsell_0.5.0      blogdown_0.13     
-## [22] gtable_0.3.0       cellranger_1.1.0   rvest_0.3.4       
-## [25] codetools_0.2-16   evaluate_0.14      labeling_0.3      
-## [28] knitr_1.23         curl_3.3           fansi_0.4.0       
-## [31] triebeard_0.3.0    urltools_1.7.3     broom_0.5.2       
-## [34] Rcpp_1.0.1         scales_1.0.0       backports_1.1.4   
-## [37] hms_0.4.2          digest_0.6.20      stringi_1.4.3     
-## [40] bookdown_0.11      grid_3.5.1         cli_1.1.0         
-## [43] tools_3.5.1        lazyeval_0.2.2     crul_0.8.0        
-## [46] crayon_1.3.4       pkgconfig_2.0.2    zeallot_0.1.0     
-## [49] ellipsis_0.2.0.1   lubridate_1.7.4    assertthat_0.2.1  
-## [52] rmarkdown_1.13     rstudioapi_0.10    R6_2.4.0          
-## [55] icon_0.1.0         nlme_3.1-140       compiler_3.5.1&lt;/code&gt;&lt;/pre&gt;
+##  [1] tidyselect_0.2.5 xfun_0.8         haven_2.1.1      lattice_0.20-38 
+##  [5] colorspace_1.4-1 vctrs_0.2.0.9000 generics_0.0.2   htmltools_0.3.6 
+##  [9] yaml_2.2.0       utf8_1.1.4       XML_3.98-1.20    rlang_0.4.0     
+## [13] pillar_1.4.2     httpcode_0.2.0   withr_2.1.2      modelr_0.1.4    
+## [17] readxl_1.3.1     plyr_1.8.4       munsell_0.5.0    blogdown_0.13   
+## [21] gtable_0.3.0     cellranger_1.1.0 rvest_0.3.4      evaluate_0.14   
+## [25] knitr_1.23       curl_3.3         fansi_0.4.0      triebeard_0.3.0 
+## [29] urltools_1.7.3   broom_0.5.2      Rcpp_1.0.1       scales_1.0.0    
+## [33] backports_1.1.4  hms_0.4.2        digest_0.6.20    stringi_1.4.3   
+## [37] bookdown_0.11    grid_3.5.1       cli_1.1.0        tools_3.5.1     
+## [41] lazyeval_0.2.2   crul_0.8.0       crayon_1.3.4     pkgconfig_2.0.2 
+## [45] zeallot_0.1.0    ellipsis_0.2.0.1 lubridate_1.7.4  assertthat_0.2.1
+## [49] rmarkdown_1.13   rstudioapi_0.10  R6_2.4.0         icon_0.1.0      
+## [53] nlme_3.1-140     compiler_3.5.1&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -1873,7 +1868,7 @@ icon.info &amp;lt;- awesomeIcons(
 
 m  # Print the map&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;leaflet html-widget&#34;&gt;&lt;/div&gt;
-&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; &lt;a href=\&#34;http://openstreetmap.org\&#34;&gt;OpenStreetMap&lt;\/a&gt; contributors, &lt;a href=\&#34;http://creativecommons.org/licenses/by-sa/2.0/\&#34;&gt;CC-BY-SA&lt;\/a&gt;&#34;}]},{&#34;method&#34;:&#34;addAwesomeMarkers&#34;,&#34;args&#34;:[[13.16667,34.5003,24,22.08829,40.11995,39.9075,35,4,10,60.16952,50.416667,29.845783,13.5,40,54.75844,35.6895,10.75,0.60751,7.13833,34.05223,-10,31.54972,18.24829,55.9483399,43.41667,7.38778],[-59.53333,-111.50098,90,101.0248,-111.67031,116.39723,105,-72,8,24.93545,-4.75,-96.919704,-15.5,-4,-2.69531,139.69171,106.66667,34.76966,-11.67056,-118.24368,-76,74.34361,-66.49989,-3.1932723,11,3.89639],{&#34;icon&#34;:&#34;user&#34;,&#34;markerColor&#34;:[&#34;blue&#34;,&#34;blue&#34;,&#34;orange&#34;,&#34;gray&#34;,&#34;red&#34;,&#34;gray&#34;,&#34;gray&#34;,&#34;green&#34;,&#34;blue&#34;,&#34;red&#34;,&#34;red&#34;,&#34;orange&#34;,&#34;blue&#34;,&#34;red&#34;,&#34;orange&#34;,&#34;gray&#34;,&#34;gray&#34;,&#34;blue&#34;,&#34;blue&#34;,&#34;green&#34;,&#34;green&#34;,&#34;orange&#34;,&#34;green&#34;,&#34;orange&#34;,&#34;red&#34;,&#34;blue&#34;],&#34;iconColor&#34;:&#34;black&#34;,&#34;spin&#34;:false,&#34;squareMarker&#34;:false,&#34;iconRotate&#34;:0,&#34;font&#34;:&#34;monospace&#34;,&#34;prefix&#34;:&#34;fa&#34;},null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},null,null,null,null,[&#34;ACB : African Caribbeans in Barbados (AFR)&#34;,&#34;ASW : Americans of African Ancestry in SW USA (AFR)&#34;,&#34;BEB : Bengali from Bangladesh (SAS)&#34;,&#34;CDX : Chinese Dai in Xishuangbanna, China (EAS)&#34;,&#34;CEU : Utah Residents (CEPH) with Northern and Western European Ancestry (EUR)&#34;,&#34;CHB : Han Chinese in Beijing, China (EAS)&#34;,&#34;CHS : Southern Han Chinese (EAS)&#34;,&#34;CLM : Colombians from Medellin, Colombia (AMR)&#34;,&#34;ESN : Esan in Nigeria (AFR)&#34;,&#34;FIN : Finnish in Finland (EUR)&#34;,&#34;GBR : British in England and Scotland (EUR)&#34;,&#34;GIH : Gujarati Indian from Houston, Texas (SAS)&#34;,&#34;GWD : Gambian in Western Divisions in the Gambia (AFR)&#34;,&#34;IBS : Iberian Population in Spain (EUR)&#34;,&#34;ITU : Indian Telugu from the UK (SAS)&#34;,&#34;JPT : Japanese in Tokyo, Japan (EAS)&#34;,&#34;KHV : Kinh in Ho Chi Minh City, Vietnam (EAS)&#34;,&#34;LWK : Luhya in Webuye, Kenya (AFR)&#34;,&#34;MSL : Mende in Sierra Leone (AFR)&#34;,&#34;MXL : Mexican Ancestry from Los Angeles USA (AMR)&#34;,&#34;PEL : Peruvians from Lima, Peru (AMR)&#34;,&#34;PJL : Punjabi from Lahore, Pakistan (SAS)&#34;,&#34;PUR : Puerto Ricans from Puerto Rico (AMR)&#34;,&#34;STU : Sri Lankan Tamil from the UK (SAS)&#34;,&#34;TSI : Toscani in Italia (EUR)&#34;,&#34;YRI : Yoruba in Ibadan, Nigeria (AFR)&#34;],{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]},{&#34;method&#34;:&#34;addAwesomeMarkers&#34;,&#34;args&#34;:[-45,-107,{&#34;icon&#34;:&#34;info&#34;,&#34;markerColor&#34;:&#34;white&#34;,&#34;iconColor&#34;:&#34;white&#34;,&#34;spin&#34;:false,&#34;squareMarker&#34;:false,&#34;iconRotate&#34;:0,&#34;font&#34;:&#34;monospace&#34;,&#34;prefix&#34;:&#34;fa&#34;},null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Source: https://github.com/sinarueeger/map-1000genomes&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]},{&#34;method&#34;:&#34;addLegend&#34;,&#34;args&#34;:[{&#34;colors&#34;:[&#34;#E50102&#34;,&#34;#00A9DD&#34;,&#34;#57BA1F&#34;,&#34;#575757&#34;,&#34;#FD8E00&#34;],&#34;labels&#34;:[&#34;EUR&#34;,&#34;AFR&#34;,&#34;AMR&#34;,&#34;EAS&#34;,&#34;SAS&#34;],&#34;na_color&#34;:null,&#34;na_label&#34;:&#34;NA&#34;,&#34;opacity&#34;:1,&#34;position&#34;:&#34;bottomright&#34;,&#34;type&#34;:&#34;unknown&#34;,&#34;title&#34;:null,&#34;extra&#34;:null,&#34;layerId&#34;:null,&#34;className&#34;:&#34;info legend&#34;,&#34;group&#34;:null}]}],&#34;limits&#34;:{&#34;lat&#34;:[-45,60.16952],&#34;lng&#34;:[-118.24368,139.69171]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; &lt;a href=\&#34;http://openstreetmap.org\&#34;&gt;OpenStreetMap&lt;\/a&gt; contributors, &lt;a href=\&#34;http://creativecommons.org/licenses/by-sa/2.0/\&#34;&gt;CC-BY-SA&lt;\/a&gt;&#34;}]},{&#34;method&#34;:&#34;addAwesomeMarkers&#34;,&#34;args&#34;:[[13.16667,34.5003,24,22.08829,40.11995,39.9075,35,4,10,60.16952,50.416667,29.813142,13.5,40,54.75844,35.6895,10.75,0.60751,7.13833,34.05223,-10,31.54972,18.24829,55.9483399,43.41667,7.38778],[-59.53333,-111.50098,90,101.0248,-111.67031,116.39723,105,-72,8,24.93545,-4.75,-95.309789,-15.5,-4,-2.69531,139.69171,106.66667,34.76966,-11.67056,-118.24368,-76,74.34361,-66.49989,-3.1932723,11,3.89639],{&#34;icon&#34;:&#34;user&#34;,&#34;markerColor&#34;:[&#34;blue&#34;,&#34;blue&#34;,&#34;orange&#34;,&#34;gray&#34;,&#34;red&#34;,&#34;gray&#34;,&#34;gray&#34;,&#34;green&#34;,&#34;blue&#34;,&#34;red&#34;,&#34;red&#34;,&#34;orange&#34;,&#34;blue&#34;,&#34;red&#34;,&#34;orange&#34;,&#34;gray&#34;,&#34;gray&#34;,&#34;blue&#34;,&#34;blue&#34;,&#34;green&#34;,&#34;green&#34;,&#34;orange&#34;,&#34;green&#34;,&#34;orange&#34;,&#34;red&#34;,&#34;blue&#34;],&#34;iconColor&#34;:&#34;black&#34;,&#34;spin&#34;:false,&#34;squareMarker&#34;:false,&#34;iconRotate&#34;:0,&#34;font&#34;:&#34;monospace&#34;,&#34;prefix&#34;:&#34;fa&#34;},null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},null,null,null,null,[&#34;ACB : African Caribbeans in Barbados (AFR)&#34;,&#34;ASW : Americans of African Ancestry in SW USA (AFR)&#34;,&#34;BEB : Bengali from Bangladesh (SAS)&#34;,&#34;CDX : Chinese Dai in Xishuangbanna, China (EAS)&#34;,&#34;CEU : Utah Residents (CEPH) with Northern and Western European Ancestry (EUR)&#34;,&#34;CHB : Han Chinese in Beijing, China (EAS)&#34;,&#34;CHS : Southern Han Chinese (EAS)&#34;,&#34;CLM : Colombians from Medellin, Colombia (AMR)&#34;,&#34;ESN : Esan in Nigeria (AFR)&#34;,&#34;FIN : Finnish in Finland (EUR)&#34;,&#34;GBR : British in England and Scotland (EUR)&#34;,&#34;GIH : Gujarati Indian from Houston, Texas (SAS)&#34;,&#34;GWD : Gambian in Western Divisions in the Gambia (AFR)&#34;,&#34;IBS : Iberian Population in Spain (EUR)&#34;,&#34;ITU : Indian Telugu from the UK (SAS)&#34;,&#34;JPT : Japanese in Tokyo, Japan (EAS)&#34;,&#34;KHV : Kinh in Ho Chi Minh City, Vietnam (EAS)&#34;,&#34;LWK : Luhya in Webuye, Kenya (AFR)&#34;,&#34;MSL : Mende in Sierra Leone (AFR)&#34;,&#34;MXL : Mexican Ancestry from Los Angeles USA (AMR)&#34;,&#34;PEL : Peruvians from Lima, Peru (AMR)&#34;,&#34;PJL : Punjabi from Lahore, Pakistan (SAS)&#34;,&#34;PUR : Puerto Ricans from Puerto Rico (AMR)&#34;,&#34;STU : Sri Lankan Tamil from the UK (SAS)&#34;,&#34;TSI : Toscani in Italia (EUR)&#34;,&#34;YRI : Yoruba in Ibadan, Nigeria (AFR)&#34;],{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]},{&#34;method&#34;:&#34;addAwesomeMarkers&#34;,&#34;args&#34;:[-45,-107,{&#34;icon&#34;:&#34;info&#34;,&#34;markerColor&#34;:&#34;white&#34;,&#34;iconColor&#34;:&#34;white&#34;,&#34;spin&#34;:false,&#34;squareMarker&#34;:false,&#34;iconRotate&#34;:0,&#34;font&#34;:&#34;monospace&#34;,&#34;prefix&#34;:&#34;fa&#34;},null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Source: https://github.com/sinarueeger/map-1000genomes&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]},{&#34;method&#34;:&#34;addLegend&#34;,&#34;args&#34;:[{&#34;colors&#34;:[&#34;#E50102&#34;,&#34;#00A9DD&#34;,&#34;#57BA1F&#34;,&#34;#575757&#34;,&#34;#FD8E00&#34;],&#34;labels&#34;:[&#34;EUR&#34;,&#34;AFR&#34;,&#34;AMR&#34;,&#34;EAS&#34;,&#34;SAS&#34;],&#34;na_color&#34;:null,&#34;na_label&#34;:&#34;NA&#34;,&#34;opacity&#34;:1,&#34;position&#34;:&#34;bottomright&#34;,&#34;type&#34;:&#34;unknown&#34;,&#34;title&#34;:null,&#34;extra&#34;:null,&#34;layerId&#34;:null,&#34;className&#34;:&#34;info legend&#34;,&#34;group&#34;:null}]}],&#34;limits&#34;:{&#34;lat&#34;:[-45,60.16952],&#34;lng&#34;:[-118.24368,139.69171]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;/div&gt;
 &lt;div id=&#34;save-the-map&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Save the map&lt;/h2&gt;
