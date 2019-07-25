@@ -1231,20 +1231,20 @@ r &amp;lt;- GET(paste(server, ext, sep = &amp;quot;&amp;quot;), content_type(&am
 stop_for_status(r)
 
 head(fromJSON(toJSON(content(r))))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##                      name size
-## 1 1000GENOMES:phase_3:ACB   96
-## 2 1000GENOMES:phase_3:ASW   61
-## 3 1000GENOMES:phase_3:BEB   86
-## 4 1000GENOMES:phase_3:CDX   93
-## 5 1000GENOMES:phase_3:CEU   99
-## 6 1000GENOMES:phase_3:CHB  103
-##                                                  description
-## 1                              African Caribbean in Barbados
-## 2                           African Ancestry in Southwest US
-## 3                                      Bengali in Bangladesh
-## 4                        Chinese Dai in Xishuangbanna, China
-## 5 Utah residents with Northern and Western European ancestry
-## 6                               Han Chinese in Bejing, China&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##                                                  description size
+## 1                              African Caribbean in Barbados   96
+## 2                           African Ancestry in Southwest US   61
+## 3                                      Bengali in Bangladesh   86
+## 4                        Chinese Dai in Xishuangbanna, China   93
+## 5 Utah residents with Northern and Western European ancestry   99
+## 6                               Han Chinese in Bejing, China  103
+##                      name
+## 1 1000GENOMES:phase_3:ACB
+## 2 1000GENOMES:phase_3:ASW
+## 3 1000GENOMES:phase_3:BEB
+## 4 1000GENOMES:phase_3:CDX
+## 5 1000GENOMES:phase_3:CEU
+## 6 1000GENOMES:phase_3:CHB&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;code&gt;name&lt;/code&gt; stands for the population identifier. &lt;code&gt;size&lt;/code&gt; refers to the number of individuals in the reference panel. Note that these are all populations with around 100 individuals (the correlation estimation will have an error that scales with the sample size). There are also the five super population available (although not listed here), simply replace the last three characters in &lt;code&gt;name&lt;/code&gt; by &lt;code&gt;EUR&lt;/code&gt;, &lt;code&gt;AFR&lt;/code&gt;, &lt;code&gt;AMR&lt;/code&gt;, &lt;code&gt;EAS&lt;/code&gt;, &lt;code&gt;SAS&lt;/code&gt;.&lt;/p&gt;
 &lt;iframe seamless src=&#34;https://sinarueeger.github.io/post/2018-08-09-put-the-color-into-the-points/map-1000genomes-populations.html&#34; width=&#34;100%&#34; height=&#34;500&#34;&gt;
 &lt;/iframe&gt;
@@ -1275,17 +1275,17 @@ LD.SNP.region &amp;lt;- as_tibble(fromJSON(toJSON(content(r)))) %&amp;gt;%
   unnest() %&amp;gt;%
   mutate(r2 = as.numeric(r2))&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## Warning: `cols` is now required.
-## Please use `cols = c(variation1, d_prime, r2, variation2, population_name)`&lt;/code&gt;&lt;/pre&gt;
+## Please use `cols = c(variation1, d_prime, r2, population_name, variation2)`&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(LD.SNP.region)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 5
-##   variation1 d_prime      r2 variation2  population_name        
-##   &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;     &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;                  
-## 1 rs1421085  0.995690 0.918  rs8043757   1000GENOMES:phase_3:EUR
-## 2 rs1421085  0.999999 0.922  rs62033405  1000GENOMES:phase_3:EUR
-## 3 rs1421085  0.479227 0.142  rs5816903   1000GENOMES:phase_3:EUR
-## 4 rs1421085  0.985278 0.223  rs113191842 1000GENOMES:phase_3:EUR
-## 5 rs1421085  0.999939 0.0518 rs58239912  1000GENOMES:phase_3:EUR
-## 6 rs1421085  0.562893 0.0577 rs7186637   1000GENOMES:phase_3:EUR&lt;/code&gt;&lt;/pre&gt;
+##   variation1 d_prime      r2 population_name         variation2
+##   &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;     &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;                   &amp;lt;chr&amp;gt;     
+## 1 rs1421085  0.327013 0.0834 1000GENOMES:phase_3:EUR rs8043738 
+## 2 rs1421085  0.992084 0.409  1000GENOMES:phase_3:EUR rs2042031 
+## 3 rs1421085  0.846280 0.647  1000GENOMES:phase_3:EUR rs11642841
+## 4 rs1421085  1.000000 0.957  1000GENOMES:phase_3:EUR rs9940128 
+## 5 rs1421085  0.999948 0.0552 1000GENOMES:phase_3:EUR rs73612011
+## 6 rs1421085  0.907868 0.648  1000GENOMES:phase_3:EUR rs8057044&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;As a result, &lt;code&gt;LD.snp.region&lt;/code&gt; contains the &lt;code&gt;r2&lt;/code&gt; of our top SNP with all SNPs that were +/- 500 kb away.&lt;/p&gt;
 &lt;p&gt;What if we want the correlation between all SNPs?&lt;/p&gt;
 &lt;/div&gt;
