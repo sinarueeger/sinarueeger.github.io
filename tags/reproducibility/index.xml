@@ -7,21 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 18 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/reproducibility/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>FINEMAP example</title>
-      <link>/post/finemap-howto/</link>
-      <pubDate>Thu, 18 Jul 2019 00:00:00 +0000</pubDate>
+      <title>FINEMAP howto</title>
+      <link>/post/finemapping-howto/</link>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/finemap-howto/</guid>
-      <description> FINEMAP example Aim: replication of Figure 7 in Benner et al. 2016.
-Usage: Rscript --vanilla howto_finemap.R
-Data used: - Summary statistics: Surakka et al. 2015 HDL-GWAS (download). - 1000 Genomes reference panel (EUR population, Chr 15) (download)
- </description>
+      <guid>/post/finemapping-howto/</guid>
+      <description>Aim The aim is, to better understand FINEMAP and reproduce Figure 7 in Benner et al. 2016 that is about fine-mapping of 15q21/LIPC region associated with high-density lipo- protein cholesterol.
+  Fine-mapping of 15q21/ LIPC region associated with high-density lipoprotein cholesterol. Independent association signals in conditional analysis are highlighted by yellow dot. Dashed lines correspond respectively to a single-SNP Bayes factor of 100 and P -value of 5×10−8 .</description>
     </item>
     
   </channel>
