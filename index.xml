@@ -38,7 +38,7 @@
 &lt;h2&gt;1. tidy eval&lt;/h2&gt;
 &lt;!------------------ -------------------&gt;
 &lt;p&gt;Speaker: &lt;a href=&#34;https://twitter.com/_lionelhenry&#34;&gt;Lionel Henry&lt;/a&gt; (&lt;a href=&#34;https://speakerdeck.com/lionelhenry/reusing-tidyverse-code&#34;&gt;Slides&lt;/a&gt;)&lt;/p&gt;
-&lt;p&gt;I never warmed up to the bang-bangs and enquo’s. Hence the new and more straight forward “curly-curly”’s for functional programming &lt;code&gt;{{ arg }}&lt;/code&gt; in the tidyverse feel like a game-changer.&lt;/p&gt;
+&lt;p&gt;I never warmed up to the bang-bangs and enquo’s. Hence the new and more straight forward &lt;code&gt;{{ }}&lt;/code&gt; (read: curly curly) for functional programming &lt;code&gt;{{ arg }}&lt;/code&gt; in the tidyverse feel like a game-changer.&lt;/p&gt;
 &lt;p&gt;For those more familiar with the previous framework: &lt;code&gt;{{ arg }}&lt;/code&gt; is a shortcut for &lt;code&gt;!!enquo(arg)&lt;/code&gt;.&lt;/p&gt;
 &lt;div id=&#34;dplyr-example&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;dplyr example&lt;/h3&gt;
