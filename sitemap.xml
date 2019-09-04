@@ -4,7 +4,36 @@
   
   <url>
     <loc>https://sinarueeger.github.io/tags/</loc>
-    <lastmod>2019-07-18T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-04T00:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sinarueeger.github.io/project/</loc>
+    <lastmod>2019-09-04T00:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sinarueeger.github.io/tags/r/</loc>
+    <lastmod>2019-09-04T00:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sinarueeger.github.io/project/robust-data-analysis/</loc>
+    <lastmod>2019-09-04T00:00:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sinarueeger.github.io/</loc>
+    <lastmod>2019-09-04T00:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sinarueeger.github.io/tags/</loc>
+    <lastmod>2019-09-04T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -16,24 +45,6 @@
   <url>
     <loc>https://sinarueeger.github.io/post/</loc>
     <lastmod>2019-07-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sinarueeger.github.io/tags/r/</loc>
-    <lastmod>2019-07-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sinarueeger.github.io/</loc>
-    <lastmod>2019-07-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sinarueeger.github.io/tags/</loc>
-    <lastmod>2019-07-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -55,39 +66,33 @@
   
   <url>
     <loc>https://sinarueeger.github.io/project/phd-thesis/</loc>
-    <lastmod>2019-05-28T00:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sinarueeger.github.io/project/</loc>
-    <lastmod>2019-05-28T00:00:00+02:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-05-28T00:00:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/project/gwas.utils/</loc>
-    <lastmod>2019-05-28T00:00:00+02:00</lastmod>
+    <lastmod>2019-05-28T00:00:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/project/gggwas/</loc>
-    <lastmod>2019-05-28T00:00:00+02:00</lastmod>
+    <lastmod>2019-05-28T00:00:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/project/stat-genetics-ressources/</loc>
-    <lastmod>2019-05-28T00:00:00+02:00</lastmod>
+    <lastmod>2019-05-28T00:00:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/tags/data-visualisation/</loc>
-    <lastmod>2019-05-28T00:00:00+02:00</lastmod>
+    <lastmod>2019-05-28T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/tags/statistical-genetics/</loc>
-    <lastmod>2019-05-28T00:00:00+02:00</lastmod>
+    <lastmod>2019-05-28T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -109,23 +114,23 @@
   
   <url>
     <loc>https://sinarueeger.github.io/talk/r-ladies/</loc>
-    <lastmod>2018-12-10T19:00:00+01:00</lastmod>
+    <lastmod>2018-12-10T19:00:00+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/tags/r-ladies/</loc>
-    <lastmod>2018-12-10T19:00:00+01:00</lastmod>
+    <lastmod>2018-12-10T19:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/talk/</loc>
-    <lastmod>2018-12-10T19:00:00+01:00</lastmod>
+    <lastmod>2018-12-10T19:00:00+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/tags/workflow/</loc>
-    <lastmod>2018-12-10T19:00:00+01:00</lastmod>
+    <lastmod>2018-12-10T19:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -142,12 +147,12 @@
   
   <url>
     <loc>https://sinarueeger.github.io/talk/r-lunchs/</loc>
-    <lastmod>2018-12-04T12:00:00+01:00</lastmod>
+    <lastmod>2018-12-04T12:00:00+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/tags/best-practices/</loc>
-    <lastmod>2018-12-04T12:00:00+01:00</lastmod>
+    <lastmod>2018-12-04T12:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -170,86 +175,86 @@
   
   <url>
     <loc>https://sinarueeger.github.io/talk/geneve-rug/</loc>
-    <lastmod>2018-10-04T19:00:00+02:00</lastmod>
+    <lastmod>2018-10-04T19:00:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/talk/geek-girls-carrots/</loc>
-    <lastmod>2018-09-12T18:30:00+02:00</lastmod>
+    <lastmod>2018-09-12T18:30:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/tags/introduction/</loc>
-    <lastmod>2018-09-12T18:30:00+02:00</lastmod>
+    <lastmod>2018-09-12T18:30:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/tutorial/example/</loc>
-    <lastmod>2018-09-09T00:00:00+02:00</lastmod>
+    <lastmod>2018-09-09T00:00:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/tutorial/</loc>
-    <lastmod>2018-09-09T00:00:00+02:00</lastmod>
+    <lastmod>2018-09-09T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/ruumleger-s/</loc>
-    <lastmod>2018-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2018-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/publication_types/2/</loc>
-    <lastmod>2018-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2018-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/publication_types/3/</loc>
-    <lastmod>2018-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2018-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/</loc>
-    <lastmod>2018-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2018-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/publication/plosgen-2018-ssimp-application/</loc>
-    <lastmod>2018-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2018-09-01T00:00:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/publication/biorxiv-2018-ssimp-method/</loc>
-    <lastmod>2018-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2018-09-01T00:00:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/kutalik-z/</loc>
-    <lastmod>2018-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2018-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/mcdaid-a/</loc>
-    <lastmod>2018-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2018-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/publication_types/</loc>
-    <lastmod>2018-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2018-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/publication/</loc>
-    <lastmod>2018-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2018-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -300,138 +305,138 @@
   
   <url>
     <loc>https://sinarueeger.github.io/authors/abel-l/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/argiro-l/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/bochud-p-y/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/booth-d-r/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/bourliegravere-m/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/cerny-a/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/dufour-j-f/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/george-j/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/halfon-p/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/heim-m-h/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/publication/gut-2015-fibrosis/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/jacobson-i-m/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/muumlllhaupt-b/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/malinverni-r/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/moradpour-d/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/nalpas-b/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/negro-f/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/patin-e/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/pol-s/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/poynard-t/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/semela-d/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/suppiah-v/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/authors/talal-a-h/</loc>
-    <lastmod>2015-09-01T00:00:00+02:00</lastmod>
+    <lastmod>2015-09-01T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

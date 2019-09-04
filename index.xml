@@ -7,10 +7,22 @@
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 18 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Sep 2019 00:00:00 +0300</lastBuildDate>
     
 	    <atom:link href="https://sinarueeger.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Robust data analysis - an introduction to R</title>
+      <link>https://sinarueeger.github.io/project/robust-data-analysis/</link>
+      <pubDate>Wed, 04 Sep 2019 00:00:00 +0300</pubDate>
+      
+      <guid>https://sinarueeger.github.io/project/robust-data-analysis/</guid>
+      <description>&lt;p&gt;This is the course material to the workshop &lt;em&gt;Robust data analysis: an introduction to R&lt;/em&gt; held at the &lt;a href=&#34;http://osip2019.epfl.ch/&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;Open Science in Practice&lt;/em&gt;&lt;/a&gt; Summer School 2019 at &lt;a href=&#34;https://www.epfl.ch/en/&#34; target=&#34;_blank&#34;&gt;EPFL&lt;/a&gt;, Switzerland.&lt;/p&gt;
+
+&lt;p&gt;You find the slides &lt;a href=&#34;https://sinarueeger.github.io/robust-data-analysis-with-r/slides-robust-da.html#1&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt; and the workshop handbook &lt;a href=&#34;https://sinarueeger.github.io/robust-data-analysis-with-r/&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Amuse-bouches from useR!2019</title>
@@ -868,7 +880,7 @@ done
     <item>
       <title>Integrative Statistical Analysis of -omics and GWAS data</title>
       <link>https://sinarueeger.github.io/project/phd-thesis/</link>
-      <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0300</pubDate>
       
       <guid>https://sinarueeger.github.io/project/phd-thesis/</guid>
       <description>
@@ -896,7 +908,7 @@ A further finding is, that summary statistic imputation can compete with imputat
     <item>
       <title>R-package GWAS.utils</title>
       <link>https://sinarueeger.github.io/project/gwas.utils/</link>
-      <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0300</pubDate>
       
       <guid>https://sinarueeger.github.io/project/gwas.utils/</guid>
       <description></description>
@@ -905,7 +917,7 @@ A further finding is, that summary statistic imputation can compete with imputat
     <item>
       <title>R-package ggGWAS</title>
       <link>https://sinarueeger.github.io/project/gggwas/</link>
-      <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0300</pubDate>
       
       <guid>https://sinarueeger.github.io/project/gggwas/</guid>
       <description></description>
@@ -914,7 +926,7 @@ A further finding is, that summary statistic imputation can compete with imputat
     <item>
       <title>Statistical Genetics Resources</title>
       <link>https://sinarueeger.github.io/project/stat-genetics-ressources/</link>
-      <pubDate>Tue, 28 May 2019 00:00:00 +0200</pubDate>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0300</pubDate>
       
       <guid>https://sinarueeger.github.io/project/stat-genetics-ressources/</guid>
       <description></description>
@@ -1673,224 +1685,13 @@ $$&lt;/p&gt;
     <item>
       <title>Introduction to Drake</title>
       <link>https://sinarueeger.github.io/talk/r-ladies/</link>
-      <pubDate>Mon, 10 Dec 2018 19:00:00 +0100</pubDate>
+      <pubDate>Mon, 10 Dec 2018 19:00:00 +0200</pubDate>
       
       <guid>https://sinarueeger.github.io/talk/r-ladies/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
   &lt;/div&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Create a map of the 1000 Genomes project reference populations</title>
-      <link>https://sinarueeger.github.io/post/1kgmap/</link>
-      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://sinarueeger.github.io/post/1kgmap/</guid>
-      <description>
-&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/leaflet/leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/leafletfix/leafletfix.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/leaflet-binding/leaflet.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/leaflet-awesomemarkers/leaflet.awesome-markers.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://sinarueeger.github.io/rmarkdown-libs/leaflet-awesomemarkers/leaflet.awesome-markers.min.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;https://sinarueeger.github.io/rmarkdown-libs/fontawesome/font-awesome.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
-
-&lt;div id=&#34;TOC&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#goal&#34;&gt;Goal&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#get-started&#34;&gt;Get started&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#data&#34;&gt;Data&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#add-geographical-coordinates&#34;&gt;Add geographical coordinates&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#create-leaflet&#34;&gt;Create leaflet&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#save-the-map&#34;&gt;Save the map&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#reason-for-deviation-from-the-original&#34;&gt;Reason for deviation from the original&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;p&gt;This post provides the R-Code to map the 26 populations of the &lt;a href=&#34;http://www.internationalgenome.org/&#34;&gt;1000 Genomes project&lt;/a&gt;.&lt;/p&gt;
-&lt;div id=&#34;goal&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Goal&lt;/h2&gt;
-&lt;p&gt;Create a map similar to the one&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; on the front page of &lt;a href=&#34;http://www.internationalgenome.org/&#34; class=&#34;uri&#34;&gt;http://www.internationalgenome.org/&lt;/a&gt; in a reproducible manner.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;https://sinarueeger.github.io/post/2018-12-05-1000genomes-map/1000genomes-map.png&#34; alt=&#34;Version on internationalgenome.org&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;&lt;em&gt;Version on internationalgenome.org&lt;/em&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;get-started&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Get started&lt;/h2&gt;
-&lt;p&gt;Packages needed:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## accessed via ::
-# library(mapview)
-# library(readxl)
-# library(readr)
-# library(purrr)
-# library(tidyr)
-# library(forcats)
-
-library(leaflet) 
-library(dplyr) 
-library(ggmap) ## for geocode, devtools::install_github(&amp;quot;dkahle/ggmap&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;ggmap&lt;/code&gt; requires a google map api key&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;:&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;get one here: &lt;a href=&#34;https://developers.google.com/maps/documentation/geocoding/get-api-key&#34; class=&#34;uri&#34;&gt;https://developers.google.com/maps/documentation/geocoding/get-api-key&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;then run &lt;code&gt;register_google(key = &#34;my_api_key&#34;)&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;div id=&#34;data&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Data&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;The population counts and labels are from ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/ (&lt;a href=&#34;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/20130606_sample_info.xlsx&#34;&gt;download xlsx file&lt;/a&gt;).&lt;/li&gt;
-&lt;li&gt;The super population labels are from &lt;a href=&#34;http://www.internationalgenome.org/faq/which-populations-are-part-your-study/&#34;&gt;here&lt;/a&gt; (pasted into a &lt;a href=&#34;https://sinarueeger.github.io/post/2018-12-05-1000genomes-map/sample_info_superpop.csv&#34;&gt;csv&lt;/a&gt;, then the location was inferred).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Download the population counts and labels first:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;url &amp;lt;-
-&amp;quot;ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/20130606_sample_info.xlsx&amp;quot;
-url.bitly &amp;lt;- &amp;quot;http://bit.ly/2MQTr02&amp;quot;
-download.file(url, &amp;quot;20130606_sample_info.xlsx&amp;quot;, mode = &amp;quot;wb&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Import file into R:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df &amp;lt;-
-  readxl::read_excel(&amp;quot;20130606_sample_info.xlsx&amp;quot;, sheet = &amp;quot;Sample Info&amp;quot;)
-  #  &amp;gt;&amp;gt; Sample Info&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Some data wrangling:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## count number of individuals by population
-## rename population &amp;gt; POP
-n.pop &amp;lt;-
-  df %&amp;gt;% 
-  group_by(Population) %&amp;gt;% 
-  summarise(n = n()) %&amp;gt;% 
-  rename(POP = Population)
-
-## import super population names and details to the location of populations
-## copied from here:
-url.spop &amp;lt;-
-  &amp;quot;http://www.internationalgenome.org/faq/which-populations-are-part-your-study/&amp;quot;
-## added location manually (!) - found this the only option to prevent overlapping locations. 
-## Also, description involves a mix of location and origin.
-
-## rename superpopulation &amp;gt; SPOP
-n.spop &amp;lt;-
-  readr::read_csv(&amp;quot;../../static/post/2018-12-05-1000genomes-map/sample_info_superpop.csv&amp;quot;) %&amp;gt;% 
-  rename(POP = `Population Code`, SPOP = `Super Population Code`)
-
-## join the two information
-n.1kg &amp;lt;- left_join(n.pop, n.spop, by = c(&amp;quot;POP&amp;quot; = &amp;quot;POP&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;add-geographical-coordinates&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Add geographical coordinates&lt;/h2&gt;
-&lt;p&gt;Parts of the code below is from a map created by &lt;a href=&#34;https://github.com/d4tagirl&#34;&gt;Daniela Vazquez&lt;/a&gt; for R-Ladies: &lt;a href=&#34;https://github.com/rladies/Map-RLadies-Growing&#34; class=&#34;uri&#34;&gt;https://github.com/rladies/Map-RLadies-Growing&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;This is the part where we annotate the dataframe &lt;code&gt;n.1kg&lt;/code&gt; with where the individuals live (not their ancestry).
-Repeat this until there are no &lt;code&gt;warnings()&lt;/code&gt; about &lt;code&gt;QUERY LIMITS&lt;/code&gt; (the &lt;code&gt;while&lt;/code&gt; loop takes care of this).&lt;/p&gt;
-&lt;p&gt;We will use the &lt;code&gt;ggmap&lt;/code&gt; package, which accesses the google maps api.&lt;/p&gt;
-&lt;p&gt;A workaround is to set &lt;code&gt;source = &#34;dsk&#34;&lt;/code&gt; (works for a limited number of queries)&lt;a href=&#34;#fn3&#34; class=&#34;footnote-ref&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;n.1kg &amp;lt;- n.1kg %&amp;gt;% 
-  mutate(purrr::map(.$location, geocode, source = &amp;quot;dsk&amp;quot;)) %&amp;gt;% 
-  tidyr::unnest()
-
-## running into the inevitable QUERY LIMITS problems, lets use the approach from https://github.com/rladies/Map-RLadies-Growing
-n.1kg.withloc &amp;lt;- n.1kg %&amp;gt;% 
-  filter(!is.na(lon))
-
-while(nrow(n.1kg.withloc) != nrow(n.1kg))
-{
-  #   repeat this until there are no warnings() about QUERY LIMITS
-  temp &amp;lt;- n.1kg %&amp;gt;% 
-    select(-lon, -lat) %&amp;gt;% 
-    anti_join(n.1kg.withloc %&amp;gt;% select(-lon, -lat)) %&amp;gt;% 
-    mutate(longlat = purrr::map(.$location, geocode, source = &amp;quot;dsk&amp;quot;)) %&amp;gt;% 
-    tidyr::unnest() %&amp;gt;% 
-    filter(!is.na(lon))
-  
-  n.1kg.withloc &amp;lt;- n.1kg.withloc %&amp;gt;% 
-    bind_rows(temp) %&amp;gt;% 
-    distinct()
-}
-
-n.1kg &amp;lt;- n.1kg.withloc
-
-## glue POP and `Population Description` together
-n.1kg &amp;lt;-
-  n.1kg %&amp;gt;% mutate(pop.desc = paste0(POP, &amp;quot; : &amp;quot;, `Population Description`, &amp;quot; (&amp;quot;, SPOP, &amp;quot;)&amp;quot;))
-  
-## given that only a number of geolocation are possible with the google API, this 
-## should probably stored out
-## readr::write_csv(n.1kg, path = &amp;quot;1kg_sample_info_location.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;create-leaflet&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Create leaflet&lt;/h2&gt;
-&lt;p&gt;Map locations a world map with leaflet&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## if you have stroed the data in the previous chunk:
-## readr::read_csv(&amp;quot;1kg_sample_info_location.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Define shiny icons:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;icons &amp;lt;- awesomeIcons(
-  icon = &amp;#39;user&amp;#39;, #people&amp;#39;,
-  iconColor = &amp;#39;black&amp;#39;,
-  library = &amp;#39;fa&amp;#39;, #ion
-  markerColor = as.character(forcats::fct_recode(as.factor(n.1kg$SPOP), 
-                                                 red = &amp;quot;EUR&amp;quot;, 
-                                                 blue = &amp;quot;AFR&amp;quot;, 
-                                                 green = &amp;quot;AMR&amp;quot;, 
-                                                 gray = &amp;quot;EAS&amp;quot;, 
-                                                 orange = &amp;quot;SAS&amp;quot;)) 
-  ## ok, thats not too pretty, but turns out, hex colors won&amp;#39;t work
-)
-
-## we need to create a vector that maps cols to SPOP from the markerColor argument above
-cols &amp;lt;- c(&amp;quot;#E50102&amp;quot;, &amp;quot;#00A9DD&amp;quot;, &amp;quot;#57BA1F&amp;quot;, &amp;quot;#575757&amp;quot;, &amp;quot;#FD8E00&amp;quot;)
-SPOP &amp;lt;- c(&amp;quot;EUR&amp;quot;,  &amp;quot;AFR&amp;quot;, &amp;quot;AMR&amp;quot;, &amp;quot;EAS&amp;quot;, &amp;quot;SAS&amp;quot;)
-
-## separate icon that will display the information
-## ------------------------------------------------
-icon.info &amp;lt;- awesomeIcons(
-  icon = &amp;#39;info&amp;#39;, #people&amp;#39;,
-  iconColor = &amp;#39;white&amp;#39;,
-  library = &amp;#39;fa&amp;#39;, #ion
-  markerColor = &amp;quot;white&amp;quot;
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Create map:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;m &amp;lt;- leaflet(data = n.1kg) %&amp;gt;%
-  addTiles() %&amp;gt;%  # Add default OpenStreetMap map tiles
-  addAwesomeMarkers(lat=~lat, lng=~lon, label = ~htmltools::htmlEscape(pop.desc), icon = icons) %&amp;gt;% 
-  addAwesomeMarkers(lat=-45, lng=-107, popup = glue::glue(&amp;quot;Source: https://github.com/sinarueeger/map-1000genomes&amp;quot;), icon = icon.info) %&amp;gt;% ## this bit has potential to be displayed as a href. 
-  #glue::glue(&amp;quot;Source: {url.bitly} + {url.spop} (manual tidying)&amp;quot;), icon = icon.info) %&amp;gt;% 
-  addLegend(&amp;quot;bottomright&amp;quot;, 
-            colors =cols,
-            labels= SPOP,
-            opacity = 1)
-
-m  # Print the map&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;leaflet html-widget&#34;&gt;&lt;/div&gt;
-&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; &lt;a href=\&#34;http://openstreetmap.org\&#34;&gt;OpenStreetMap&lt;\/a&gt; contributors, &lt;a href=\&#34;http://creativecommons.org/licenses/by-sa/2.0/\&#34;&gt;CC-BY-SA&lt;\/a&gt;&#34;}]},{&#34;method&#34;:&#34;addAwesomeMarkers&#34;,&#34;args&#34;:[[13.16667,34.5003,24,22.08829,40.11995,39.9075,35,4,10,60.16952,50.416667,29.813142,13.5,40,54.75844,35.6895,10.75,0.60751,7.13833,34.05223,-10,31.54972,18.24829,55.9483399,43.41667,7.38778],[-59.53333,-111.50098,90,101.0248,-111.67031,116.39723,105,-72,8,24.93545,-4.75,-95.309789,-15.5,-4,-2.69531,139.69171,106.66667,34.76966,-11.67056,-118.24368,-76,74.34361,-66.49989,-3.1932723,11,3.89639],{&#34;icon&#34;:&#34;user&#34;,&#34;markerColor&#34;:[&#34;blue&#34;,&#34;blue&#34;,&#34;orange&#34;,&#34;gray&#34;,&#34;red&#34;,&#34;gray&#34;,&#34;gray&#34;,&#34;green&#34;,&#34;blue&#34;,&#34;red&#34;,&#34;red&#34;,&#34;orange&#34;,&#34;blue&#34;,&#34;red&#34;,&#34;orange&#34;,&#34;gray&#34;,&#34;gray&#34;,&#34;blue&#34;,&#34;blue&#34;,&#34;green&#34;,&#34;green&#34;,&#34;orange&#34;,&#34;green&#34;,&#34;orange&#34;,&#34;red&#34;,&#34;blue&#34;],&#34;iconColor&#34;:&#34;black&#34;,&#34;spin&#34;:false,&#34;squareMarker&#34;:false,&#34;iconRotate&#34;:0,&#34;font&#34;:&#34;monospace&#34;,&#34;prefix&#34;:&#34;fa&#34;},null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},null,null,null,null,[&#34;ACB : African Caribbeans in Barbados (AFR)&#34;,&#34;ASW : Americans of African Ancestry in SW USA (AFR)&#34;,&#34;BEB : Bengali from Bangladesh (SAS)&#34;,&#34;CDX : Chinese Dai in Xishuangbanna, China (EAS)&#34;,&#34;CEU : Utah Residents (CEPH) with Northern and Western European Ancestry (EUR)&#34;,&#34;CHB : Han Chinese in Beijing, China (EAS)&#34;,&#34;CHS : Southern Han Chinese (EAS)&#34;,&#34;CLM : Colombians from Medellin, Colombia (AMR)&#34;,&#34;ESN : Esan in Nigeria (AFR)&#34;,&#34;FIN : Finnish in Finland (EUR)&#34;,&#34;GBR : British in England and Scotland (EUR)&#34;,&#34;GIH : Gujarati Indian from Houston, Texas (SAS)&#34;,&#34;GWD : Gambian in Western Divisions in the Gambia (AFR)&#34;,&#34;IBS : Iberian Population in Spain (EUR)&#34;,&#34;ITU : Indian Telugu from the UK (SAS)&#34;,&#34;JPT : Japanese in Tokyo, Japan (EAS)&#34;,&#34;KHV : Kinh in Ho Chi Minh City, Vietnam (EAS)&#34;,&#34;LWK : Luhya in Webuye, Kenya (AFR)&#34;,&#34;MSL : Mende in Sierra Leone (AFR)&#34;,&#34;MXL : Mexican Ancestry from Los Angeles USA (AMR)&#34;,&#34;PEL : Peruvians from Lima, Peru (AMR)&#34;,&#34;PJL : Punjabi from Lahore, Pakistan (SAS)&#34;,&#34;PUR : Puerto Ricans from Puerto Rico (AMR)&#34;,&#34;STU : Sri Lankan Tamil from the UK (SAS)&#34;,&#34;TSI : Toscani in Italia (EUR)&#34;,&#34;YRI : Yoruba in Ibadan, Nigeria (AFR)&#34;],{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]},{&#34;method&#34;:&#34;addAwesomeMarkers&#34;,&#34;args&#34;:[-45,-107,{&#34;icon&#34;:&#34;info&#34;,&#34;markerColor&#34;:&#34;white&#34;,&#34;iconColor&#34;:&#34;white&#34;,&#34;spin&#34;:false,&#34;squareMarker&#34;:false,&#34;iconRotate&#34;:0,&#34;font&#34;:&#34;monospace&#34;,&#34;prefix&#34;:&#34;fa&#34;},null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},&#34;Source: https://github.com/sinarueeger/map-1000genomes&#34;,null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]},{&#34;method&#34;:&#34;addLegend&#34;,&#34;args&#34;:[{&#34;colors&#34;:[&#34;#E50102&#34;,&#34;#00A9DD&#34;,&#34;#57BA1F&#34;,&#34;#575757&#34;,&#34;#FD8E00&#34;],&#34;labels&#34;:[&#34;EUR&#34;,&#34;AFR&#34;,&#34;AMR&#34;,&#34;EAS&#34;,&#34;SAS&#34;],&#34;na_color&#34;:null,&#34;na_label&#34;:&#34;NA&#34;,&#34;opacity&#34;:1,&#34;position&#34;:&#34;bottomright&#34;,&#34;type&#34;:&#34;unknown&#34;,&#34;title&#34;:null,&#34;extra&#34;:null,&#34;layerId&#34;:null,&#34;className&#34;:&#34;info legend&#34;,&#34;group&#34;:null}]}],&#34;limits&#34;:{&#34;lat&#34;:[-45,60.16952],&#34;lng&#34;:[-118.24368,139.69171]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
-&lt;/div&gt;
-&lt;div id=&#34;save-the-map&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Save the map&lt;/h2&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;## save to png
-## ------------
-mapview::mapshot(m, file = &amp;quot;map-1000genomes-populations.png&amp;quot;)
-
-## save to hmtl
-## -------------
-htmlwidgets::saveWidget(m, file=&amp;quot;map-1000genomes-populations.html&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;reason-for-deviation-from-the-original&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Reason for deviation from the original&lt;/h2&gt;
-&lt;p&gt;I mapped the populations according to the current location but coloured them according to ancestry.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;This is a png and cannot be altered.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;Seen here: &lt;a href=&#34;https://stackoverflow.com/questions/36175529/getting-over-query-limit-after-one-request-with-geocode&#34; class=&#34;uri&#34;&gt;https://stackoverflow.com/questions/36175529/getting-over-query-limit-after-one-request-with-geocode&lt;/a&gt;.&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;See &lt;a href=&#34;https://stackoverflow.com/questions/36175529/getting-over-query-limit-after-one-request-with-geocode&#34; class=&#34;uri&#34;&gt;https://stackoverflow.com/questions/36175529/getting-over-query-limit-after-one-request-with-geocode&lt;/a&gt;.&lt;a href=&#34;#fnref3&#34; class=&#34;footnote-back&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
 &lt;/div&gt;
 </description>
     </item>
