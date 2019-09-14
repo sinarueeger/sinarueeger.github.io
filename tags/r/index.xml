@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 04 Sep 2019 00:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 05 Sep 2019 14:00:00 +0300</lastBuildDate>
     
 	<atom:link href="https://sinarueeger.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Robust data analysis - an introduction to R</title>
+      <link>https://sinarueeger.github.io/talk/robust-data-analysis/</link>
+      <pubDate>Thu, 05 Sep 2019 14:00:00 +0300</pubDate>
+      
+      <guid>https://sinarueeger.github.io/talk/robust-data-analysis/</guid>
+      <description> Click on the Slides button above to view the built-in slides feature.   </description>
+    </item>
     
     <item>
       <title>Robust data analysis - an introduction to R</title>
@@ -96,15 +105,6 @@ Version on internationalgenome.org
       
       <guid>https://sinarueeger.github.io/post/drake/</guid>
       <description>What is a “project folder”? Why now? Why we tidy up: authority and incentive Challenges What I want The options Drake Getting started More Examples Resources  But wait: drake does not care about messy folders What is next? When is the right time to tidy Is it worth it?   Recently, I started to seriously1 think about the tidiness of data analysis project folders and the implications of tidying up.</description>
-    </item>
-    
-    <item>
-      <title>Tidying workflows &amp; R community</title>
-      <link>https://sinarueeger.github.io/talk/geneve-rug/</link>
-      <pubDate>Thu, 04 Oct 2018 19:00:00 +0300</pubDate>
-      
-      <guid>https://sinarueeger.github.io/talk/geneve-rug/</guid>
-      <description> Click on the Slides button above to view the built-in slides feature.   </description>
     </item>
     
   </channel>

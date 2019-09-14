@@ -4,7 +4,41 @@
   
   <url>
     <loc>https://sinarueeger.github.io/tags/</loc>
-    <lastmod>2019-09-04T00:00:00+03:00</lastmod>
+    <lastmod>2019-09-05T14:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sinarueeger.github.io/tags/r/</loc>
+    <lastmod>2019-09-05T14:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sinarueeger.github.io/talk/</loc>
+    <lastmod>2019-09-05T14:00:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sinarueeger.github.io/talk/robust-data-analysis/</loc>
+    <lastmod>2019-09-05T14:00:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sinarueeger.github.io/</loc>
+    <lastmod>2019-09-05T14:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sinarueeger.github.io/tags/</loc>
+    <lastmod>2019-09-05T14:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sinarueeger.github.io/tags/best-practices/</loc>
+    <lastmod>2019-09-05T14:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -15,26 +49,8 @@
   </url>
   
   <url>
-    <loc>https://sinarueeger.github.io/tags/r/</loc>
-    <lastmod>2019-09-04T00:00:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://sinarueeger.github.io/project/robust-data-analysis/</loc>
     <lastmod>2019-09-04T00:00:00+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sinarueeger.github.io/</loc>
-    <lastmod>2019-09-04T00:00:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sinarueeger.github.io/tags/</loc>
-    <lastmod>2019-09-04T00:00:00+03:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -124,11 +140,6 @@
   </url>
   
   <url>
-    <loc>https://sinarueeger.github.io/talk/</loc>
-    <lastmod>2018-12-10T19:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://sinarueeger.github.io/tags/workflow/</loc>
     <lastmod>2018-12-10T19:00:00+02:00</lastmod>
     <priority>0</priority>
@@ -148,12 +159,6 @@
   <url>
     <loc>https://sinarueeger.github.io/talk/r-lunchs/</loc>
     <lastmod>2018-12-04T12:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sinarueeger.github.io/tags/best-practices/</loc>
-    <lastmod>2018-12-04T12:00:00+02:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -198,11 +203,6 @@
     <loc>https://sinarueeger.github.io/tutorial/</loc>
     <lastmod>2018-09-09T00:00:00+03:00</lastmod>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sinarueeger.github.io/talk/robust-data-analysis/</loc>
-    <lastmod>2018-09-05T14:00:00+03:00</lastmod>
   </url>
   
   <url>
