@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tutorials on Sina Rüeger</title>
+    <title>Overview on Sina Rüeger</title>
     <link>https://sinarueeger.github.io/tutorial/</link>
-    <description>Recent content in Tutorials on Sina Rüeger</description>
+    <description>Recent content in Overview on Sina Rüeger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 09 Sep 2018 00:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 09 Sep 2018 00:00:00 -0400</lastBuildDate>
     
 	<atom:link href="https://sinarueeger.github.io/tutorial/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,10 +15,10 @@
     <item>
       <title>Example Page</title>
       <link>https://sinarueeger.github.io/tutorial/example/</link>
-      <pubDate>Sun, 09 Sep 2018 00:00:00 +0300</pubDate>
+      <pubDate>Sun, 09 Sep 2018 00:00:00 -0400</pubDate>
       
       <guid>https://sinarueeger.github.io/tutorial/example/</guid>
-      <description>In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:
+      <description>In this tutorial, I&#39;ll share my top 10 tips for getting started with Academic:
 Tip 1 &amp;hellip;
 Tip 2 &amp;hellip;</description>
     </item>
