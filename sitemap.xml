@@ -3,12 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://sinarueeger.github.io/tags/best-practices/</loc>
-    <lastmod>2019-09-05T14:00:00-04:00</lastmod>
+    <loc>https://sinarueeger.github.io/tags/podcast/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sinarueeger.github.io/post/podcasts/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sinarueeger.github.io/post/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://sinarueeger.github.io/tags/r/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sinarueeger.github.io/tags/science-communication/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sinarueeger.github.io/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sinarueeger.github.io/tags/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sinarueeger.github.io/tags/best-practices/</loc>
     <lastmod>2019-09-05T14:00:00-04:00</lastmod>
   </url>
   
@@ -19,16 +49,6 @@
   
   <url>
     <loc>https://sinarueeger.github.io/talk/robust-data-analysis/</loc>
-    <lastmod>2019-09-05T14:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sinarueeger.github.io/</loc>
-    <lastmod>2019-09-05T14:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sinarueeger.github.io/tags/</loc>
     <lastmod>2019-09-05T14:00:00-04:00</lastmod>
   </url>
   
@@ -53,17 +73,7 @@
   </url>
   
   <url>
-    <loc>https://sinarueeger.github.io/post/</loc>
-    <lastmod>2019-07-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://sinarueeger.github.io/post/scientific-poster/</loc>
-    <lastmod>2019-06-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://sinarueeger.github.io/tags/science-communication/</loc>
     <lastmod>2019-06-10T00:00:00+00:00</lastmod>
   </url>
   

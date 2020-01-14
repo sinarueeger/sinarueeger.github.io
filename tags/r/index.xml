@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 05 Sep 2019 14:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://sinarueeger.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Podcasts</title>
+      <link>https://sinarueeger.github.io/post/podcasts/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://sinarueeger.github.io/post/podcasts/</guid>
+      <description>Listening to a podcast keeps me focussed like nothing else, hence perfect for reflection and learning. Usually, I do some unsophisticated knitting next to it or I plug in my earphones while walking to work.
+Here is a list of my preferred podcasts.
+R &amp;amp; stats &amp;amp; data science Podcasts that touch on R, statistics or data science:
+  Not So Standard Deviations: Entertaining chit chat - uplifting and enlightening.</description>
+    </item>
     
     <item>
       <title>Robust data analysis - an introduction to R</title>
@@ -96,15 +108,6 @@ Version on internationalgenome.org
       
       <guid>https://sinarueeger.github.io/talk/r-lunchs/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Tidying workflows in R</title>
-      <link>https://sinarueeger.github.io/post/drake/</link>
-      <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://sinarueeger.github.io/post/drake/</guid>
-      <description>What is a “project folder”? Why now? Why we tidy up: authority and incentive Challenges What I want The options Drake Getting started More Examples Resources  But wait: drake does not care about messy folders What is next? When is the right time to tidy Is it worth it?   Recently, I started to seriously1 think about the tidiness of data analysis project folders and the implications of tidying up.</description>
     </item>
     
   </channel>

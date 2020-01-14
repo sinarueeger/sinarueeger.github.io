@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 18 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://sinarueeger.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Podcasts</title>
+      <link>https://sinarueeger.github.io/post/podcasts/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://sinarueeger.github.io/post/podcasts/</guid>
+      <description>Listening to a podcast keeps me focussed like nothing else, hence perfect for reflection and learning. Usually, I do some unsophisticated knitting next to it or I plug in my earphones while walking to work.
+Here is a list of my preferred podcasts.
+R &amp;amp; stats &amp;amp; data science Podcasts that touch on R, statistics or data science:
+  Not So Standard Deviations: Entertaining chit chat - uplifting and enlightening.</description>
+    </item>
     
     <item>
       <title>Amuse-bouches from useR!2019</title>
