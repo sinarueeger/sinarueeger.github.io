@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2020. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 05 Sep 2019 14:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 05 Sep 2019 14:00:00 +0200</lastBuildDate>
     
 	<atom:link href="https://sinarueeger.github.io/tags/best-practices/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Robust data analysis - an introduction to R</title>
       <link>https://sinarueeger.github.io/talk/robust-data-analysis/</link>
-      <pubDate>Thu, 05 Sep 2019 14:00:00 -0400</pubDate>
+      <pubDate>Thu, 05 Sep 2019 14:00:00 +0200</pubDate>
       
       <guid>https://sinarueeger.github.io/talk/robust-data-analysis/</guid>
       <description></description>
@@ -24,7 +24,7 @@
     <item>
       <title>Workflow &amp; best practices for projects</title>
       <link>https://sinarueeger.github.io/talk/r-lunchs/</link>
-      <pubDate>Tue, 04 Dec 2018 12:00:00 -0500</pubDate>
+      <pubDate>Tue, 04 Dec 2018 12:00:00 +0100</pubDate>
       
       <guid>https://sinarueeger.github.io/talk/r-lunchs/</guid>
       <description></description>
