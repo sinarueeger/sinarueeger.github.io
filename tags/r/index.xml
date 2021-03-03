@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2021. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 11 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 28 Feb 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://sinarueeger.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The headache with data repositories</title>
+      <link>https://sinarueeger.github.io/post/the-headache-with-data-repositories/</link>
+      <pubDate>Sun, 28 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sinarueeger.github.io/post/the-headache-with-data-repositories/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Favourite Podcasts</title>
@@ -99,15 +108,6 @@ Check out the speakers’ materials - soon there will be recordings too.</descri
 Goal Create a map similar to the one1 on the front page of http://www.internationalgenome.org/ in a reproducible manner.
 Version on internationalgenome.org
   Get started Packages needed:</description>
-    </item>
-    
-    <item>
-      <title>Workflow &amp; best practices for projects</title>
-      <link>https://sinarueeger.github.io/talk/r-lunchs/</link>
-      <pubDate>Tue, 04 Dec 2018 12:00:00 +0100</pubDate>
-      
-      <guid>https://sinarueeger.github.io/talk/r-lunchs/</guid>
-      <description></description>
     </item>
     
   </channel>

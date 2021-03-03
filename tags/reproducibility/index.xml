@@ -2,34 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>reproducibility on Sina Rüeger</title>
-    <link>/tags/reproducibility/</link>
+    <link>https://sinarueeger.github.io/tags/reproducibility/</link>
     <description>Recent content in reproducibility on Sina Rüeger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2021. All rights reserved.</copyright>
     <lastBuildDate>Sun, 28 Feb 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/reproducibility/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://sinarueeger.github.io/tags/reproducibility/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The headache with data repositories</title>
-      <link>/post/the-headache-with-data-repositories/</link>
+      <link>https://sinarueeger.github.io/post/the-headache-with-data-repositories/</link>
       <pubDate>Sun, 28 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/the-headache-with-data-repositories/</guid>
-      <description>I attended the last rOpenSci call on data repositories1 and below are my two cents on why storing on, and using data from the web may still be such a headache.
-The hour-long community call was - as always - inspiring and presented itself in a relaxed setting; with a set of experts voicing their experiences and challenges around data repositories from different angles, and a Q&amp;amp;A session towards the end.</description>
-    </item>
-    
-    <item>
-      <title>FINEMAP howto</title>
-      <link>/post/finemapping-howto/</link>
-      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/finemapping-howto/</guid>
-      <description>Aim The aim is, to better understand FINEMAP and reproduce Figure 7 in Benner et al. 2016 that is about fine-mapping of 15q21/LIPC region associated with high-density lipo- protein cholesterol.
-  Fine-mapping of 15q21/ LIPC region associated with high-density lipoprotein cholesterol. Independent association signals in conditional analysis are highlighted by yellow dot. Dashed lines correspond respectively to a single-SNP Bayes factor of 100 and P -value of 5×10−8 .</description>
+      <guid>https://sinarueeger.github.io/post/the-headache-with-data-repositories/</guid>
+      <description></description>
     </item>
     
   </channel>
