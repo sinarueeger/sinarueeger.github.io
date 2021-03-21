@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wellbeing on Sina Rüeger</title>
+    <link>/tags/wellbeing/</link>
+    <description>Recent content in wellbeing on Sina Rüeger</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2021. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 21 Apr 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/wellbeing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CBT Data Analysis</title>
+      <link>/post/cbt-data-analysis/</link>
+      <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/cbt-data-analysis/</guid>
+      <description>This blogpost is about applying a mental-wellbeing coping technique to “data analysis worrying”.
+Constant worrying After a solid data science-y education and more than a decade1 of experience, I recently realized that deep down, I have always been worried about the whole data analytic process2. What I mean by that is that there are tons of factors that will influence your analysis - whether controllable or not. Keeping these factors in check is often a challenge.</description>
+    </item>
+    
+  </channel>
+</rss>
