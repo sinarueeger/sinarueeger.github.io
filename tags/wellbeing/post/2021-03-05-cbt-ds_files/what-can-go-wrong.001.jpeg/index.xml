@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wellbeing![](/post/2021-03-05-cbt-ds_files/what-can-go-wrong.001.jpeg) on Sina Rüeger</title>
+    <link>/tags/wellbeing/post/2021-03-05-cbt-ds_files/what-can-go-wrong.001.jpeg/</link>
+    <description>Recent content in wellbeing![](/post/2021-03-05-cbt-ds_files/what-can-go-wrong.001.jpeg) on Sina Rüeger</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2021. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 21 Apr 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/wellbeing/post/2021-03-05-cbt-ds_files/what-can-go-wrong.001.jpeg/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CBT inspired Data Analysis - part 1</title>
+      <link>/post/cbt-data-analysis/</link>
+      <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/cbt-data-analysis/</guid>
+      <description>This blogpost is about applying a mental-wellbeing coping technique called CBT to “data analysis worrying”.
+Let’s say you get a new project handed over; some kind of data analysis. What do you feel: Do you feel a) excitement of getting hands onto new data or b) anxiety that this project may stumble accross all the data science mistakes that one can possibly make?
+I feel both of these things. I am always delighted about a) because it means that I still like my work.</description>
+    </item>
+    
+  </channel>
+</rss>

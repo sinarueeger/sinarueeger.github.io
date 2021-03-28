@@ -7,19 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2021. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 21 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 28 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/wellbeing/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>CBT Data Analysis</title>
-      <link>/post/cbt-data-analysis/</link>
-      <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
+      <title>CBT inspired Data Analysis - part 2</title>
+      <link>/post/cbt-data-analysis-part2/</link>
+      <pubDate>Sun, 28 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>/post/cbt-data-analysis/</guid>
-      <description>This blogpost is about applying a mental-wellbeing coping technique to “data analysis worrying”.
-Constant worrying After a solid data science-y education and more than a decade1 of experience, I recently realized that deep down, I have always been worried about the whole data analytic process2. What I mean by that is that there are tons of factors that will influence your analysis - whether controllable or not. Keeping these factors in check is often a challenge.</description>
+      <guid>/post/cbt-data-analysis-part2/</guid>
+      <description>This blogpost is about applying a mental-wellbeing coping technique called CBT to “data analysis worrying”.
+Part 1 discussed a mental coping approach, while part 2 I will show more technical solutions.
+One aspect is to list “preventions”.
+1. Work organisation Write code such that mistakes can be corrected and analysis rerun easily. - version control - best practices in scientific computing
+ 2. Breaks  Take a break often Breath ZINE -&amp;gt; debugging   3.</description>
+    </item>
+    
+    <item>
+      <title>CBT inspired Data Analysis - part 1</title>
+      <link>/post/cbt-data-analysis-part1/</link>
+      <pubDate>Sun, 21 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/post/cbt-data-analysis-part1/</guid>
+      <description>This blogpost is about applying a mental-wellbeing coping technique called CBT to “data analysis worrying”.
+Let’s say you get a new project handed over; some kind of data analysis. What do you feel: Do you feel a) excitement of getting hands onto new data or b) anxiety that this project may stumble accross all the data science mistakes that one can possibly make?
+I feel both of these things. I am always delighted about a) because it means that I still like my work.</description>
     </item>
     
   </channel>
