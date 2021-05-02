@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2021. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 28 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 May 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://sinarueeger.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CBT inspired Data Analysis - Part 1</title>
+      <link>https://sinarueeger.github.io/post/cbt-data-analysis-1/</link>
+      <pubDate>Sun, 02 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sinarueeger.github.io/post/cbt-data-analysis-1/</guid>
+      <description>This blogpost is about applying a mental-wellbeing coping to constant “data analysis worrying”. 
+From https://xkcd.com/1222/.
+ Let’s say you get a new project handed over; some kind of data analysis. What do you feel:
+excitement of getting your hands onto new data, or anxiety that this project may fail, stumbling upon all the data science mistakes that one can possibly make?  I feel both of these things. I am always delighted about a.</description>
+    </item>
     
     <item>
       <title>The headache with data repositories</title>
@@ -108,16 +120,6 @@ The programme in Cardiff had parallel sessions - tough decision-making to pick b
 dplyr workshop Kathrine Tansey kept us busy with a workshop on dplyr in the morning.
 💻 rstudio-cloud project
 Packaging workshop Heather Turner upgraded us on packaging.</description>
-    </item>
-    
-    <item>
-      <title>Getting started with encryption of documents</title>
-      <link>https://sinarueeger.github.io/post/2018-04-04-encryption-of-files/</link>
-      <pubDate>Fri, 13 Apr 2018 20:40:59 +0200</pubDate>
-      
-      <guid>https://sinarueeger.github.io/post/2018-04-04-encryption-of-files/</guid>
-      <description>I work (broadly speaking) in epidemiology. Within collaborations we often have to share sensitive data across institutions and are therefore likely to not share IT facilities. But the most often used options - bare e-mail or file hosting - are not secure, as they both work via a server that could potentially be exposed.
-There are a handful of secure options around (ProtonMail or keybase.io, both working via encryption), but for those that trust open source projects the most and are familiar with a terminal I have written some basic instructions for asymmetric GPG encryption.</description>
     </item>
     
   </channel>

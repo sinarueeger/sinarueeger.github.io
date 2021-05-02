@@ -28,10 +28,9 @@
     
   
   <meta name="description" content="This blogpost is about applying a mental-wellbeing coping technique called CBT to “data analysis worrying”.
-Part 1 discussed a mental coping approach, while part 2 I will show more technical solutions.
-One aspect is to list “preventions”.
-1. Work organisation Write code such that mistakes can be corrected and analysis rerun easily. - version control - best practices in scientific computing
- 2. Breaks  Take a break often Breath ZINE -&gt; debugging   3.">
+Part 1 discussed a mental coping approach, while part 2 I will show more technical solutions (and prevention).
+1. Work organisation Write code such that mistakes can be corrected and analysis rerun easily.
+ Use version control for code (and backup resulting data regularly and in a systematic way). Use an R-package to help with (physical) project organisation: drake, ProjectTemplate, workflowr and probably lots more.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/cbt-data-analysis-2/">
@@ -127,10 +126,9 @@ One aspect is to list “preventions”.
   <meta property="og:url" content="/post/cbt-data-analysis-2/">
   <meta property="og:title" content="CBT inspired Data Analysis - part 2 | Sina Rüeger">
   <meta property="og:description" content="This blogpost is about applying a mental-wellbeing coping technique called CBT to “data analysis worrying”.
-Part 1 discussed a mental coping approach, while part 2 I will show more technical solutions.
-One aspect is to list “preventions”.
-1. Work organisation Write code such that mistakes can be corrected and analysis rerun easily. - version control - best practices in scientific computing
- 2. Breaks  Take a break often Breath ZINE -&gt; debugging   3."><meta property="og:image" content="/img/icon-192.png">
+Part 1 discussed a mental coping approach, while part 2 I will show more technical solutions (and prevention).
+1. Work organisation Write code such that mistakes can be corrected and analysis rerun easily.
+ Use version control for code (and backup resulting data regularly and in a systematic way). Use an R-package to help with (physical) project organisation: drake, ProjectTemplate, workflowr and probably lots more."><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2021-03-28T00:00:00&#43;00:00">
@@ -395,7 +393,7 @@ One aspect is to list “preventions”.
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -483,31 +481,59 @@ One aspect is to list “preventions”.
 
 
 <p><span style="background-color: #F2AD00"><em>This blogpost is about applying a mental-wellbeing coping technique called CBT to “data analysis worrying”.</em></span></p>
-<p><a href="https://sinarueeger.github.io/post/cbt-data-analysis-part1/"><strong>Part 1</strong></a> discussed a mental coping approach, while <strong>part 2</strong> I will show more technical solutions.</p>
-<p>One aspect is to list “preventions”.</p>
+<p><a href="https://sinarueeger.github.io/post/cbt-data-analysis-part1/"><strong>Part 1</strong></a> discussed a mental coping approach, while <strong>part 2</strong> I will show more technical solutions (and prevention).</p>
 <div id="work-organisation" class="section level2">
 <h2>1. Work organisation</h2>
-<p>Write code such that mistakes can be corrected and analysis rerun easily.
-- version control
-- best practices in scientific computing</p>
+<p>Write code such that mistakes can be corrected and analysis rerun easily.</p>
+<ul>
+<li>Use version control for code (and backup resulting data regularly and in a systematic way).</li>
+<li>Use an R-package to help with (physical) project organisation: <a href="">drake</a>, <a href="http://projecttemplate.net/getting_started.html">ProjectTemplate</a>, <a href="https://jdblischak.github.io/workflowr/">workflowr</a> and probably lots more.</li>
+<li>Apply <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510">best practices in scientific computing</a>.</li>
+</ul>
 </div>
 <div id="breaks" class="section level2">
 <h2>2. Breaks</h2>
-<ul>
-<li>Take a break often</li>
-<li>Breath</li>
-<li>ZINE -&gt; debugging</li>
-</ul>
+<p>Take breaks often, especially when debugging. This will help to keep the focus up - even though it seems like you are taking the focus away by leaving your desk briefly.</p>
+<p>The important bit is, that you rest during the break. Pet your cat, drink a coffee, watch the cars pass.</p>
+<div id="tips" class="section level3">
+<h3>Tips</h3>
+<p><a href="https://wizardzines.com/comics/take-breaks/" class="uri">https://wizardzines.com/comics/take-breaks/</a></p>
 </div>
-<div id="good-data-qc-so-high-confidence-in-data" class="section level2">
-<h2>3. Good data QC, so high confidence in data</h2>
-<ul>
-<li>Automatic QC tooling</li>
-</ul>
+<div id="breath" class="section level3">
+<h3>Breath</h3>
+<p>During the break, or when stressed, apply <a href="https://www.youtube.com/watch?v=n6RbW2LtdFs">box breathing</a>. When stressed, our breathing becomes superficial. I don’t know what the science behind is, but any type of deep and regular breathing helps to calm down and refocus.</p>
+</div>
+<div id="pomodoro-technique" class="section level3">
+<h3>Pomodoro Technique</h3>
+<p>When to take breaks? The official <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">pomodoro technique</a> is: work 25 min, have a 5 min break.</p>
+<p>There are tons of apps around for exactly this purpose, but I found my <strong>oven timer</strong> most effective (I <em>really</em> have to leave my desk to turn off the timer).</p>
+</div>
+</div>
+<div id="r-packages-for-high-confidence-in-data" class="section level2">
+<h2>3. R packages for high confidence in data</h2>
+<div id="use-modern-tooling" class="section level3">
+<h3>Use modern tooling</h3>
+<p>When reading in and out tables, don’t rely on <code>read.table</code>. Instead, use a more modern tooling, such as <code>data.table::fread</code> or <code>readr::read_table</code> that have not only faster, but have in-built …</p>
+</div>
+<div id="automatic-data-sanity-checking" class="section level3">
+<h3>Automatic data sanity checking</h3>
+<p>Use R-package <code>janitor</code> to apply automatic data checks.</p>
+<p>Use R-package <code>skimr</code> to summarize your data quickly.</p>
+</div>
 </div>
 <div id="familiarize-yourself-with-methods" class="section level2">
 <h2>4. Familiarize yourself with methods</h2>
-<p>And I don’t mean that you should read papers.</p>
+<p>When applying a method, the most important bit will be the valdiation part - is your model behaving the way it should. That can be the residual plot for logistic regression, … for random Forest, … for .</p>
+<p>By exposing yourself to the methods you use, you will ..</p>
+</div>
+<div id="debugging" class="section level2">
+<h2>5. Debugging</h2>
+<p>If you happen to run into bug follow these tips: <a href="https://wizardzines.com/comics/attitude-matters/" class="uri">https://wizardzines.com/comics/attitude-matters/</a></p>
+<p>Above all - take a break! See above.</p>
+</div>
+<div id="attitude" class="section level2">
+<h2>6. Attitude</h2>
+<p><a href="https://wizardzines.com/comics/love-your-bugs/" class="uri">https://wizardzines.com/comics/love-your-bugs/</a></p>
 </div>
 
     </div>
