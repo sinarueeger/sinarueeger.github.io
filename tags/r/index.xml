@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2021. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 28 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 May 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://sinarueeger.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data Analysis Worrying (Part 1)</title>
+      <link>https://sinarueeger.github.io/post/cbt-data-analysis-part1/</link>
+      <pubDate>Sun, 02 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://sinarueeger.github.io/post/cbt-data-analysis-part1/</guid>
+      <description>This blogpost is about applying a mental-wellbeing coping to constant “data analysis worrying”. 
+From https://xkcd.com/1222/.
+ Let’s say you get a new project handed over; some kind of data analysis. What do you feel:
+excitement of getting your hands onto new data, or anxiety that this project may fail, stumbling upon all the data science mistakes that one can possibly make?  I feel both of these things. I am always delighted about a.</description>
+    </item>
     
     <item>
       <title>The headache with data repositories</title>
@@ -97,18 +109,6 @@ Check out the speakers’ materials - soon there will be recordings too.</descri
       
       <guid>https://sinarueeger.github.io/talk/r-ladies/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Create a map of the 1000 Genomes project reference populations</title>
-      <link>https://sinarueeger.github.io/post/1kgmap/</link>
-      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://sinarueeger.github.io/post/1kgmap/</guid>
-      <description>Goal Get started Data Add geographical coordinates Create leaflet Save the map Reason for deviation from the original   This post provides the R-Code to map the 26 populations of the 1000 Genomes project.
-Goal Create a map similar to the one1 on the front page of http://www.internationalgenome.org/ in a reproducible manner.
-Version on internationalgenome.org
-  Get started Packages needed:</description>
     </item>
     
   </channel>

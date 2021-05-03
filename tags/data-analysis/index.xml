@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>data analysis on Sina Rüeger</title>
+    <title>data-analysis on Sina Rüeger</title>
     <link>https://sinarueeger.github.io/tags/data-analysis/</link>
-    <description>Recent content in data analysis on Sina Rüeger</description>
+    <description>Recent content in data-analysis on Sina Rüeger</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2021. All rights reserved.</copyright>
@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>Data Analysis Worrying - Part 1</title>
+      <title>Data Analysis Worrying (Part 1)</title>
       <link>https://sinarueeger.github.io/post/cbt-data-analysis-part1/</link>
       <pubDate>Sun, 02 May 2021 00:00:00 +0000</pubDate>
       

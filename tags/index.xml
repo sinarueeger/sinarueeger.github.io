@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>data analysis</title>
+      <title>data-analysis</title>
       <link>https://sinarueeger.github.io/tags/data-analysis/</link>
       <pubDate>Sun, 02 May 2021 00:00:00 +0000</pubDate>
       
@@ -22,11 +22,11 @@
     </item>
     
     <item>
-      <title>quality checks</title>
-      <link>https://sinarueeger.github.io/tags/quality-checks/</link>
+      <title>R</title>
+      <link>https://sinarueeger.github.io/tags/r/</link>
       <pubDate>Sun, 02 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://sinarueeger.github.io/tags/quality-checks/</guid>
+      <guid>https://sinarueeger.github.io/tags/r/</guid>
       <description></description>
     </item>
     
@@ -45,15 +45,6 @@
       <pubDate>Sun, 28 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>https://sinarueeger.github.io/tags/data/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://sinarueeger.github.io/tags/r/</link>
-      <pubDate>Sun, 28 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://sinarueeger.github.io/tags/r/</guid>
       <description></description>
     </item>
     
@@ -99,6 +90,15 @@
       <pubDate>Thu, 05 Sep 2019 14:00:00 +0200</pubDate>
       
       <guid>https://sinarueeger.github.io/tags/best-practices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>conference</title>
+      <link>https://sinarueeger.github.io/tags/conference/</link>
+      <pubDate>Thu, 18 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sinarueeger.github.io/tags/conference/</guid>
       <description></description>
     </item>
     
