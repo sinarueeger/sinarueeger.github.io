@@ -7,18 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2021. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 10 Dec 2018 19:00:00 +0100</lastBuildDate>
-    
-	<atom:link href="https://sinarueeger.github.io/tags/r-ladies/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 10 Dec 2018 19:00:00 +0000</lastBuildDate><atom:link href="https://sinarueeger.github.io/tags/r-ladies/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction to Drake</title>
       <link>https://sinarueeger.github.io/talk/r-ladies/</link>
-      <pubDate>Mon, 10 Dec 2018 19:00:00 +0100</pubDate>
+      <pubDate>Mon, 10 Dec 2018 19:00:00 +0000</pubDate>
       
       <guid>https://sinarueeger.github.io/talk/r-ladies/</guid>
-      <description></description>
+      <description> </description>
     </item>
     
   </channel>

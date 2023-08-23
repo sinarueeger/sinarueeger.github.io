@@ -7,21 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2021. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 02 May 2021 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://sinarueeger.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 02 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sinarueeger.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Data Analysis Worrying (Part 1)</title>
       <link>https://sinarueeger.github.io/post/cbt-data-analysis-part1/</link>
       <pubDate>Sun, 02 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://sinarueeger.github.io/post/cbt-data-analysis-part1/</guid>
-      <description>This blogpost is about applying a mental-wellbeing coping to constant “data analysis worrying”. 
-From https://xkcd.com/1222/.
- Let’s say you get a new project handed over; some kind of data analysis. What do you feel:
-excitement of getting your hands onto new data, or anxiety that this project may fail, stumbling upon all the data science mistakes that one can possibly make?  I feel both of these things. I am always delighted about a.</description>
+      <description>This blogpost is about applying a mental-wellbeing coping to constant “data analysis worrying”. From https://xkcd.com/1222/.
+Let’s say you get a new project handed over; some kind of data analysis. What do you feel:
+excitement of getting your hands onto new data, or anxiety that this project may fail, stumbling upon all the data science mistakes that one can possibly make? I feel both of these things. I am always delighted about a.</description>
     </item>
     
     <item>
@@ -43,7 +38,7 @@ The hour-long community call was - as always - inspiring and presented itself in
       <description>Listening to a podcast keeps me focussed like nothing else, hence perfect for reflection and learning. Usually, I do some unsophisticated knitting next to it or I plug in my earphones while walking to work.
 Here is a list of my preferred podcasts.
 R &amp;amp; stats &amp;amp; data science Podcasts that touch on R, statistics or data science:
-  Not So Standard Deviations: Entertaining chit chat - uplifting and enlightening.</description>
+Not So Standard Deviations: Entertaining chit chat - uplifting and enlightening. See below why this is my favorite.</description>
     </item>
     
     <item>
@@ -63,7 +58,7 @@ Check out the speakers’ materials - soon there will be recordings too.</descri
       <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://sinarueeger.github.io/post/scientific-poster/</guid>
-      <description>How to make a good poster Recipe Content Design  This is a tutorial on how to make a scientific poster from scratch.
+      <description>How to make a good poster Recipe Content Design This is a tutorial on how to make a scientific poster from scratch.
 It aims for first-time poster makers, but also for people like me that quickly lose themselves in choosing the right font for hours.
 It includes a few self-declared best practices that helped me in the past. Those are at best ideas, and barely opinions. It is by no means a collection of strict rules and feedback is welcome!</description>
     </item>
@@ -74,7 +69,7 @@ It includes a few self-declared best practices that helped me in the past. Those
       <pubDate>Tue, 21 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://sinarueeger.github.io/post/get-ld-remotely/</guid>
-      <description>Goal Two approaches Our toy data 1A. A solution that works: ldlink from NIH LDproxy LDmatrix  1B. A solution that almost works: ensembl.org What reference panels/population can we choose from? Access LD between a SNP and its region Access LD matrix Access LD between a SNP and many other SNPs Coloured locuszoom plot  2. Solutions that work half-through SNPsnap API provided by sph.umich  3. A solution that does not work rsnps::ld_search  Conclusion Session Info   R-packages used:</description>
+      <description>Goal Two approaches Our toy data 1A. A solution that works: ldlink from NIH LDproxy LDmatrix 1B. A solution that almost works: ensembl.org What reference panels/population can we choose from? Access LD between a SNP and its region Access LD matrix Access LD between a SNP and many other SNPs Coloured locuszoom plot 2. Solutions that work half-through SNPsnap API provided by sph.umich 3. A solution that does not work rsnps::ld_search Conclusion Session Info R-packages used:</description>
     </item>
     
     <item>
@@ -83,10 +78,11 @@ It includes a few self-declared best practices that helped me in the past. Those
       <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://sinarueeger.github.io/post/1kgmap/</guid>
-      <description>Goal Get started Data Add geographical coordinates Create leaflet Save the map Reason for deviation from the original   This post provides the R-Code to map the 26 populations of the 1000 Genomes project.
+      <description>Goal Get started Data Add geographical coordinates Create leaflet Save the map Reason for deviation from the original This post provides the R-Code to map the 26 populations of the 1000 Genomes project.
 Goal Create a map similar to the one1 on the front page of http://www.internationalgenome.org/ in a reproducible manner.
 Version on internationalgenome.org
-  Get started Packages needed:</description>
+Get started Packages needed:
+## accessed via :: # library(mapview) # library(readxl) # library(readr) # library(purrr) # library(tidyr) # library(forcats) library(leaflet) library(dplyr) library(ggmap) ## for geocode, devtools::install_github(&amp;quot;dkahle/ggmap&amp;quot;) ggmap requires a google map api key2:</description>
     </item>
     
     <item>
@@ -95,7 +91,7 @@ Version on internationalgenome.org
       <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://sinarueeger.github.io/post/drake/</guid>
-      <description>What is a “project folder”? Why now? Why we tidy up: authority and incentive Challenges What I want The options Drake Getting started More Examples Resources  But wait: drake does not care about messy folders What is next? When is the right time to tidy Is it worth it?   Recently, I started to seriously1 think about the tidiness of data analysis project folders and the implications of tidying up.</description>
+      <description>What is a “project folder”? Why now? Why we tidy up: authority and incentive Challenges What I want The options Drake Getting started More Examples Resources But wait: drake does not care about messy folders What is next? When is the right time to tidy Is it worth it? Recently, I started to seriously1 think about the tidiness of data analysis project folders and the implications of tidying up.</description>
     </item>
     
     <item>
@@ -104,7 +100,7 @@ Version on internationalgenome.org
       <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://sinarueeger.github.io/post/locuszoomplot/</guid>
-      <description>Goal Getting it done 1. Get summary statistics Visualising associations Identify genomic region with lowest P-value  2. Extracting annotation biomaRt Learning resources Using biomaRt Quick d-tour: assembly GRCh37 or GRCh38? Extracting gene name for one SNP Extracting gene names for genomic region  3. Combining summary statistics and annotation Wouldn’t it be nice… Source   In the world of genome-wide association studies (GWAS), we often get a list of genetic markers (SNPs) that seem for some reason relevant for a particular outcome.</description>
+      <description>Goal Getting it done 1. Get summary statistics Visualising associations Identify genomic region with lowest P-value 2. Extracting annotation biomaRt Learning resources Using biomaRt Quick d-tour: assembly GRCh37 or GRCh38? Extracting gene name for one SNP Extracting gene names for genomic region 3. Combining summary statistics and annotation Wouldn’t it be nice… Source In the world of genome-wide association studies (GWAS), we often get a list of genetic markers (SNPs) that seem for some reason relevant for a particular outcome.</description>
     </item>
     
     <item>

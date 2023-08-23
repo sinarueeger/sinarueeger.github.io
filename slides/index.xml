@@ -7,18 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2021. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 05 Feb 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://sinarueeger.github.io/slides/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 05 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://sinarueeger.github.io/slides/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Slides</title>
       <link>https://sinarueeger.github.io/slides/example/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://sinarueeger.github.io/slides/example/</guid>
-      <description>An introduction to using Academic&#39;s Slides feature.</description>
+      <description>An introduction to using Academic&amp;rsquo;s Slides feature.</description>
     </item>
     
   </channel>
